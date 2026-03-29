@@ -32,6 +32,18 @@ const serve = sirv(dist, {
 	},
 });
 
+/** @param {string} url `req.url` */
+function redirectTrailingSlashFile(url) {
+	const q = url.indexOf('?');
+	const pathname = q >= 0 ? url.slice(0, q) : url;
+	const search = q >= 0 ? url.slice(q) : '';
+	if (pathname.length <= 1 || !pathname.endsWith('/')) return null;
+	const noSlash = pathname.replace(/\/+$/, '');
+	// sitemap / robots must not use trailing slash (GSC "Couldn't fetch" if URL is wrong)
+	if (!/\.(?:xml|txt)$/i.test(noSlash)) return null;
+	return noSlash + search;
+}
+
 const redirects = new Map([
 	['/โน๊ตบุ๊ค/', '/รับซื้อโน๊ตบุ๊ค/'],
 	['/คอม/', '/รับซื้อคอม/'],
@@ -47,7 +59,16 @@ http
 		res.setHeader('X-Content-Type-Options', 'nosniff');
 		res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
 
-		const target = redirects.get(req.url);
+		const url = req.url ?? '/';
+
+		const fileRedirect = redirectTrailingSlashFile(url);
+		if (fileRedirect) {
+			res.writeHead(301, { Location: fileRedirect });
+			res.end();
+			return;
+		}
+
+		const target = redirects.get(url);
 		if (target) {
 			res.writeHead(301, { Location: target });
 			res.end();
