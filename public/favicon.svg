@@ -1,11 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="wg" x1="32" y1="8" x2="32" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffb833"/>
-      <stop offset="50%" stop-color="#ff8c00"/>
+    <linearGradient id="wg" x1="32" y1="10" x2="32" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffe566"/>
+      <stop offset="25%" stop-color="#ffc23d"/>
+      <stop offset="58%" stop-color="#ff9500"/>
       <stop offset="100%" stop-color="#d95400"/>
     </linearGradient>
+    <linearGradient id="ag" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffb366" stop-opacity=".3"/>
+      <stop offset=".5" stop-color="#ff9933" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#ffb366" stop-opacity=".3"/>
+    </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#fff"/>
-  <path fill="url(#wg)" d="M 7 12 L 20 54 L 32 20 L 44 54 L 57 12 L 48 12 L 41 40 L 32 28 L 23 40 L 16 12 Z"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#fff" stroke="rgba(255,160,90,.4)" stroke-width="1.2"/>
+  <path d="M 7 38 Q 32 18 57 38" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <path d="M 7 30 Q 32 50 57 30" stroke="url(#ag)" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".85"/>
+  <path fill="url(#wg)" d="M 8 12 L 21 55 L 32 19 L 43 55 L 56 12 L 46 12 L 39 41 L 32 28 L 25 41 L 18 12 Z"/>
 </svg>
