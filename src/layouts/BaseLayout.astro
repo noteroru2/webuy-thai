@@ -1,0 +1,1100 @@
+---
+import { getSiteOrigin } from '../lib/site';
+import BrandLogo from '../components/BrandLogo.astro';
+import '../styles/fonts.css';
+interface Props {
+	title: string;
+	description?: string;
+	ogImage?: string;
+	pathname?: string;
+	type?: 'website' | 'article';
+	publishedTime?: string;
+	modifiedTime?: string;
+	jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description = 'เว็บไซต์ที่ขับเคลื่อนโดย Astro + WordPress',
+	ogImage,
+	pathname = Astro.url.pathname,
+	type = 'website',
+	publishedTime,
+	modifiedTime,
+	jsonLd,
+	noindex = false,
+} = Astro.props;
+
+const site = new URL(getSiteOrigin());
+const canonicalUrl = new URL(pathname, site).toString();
+const defaultImage = '/og-default.png';
+const imageUrl = new URL(ogImage ?? defaultImage, site).toString();
+const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const locale = import.meta.env.PUBLIC_SITE_LOCALE ?? 'th_TH';
+const twitterSite = import.meta.env.PUBLIC_TWITTER_SITE;
+const robotsContent = noindex
+	? 'noindex, nofollow, noarchive'
+	: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+---
+
+<!doctype html>
+<html lang="th">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/logo-we-buy.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#ff8c00" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="author" content={orgName} />
+		<meta name="robots" content={robotsContent} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="th" href={canonicalUrl} />
+		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content={locale} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageUrl} />
+		{twitterSite && <meta name="twitter:site" content={twitterSite} />}
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+		{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+		{type === 'article' && <meta property="article:author" content={orgName} />}
+		<title>{title}</title>
+		<slot name="head" />
+		{jsonLd &&
+			(Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((item) => (
+				<script type="application/ld+json" set:html={JSON.stringify(item)} />
+			))}
+		<style is:global>
+			:root {
+				--bg: #fafbfd;
+				--bg-warm: #fff8f3;
+				--surface: #ffffff;
+				--ink: #0f172a;
+				--text: #141414;
+				--muted: #525252;
+				--accent: #ff8c00;
+				--accent-bright: #ff9500;
+				--accent-dim: #e67300;
+				--accent-soft: rgba(255, 140, 0, 0.12);
+				--accent-soft-strong: rgba(255, 140, 0, 0.18);
+				--accent-glow: rgba(255, 149, 0, 0.22);
+				--radius: 14px;
+				--font: 'IBM Plex Sans Thai', 'IBM Plex Sans', system-ui, sans-serif;
+				--font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
+				--shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+				--shadow-md: 0 10px 40px rgba(15, 23, 42, 0.07);
+				--shadow-tech: 0 0 0 1px rgba(255, 140, 0, 0.08), 0 12px 40px rgba(15, 23, 42, 0.06);
+			}
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: var(--font);
+				color: var(--text);
+				line-height: 1.6;
+				background-color: var(--bg);
+				background-image: linear-gradient(180deg, var(--bg-warm) 0%, transparent 38%),
+					radial-gradient(ellipse 120% 70% at 50% -35%, var(--accent-glow) 0%, transparent 58%),
+					linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+				background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+				background-position: 0 0, 0 0, 0 0, 0 0;
+			}
+			a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			.container {
+				width: min(960px, 92vw);
+				margin-inline: auto;
+				padding-block: 2rem 4rem;
+			}
+			.skip-link {
+				position: absolute;
+				left: 12px;
+				top: 12px;
+				transform: translateY(-140%);
+				background: var(--surface);
+				color: var(--text);
+				border: 2px solid var(--accent);
+				border-radius: 12px;
+				padding: 0.55rem 0.8rem;
+				font-weight: 700;
+				z-index: 100;
+				box-shadow: 0 10px 24px rgba(20, 30, 45, 0.18);
+			}
+			.skip-link:focus {
+				transform: translateY(0);
+			}
+			.site-header {
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+				padding-block: 0;
+				background: rgba(255, 255, 255, 0.86);
+				backdrop-filter: blur(14px) saturate(1.2);
+				box-shadow: 0 1px 0 rgba(255, 140, 0, 0.12), var(--shadow-sm);
+			}
+			.header-top {
+				border-bottom: 1px solid rgba(255, 140, 0, 0.1);
+			}
+			.header-mobile-cta {
+				display: none;
+			}
+			.header-top-inner {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.75rem 1rem;
+				width: min(960px, 92vw);
+				margin-inline: auto;
+				padding-block: 0.85rem;
+				position: relative;
+			}
+			@media (min-width: 1024px) {
+				.header-top-inner {
+					display: grid;
+					grid-template-columns: minmax(0, 18rem) 1fr auto;
+					align-items: center;
+					gap: 1.25rem 1.5rem;
+				}
+				.brand,
+				.nav--main,
+				.header-util {
+					order: 0;
+				}
+				.brand {
+					grid-column: 1;
+				}
+				.nav--main {
+					grid-column: 2;
+					justify-self: center;
+				}
+				.header-util {
+					grid-column: 3;
+					justify-self: end;
+				}
+			}
+			.header-util {
+				display: flex;
+				align-items: center;
+				gap: 0.35rem;
+				flex-shrink: 0;
+			}
+			.util-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 2.45rem;
+				height: 2.45rem;
+				padding: 0;
+				border-radius: 10px;
+				border: 1px solid rgba(36, 48, 67, 0.1);
+				background: var(--surface);
+				color: var(--muted);
+				text-decoration: none;
+				box-shadow: 0 1px 2px rgba(36, 48, 67, 0.05);
+				transition:
+					background 0.2s,
+					border-color 0.2s,
+					color 0.2s;
+			}
+			.util-btn:hover {
+				background: var(--accent-soft);
+				border-color: rgba(255, 140, 0, 0.35);
+				color: var(--accent-dim);
+				text-decoration: none;
+			}
+			.util-btn:focus-visible {
+				outline: 2px solid var(--accent);
+				outline-offset: 2px;
+			}
+			.util-btn svg {
+				width: 1.1rem;
+				height: 1.1rem;
+			}
+			.util-btn--line {
+				width: auto;
+				min-height: 2.45rem;
+				padding: 0 0.7rem;
+				font-size: 0.72rem;
+				font-weight: 800;
+				letter-spacing: 0.04em;
+				font-family: var(--font-mono);
+				text-transform: uppercase;
+				background: #0a8a46;
+				color: #fff;
+				border-color: rgba(255, 255, 255, 0.2);
+			}
+			.util-btn--line:hover {
+				background: #087a3e;
+				color: #fff;
+				border-color: rgba(255, 255, 255, 0.28);
+			}
+			.header-sub {
+				background: linear-gradient(
+					90deg,
+					rgba(255, 236, 210, 0.92) 0%,
+					#fff5e8 45%,
+					rgba(255, 228, 196, 0.88) 100%
+				);
+				border-bottom: 1px solid rgba(255, 140, 0, 0.16);
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+			}
+			.header-sub-wrap {
+				width: min(960px, 92vw);
+				margin-inline: auto;
+				padding-inline: max(0.65rem, env(safe-area-inset-left)) max(0.65rem, env(safe-area-inset-right));
+				padding-block: 0.55rem 0.5rem;
+			}
+			.header-sub-inner {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.65rem 1rem;
+			}
+			.sub-home {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 2.65rem;
+				height: 2.65rem;
+				flex-shrink: 0;
+				border-radius: 12px;
+				color: var(--accent);
+				background: #ffffff;
+				border: 1px solid rgba(255, 140, 0, 0.42);
+				box-shadow: 0 1px 2px rgba(255, 119, 0, 0.08);
+				text-decoration: none;
+			}
+			.sub-home:hover {
+				background: #fffdfa;
+				border-color: rgba(255, 140, 0, 0.6);
+				color: var(--accent-dim);
+				text-decoration: none;
+			}
+			.sub-home svg {
+				width: 1.15rem;
+				height: 1.15rem;
+			}
+			.header-sub-copy {
+				flex: 1 1 min(100%, 12rem);
+				min-width: 0;
+			}
+			.header-sub-msg {
+				margin: 0;
+				font-size: clamp(0.88rem, 2.4vw, 1rem);
+				font-weight: 650;
+				color: #3d3328;
+				line-height: 1.45;
+			}
+			.header-sub-msg a {
+				color: var(--accent-dim);
+				font-weight: 750;
+				text-decoration: underline;
+				text-underline-offset: 3px;
+			}
+			.header-sub-msg a:hover {
+				color: var(--accent);
+				text-decoration: underline;
+			}
+			.header-sub-actions {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.45rem;
+				flex-shrink: 0;
+			}
+			.sub-cta {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 2.5rem;
+				padding: 0.45rem 0.85rem;
+				border-radius: 999px;
+				font-size: 0.82rem;
+				font-weight: 750;
+				text-decoration: none;
+				white-space: nowrap;
+				box-sizing: border-box;
+			}
+			.sub-cta--line {
+				background: #0a8a46;
+				color: #fff;
+				border: 1px solid rgba(255, 255, 255, 0.22);
+			}
+			.sub-cta--line:hover {
+				background: #087a3e;
+				color: #fff;
+				text-decoration: none;
+			}
+			.sub-cta--tel {
+				background: #fff;
+				color: #b45300;
+				border: 1px solid rgba(255, 140, 0, 0.28);
+			}
+			.sub-cta--tel:hover {
+				background: #fffaf3;
+				color: #8a3d00;
+				text-decoration: none;
+			}
+			@media (max-width: 1023px) {
+				.header-top-inner {
+					padding-block: 0.75rem 0.35rem;
+				}
+				.header-mobile-cta {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.5rem;
+					width: min(960px, 92vw);
+					margin-inline: auto;
+					padding: 0 max(0.65rem, env(safe-area-inset-left)) 0.65rem
+						max(0.65rem, env(safe-area-inset-right));
+				}
+				.header-mobile-cta__btn {
+					flex: 1 1 calc(50% - 0.25rem);
+					min-width: min(100%, 9.5rem);
+					min-height: 2.75rem;
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0.5rem 0.75rem;
+					border-radius: 12px;
+					font-size: 0.88rem;
+					font-weight: 750;
+					text-decoration: none;
+					box-sizing: border-box;
+					transition:
+						transform 0.15s ease,
+						box-shadow 0.15s ease;
+				}
+				.header-mobile-cta__btn:active {
+					transform: scale(0.98);
+				}
+				.header-mobile-cta__btn--line {
+					background: #0a8a46;
+					color: #fff;
+					border: 1px solid rgba(255, 255, 255, 0.22);
+					box-shadow: 0 2px 8px rgba(6, 120, 53, 0.22);
+				}
+				.header-mobile-cta__btn--line:hover {
+					background: #087a3e;
+					color: #fff;
+					text-decoration: none;
+				}
+				.header-mobile-cta__btn--tel {
+					background: #fff;
+					color: #b45300;
+					border: 1px solid rgba(255, 140, 0, 0.35);
+					box-shadow: 0 2px 8px rgba(255, 119, 0, 0.12);
+				}
+				.header-mobile-cta__btn--tel:hover {
+					background: #fffaf3;
+					color: #8a3d00;
+					text-decoration: none;
+				}
+				.header-util .util-btn--phone,
+				.header-util .util-btn--line {
+					display: none;
+				}
+				.header-sub-actions {
+					display: none;
+				}
+				.header-sub-wrap {
+					padding-block: 0.45rem 0.48rem;
+				}
+				.header-sub-inner {
+					align-items: flex-start;
+					gap: 0.5rem 0.65rem;
+				}
+				.header-sub-copy {
+					flex: 1 1 0;
+					min-width: 0;
+					padding-top: 0.12rem;
+				}
+				.header-sub-msg {
+					font-size: 0.9rem;
+					line-height: 1.5;
+				}
+				.sub-home {
+					width: 2.4rem;
+					height: 2.4rem;
+					border-radius: 10px;
+				}
+			}
+			.nav-toggle {
+				display: none;
+				align-items: center;
+				justify-content: center;
+				width: 2.75rem;
+				height: 2.75rem;
+				padding: 0;
+				border: 1px solid rgba(36, 48, 67, 0.12);
+				border-radius: 10px;
+				background: var(--surface);
+				color: var(--text);
+				cursor: pointer;
+				flex-shrink: 0;
+				box-shadow: 0 1px 3px rgba(36, 48, 67, 0.06);
+				transition:
+					background 0.2s,
+					border-color 0.2s,
+					box-shadow 0.2s;
+			}
+			.nav-toggle:hover {
+				background: #faf8f4;
+				border-color: rgba(255, 140, 0, 0.35);
+			}
+			.nav-toggle:focus-visible {
+				outline: 2px solid var(--accent);
+				outline-offset: 2px;
+			}
+			.nav-toggle-bars {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 5px;
+				width: 1.15rem;
+			}
+			.nav-toggle-bars span {
+				display: block;
+				height: 2px;
+				width: 100%;
+				border-radius: 1px;
+				background: currentColor;
+				transition:
+					transform 0.22s ease,
+					opacity 0.2s ease;
+				transform-origin: center;
+			}
+			.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(1) {
+				transform: translateY(7px) rotate(45deg);
+			}
+			.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(2) {
+				opacity: 0;
+				transform: scaleX(0);
+			}
+			.nav-toggle[aria-expanded='true'] .nav-toggle-bars span:nth-child(3) {
+				transform: translateY(-7px) rotate(-45deg);
+			}
+			.nav {
+				display: flex;
+				flex-wrap: nowrap;
+				gap: 1.25rem;
+				align-items: center;
+				min-height: 2.75rem;
+			}
+			.nav a {
+				color: var(--muted);
+				font-weight: 600;
+				font-size: 0.9rem;
+				letter-spacing: 0.02em;
+			}
+			.nav-group {
+				position: relative;
+			}
+			.nav-group summary {
+				list-style: none;
+				cursor: pointer;
+				color: var(--muted);
+				font-weight: 600;
+				padding: 0.4rem 0.55rem;
+				border-radius: 10px;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				user-select: none;
+			}
+			.nav-group summary::-webkit-details-marker {
+				display: none;
+			}
+			.nav-group summary:hover,
+			.nav-group[open] summary {
+				background: var(--accent-soft);
+				color: var(--accent-dim);
+			}
+			.nav-caret {
+				width: 0.8rem;
+				height: 0.8rem;
+				opacity: 0.8;
+				transition: transform 0.2s ease;
+			}
+			.nav-group[open] .nav-caret {
+				transform: rotate(180deg);
+			}
+			.nav-dropdown {
+				position: absolute;
+				top: calc(100% + 0.55rem);
+				right: 0;
+				min-width: 17rem;
+				padding: 0.55rem;
+				border: 1px solid rgba(15, 23, 42, 0.08);
+				border-radius: var(--radius);
+				background: rgba(255, 255, 255, 0.96);
+				backdrop-filter: blur(12px);
+				box-shadow: var(--shadow-tech);
+				display: grid;
+				gap: 0.25rem;
+				z-index: 80;
+			}
+			.nav-dropdown a {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0.7rem 0.75rem;
+				border-radius: 12px;
+				color: var(--text);
+				font-weight: 650;
+				text-decoration: none;
+			}
+			.nav-dropdown a:hover,
+			.nav-dropdown a:focus-visible {
+				background: var(--accent-soft);
+				color: var(--accent-dim);
+				text-decoration: none;
+			}
+			.nav-dropdown small {
+				font-family: var(--font-mono);
+				color: var(--muted);
+				font-weight: 500;
+				font-size: 0.72rem;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				white-space: nowrap;
+				opacity: 0.9;
+			}
+			.nav a:hover {
+				color: var(--accent);
+			}
+			@media (max-width: 1023px) {
+				.header-util {
+					order: 1;
+				}
+				.nav-toggle {
+					display: inline-flex;
+					order: 2;
+				}
+				.nav--main {
+					order: 10;
+					flex: 1 1 100%;
+				}
+				.nav {
+					flex-direction: column;
+					align-items: stretch;
+					width: 100%;
+					margin-top: 0;
+					padding: 0;
+					gap: 0;
+					max-height: 0;
+					overflow: hidden;
+					opacity: 0;
+					visibility: hidden;
+					pointer-events: none;
+					transition:
+						max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+						opacity 0.28s ease,
+						visibility 0.38s,
+						padding 0.38s ease,
+						margin 0.38s ease;
+					border-top: 1px solid transparent;
+				}
+				.nav.nav--open {
+					max-height: 28rem;
+					opacity: 1;
+					visibility: visible;
+					pointer-events: auto;
+					margin-top: 0.9rem;
+					padding-top: 0.65rem;
+					border-top-color: rgba(36, 48, 67, 0.1);
+				}
+				.nav a {
+					display: flex;
+					align-items: center;
+					padding: 0.9rem 0.65rem;
+					margin: 0 -0.65rem;
+					border-radius: var(--radius);
+					color: var(--text);
+					font-weight: 600;
+					font-size: 0.98rem;
+					text-decoration: none;
+					border-bottom: 1px solid rgba(36, 48, 67, 0.06);
+					transition:
+						background 0.15s ease,
+						color 0.15s ease;
+				}
+				.nav a:last-child {
+					border-bottom: none;
+				}
+				.nav a:hover,
+				.nav a:focus-visible {
+					background: var(--accent-soft);
+					color: var(--accent-dim);
+					text-decoration: none;
+				}
+				.nav-group {
+					width: 100%;
+				}
+				.nav-group summary {
+					width: 100%;
+					padding: 0.95rem 0.65rem;
+					margin: 0 -0.65rem;
+					border-radius: var(--radius);
+					color: var(--text);
+					font-weight: 700;
+					border-bottom: 1px solid rgba(36, 48, 67, 0.06);
+				}
+				.nav-dropdown {
+					position: static;
+					min-width: auto;
+					border: none;
+					box-shadow: none;
+					padding: 0.35rem 0 0.65rem;
+				}
+				.nav-dropdown a {
+					padding: 0.78rem 0.65rem;
+					margin: 0 -0.65rem;
+					border-radius: var(--radius);
+					border: 1px solid rgba(36, 48, 67, 0.06);
+				}
+			}
+			@media (min-width: 1024px) {
+				.nav-toggle {
+					display: none !important;
+				}
+			}
+			@media (prefers-reduced-motion: reduce) {
+				.nav {
+					transition: none;
+				}
+				.nav-toggle-bars span {
+					transition: none;
+				}
+			}
+			.line-float {
+				position: fixed;
+				right: max(14px, env(safe-area-inset-right));
+				bottom: max(14px, env(safe-area-inset-bottom));
+				z-index: 70;
+				display: none;
+				align-items: center;
+				gap: 0.45rem;
+				padding: 0.62rem 0.82rem;
+				border-radius: 999px;
+				background: #0a8a46;
+				color: #fff;
+				box-shadow: 0 8px 20px rgba(6, 120, 53, 0.34);
+				font-size: 0.9rem;
+				font-weight: 700;
+				text-decoration: none;
+			}
+			.line-float:hover {
+				background: #087a3e;
+				text-decoration: none;
+			}
+			.line-dot {
+				display: inline-block;
+				width: 8px;
+				height: 8px;
+				border-radius: 999px;
+				background: #dfffe8;
+			}
+			/* โทรศัพท์: ซ่อนปุ่มลอย (มีแถบครีม + hero) — แท็บเล็ตค่อยแสดงทางลัด */
+			@media (min-width: 768px) and (max-width: 1023px) {
+				.line-float {
+					display: inline-flex;
+				}
+			}
+			@media (min-width: 1024px) {
+				.line-float {
+					display: none;
+				}
+			}
+			.site-footer {
+				border-top: 1px solid rgba(255, 140, 0, 0.2);
+				background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
+				margin-top: 2rem;
+			}
+			.site-footer .container {
+				padding-block: 2rem;
+				display: grid;
+				gap: 1rem;
+			}
+			.footer-main {
+				display: grid;
+				gap: 0.6rem;
+			}
+			.footer-title {
+				margin: 0;
+				font-size: 1rem;
+				font-weight: 700;
+			}
+			.footer-text {
+				margin: 0;
+				color: var(--muted);
+				max-width: 68ch;
+				font-size: 0.95rem;
+			}
+			.footer-links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.8rem 1rem;
+				font-size: 0.92rem;
+			}
+			.footer-links a {
+				color: var(--muted);
+				font-weight: 600;
+			}
+			.footer-links a:hover {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.footer-bottom {
+				padding-top: 0.7rem;
+				border-top: 1px dashed rgba(15, 23, 42, 0.12);
+				color: var(--muted);
+				font-size: 0.8rem;
+				font-family: var(--font-mono);
+				letter-spacing: 0.03em;
+			}
+			#main-content {
+				position: relative;
+			}
+			.tech-eyebrow {
+				font-family: var(--font-mono);
+				font-size: 0.7rem;
+				font-weight: 600;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+				color: var(--accent-dim);
+			}
+			.tech-eyebrow--dark {
+				color: rgba(30, 24, 18, 0.88);
+				text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+			}
+			.tech-h2 {
+				position: relative;
+				padding-bottom: 0.65rem;
+			}
+			.tech-h2::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 3rem;
+				height: 3px;
+				border-radius: 3px;
+				background: linear-gradient(90deg, var(--accent-bright), transparent);
+			}
+			.tech-card {
+				position: relative;
+				padding-left: 1.15rem;
+				background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+				border: 1px solid rgba(15, 23, 42, 0.07);
+				border-radius: var(--radius);
+				box-shadow: var(--shadow-tech);
+			}
+			.tech-card::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0.85rem;
+				bottom: 0.85rem;
+				width: 3px;
+				border-radius: 0 4px 4px 0;
+				background: linear-gradient(180deg, var(--accent-bright), var(--accent-dim));
+				opacity: 0.9;
+			}
+			.prose :global(code) {
+				font-family: var(--font-mono);
+				font-size: 0.9em;
+				padding: 0.12em 0.4em;
+				background: rgba(15, 23, 42, 0.05);
+				border: 1px solid rgba(15, 23, 42, 0.08);
+				border-radius: 6px;
+				color: var(--ink);
+			}
+			.prose {
+				max-width: 65ch;
+			}
+			.prose :global(img) {
+				max-width: 100%;
+				width: auto;
+				height: auto;
+				border-radius: var(--radius);
+				display: block;
+				box-sizing: border-box;
+			}
+			.prose :global(figure) {
+				max-width: 100%;
+				width: auto !important;
+				margin: 1.25rem 0;
+				box-sizing: border-box;
+			}
+			.prose :global(figcaption) {
+				font-size: 0.9rem;
+				color: var(--muted);
+				margin-top: 0.5rem;
+			}
+			.prose :global(.wp-block-image),
+			.prose :global(.wp-caption) {
+				max-width: 100% !important;
+				width: auto !important;
+				box-sizing: border-box;
+			}
+			.prose :global(.aligncenter) {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.prose :global(p) {
+				margin-block: 1em;
+			}
+			.prose :global(h2),
+			.prose :global(h3) {
+				margin-top: 1.5em;
+				color: var(--text);
+			}
+		</style>
+	</head>
+	<body>
+		<a class="skip-link" href="#main-content">ข้ามไปเนื้อหา</a>
+		<header class="site-header" role="banner">
+			<div class="header-top">
+				<div class="header-top-inner">
+					<BrandLogo />
+					<nav class="nav nav--main" id="main-nav" aria-label="หลัก">
+						<a href="/">หน้าแรก</a>
+						<a href="/รับซื้อ/">รับซื้อ</a>
+						<details class="nav-group">
+							<summary>
+								หมวดสินค้า
+								<svg class="nav-caret" viewBox="0 0 20 20" aria-hidden="true">
+									<path d="M5.3 7.7a1 1 0 0 1 1.4 0L10 11l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4z" fill="currentColor" />
+								</svg>
+							</summary>
+							<div class="nav-dropdown" role="menu" aria-label="หมวดรับซื้อ">
+								<a href="/โน๊ตบุ๊ค/"><span>รับซื้อโน๊ตบุ๊ค</span><small>Notebook</small></a>
+								<a href="/คอม/"><span>รับซื้อคอม</span><small>PC</small></a>
+								<a href="/ไอโฟน/"><span>รับซื้อไอโฟน</span><small>iPhone</small></a>
+								<a href="/ไอแพด/"><span>รับซื้อไอแพด</span><small>iPad</small></a>
+								<a href="/แมคบุ๊ค/"><span>รับซื้อ MacBook</span><small>Mac</small></a>
+								<a href="/กล้อง/"><span>รับซื้อกล้อง</span><small>Camera</small></a>
+								<a href="/ลำโพง/"><span>รับซื้อลำโพง</span><small>JBL/Marshall</small></a>
+							</div>
+						</details>
+						<a href="/blog/">บทความ</a>
+						<a href="/contact/">ติดต่อเรา</a>
+					</nav>
+					<div class="header-util" aria-label="ทางลัด">
+						<a class="util-btn" href="/blog/" aria-label="ดูบทความและค้นหาข้อมูล">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+								<circle cx="11" cy="11" r="7"></circle>
+								<path d="M20 20l-4-4" stroke-linecap="round"></path>
+							</svg>
+						</a>
+						<a class="util-btn util-btn--phone" href="tel:0642579353" aria-label="โทร 064-257-9353">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+								<path
+									d="M6.5 4h3l1.5 4-2 1.5c.8 1.6 2.4 3.2 4 4L16 12l4 1.5v3a1 1 0 0 1-1 1A17 17 0 0 1 3 6a1 1 0 0 1 1-1z"
+									stroke-linejoin="round"
+								></path>
+							</svg>
+						</a>
+						<a
+							class="util-btn util-btn--line"
+							href="https://line.me/R/ti/p/@webuy"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							LINE
+						</a>
+					</div>
+					<button
+						type="button"
+						class="nav-toggle"
+						aria-expanded="false"
+						aria-controls="main-nav"
+						aria-label="เปิดเมนู"
+					>
+						<span class="nav-toggle-bars" aria-hidden="true">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+				</div>
+				<div class="header-mobile-cta" aria-label="ติดต่อด่วน">
+					<a
+						class="header-mobile-cta__btn header-mobile-cta__btn--line"
+						href="https://line.me/R/ti/p/@webuy"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Line : @webuy
+					</a>
+					<a class="header-mobile-cta__btn header-mobile-cta__btn--tel" href="tel:0642579353">
+						โทร 064-257-9353
+					</a>
+				</div>
+			</div>
+			<div class="header-sub">
+				<div class="header-sub-wrap" role="region" aria-label="ช่องทางติดต่อ">
+					<div class="header-sub-inner">
+						<a href="/" class="sub-home" aria-label="หน้าแรก">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+								<path d="M4 10.5L12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z" stroke-linejoin="round"></path>
+							</svg>
+						</a>
+						<div class="header-sub-copy">
+							<p class="header-sub-msg">
+								หากต้องการขาย ติดต่อไลน์
+								<a
+									href="https://line.me/R/ti/p/@webuy"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									@webuy
+								</a>
+								โทร
+								<a href="tel:0642579353">0642579353</a>
+							</p>
+						</div>
+						<div class="header-sub-actions">
+							<a
+								class="sub-cta sub-cta--line"
+								href="https://line.me/R/ti/p/@webuy"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								ไลน์ @webuy
+							</a>
+							<a class="sub-cta sub-cta--tel" href="tel:0642579353">064-257-9353</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main id="main-content" tabindex="-1">
+			<slot />
+		</main>
+		<a
+			class="line-float"
+			href="https://line.me/R/ti/p/@webuy"
+			target="_blank"
+			rel="noopener noreferrer"
+			aria-label="แอดไลน์ @webuy ตลอด 24 ชั่วโมง"
+		>
+			<span class="line-dot"></span>
+			<span>LINE @webuy</span>
+		</a>
+		<footer class="site-footer">
+			<div class="container">
+				<div class="footer-main">
+					<p class="footer-title">WE BUY | เรารับซื้อ — รับซื้อโน๊ตบุ๊ค คอมพิวเตอร์ ไอโฟน และไอทีมือสอง</p>
+					<p class="footer-text">
+						รับซื้อโน๊ตบุ๊ค คอมพิวเตอร์ ไอโฟน ไอแพด มือถือ กล้อง ลำโพง เครื่องเล่นเกม การ์ดจอ ทีวี โดรน และอุปกรณ์ไอทีอื่น ๆ
+						ประเมินราคาโปร่งใส ทำงานรวดเร็ว แอดไลน์ @WEBUY (มีเครื่องหมาย @ ด้วย) หรือโทรสอบถามได้ตลอด 24 ชั่วโมง
+					</p>
+					<p class="footer-text">
+						ติดต่อหลัก:
+						<a href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a>
+						(ติดต่อได้ 24 ชั่วโมง)
+					</p>
+				</div>
+			<div class="footer-links" aria-label="ลิงก์สำคัญ">
+				<a href="/">หน้าแรก</a>
+				<a href="/รับซื้อ/">รับซื้อ</a>
+				<a href="/blog/">บทความ</a>
+				<a href="/โน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a>
+				<a href="/คอม/">รับซื้อคอม</a>
+				<a href="/ไอโฟน/">รับซื้อไอโฟน</a>
+				<a href="/กล้อง/">รับซื้อกล้อง</a>
+				<a href="/ไอแพด/">รับซื้อไอแพด</a>
+				<a href="/แมคบุ๊ค/">รับซื้อ MacBook</a>
+				<a href="/ลำโพง/">รับซื้อลำโพง</a>
+				<a href="/contact/">ติดต่อเรา</a>
+				<a href="/sitemap-index.xml">Sitemap</a>
+			</div>
+				<div class="footer-bottom">© {new Date().getFullYear()} เรารับซื้อ.com · Line @webuy</div>
+			</div>
+		</footer>
+		<script is:inline>
+			(function () {
+				const toggle = document.querySelector('.nav-toggle');
+				const nav = document.getElementById('main-nav');
+				const groups = Array.from(document.querySelectorAll('.nav-group'));
+				if (!toggle || !nav) return;
+				const mq = window.matchMedia('(max-width: 1023px)');
+
+				function syncInert() {
+					if (!mq.matches) {
+						nav.removeAttribute('inert');
+						return;
+					}
+					if (toggle.getAttribute('aria-expanded') === 'true') nav.removeAttribute('inert');
+					else nav.setAttribute('inert', '');
+				}
+
+				function setExpanded(open) {
+					toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+					toggle.setAttribute('aria-label', open ? 'ปิดเมนู' : 'เปิดเมนู');
+					nav.classList.toggle('nav--open', open);
+					syncInert();
+					if (!open) groups.forEach((g) => g.removeAttribute('open'));
+				}
+
+				toggle.addEventListener('click', function () {
+					const open = toggle.getAttribute('aria-expanded') !== 'true';
+					setExpanded(open);
+				});
+
+				nav.querySelectorAll('a').forEach(function (link) {
+					link.addEventListener('click', function () {
+						if (mq.matches) setExpanded(false);
+					});
+				});
+
+				document.addEventListener('click', function (e) {
+					if (mq.matches) return;
+					const t = e.target;
+					if (!t || !(t instanceof Node)) return;
+					groups.forEach((g) => {
+						if (!g.contains(t)) g.removeAttribute('open');
+					});
+				});
+
+				mq.addEventListener('change', function (e) {
+					if (!e.matches) setExpanded(false);
+					else syncInert();
+				});
+
+				syncInert();
+
+				document.addEventListener('keydown', function (e) {
+					if (e.key === 'Escape' && mq.matches) setExpanded(false);
+					if (e.key === 'Escape' && !mq.matches) groups.forEach((g) => g.removeAttribute('open'));
+				});
+			})();
+		</script>
+	</body>
+</html>

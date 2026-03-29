@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: 'รับซื้อสินค้าไอทีมือสอง',
+		description: 'รวมหมวดรับซื้อโน๊ตบุ๊ค คอม ไอโฟน กล้อง และไอทีมือสอง',
+		url: `${site}/รับซื้อ/`,
+		inLanguage: 'th-TH',
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+		],
+	},
+];
+const categories = [
+	{ href: '/โน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊ค', desc: 'MacBook, Windows, เกมมิง — ทุกยี่ห้อ' },
+	{ href: '/คอม/', title: 'รับซื้อคอมพิวเตอร์', desc: 'PC ประกอบ, เล่นเกม, สำนักงาน' },
+	{ href: '/ไอโฟน/', title: 'รับซื้อไอโฟน', desc: 'iPhone ทุกรุ่น' },
+	{ href: '/ไอแพด/', title: 'รับซื้อไอแพด', desc: 'iPad ทุกซีรีส์' },
+	{ href: '/แมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'Air / Pro, Apple Silicon' },
+	{ href: '/กล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless, เลนส์' },
+	{ href: '/ลำโพง/', title: 'รับซื้อลำโพง', desc: 'JBL, Marshall และยี่ห้อยอดนิยม' },
+];
+---
+
+<BaseLayout
+	title={`รับซื้อสินค้าไอทีมือสอง | ${orgName}`}
+	description="เลือกหมวดสินค้าที่ต้องการขาย โน๊ตบุ๊ค คอม ไอโฟน กล้อง ไอแพด MacBook ลำโพง ประเมินราคาผ่าน Line @webuy"
+	pathname="/รับซื้อ/"
+	jsonLd={jsonLd}
+>
+	<div class="container page">
+		<header class="head">
+			<p class="tech-eyebrow">รับซื้อ · categories</p>
+			<h1 class="tech-h2">เลือกหมวดสินค้าที่ต้องการขาย</h1>
+			<p class="lead">
+				{orgName} รับซื้ออุปกรณ์ไอทีหลากหลายประเภท ให้ราคายุติธรรม ไม่กดราคา ส่งรูปและรายละเอียดทางไลน์
+				<a href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a> ทีมงานตีราคาให้ได้ภายใน 24 ชั่วโมง
+			</p>
+		</header>
+		<div class="grid">
+			{categories.map((c) => (
+				<a class="card" href={c.href}>
+					<h2>{c.title}</h2>
+					<p>{c.desc}</p>
+					<span class="more">ดูรายละเอียด</span>
+				</a>
+			))}
+		</div>
+		<section class="extra" aria-labelledby="more-cats">
+			<h2 id="more-cats" class="tech-h2">สินค้าอื่น ๆ ที่รับซื้อ</h2>
+			<p>
+				นอกจากหมวดด้านบน เรายังรับซื้อมือถือ Android เครื่องเล่นเกม การ์ดจอ ทีวี โดรน และอุปกรณ์ไอทีอื่น ๆ
+				หากไม่แน่ใจว่าอยู่หมวดไหน แอดไลน์ส่งรูปและรุ่นมาได้เลย
+			</p>
+			<div class="cta-row">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">แอดไลน์ @webuy</a>
+				<a class="btn-ghost" href="/contact/">ติดต่อเรา</a>
+			</div>
+		</section>
+	</div>
+</BaseLayout>
+
+<style>
+	.page {
+		padding-block: 2rem 3.5rem;
+	}
+	.head {
+		max-width: 62ch;
+		margin-bottom: 1.75rem;
+	}
+	.head h1 {
+		margin: 0 0 0.65rem;
+		font-size: clamp(1.45rem, 3vw, 2rem);
+		line-height: 1.25;
+	}
+	.lead {
+		margin: 0;
+		color: var(--muted);
+		font-size: 1rem;
+		line-height: 1.65;
+	}
+	.lead a {
+		font-weight: 700;
+	}
+	.grid {
+		display: grid;
+		gap: 1rem;
+	}
+	@media (min-width: 640px) {
+		.grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (min-width: 960px) {
+		.grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+	.card {
+		display: grid;
+		gap: 0.35rem;
+		padding: 1.15rem 1.2rem;
+		background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+		border: 1px solid rgba(15, 23, 42, 0.07);
+		border-radius: var(--radius);
+		text-decoration: none;
+		color: var(--text);
+		box-shadow: 0 2px 14px rgba(15, 23, 42, 0.05);
+		transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+	}
+	.card:hover {
+		border-color: rgba(255, 140, 0, 0.4);
+		box-shadow: var(--shadow-tech);
+		transform: translateY(-2px);
+		text-decoration: none;
+	}
+	.card h2 {
+		margin: 0;
+		font-size: 1.08rem;
+	}
+	.card p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.92rem;
+		line-height: 1.5;
+	}
+	.more {
+		margin-top: 0.35rem;
+		font-family: var(--font-mono);
+		font-weight: 600;
+		font-size: 0.72rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent-dim);
+	}
+	.extra {
+		margin-top: 2.25rem;
+		padding: 1.25rem 1.35rem;
+		background: linear-gradient(135deg, #fffbeb, #fff7ed);
+		border: 1px solid rgba(180, 83, 9, 0.2);
+		border-radius: var(--radius);
+	}
+	.extra h2 {
+		margin: 0 0 0.5rem;
+		font-size: 1.15rem;
+	}
+	.extra p {
+		margin: 0 0 1rem;
+		color: var(--muted);
+		font-size: 0.95rem;
+		max-width: 62ch;
+		line-height: 1.6;
+	}
+	.cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+	}
+	.btn-line {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.55rem 1rem;
+		border-radius: 999px;
+		background: #06c755;
+		color: #fff;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.btn-line:hover {
+		background: #05b04c;
+		text-decoration: none;
+	}
+	.btn-ghost {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.55rem 1rem;
+		border-radius: 999px;
+		border: 1px solid rgba(28, 36, 51, 0.15);
+		background: #fff;
+		font-weight: 700;
+		color: var(--text);
+		text-decoration: none;
+	}
+	.btn-ghost:hover {
+		border-color: var(--accent);
+		text-decoration: none;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card:hover {
+			transform: none;
+		}
+	}
+</style>

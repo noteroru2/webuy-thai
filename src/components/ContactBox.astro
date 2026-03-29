@@ -1,0 +1,120 @@
+---
+interface Props {
+	heading?: string;
+	text?: string;
+	variant?: 'primary' | 'secondary';
+}
+
+const {
+	heading = 'อยากขายสินค้า? ติดต่อเราเลย',
+	text = 'ส่งรูป รุ่น สเปก และสภาพเครื่องมาได้เลย ทีมงานพร้อมประเมินให้เร็วที่สุด',
+	variant = 'primary',
+} = Astro.props;
+---
+
+<aside class:list={['cta-box', variant]} aria-label="ช่องทางติดต่อ">
+	<div class="cta-inner">
+		<h4 class="cta-heading">{heading}</h4>
+		<p class="cta-text">{text}</p>
+		<div class="cta-actions">
+			<a class="cta-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">
+				<span class="cta-dot"></span> Line : @webuy
+			</a>
+			<a class="cta-phone" href="tel:0642579353">
+				<span class="cta-dot tel"></span> โทร 064-257-9353
+			</a>
+		</div>
+		<p class="cta-sub">ติดต่อได้ 24 ชั่วโมง ไม่มีวันหยุด</p>
+	</div>
+</aside>
+
+<style>
+	.cta-box {
+		border-radius: var(--radius);
+		padding: 1.15rem 1.1rem;
+		margin-block: 1.25rem;
+	}
+	.cta-box.primary {
+		background: linear-gradient(145deg, #fff8ed 0%, #ffecd4 100%);
+		border: 1px solid rgba(255, 140, 0, 0.35);
+		box-shadow: var(--shadow-tech);
+	}
+	.cta-box.secondary {
+		background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+		border: 1px solid rgba(15, 23, 42, 0.1);
+		box-shadow: var(--shadow-tech);
+	}
+	.cta-inner {
+		display: grid;
+		gap: 0.55rem;
+	}
+	.cta-heading {
+		margin: 0;
+		font-size: 1.1rem;
+		color: #2b1e06;
+	}
+	.secondary .cta-heading {
+		color: var(--text);
+	}
+	.cta-text {
+		margin: 0;
+		color: #4e4027;
+		font-size: 0.95rem;
+	}
+	.secondary .cta-text {
+		color: var(--muted);
+	}
+	.cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+	}
+	.cta-line,
+	.cta-phone {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.48rem 0.75rem;
+		border-radius: 8px;
+		font-weight: 700;
+		font-size: 0.92rem;
+		text-decoration: none;
+	}
+	.cta-line {
+		background: #06c755;
+		color: #fff;
+	}
+	.cta-line:hover {
+		background: #05b04c;
+		text-decoration: none;
+	}
+	.cta-phone {
+		background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+		color: #fff;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+	}
+	.cta-phone:hover {
+		background: linear-gradient(180deg, #475569 0%, #334155 100%);
+		text-decoration: none;
+	}
+	.cta-dot {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #b5ffd0;
+		display: inline-block;
+	}
+	.cta-dot.tel {
+		background: #a5d4f7;
+	}
+	.cta-sub {
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.04em;
+		color: #78716c;
+	}
+	.secondary .cta-sub {
+		color: var(--muted);
+	}
+</style>

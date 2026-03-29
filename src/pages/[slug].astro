@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { WPPost } from '../lib/wordpress';
+import { fetchPosts, getFeaturedImageAttrs, getFeaturedImageUrl } from '../lib/wordpress';
+import { getSiteOrigin } from '../lib/site';
+import { autoLinkHtml } from '../lib/autolink';
+import { enhancePostContentImages } from '../lib/wp-content-images';
+
+export async function getStaticPaths() {
+	const reservedSlugs = new Set([
+		'blog',
+		'contact',
+		'rab-sue-notebook',
+		'rab-sue-com',
+		'rab-sue-iphone',
+		'rab-sue-klong',
+		'rab-sue-ipad',
+		'rab-sue-macbook',
+		'rab-sue-lamphong',
+		'rab-sue',
+		'โน๊ตบุ๊ค',
+		'คอม',
+		'ไอโฟน',
+		'ไอแพด',
+		'แมคบุ๊ค',
+		'กล้อง',
+		'ลำโพง',
+		'รับซื้อ',
+		'robots.txt',
+		'llms.txt',
+		'sitemap-index.xml',
+		'sitemap-0.xml',
+		'404',
+	]);
+	const posts = await fetchPosts();
+	const filtered = posts.filter((post) => !reservedSlugs.has(post.slug));
+	return filtered.map((post) => ({
+		params: { slug: post.slug },
+		props: { post },
+	}));
+}
+
+interface Props {
+	post: WPPost;
+}
+
+const { post } = Astro.props;
+const featuredAttrs = getFeaturedImageAttrs(post);
+const featuredUrl = getFeaturedImageUrl(post);
+const wpPublicBase =
+	typeof import.meta.env.PUBLIC_WORDPRESS_URL === 'string'
+		? import.meta.env.PUBLIC_WORDPRESS_URL.replace(/\/+$/, '')
+		: '';
+const plainTitle = post.title.rendered.replace(/<[^>]+>/g, '').trim();
+const plainExcerpt = post.excerpt.rendered.replace(/<[^>]+>/g, '').trim();
+const site = getSiteOrigin();
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const orgLogo = import.meta.env.PUBLIC_ORG_LOGO_URL ?? '/favicon.svg';
+const articlePath = `/${post.slug}/`;
+const articleUrl = `${site}${articlePath}`;
+
+const autoLinkRules = [
+	{
+		patterns: [
+			'รับซื้อโน๊ตบุ๊ค',
+			'รับซื้อโน๊ตบุ๊ก',
+			/รับซื้อ\s*(?:โน๊ตบุ๊ค|โน๊ตบุ๊ก|notebook|laptop)/i,
+		],
+		href: '/โน๊ตบุ๊ค/',
+		title: 'รับซื้อโน๊ตบุ๊คมือสอง',
+	},
+	{
+		patterns: ['รับซื้อคอม', /รับซื้อ\s*(?:คอม|คอมพิวเตอร์|computer|pc)/i],
+		href: '/คอม/',
+		title: 'รับซื้อคอมพิวเตอร์',
+	},
+	{
+		patterns: ['รับซื้อไอโฟน', /รับซื้อ\s*(?:ไอโฟน|iphone)/i],
+		href: '/ไอโฟน/',
+		title: 'รับซื้อไอโฟน iPhone',
+	},
+	{
+		patterns: ['รับซื้อกล้อง', /รับซื้อ\s*(?:กล้อง|camera)/i],
+		href: '/กล้อง/',
+		title: 'รับซื้อกล้องมือสอง',
+	},
+	{
+		patterns: ['รับซื้อไอแพด', /รับซื้อ\s*(?:ไอแพด|ipad)/i],
+		href: '/ไอแพด/',
+		title: 'รับซื้อ iPad',
+	},
+	{
+		patterns: ['รับซื้อ macbook', 'รับซื้อ MacBook', /รับซื้อ\s*macbook/i],
+		href: '/แมคบุ๊ค/',
+		title: 'รับซื้อ MacBook',
+	},
+	{
+		patterns: ['รับซื้อลำโพง', /รับซื้อ\s*(?:ลำโพง|speaker)/i, /(?:JBL|Marshall)\b/i],
+		href: '/ลำโพง/',
+		title: 'รับซื้อลำโพง JBL / Marshall',
+	},
+];
+
+const linkedHtml = enhancePostContentImages(
+	autoLinkHtml(post.content.rendered, autoLinkRules, { maxLinksTotal: 10, maxPerHref: 1 }),
+	wpPublicBase,
+);
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: plainTitle,
+		description: plainExcerpt || `บทความ ${plainTitle}`,
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': articleUrl,
+		},
+		datePublished: post.date,
+		dateModified: post.modified ?? post.date,
+		author: {
+			'@type': 'Organization',
+			name: orgName,
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: orgName,
+			logo: { '@type': 'ImageObject', url: new URL(orgLogo, site).toString() },
+		},
+		image: featuredUrl ? [featuredUrl] : undefined,
+		inLanguage: 'th-TH',
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site },
+			{ '@type': 'ListItem', position: 2, name: 'บทความ', item: `${site}/blog/` },
+			{ '@type': 'ListItem', position: 3, name: plainTitle, item: articleUrl },
+		],
+	},
+];
+---
+
+<BaseLayout
+	title={`${plainTitle} | ${orgName}`}
+	description={plainExcerpt || `อ่านบทความ ${plainTitle} จาก ${orgName}`}
+	pathname={articlePath}
+	type="article"
+	ogImage={featuredUrl}
+	publishedTime={post.date}
+	modifiedTime={post.modified ?? post.date}
+	jsonLd={articleJsonLd}
+>
+	{wpPublicBase && <link rel="preconnect" href={wpPublicBase} crossorigin slot="head" />}
+	{wpPublicBase && <link rel="dns-prefetch" href={wpPublicBase} slot="head" />}
+	<article class="container article">
+		<header class="article-head">
+			<p class="back">
+				<a href="/blog/">← กลับไปหน้าบทความ</a>
+			</p>
+			<p class="tech-eyebrow article-kicker">Article</p>
+			<time class="date" datetime={post.date}>
+				{new Date(post.date).toLocaleDateString('th-TH', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+				})}
+			</time>
+			<h1 class="title" set:html={post.title.rendered} />
+		</header>
+
+		{
+			featuredAttrs && (
+				<img
+					class="hero-img"
+					src={featuredAttrs.src}
+					srcset={featuredAttrs.srcset}
+					sizes={featuredAttrs.sizes}
+					alt={featuredAttrs.alt}
+					width={featuredAttrs.width}
+					height={featuredAttrs.height}
+					loading="eager"
+					decoding="async"
+					fetchpriority="high"
+				/>
+			)
+		}
+
+		<div class="prose content" set:html={linkedHtml} />
+	</article>
+</BaseLayout>
+
+<style>
+	.article {
+		padding-block: 2rem 4rem;
+		max-width: 720px;
+		margin-inline: auto;
+		overflow-x: hidden;
+	}
+	.article-head {
+		margin-bottom: 1.5rem;
+	}
+	.back {
+		margin: 0 0 1rem;
+		font-size: 0.9rem;
+	}
+	.back a {
+		color: var(--muted);
+	}
+	.back a:hover {
+		color: var(--accent);
+	}
+	.article-kicker {
+		margin: 0 0 0.35rem;
+	}
+	.date {
+		display: block;
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		letter-spacing: 0.04em;
+		color: var(--muted);
+		margin-bottom: 0.5rem;
+	}
+	.title {
+		margin: 0;
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		line-height: 1.25;
+	}
+	.hero-img {
+		width: 100%;
+		height: auto;
+		border-radius: var(--radius);
+		margin-bottom: 2rem;
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		box-shadow: var(--shadow-tech);
+	}
+	.content {
+		font-size: 1.05rem;
+	}
+	.content :global(a) {
+		word-break: break-word;
+	}
+	.content :global(img) {
+		max-width: 100% !important;
+		height: auto !important;
+		display: block;
+		margin-block: 1rem;
+		box-sizing: border-box;
+	}
+	.content :global(img[style*='width']) {
+		width: auto !important;
+		max-width: 100% !important;
+	}
+	.content :global(figure) {
+		max-width: 100% !important;
+		width: auto !important;
+		margin: 1rem 0;
+		box-sizing: border-box;
+	}
+	.content :global(figure img) {
+		margin-block: 0;
+	}
+	.content :global(.wp-block-image),
+	.content :global(.wp-caption),
+	.content :global(.alignnone),
+	.content :global(.aligncenter),
+	.content :global(.alignwide),
+	.content :global(.alignfull) {
+		max-width: 100% !important;
+		width: auto !important;
+		box-sizing: border-box;
+	}
+	.content :global(iframe) {
+		max-width: 100%;
+		border: 0;
+	}
+	.content :global(video) {
+		max-width: 100%;
+		height: auto;
+	}
+</style>
