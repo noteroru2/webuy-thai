@@ -32,10 +32,28 @@ const serve = sirv(dist, {
 	},
 });
 
+const redirects = new Map([
+	['/โน๊ตบุ๊ค/', '/รับซื้อโน๊ตบุ๊ค/'],
+	['/คอม/', '/รับซื้อคอม/'],
+	['/ไอโฟน/', '/รับซื้อไอโฟน/'],
+	['/ไอแพด/', '/รับซื้อไอแพด/'],
+	['/แมคบุ๊ค/', '/รับซื้อแมคบุ๊ค/'],
+	['/กล้อง/', '/รับซื้อกล้อง/'],
+	['/ลำโพง/', '/รับซื้อลำโพง/'],
+]);
+
 http
 	.createServer((req, res) => {
 		res.setHeader('X-Content-Type-Options', 'nosniff');
 		res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+		const target = redirects.get(req.url);
+		if (target) {
+			res.writeHead(301, { Location: target });
+			res.end();
+			return;
+		}
+
 		serve(req, res);
 	})
 	.listen(port, '0.0.0.0', () => {

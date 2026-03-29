@@ -23,13 +23,13 @@ export default defineConfig({
 			serialize(item) {
 				const url = item.url;
 				if (
-					url.endsWith('/โน๊ตบุ๊ค/') ||
-					url.endsWith('/คอม/') ||
-					url.endsWith('/ไอโฟน/') ||
-					url.endsWith('/กล้อง/') ||
-					url.endsWith('/ไอแพด/') ||
-					url.endsWith('/แมคบุ๊ค/') ||
-					url.endsWith('/ลำโพง/') ||
+					url.endsWith('/รับซื้อโน๊ตบุ๊ค/') ||
+					url.endsWith('/รับซื้อคอม/') ||
+					url.endsWith('/รับซื้อไอโฟน/') ||
+					url.endsWith('/รับซื้อกล้อง/') ||
+					url.endsWith('/รับซื้อไอแพด/') ||
+					url.endsWith('/รับซื้อแมคบุ๊ค/') ||
+					url.endsWith('/รับซื้อลำโพง/') ||
 					url.endsWith('/รับซื้อ/') ||
 					url.endsWith('/contact/')
 				) {
