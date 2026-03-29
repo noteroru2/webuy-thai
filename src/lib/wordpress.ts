@@ -62,7 +62,19 @@ function readNumberEnv(key: string, fallback: number): number {
 // Defaults are generous to allow "all posts" for most sites.
 // You can override in Coolify env to reduce build time if needed.
 const FETCH_TIMEOUT_MS = readNumberEnv('PUBLIC_WORDPRESS_TIMEOUT_MS', 12000);
-const MAX_PAGES = readNumberEnv('PUBLIC_WORDPRESS_MAX_PAGES', 0); // 0 = unlimited
+
+function readMaxPages(): number {
+	const raw = (import.meta.env as Record<string, unknown>)['PUBLIC_WORDPRESS_MAX_PAGES'];
+	if (typeof raw === 'string' && raw.trim() !== '') {
+		const n = Number(raw);
+		return Number.isFinite(n) ? n : 0;
+	}
+	// Coolify/Nixpacks ส่ง COOLIFY_* ตอน build — ถ้าไม่จำกัดหน้า มักช้า/timeout
+	const onCoolify = Boolean(process.env.COOLIFY_FQDN || process.env.COOLIFY_BRANCH);
+	return onCoolify ? 35 : 0;
+}
+
+const MAX_PAGES = readMaxPages();
 const MAX_POSTS = readNumberEnv('PUBLIC_WORDPRESS_MAX_POSTS', 0); // 0 = unlimited
 
 async function fetchJsonWithTimeout(url: string): Promise<Response> {
@@ -72,7 +84,10 @@ async function fetchJsonWithTimeout(url: string): Promise<Response> {
 	});
 }
 
-export async function fetchPosts(): Promise<WPPost[]> {
+/** หนึ่ง build / หนึ่ง process — หลายหน้าเรียก fetchPosts() พร้อมกัน ไม่ควรยิง WP ซ้ำ */
+let fetchPostsInFlight: Promise<WPPost[]> | null = null;
+
+async function fetchAllPostPages(): Promise<WPPost[]> {
 	const base = getBaseUrl();
 	if (!base) return [];
 
@@ -114,6 +129,16 @@ export async function fetchPosts(): Promise<WPPost[]> {
 		...post,
 		slug: normalizeWpSlug(post.slug),
 	}));
+}
+
+export async function fetchPosts(): Promise<WPPost[]> {
+	const base = getBaseUrl();
+	if (!base) return [];
+
+	if (!fetchPostsInFlight) {
+		fetchPostsInFlight = fetchAllPostPages();
+	}
+	return fetchPostsInFlight;
 }
 
 export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
