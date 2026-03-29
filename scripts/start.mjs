@@ -20,8 +20,12 @@ const serve = sirv(dist, {
 			res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
 			return;
 		}
-		if (/\.(?:css|js|mjs|map|svg|png|jpg|jpeg|webp|avif|gif|ico|woff2?)$/i.test(normalized)) {
-			res.setHeader('Cache-Control', 'public, max-age=604800');
+		if (/\.(?:css|js|mjs|map|woff2?)$/i.test(normalized)) {
+			res.setHeader('Cache-Control', 'public, max-age=2592000');
+			return;
+		}
+		if (/\.(?:svg|png|jpg|jpeg|webp|avif|gif|ico)$/i.test(normalized)) {
+			res.setHeader('Cache-Control', 'public, max-age=2592000, stale-while-revalidate=86400');
 			return;
 		}
 		res.setHeader('Cache-Control', 'public, max-age=3600');
