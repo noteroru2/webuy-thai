@@ -10,11 +10,9 @@ const lineHref = 'https://line.me/R/ti/p/@webuy';
 const navItems = [
 	{ href: '/', label: 'หน้าแรก' },
 	{ href: '/บริการ/', label: 'บริการ' },
-	{ href: '/บริการ/#คู่มืออุบล', label: 'คู่มืออุบล' },
 	{ href: '/รับซื้อ/', label: 'รับซื้อ' },
 	{ href: '/blog/', label: 'บทความ' },
 	{ href: '/เกี่ยวกับเรา/', label: 'เกี่ยวกับเรา' },
-	{ href: '/contact/', label: 'ติดต่อเรา' },
 ];
 ---
 
@@ -40,13 +38,6 @@ const navItems = [
 		</nav>
 
 		<div class="flex items-center gap-2 sm:gap-2.5">
-			<ButtonLink
-				href="/contact/"
-				variant="secondary"
-				class="hidden !px-3.5 !py-2 text-xs !shadow-none lg:inline-flex lg:!px-4 lg:!py-2.5 lg:text-sm"
-			>
-				ติดต่อเรา
-			</ButtonLink>
 			<ButtonLink
 				href={lineHref}
 				variant="primary"
@@ -96,13 +87,6 @@ const navItems = [
 							</a>
 						))
 					}
-					<a
-						class="mt-1 block rounded-xl border border-gray-100 bg-[#FAFAFA] px-3 py-2.5 text-center text-sm font-semibold text-text hover:bg-gray-100"
-						href="/contact/"
-						role="menuitem"
-					>
-						ติดต่อเรา
-					</a>
 					<a
 						class="mt-1 block rounded-xl bg-brand-600 px-3 py-3 text-center text-sm font-semibold !text-white shadow-md shadow-brand-700/25 transition hover:bg-brand-700 hover:!text-white [text-shadow:0_1px_0_rgba(0,0,0,0.12)]"
 						href={lineHref}
