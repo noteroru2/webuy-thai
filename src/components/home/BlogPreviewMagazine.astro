@@ -1,0 +1,94 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+
+const categoryLabel = 'คู่มือไอที';
+---
+
+<section
+	class="border-t border-gray-200/80 bg-gradient-to-b from-[#FFF7ED]/25 via-[#F8F8F8] to-[#FAFAFA] py-16 sm:py-20 lg:py-24"
+	aria-labelledby="magazine-blog-heading"
+>
+	<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+		<div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+			<div class="max-w-2xl">
+				<h2 id="magazine-blog-heading" class="text-[clamp(1.5rem,2.5vw+1rem,2.25rem)] font-extrabold tracking-tight text-text">
+					บทความแนะนำ
+				</h2>
+				<p class="mt-3 text-base leading-[1.75] text-text-muted sm:text-lg">
+					อ่านสั้น ๆ ก่อนขายโน้ตบุ๊คหรือขายคอม — เช่น วิธีเช็กโน้ตบุ๊กก่อนขาย สเปกที่มีผลต่อราคา หรือแนวทางซ่อมที่คุ้มค่า
+				</p>
+			</div>
+			<a
+				class="inline-flex shrink-0 items-center justify-center rounded-full border-2 border-brand-600 bg-white px-6 py-3 text-sm font-bold !text-brand-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-brand-600 hover:!text-white hover:shadow-md hover:[text-shadow:0_1px_0_rgba(0,0,0,0.12)]"
+				href="/blog/"
+			>
+				ดูบทความทั้งหมด
+			</a>
+		</div>
+
+		<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				posts.map((post) => {
+					const img = post.data.heroImage;
+					const imgAlt = post.data.heroImageAlt ?? post.data.title;
+					const titleHtml = post.data.titleHtml?.trim() || post.data.title;
+					const excerpt = post.data.description;
+					const href = `/${post.data.slug}/`;
+					const dateLabel = post.data.pubDate.toLocaleDateString('th-TH', {
+						year: 'numeric',
+						month: 'short',
+						day: 'numeric',
+					});
+					return (
+						<article class="group flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-gray-200/90 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_14px_36px_-24px_rgba(15,23,42,0.12)] transition duration-300 hover:-translate-y-1 hover:border-brand-500/25 hover:shadow-[0_20px_48px_-28px_rgba(249,115,22,0.14)]">
+							<div class="relative aspect-[16/10] shrink-0 overflow-hidden bg-gradient-to-br from-brand-50 to-gray-50">
+								{img ? (
+									<a href={href} class="block h-full w-full">
+										<img
+											src={img}
+											alt={imgAlt}
+											class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+											width="640"
+											height="400"
+											loading="lazy"
+											decoding="async"
+										/>
+									</a>
+								) : (
+									<div class="flex h-full w-full items-center justify-center text-sm font-semibold text-brand-600">{categoryLabel}</div>
+								)}
+							</div>
+							<div class="flex flex-1 flex-col p-6 sm:p-7">
+								<div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+									<p class="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-600">{categoryLabel}</p>
+									<span class="text-gray-200" aria-hidden="true">
+										·
+									</span>
+									<time class="text-xs font-medium text-muted" datetime={post.data.pubDate.toISOString()}>
+										{dateLabel}
+									</time>
+								</div>
+								<h3 class="mt-3 text-lg font-extrabold leading-snug text-text sm:text-xl">
+									<a href={href} class="line-clamp-2 transition hover:text-brand-600" set:html={titleHtml} />
+								</h3>
+								{excerpt && <p class="mt-3 flex-1 text-sm leading-[1.75] text-text-muted line-clamp-3">{excerpt}</p>}
+								<a
+									href={href}
+									class="mt-auto inline-flex pt-6 text-sm font-bold text-brand-600 underline decoration-brand-500/30 underline-offset-2 transition hover:text-brand-700"
+								>
+									อ่านต่อ →
+								</a>
+							</div>
+						</article>
+					);
+				})
+			}
+		</div>
+	</div>
+</section>

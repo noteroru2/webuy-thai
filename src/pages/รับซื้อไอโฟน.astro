@@ -5,6 +5,8 @@ import '../styles/longform.css';
 import { getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อไอโฟน/`;
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const serviceAreasRaw =
 	import.meta.env.PUBLIC_SERVICE_AREAS ??
@@ -60,6 +62,17 @@ const faqItems = [
 const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อไอโฟน (iPhone) มือสอง',
+		description:
+			'WE BUY รับซื้อ iPhone มือสองทุกรุ่น iPhone 8 ถึง 16 Pro Max ประเมินราคาโปร่งใส จ่ายเงินทันที ดูจากรุ่น ความจุ Battery Health ติดต่อ Line @webuy 24 ชม.',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
 		'@type': 'Article',
 		headline: 'รับซื้อไอโฟน iPhone มือสอง ทุกรุ่น ได้ราคาสูง จ่ายเงินทันที',
 		description:
@@ -67,12 +80,24 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		inLanguage: 'th-TH',
 		author: { '@type': 'Organization', name: orgName },
 		publisher: { '@type': 'Organization', name: orgName },
-		mainEntityOfPage: `${site}/ไอโฟน/`,
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
 		datePublished: '2026-03-24',
 		dateModified: '2026-03-24',
 		image: [new URL('/og-default.png', site).toString()],
 		keywords:
 			'รับซื้อไอโฟน, ขายไอโฟนมือสอง, รับซื้อ iPhone, ประเมินราคาไอโฟน, รับซื้อ iPhone มือสอง, ขาย iPhone ได้ราคาดี, รับซื้อไอโฟนจอแตก, รับซื้อ iPhone ทุกรุ่น, รับซื้อไอโฟนแบตเสื่อม, ขายไอโฟนเก่า',
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อไอโฟน', item: pageUrl },
+		],
 	},
 	{
 		'@context': 'https://schema.org',
@@ -92,15 +117,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		provider: { '@type': 'Organization', name: orgName },
 		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
 		serviceType: 'รับซื้อ iPhone มือสอง',
-		url: `${site}/ไอโฟน/`,
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'BreadcrumbList',
-		itemListElement: [
-			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site },
-			{ '@type': 'ListItem', position: 2, name: 'รับซื้อไอโฟน', item: `${site}/ไอโฟน/` },
-		],
+		url: pageUrl,
 	},
 	{
 		'@context': 'https://schema.org',
@@ -136,7 +153,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 <BaseLayout
 	title="รับซื้อไอโฟน | รับซื้อ iPhone มือสอง ทุกรุ่น ได้ราคาสูง | WE BUY"
 	description="WE BUY รับซื้อ iPhone มือสองทุกรุ่น iPhone 8 ถึง 16 Pro Max ประเมินราคาโปร่งใส จ่ายเงินทันที ดูจากรุ่น ความจุ Battery Health ติดต่อ Line @webuy 24 ชม."
-	pathname="/ไอโฟน/"
+	pathname="/รับซื้อไอโฟน/"
 	type="article"
 	jsonLd={articleJsonLd}
 >

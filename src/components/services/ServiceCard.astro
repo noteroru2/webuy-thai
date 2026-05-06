@@ -1,0 +1,102 @@
+---
+type ServiceIcon =
+	'buyPc'
+	| 'buyNb'
+	| 'buyMac'
+	| 'repairPc'
+	| 'repairNb'
+	| 'buyMobile'
+	| 'sellUsed'
+	| 'corp';
+
+export interface Props {
+	href: string;
+	title: string;
+	description: string;
+	icon: ServiceIcon;
+}
+
+const { href, title, description, icon } = Astro.props;
+
+const stroke = 'text-brand-600';
+---
+
+<a
+	href={href}
+	class="group flex h-full flex-col rounded-[20px] border border-gray-200/90 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_12px_32px_-20px_rgba(15,23,42,0.12)] ring-1 ring-black/[0.02] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-0.5 hover:border-brand-500/28 hover:shadow-[0_16px_40px_-24px_rgba(249,115,22,0.14)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+>
+	<div
+		class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-brand-500/12 bg-gradient-to-br from-brand-50 to-white text-brand-600 shadow-sm transition group-hover:border-brand-500/25 group-hover:shadow-md"
+		aria-hidden="true"
+	>
+		{
+			icon === 'buyPc' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<rect x="4" y="3" width="16" height="12" rx="2" />
+					<path stroke-linecap="round" d="M8 21h8M12 15v6" />
+				</svg>
+			)
+		}
+		{
+			icon === 'buyNb' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<rect x="3" y="4" width="18" height="12" rx="2" />
+					<path stroke-linecap="round" d="M2 18h20" />
+				</svg>
+			)
+		}
+		{
+			icon === 'buyMac' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<path d="M14 4l6 6v8a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h8z" />
+					<path stroke-linecap="round" d="M14 4v6h6" />
+				</svg>
+			)
+		}
+		{
+			icon === 'repairPc' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317l.777 1.162M6 8h12M6 12h8m-5 4l-2 2H9" />
+					<circle cx="12" cy="12" r="9" />
+				</svg>
+			)
+		}
+		{
+			icon === 'repairNb' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 3h6l1 3H8l1-3zm0 0v18h6M9 21h6" />
+				</svg>
+			)
+		}
+		{
+			icon === 'buyMobile' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<rect x="7" y="2" width="10" height="20" rx="2" />
+					<path stroke-linecap="round" d="M12 18h.01" />
+				</svg>
+			)
+		}
+		{
+			icon === 'sellUsed' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+				</svg>
+			)
+		}
+		{
+			icon === 'corp' && (
+				<svg class:list={[stroke, 'h-7 w-7 shrink-0']} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+				</svg>
+			)
+		}
+	</div>
+	<h3 class="text-lg font-extrabold leading-snug text-text sm:text-xl">{title}</h3>
+	<p class="mt-3 flex-1 text-sm leading-[1.75] text-text-muted sm:text-[0.9375rem]">{description}</p>
+	<span
+		class="mt-auto pt-5 inline-flex items-center text-sm font-bold text-brand-600 transition group-hover:gap-1.5 group-hover:text-brand-700"
+	>
+		อ่านเพิ่มเติม
+		<span aria-hidden="true" class="ml-1 transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+	</span>
+</a>

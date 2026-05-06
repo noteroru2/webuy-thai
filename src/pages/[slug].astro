@@ -1,185 +1,155 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import type { WPPost } from '../lib/wordpress';
-import { fetchPosts, getFeaturedImageAttrs, getFeaturedImageUrl } from '../lib/wordpress';
+import { getPublishedPosts } from '../lib/posts';
 import { getSiteOrigin } from '../lib/site';
-import { autoLinkHtml } from '../lib/autolink';
-import { enhancePostContentImages } from '../lib/wp-content-images';
+import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
-	const reservedSlugs = new Set([
-		'blog',
-		'contact',
-		'rab-sue-notebook',
-		'rab-sue-com',
-		'rab-sue-iphone',
-		'rab-sue-klong',
-		'rab-sue-ipad',
-		'rab-sue-macbook',
-		'rab-sue-lamphong',
-		'rab-sue',
-		'รับซื้อโน๊ตบุ๊ค',
-		'รับซื้อคอม',
-		'รับซื้อไอโฟน',
-		'รับซื้อไอแพด',
-		'รับซื้อแมคบุ๊ค',
-		'รับซื้อกล้อง',
-		'รับซื้อลำโพง',
-		'รับซื้อ',
-		'robots.txt',
-		'llms.txt',
-		'sitemap-index.xml',
-		'sitemap-0.xml',
-		'404',
-	]);
-	const posts = await fetchPosts();
-	const filtered = posts.filter((post) => !reservedSlugs.has(post.slug));
-	return filtered.map((post) => ({
-		params: { slug: post.slug },
-		props: { post },
+	const posts = await getPublishedPosts();
+	return posts.map((post) => ({
+		params: { slug: post.data.slug },
+		props: { entryId: post.id },
 	}));
 }
 
-interface Props {
-	post: WPPost;
+const { entryId } = Astro.props;
+const post = await getEntry('posts', entryId);
+if (!post) {
+	return Astro.redirect('/404/', 302);
 }
 
-const { post } = Astro.props;
-const featuredAttrs = getFeaturedImageAttrs(post);
-const featuredUrl = getFeaturedImageUrl(post);
-const wpPublicBase =
-	typeof import.meta.env.PUBLIC_WORDPRESS_URL === 'string'
-		? import.meta.env.PUBLIC_WORDPRESS_URL.replace(/\/+$/, '')
-		: '';
-const plainTitle = post.title.rendered.replace(/<[^>]+>/g, '').trim();
-const plainExcerpt = post.excerpt.rendered.replace(/<[^>]+>/g, '').trim();
+const { Content } = await render(post);
+
+const plainTitle = post.data.title;
+const plainExcerpt = post.data.description;
 const site = getSiteOrigin();
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const orgLogo = import.meta.env.PUBLIC_ORG_LOGO_URL ?? '/favicon.svg';
-const articlePath = `/${post.slug}/`;
+const publishedIso = post.data.pubDate.toISOString();
+const modifiedIso = (post.data.updatedDate ?? post.data.pubDate).toISOString();
+const featuredUrl = post.data.heroImage;
+const titleHtml = post.data.titleHtml?.trim() || plainTitle;
+const heroAlt = post.data.heroImageAlt ?? plainTitle;
+const orgId = `${site}/#organization`;
+const articlePath = `/${post.data.slug}/`;
 const articleUrl = `${site}${articlePath}`;
 
-const autoLinkRules = [
-	{
-		patterns: [
-			'รับซื้อโน๊ตบุ๊ค',
-			'รับซื้อโน๊ตบุ๊ก',
-			/รับซื้อ\s*(?:โน๊ตบุ๊ค|โน๊ตบุ๊ก|notebook|laptop)/i,
-		],
-		href: '/รับซื้อโน๊ตบุ๊ค/',
-		title: 'รับซื้อโน๊ตบุ๊คมือสอง',
-	},
-	{
-		patterns: ['รับซื้อคอม', /รับซื้อ\s*(?:คอม|คอมพิวเตอร์|computer|pc)/i],
-		href: '/รับซื้อคอม/',
-		title: 'รับซื้อคอมพิวเตอร์',
-	},
-	{
-		patterns: ['รับซื้อไอโฟน', /รับซื้อ\s*(?:ไอโฟน|iphone)/i],
-		href: '/รับซื้อไอโฟน/',
-		title: 'รับซื้อไอโฟน iPhone',
-	},
-	{
-		patterns: ['รับซื้อกล้อง', /รับซื้อ\s*(?:กล้อง|camera)/i],
-		href: '/รับซื้อกล้อง/',
-		title: 'รับซื้อกล้องมือสอง',
-	},
-	{
-		patterns: ['รับซื้อไอแพด', /รับซื้อ\s*(?:ไอแพด|ipad)/i],
-		href: '/รับซื้อไอแพด/',
-		title: 'รับซื้อ iPad',
-	},
-	{
-		patterns: ['รับซื้อ macbook', 'รับซื้อ MacBook', /รับซื้อ\s*macbook/i],
-		href: '/รับซื้อแมคบุ๊ค/',
-		title: 'รับซื้อ MacBook',
-	},
-	{
-		patterns: ['รับซื้อลำโพง', /รับซื้อ\s*(?:ลำโพง|speaker)/i, /(?:JBL|Marshall)\b/i],
-		href: '/รับซื้อลำโพง/',
-		title: 'รับซื้อลำโพง JBL / Marshall',
-	},
-];
-
-const linkedHtml = enhancePostContentImages(
-	autoLinkHtml(post.content.rendered, autoLinkRules, { maxLinksTotal: 10, maxPerHref: 1 }),
-	wpPublicBase,
-);
+const faqItemsData = post.data.faqItems;
+const faqJsonLd: Array<Record<string, unknown>> =
+	faqItemsData && faqItemsData.length > 0
+		? [
+				{
+					'@context': 'https://schema.org',
+					'@type': 'FAQPage',
+					'@id': `${articleUrl}#faq`,
+					mainEntity: faqItemsData.map((item) => ({
+						'@type': 'Question',
+						name: item.question,
+						acceptedAnswer: {
+							'@type': 'Answer',
+							text: item.answer,
+						},
+					})),
+				},
+			]
+		: [];
 
 const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Article',
+		'@id': `${articleUrl}#article`,
 		headline: plainTitle,
 		description: plainExcerpt || `บทความ ${plainTitle}`,
+		url: articleUrl,
 		mainEntityOfPage: {
 			'@type': 'WebPage',
 			'@id': articleUrl,
 		},
-		datePublished: post.date,
-		dateModified: post.modified ?? post.date,
+		isAccessibleForFree: true,
+		inLanguage: 'th-TH',
+		articleSection: 'บทความ',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['.article .title', '.article .content'],
+		},
+		datePublished: publishedIso,
+		dateModified: modifiedIso,
 		author: {
 			'@type': 'Organization',
 			name: orgName,
+			'@id': orgId,
 		},
 		publisher: {
 			'@type': 'Organization',
 			name: orgName,
-			logo: { '@type': 'ImageObject', url: new URL(orgLogo, site).toString() },
+			'@id': orgId,
+			logo: {
+				'@type': 'ImageObject',
+				url: new URL(orgLogo, site).toString(),
+			},
 		},
-		image: featuredUrl ? [featuredUrl] : undefined,
-		inLanguage: 'th-TH',
+		image: featuredUrl
+			? [
+					{
+						'@type': 'ImageObject',
+						url: featuredUrl,
+						width: 1200,
+						height: 675,
+						caption: plainTitle,
+					},
+				]
+			: undefined,
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
 		itemListElement: [
-			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site },
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'บทความ', item: `${site}/blog/` },
 			{ '@type': 'ListItem', position: 3, name: plainTitle, item: articleUrl },
 		],
 	},
+	...faqJsonLd,
 ];
 ---
 
 <BaseLayout
 	title={`${plainTitle} | ${orgName}`}
-	description={plainExcerpt || `อ่านบทความ ${plainTitle} จาก ${orgName}`}
+	description={plainExcerpt || `เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน้ตบุ๊คและรับซื้อคอม`}
 	pathname={articlePath}
 	type="article"
 	ogImage={featuredUrl}
-	publishedTime={post.date}
-	modifiedTime={post.modified ?? post.date}
+	ogImageAlt={heroAlt}
+	publishedTime={publishedIso}
+	modifiedTime={modifiedIso}
 	jsonLd={articleJsonLd}
+	noindex={post.data.noindex === true}
 >
-	{wpPublicBase && <link rel="preconnect" href={wpPublicBase} crossorigin slot="head" />}
-	{wpPublicBase && <link rel="dns-prefetch" href={wpPublicBase} slot="head" />}
 	<article class="container article">
 		<header class="article-head">
 			<p class="back">
 				<a href="/blog/">← กลับไปหน้าบทความ</a>
 			</p>
 			<p class="tech-eyebrow article-kicker">Article</p>
-			<time class="date" datetime={post.date}>
-				{new Date(post.date).toLocaleDateString('th-TH', {
+			<time class="date" datetime={publishedIso}>
+				{post.data.pubDate.toLocaleDateString('th-TH', {
 					year: 'numeric',
 					month: 'long',
 					day: 'numeric',
 				})}
 			</time>
-			<h1 class="title" set:html={post.title.rendered} />
+			<h1 class="title" set:html={titleHtml} />
 		</header>
 
 		{
-			featuredAttrs && (
+			featuredUrl && (
 				<img
 					class="hero-img"
-					src={featuredAttrs.src}
-					srcset={featuredAttrs.srcset}
-					sizes={featuredAttrs.sizes}
-					alt={featuredAttrs.alt}
-					width={featuredAttrs.width}
-					height={featuredAttrs.height}
+					src={featuredUrl}
+					alt={heroAlt}
+					width="1200"
+					height="675"
 					loading="eager"
 					decoding="async"
 					fetchpriority="high"
@@ -187,7 +157,9 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			)
 		}
 
-		<div class="prose content" set:html={linkedHtml} />
+		<div class="prose content">
+			<Content />
+		</div>
 	</article>
 </BaseLayout>
 

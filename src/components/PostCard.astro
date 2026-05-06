@@ -1,38 +1,38 @@
 ---
-import type { WPPost } from '../lib/wordpress';
-import { getFeaturedImageUrl, getFeaturedImageAlt } from '../lib/wordpress';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-	post: WPPost;
+	post: CollectionEntry<'posts'>;
 	headingLevel?: 'h2' | 'h3';
 }
 
 const { post, headingLevel = 'h2' } = Astro.props;
-const img = getFeaturedImageUrl(post);
-const imgAlt = getFeaturedImageAlt(post);
-const excerptText = post.excerpt.rendered.replace(/<[^>]+>/g, '').trim();
+const img = post.data.heroImage;
+const imgAlt = post.data.heroImageAlt ?? post.data.title;
+const excerptText = post.data.description;
+const titleHtml = post.data.titleHtml?.trim() || post.data.title;
 const HeadingTag = headingLevel;
 ---
 
 <article class="card">
 	{img && (
-		<a href={`/${post.slug}/`} class="thumb-wrap">
+		<a href={`/${post.data.slug}/`} class="thumb-wrap">
 			<img src={img} alt={imgAlt} class="thumb" loading="lazy" width="400" height="225" />
 		</a>
 	)}
 	<div class="body">
-		<time class="date" datetime={post.date}>
-			{new Date(post.date).toLocaleDateString('th-TH', {
+		<time class="date" datetime={post.data.pubDate.toISOString()}>
+			{post.data.pubDate.toLocaleDateString('th-TH', {
 				year: 'numeric',
 				month: 'long',
 				day: 'numeric',
 			})}
 		</time>
 		<HeadingTag class="title">
-			<a href={`/${post.slug}/`} set:html={post.title.rendered} />
+			<a href={`/${post.data.slug}/`} set:html={titleHtml} />
 		</HeadingTag>
 		{excerptText && <p class="excerpt">{excerptText}</p>}
-		<a class="read" href={`/${post.slug}/`}>อ่านต่อ</a>
+		<a class="read" href={`/${post.data.slug}/`}>อ่านต่อ</a>
 	</div>
 </article>
 

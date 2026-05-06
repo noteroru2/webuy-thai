@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/noto-sans-thai/wght.css';
+
+@theme {
+	--font-sans:
+		'Noto Sans Thai Variable', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+
+	/* Design tokens — premium IT brand (orange accent, not loud) */
+	--color-primary: #f97316;
+	--color-primary-dark: #ea580c;
+	--color-primary-soft: #fff3e8;
+	--color-surface: #ffffff;
+	--color-background: #fafafa;
+	--color-background-warm: #fff7ed;
+	--color-border: #e5e7eb;
+	--color-muted: #6b7280;
+
+	/* Premium brand orange — ลดการใช้สีสะท้อนเกินไป ใช้คู่กับขาว/เทาเข้ม */
+	--color-brand-50: #fff3e8;
+	--color-brand-100: #ffeadc;
+	--color-brand-500: #f97316;
+	--color-brand-600: #ea580c;
+	--color-brand-700: #c2410c;
+
+	--color-text: #111827;
+	--color-text-muted: #4b5563;
+
+	--radius-premium: 1.25rem;
+	--radius-card: 1.375rem;
+
+	--shadow-card:
+		0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -16px rgba(15, 23, 42, 0.12);
+	--shadow-card-hover:
+		0 4px 12px rgba(249, 115, 22, 0.08), 0 20px 40px -24px rgba(15, 23, 42, 0.18);
+
+	/* Editorial / landing max width */
+	--width-content: 48rem;
+	--width-container: 75rem;
+
+	--color-burnt-600: #c2410c;
+	--color-burnt-700: #9a3412;
+	--color-burnt-800: #7c2d12;
+	--color-burnt-900: #431407;
+	--color-copper-500: #d97706;
+
+	--color-line-refined: #047857;
+	--color-line-refined-hover: #065f46;
+}
+
+@layer base {
+	html {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+	}
+}

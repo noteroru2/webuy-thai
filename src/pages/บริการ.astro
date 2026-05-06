@@ -1,0 +1,137 @@
+---
+import '../styles/tailwind.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/services/ServiceCard.astro';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: `รับซื้อโน้ตบุ๊ค รับซื้อคอม — บริการไอที | ${siteName}`,
+		url: `${site}/บริการ/`,
+		description: 'เน้นรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง — พร้อมบริการซ่อม จำหน่าย และหมวดรับซื้ออื่น ประเมินราคามาตรฐานมืออาชีพ',
+		inLanguage: 'th-TH',
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'บริการ', item: `${site}/บริการ/` },
+		],
+	},
+];
+
+const grid = [
+	{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน้ตบุ๊ค', description: 'โน้ตบุ๊ก Windows และเกมมิงหลายรุ่น — แกนหลัก', icon: 'buyNb' as const },
+	{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์มือสอง', description: 'PC สำนักงาน เล่นเกม Workstation — ประเมินตามสภาพและสเปก', icon: 'buyPc' as const },
+	{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook / iMac', description: 'สาย Mac ทั้งพกพาและตั้งโต๊ะ', icon: 'buyMac' as const },
+	{ href: '/contact/', title: 'ซ่อมคอมพิวเตอร์', description: 'วินิจฉัยอาการ แนะนำซ่อม/อัปเกรดตามความคุ้มค่า — ติดต่อประเมิน', icon: 'repairPc' as const },
+	{ href: '/contact/', title: 'ซ่อมโน้ตบุ๊ค', description: 'จอ แบต คีย์บอร์ด และปัญหาฮาร์ดแวร์ทั่วไป — ติดต่อประเมิน', icon: 'repairNb' as const },
+	{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อ iPhone / iPad', description: 'รับซื้อไอโฟนและไอแพดหลายรุ่น — ดูหมวดแยกได้จากลิงก์', icon: 'buyMobile' as const },
+	{ href: '/รับซื้อ/', title: 'จำหน่ายคอมพิวเตอร์มือสอง', description: 'สอบถามสต็อกและเงื่อนไขการจำหน่ายผ่านช่องทางติดต่อ', icon: 'sellUsed' as const },
+	{ href: '/contact/', title: 'บริการสำหรับองค์กร', description: 'รับคุยงานหมู่คณะ สำรองเครื่อง และแพ็กเกจตามขอบเขตงาน', icon: 'corp' as const },
+];
+---
+
+<BaseLayout
+	title={`รับซื้อโน้ตบุ๊ค รับซื้อคอมมือสอง — บริการเสริม | ${siteName}`}
+	description={`${orgName} — แกนหลักคือรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์ พร้อมซ่อม จำหน่าย และหมวดรับซื้ออื่น ติดต่อ LINE @webuy`}
+	pathname="/บริการ/"
+	jsonLd={jsonLd}
+>
+	<div class="font-sans bg-[#FAFAFA] text-[#111827] antialiased">
+		<section class="border-b border-gray-200 bg-white py-14 sm:py-20">
+			<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+				<p class="text-xs font-semibold uppercase tracking-wider text-[#f97316]">Services</p>
+				<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">บริการของเรา</h1>
+				<p class="mt-4 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+					แกนหลักคือการรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง — จากนั้นเป็นบริการซ่อม จำหน่าย และหมวดรับซื้ออื่นตามขอบเขต เลือกหมวดแล้วติดต่อทีมงานเพื่อประเมินเบื้องต้น
+				</p>
+			</div>
+		</section>
+
+		<section class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20" aria-label="รายการบริการ">
+			<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+				{grid.map((item) => <ServiceCard href={item.href} title={item.title} description={item.description} icon={item.icon} />)}
+			</div>
+		</section>
+
+		<section
+			id="คู่มืออุบล"
+			class="scroll-mt-28 border-t border-gray-200 bg-gradient-to-b from-[#FFF7ED]/40 to-white py-14 sm:py-20"
+			aria-labelledby="ubon-guides-heading"
+		>
+			<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+				<h2 id="ubon-guides-heading" class="text-2xl font-extrabold tracking-tight text-[#111827] sm:text-3xl">
+					คู่มือบริการ · จังหวัดอุบลราชธานี
+				</h2>
+				<p class="mt-3 max-w-3xl leading-[1.75] text-[#4B5563]">
+					บทความเชิงท้องถิ่น (SEO / AEO / GEO) สำหรับผู้ค้นหางานซ่อมและรับซื้อในโซนอุบล — ลิงก์ภายในเพิ่มความครบของหมวด{' '}
+					<a class="font-semibold text-[#f97316] underline decoration-orange-500/30 underline-offset-2 hover:text-[#ea580c]" href="/blog/">บทความทั้งหมด</a>
+				</p>
+				<ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					<li>
+						<a
+							class="group flex h-full flex-col rounded-2xl border border-gray-200/90 bg-white p-5 shadow-sm transition duration-200 hover:border-[#f97316]/40 hover:shadow-md"
+							href="/รับซ่อมคอม-อุบลราชธานี-คู่มือนัดซ่อม/"
+						>
+							<span class="text-xs font-bold uppercase tracking-wider text-[#f97316]">ซ่อม PC</span>
+							<span class="mt-2 font-bold text-[#111827] group-hover:text-[#ea580c]">รับซ่อมคอม อุบลราชธานี</span>
+							<span class="mt-2 text-sm leading-relaxed text-[#4B5563]">นัดซ่อม อาการเบื้องต้น FAQ</span>
+						</a>
+					</li>
+					<li>
+						<a
+							class="group flex h-full flex-col rounded-2xl border border-gray-200/90 bg-white p-5 shadow-sm transition duration-200 hover:border-[#f97316]/40 hover:shadow-md"
+							href="/รับซ่อมโน๊ตบุ๊ค-อุบลราชธานี-คู่มือซ่อม/"
+						>
+							<span class="text-xs font-bold uppercase tracking-wider text-[#f97316]">ซ่อม Notebook</span>
+							<span class="mt-2 font-bold text-[#111827] group-hover:text-[#ea580c]">รับซ่อมโน๊ตบุ๊ค อุบลฯ</span>
+							<span class="mt-2 text-sm leading-relaxed text-[#4B5563]">จอ แบต คีย์บอร์ด</span>
+						</a>
+					</li>
+					<li>
+						<a
+							class="group flex h-full flex-col rounded-2xl border border-gray-200/90 bg-white p-5 shadow-sm transition duration-200 hover:border-[#f97316]/40 hover:shadow-md"
+							href="/รับซ่อมมือถือ-อุบลราชธานี-คู่มือ/"
+						>
+							<span class="text-xs font-bold uppercase tracking-wider text-[#f97316]">ซ่อมมือถือ</span>
+							<span class="mt-2 font-bold text-[#111827] group-hover:text-[#ea580c]">รับซ่อมมือถือ อุบลฯ</span>
+							<span class="mt-2 text-sm leading-relaxed text-[#4B5563]">จอ แบต น้ำเข้า</span>
+						</a>
+					</li>
+					<li>
+						<a
+							class="group flex h-full flex-col rounded-2xl border border-gray-200/90 bg-white p-5 shadow-sm transition duration-200 hover:border-[#f97316]/40 hover:shadow-md"
+							href="/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ-ประเมินราคา/"
+						>
+							<span class="text-xs font-bold uppercase tracking-wider text-[#f97316]">รับซื้อ</span>
+							<span class="mt-2 font-bold text-[#111827] group-hover:text-[#ea580c]">รับซื้อไอโฟน อุบลฯ</span>
+							<span class="mt-2 text-sm leading-relaxed text-[#4B5563]">ประเมินราคา · checklist</span>
+						</a>
+					</li>
+				</ul>
+				<p class="mt-6 text-sm text-[#4B5563]">
+					รายละเอียดจุดบริการซ่อมในเมือง —{' '}
+					<a class="font-semibold text-[#f97316] hover:underline" href="/fixcom-ubon/">รับซ่อมคอมพิวเตอร์ใกล้ฉัน อุบลราชธานี</a>
+				</p>
+			</div>
+		</section>
+
+		<section id="องค์กร" class="scroll-mt-28 border-t border-gray-200 bg-white py-14 sm:py-16">
+			<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">บริการสำหรับองค์กรและหมู่คณะ</h2>
+				<p class="mt-3 leading-[1.75] text-[#4B5563]">
+					หากต้องการประเมินหลายเครื่อง หรือนัดรับตามกำหนด กรุณาแจ้งจำนวน รุ่น และสถานที่โดยสังเขปผ่าน
+					<a class="font-semibold text-[#f97316] hover:underline" href="/contact/">หน้าติดต่อเรา</a>
+				</p>
+			</div>
+		</section>
+	</div>
+</BaseLayout>

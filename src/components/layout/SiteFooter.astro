@@ -1,0 +1,157 @@
+---
+import BrandLogo from '../BrandLogo.astro';
+
+const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const phone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
+const phoneDisplay = phone.replace(/^\+66/, '0').replace(/-/g, '');
+const lineUrl = 'https://line.me/R/ti/p/@webuy';
+const telHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
+const openingHours = import.meta.env.PUBLIC_OPENING_HOURS ?? 'ทุกวัน 24 ชั่วโมง';
+const addressLine1 = import.meta.env.PUBLIC_STREET_ADDRESS ?? '';
+const addressLocality = import.meta.env.PUBLIC_ADDRESS_LOCALITY ?? 'กรุงเทพมหานคร';
+const addressRegion = import.meta.env.PUBLIC_ADDRESS_REGION ?? 'ประเทศไทย';
+const postalCode = import.meta.env.PUBLIC_POSTAL_CODE ?? '10200';
+const mapUrl = import.meta.env.PUBLIC_GOOGLE_MAP_URL ?? 'https://maps.google.com/?q=13.7563,100.5018';
+const year = new Date().getFullYear();
+---
+
+<footer
+	class="relative overflow-hidden border-t border-white/[0.08] bg-[#0f172a] text-gray-300"
+	role="contentinfo"
+>
+	<div
+		class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,rgba(249,115,22,0.11)_0%,transparent_55%),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(2,6,23,0.85)_100%)]"
+		aria-hidden="true"
+	>
+	</div>
+	<div class="relative mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+		<div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
+			<div class="lg:col-span-4">
+				<div class="inline-block rounded-lg border border-white/10 bg-white/[0.07] p-2 shadow-sm backdrop-blur-sm">
+					<div class="rounded-md bg-white px-2.5 py-1.5">
+						<BrandLogo />
+					</div>
+				</div>
+				<p class="mt-5 text-sm font-semibold text-white">{orgName}</p>
+				<p class="mt-3 max-w-md text-sm leading-[1.75] text-gray-400">
+					เน้นรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง — พร้อมบริการซ่อม จำหน่าย และหมวดรับซื้ออื่น ด้วยมาตรฐานมืออาชีพ
+				</p>
+				<div class="mt-6 space-y-2 text-sm text-gray-400">
+					<p>
+						<span class="text-gray-500">โทร:</span>{' '}
+						<a class="font-semibold text-white transition hover:text-brand-400" href={telHref}>{phoneDisplay}</a>
+					</p>
+					<p>
+						<span class="text-gray-500">LINE:</span>{' '}
+						<a
+							class="font-semibold text-white transition hover:text-brand-400"
+							href={lineUrl}
+							target="_blank"
+							rel="noopener noreferrer">@webuy</a
+						>
+					</p>
+					<p><span class="text-gray-500">เวลา:</span> {openingHours}</p>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-8 lg:gap-8">
+				<div>
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">บริการของเรา</p>
+					<ul class="mt-4 space-y-2.5 text-sm">
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/บริการ/">ภาพรวมบริการ</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อ/">รับซื้อ</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อคอม/">รับซื้อคอม</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
+					</ul>
+				</div>
+				<div>
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">เกี่ยวกับ</p>
+					<ul class="mt-4 space-y-2.5 text-sm">
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/blog/">บทความ</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400" href="/contact/">ติดต่อเรา</a></li>
+						<li>
+							<a class="text-gray-400 transition hover:text-brand-400" href={mapUrl} target="_blank" rel="noopener noreferrer"
+								>แผนที่ / นำทาง</a
+							>
+						</li>
+					</ul>
+				</div>
+				<div class="col-span-2 sm:col-span-1">
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">ที่อยู่ (NAP)</p>
+					<p class="mt-4 text-sm leading-[1.75] text-gray-400">
+						<strong class="font-semibold text-gray-200">{siteName}</strong><br />
+						{addressLine1 && (
+							<>
+								{addressLine1}
+								<br />
+							</>
+						)}
+						{addressLocality} {postalCode}<br />
+						{addressRegion}
+					</p>
+				</div>
+			</div>
+
+			<div class="col-span-full mt-6 border-t border-white/[0.08] pt-10">
+				<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">คู่มือบริการ · อุบลราชธานี</p>
+				<ul class="mt-4 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-2">
+					<li>
+						<a class="text-gray-400 transition hover:text-brand-400" href="/บริการ/#คู่มืออุบล">ภาพรวม + 4 คู่มือ</a>
+					</li>
+					<li>
+						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซ่อมคอม-อุบลราชธานี-คู่มือนัดซ่อม/">รับซ่อมคอม อุบล</a>
+					</li>
+					<li>
+						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซ่อมโน๊ตบุ๊ค-อุบลราชธานี-คู่มือซ่อม/">รับซ่อมโน๊ตบุ๊ค อุบล</a>
+					</li>
+					<li>
+						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซ่อมมือถือ-อุบลราชธานี-คู่มือ/">รับซ่อมมือถือ อุบล</a>
+					</li>
+					<li>
+						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ-ประเมินราคา/">รับซื้อไอโฟน อุบล</a>
+					</li>
+					<li>
+						<a class="text-gray-400 transition hover:text-brand-400" href="/fixcom-ubon/">จุดซ่อมในเมือง (fixcom-ubon)</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div
+			class="mt-14 flex flex-col gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between sm:p-8"
+		>
+			<p class="text-sm font-medium text-gray-300">ต้องการประเมินราคาสินค้าไอที?</p>
+			<div class="flex flex-wrap gap-3">
+				<a
+					class="inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-2.5 text-sm font-bold !text-white shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-brand-700 hover:!text-white [text-shadow:0_1px_0_rgba(0,0,0,0.12)]"
+					href={lineUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					ประเมินราคาฟรี
+				</a>
+				<a
+					class="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-300"
+					href="/contact/"
+				>
+					ติดต่อเรา
+				</a>
+			</div>
+		</div>
+
+		<div
+			class="mt-10 flex flex-col gap-4 border-t border-white/[0.08] pt-8 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between"
+		>
+			<p>© {year} {siteName} · สงวนลิขสิทธิ์</p>
+			<div class="flex flex-wrap gap-x-5 gap-y-2">
+				<a class="transition hover:text-brand-400" href="/">หน้าแรก</a>
+				<a class="transition hover:text-brand-400" href="/sitemap-index.xml">Sitemap</a>
+				<a class="transition hover:text-brand-400" href="/llms.txt">llms.txt</a>
+				<a class="transition hover:text-brand-400" href="/robots.txt">robots.txt</a>
+			</div>
+		</div>
+	</div>
+</footer>

@@ -1,28 +1,46 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
-import { fetchPosts, isWordpressConfigured } from '../../lib/wordpress';
+import { getPublishedPosts } from '../../lib/posts';
 import { getSiteOrigin } from '../../lib/site';
 
-const configured = isWordpressConfigured();
-const posts = configured ? await fetchPosts() : [];
+const posts = await getPublishedPosts();
+const searchRaw = Astro.url.searchParams.get('q')?.trim() ?? '';
+const searchQ = searchRaw.toLowerCase();
+const filteredPosts =
+	searchQ.length > 0
+		? posts.filter((post) => {
+				const title = post.data.title.toLowerCase();
+				const desc = (post.data.description ?? '').toLowerCase();
+				return title.includes(searchQ) || desc.includes(searchQ);
+			})
+		: posts;
 const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const rawMetaKw = import.meta.env.PUBLIC_META_KEYWORDS;
+const blogKeywords =
+	typeof rawMetaKw === 'string' && rawMetaKw.trim() !== ''
+		? rawMetaKw.trim()
+		: 'บทความรับซื้อโน้ตบุ๊ค,บทความรับซื้อคอม,รับซื้อโน๊ตบุ๊ค,รับซื้อคอม,รับซื้อไอโฟน,รับซื้อกล้อง,คู่มือขายมือสอง,ไอทีมือสอง';
+
 const listJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
 		name: 'บทความ | เรารับซื้อ.com',
-		description: 'รวมบทความรับซื้อโน๊ตบุ๊ค คอม ไอโฟน และไอทีมือสอง จาก WE BUY | เรารับซื้อ',
+		description:
+			'รวมบทความเรื่องรับซื้อโน้ตบุ๊คและรับซื้อคอมมือสอง ประกอบด้วยคู่มือขายมือสองและหมวดไอทีอื่นจาก WE BUY | เรารับซื้อ',
 		url: `${site}/blog/`,
 		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
 		mainEntity: {
 			'@type': 'ItemList',
-			numberOfItems: posts.length,
-			itemListElement: posts.slice(0, 50).map((post, index) => ({
+			numberOfItems: filteredPosts.length,
+			itemListElement: filteredPosts.slice(0, 50).map((post, index) => ({
 				'@type': 'ListItem',
 				position: index + 1,
-				url: `${site}/${post.slug}/`,
-				name: post.title.rendered.replace(/<[^>]+>/g, '').trim(),
+				url: `${site}/${post.data.slug}/`,
+				name: post.data.title,
 			})),
 		},
 	},
@@ -30,7 +48,7 @@ const listJsonLd: Array<Record<string, unknown>> = [
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
 		itemListElement: [
-			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site },
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'บทความ', item: `${site}/blog/` },
 		],
 	},
@@ -39,32 +57,69 @@ const listJsonLd: Array<Record<string, unknown>> = [
 
 <BaseLayout
 	title="บทความ | เรารับซื้อ.com"
-	description="บทความรับซื้อสินค้าไอทีมือสอง ประเมินราคา เตรียมเครื่องก่อนขาย — WE BUY | เรารับซื้อ"
+	description="คู่มือรับซื้อโน้ตบุ๊ค รับซื้อคอมมือสอง ประเมินราคาและเตรียมเครื่องก่อนขาย — WE BUY | เรารับซื้อ"
+	keywords={blogKeywords}
 	pathname="/blog/"
 	jsonLd={listJsonLd}
 >
 	<div class="container page-head">
-		<p class="tech-eyebrow">Knowledge base · WordPress</p>
+		<p class="tech-eyebrow">Knowledge base · Markdown</p>
 		<h1 class="page-title tech-h2">บทความ</h1>
-		<p class="intro">บทความจาก WordPress ดึงมาแสดงที่นี่ — อ่านก่อนตัดสินใจขาย แล้วแอดไลน์ @webuy เพื่อประเมินราคา</p>
+		<p class="intro">
+			เน้นเนื้อหาเกี่ยวกับ<strong>รับซื้อโน้ตบุ๊ค</strong>และ<strong>รับซื้อคอม</strong>มือสอง รวมถึงคู่มือขายไอทีและบทความจากฐานข้อมูลเดิม
+			แก้ไขไฟล์ใน <code>src/content/posts/</code> แล้ว build ใหม่ — แอดไลน์ <strong>@webuy</strong> เพื่อประเมินราคา
+		</p>
 		{
-			!configured ? (
+			posts.length === 0 ? (
 				<p class="hint">
-					ตั้งค่า <code>PUBLIC_WORDPRESS_URL</code> ใน <code>.env</code>{' '}
-					เพื่อดึงโพสต์จาก WordPress
+					ยังไม่มีไฟล์ใน <code>src/content/posts/</code> — ถ้ามี WordPress เดิมให้รัน{' '}
+					<code>npm run export:wp</code> หนึ่งครั้งเพื่อดึงโพสต์มาเป็น .md
 				</p>
-			) : posts.length === 0 ? (
-				<p class="hint">ยังไม่มีโพสต์ หรือ API ไม่สามารถเชื่อมต่อได้</p>
 			) : (
-				<p class="meta">{posts.length} บทความ</p>
+				<p class="meta">
+					{searchRaw
+						? `พบ ${filteredPosts.length} จาก ${posts.length} บทความ`
+						: `${posts.length} บทความ`}
+				</p>
+			)
+		}
+		{
+			posts.length > 0 && (
+				<form class="blog-search" method="get" action="/blog/">
+					<label class="sr-only" for="blog-q">ค้นหาบทความ</label>
+					<input
+						id="blog-q"
+						class="blog-search-input"
+						type="search"
+						name="q"
+						value={searchRaw}
+						placeholder="ค้นหาหัวข้อหรือคำอธิบาย..."
+						autocomplete="off"
+						spellcheck={false}
+					/>
+					<button type="submit" class="blog-search-btn">ค้นหา</button>
+					{
+						searchRaw ? (
+							<a class="blog-search-clear" href="/blog/">ล้าง</a>
+						) : null
+					}
+				</form>
 			)
 		}
 	</div>
 
 	{
-		posts.length > 0 && (
+		posts.length > 0 && filteredPosts.length === 0 && searchRaw && (
+			<div class="container empty-results">
+				<p>ไม่พบบทความที่ตรงกับ &ldquo;{searchRaw}&rdquo;</p>
+				<a href="/blog/">ดูบทความทั้งหมด</a>
+			</div>
+		)
+	}
+	{
+		posts.length > 0 && filteredPosts.length > 0 && (
 			<div class="container grid">
-				{posts.map((post) => (
+				{filteredPosts.map((post) => (
 					<PostCard post={post} />
 				))}
 			</div>
@@ -86,12 +141,83 @@ const listJsonLd: Array<Record<string, unknown>> = [
 		font-size: 0.95rem;
 		max-width: 62ch;
 	}
+	.intro code {
+		font-family: var(--font-mono);
+		font-size: 0.85em;
+		padding: 0.15em 0.4em;
+		background: rgba(15, 23, 42, 0.05);
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		border-radius: 6px;
+		color: var(--accent-dim);
+	}
 	.meta {
-		margin: 0;
+		margin: 0 0 0.85rem;
 		font-family: var(--font-mono);
 		color: var(--muted);
 		font-size: 0.82rem;
 		letter-spacing: 0.04em;
+	}
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+	.blog-search {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		max-width: 36rem;
+		margin-top: 0.25rem;
+	}
+	.blog-search-input {
+		flex: 1 1 12rem;
+		min-width: 0;
+		padding: 0.55rem 0.75rem;
+		font: inherit;
+		font-size: 0.95rem;
+		border: 1px solid rgba(15, 23, 42, 0.12);
+		border-radius: var(--radius);
+		background: var(--surface);
+		color: var(--text);
+	}
+	.blog-search-input:focus {
+		outline: 2px solid rgba(255, 140, 0, 0.45);
+		outline-offset: 1px;
+	}
+	.blog-search-btn {
+		padding: 0.55rem 1rem;
+		font: inherit;
+		font-weight: 600;
+		font-size: 0.9rem;
+		border: none;
+		border-radius: var(--radius);
+		background: linear-gradient(135deg, #ff8c00, #ea580c);
+		color: #fff;
+		cursor: pointer;
+	}
+	.blog-search-btn:hover {
+		filter: brightness(1.05);
+	}
+	.blog-search-clear {
+		font-size: 0.88rem;
+		color: var(--accent-dim);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	.empty-results {
+		padding-bottom: 3rem;
+		color: var(--muted);
+	}
+	.empty-results a {
+		font-weight: 600;
+		color: var(--accent-dim);
 	}
 	.hint {
 		margin: 0;

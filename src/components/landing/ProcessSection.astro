@@ -1,0 +1,106 @@
+---
+export interface ProcessStep {
+	title: string;
+	description: string;
+}
+
+interface Props {
+	id: string;
+	eyebrow?: string;
+	heading: string;
+	intro: string;
+	bulletPoints?: string[];
+	steps: ProcessStep[];
+	imageSrc?: string;
+	imageAlt?: string;
+}
+
+const {
+	id,
+	eyebrow = 'กระบวนการบริการ',
+	heading,
+	intro,
+	bulletPoints = [],
+	steps,
+	imageSrc = '/hero-soft.svg',
+	imageAlt = 'บริการรับซื้อสินค้าไอทีอย่างมืออาชีพ',
+} = Astro.props;
+---
+
+<section
+	class="relative border-b border-gray-200/80 bg-gradient-to-b from-[#FFF7ED]/40 via-white to-[#FAFAFA] py-16 sm:py-20 lg:py-24"
+	aria-labelledby={id}
+>
+	<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" aria-hidden="true"></div>
+	<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+		<div class="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
+			<div class="min-w-0">
+				<p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-600">{eyebrow}</p>
+				<h2 id={id} class="mt-4 text-[clamp(1.5rem,3vw+1rem,2.25rem)] font-extrabold tracking-tight text-text">
+					{heading}
+				</h2>
+				<p class="mt-4 max-w-[40rem] text-base leading-[1.75] text-text-muted sm:text-lg">
+					{intro}
+				</p>
+				{
+					bulletPoints.length > 0 && (
+						<ul class="mt-7 grid gap-2.5 text-sm text-text sm:text-[0.9375rem]" aria-label="จุดเด่นบริการ">
+							{bulletPoints.map((item) => (
+								<li class="flex gap-3">
+									<span
+										class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500 ring-4 ring-brand-500/15"
+										aria-hidden="true"
+									/>
+									<span class="leading-relaxed">{item}</span>
+								</li>
+							))}
+						</ul>
+					)
+				}
+
+				<ol class="relative mt-12 space-y-0" aria-label="ขั้นตอนการรับซื้อ">
+					{steps.map((step, index) => (
+						<li class="relative flex gap-5 pb-11 last:pb-0">
+							{index < steps.length - 1 && (
+								<div
+									class="absolute bottom-0 left-[1.375rem] top-[3.25rem] w-px bg-gradient-to-b from-brand-200 via-brand-100 to-transparent"
+									aria-hidden="true"
+								/>
+							)}
+							<div class="relative z-10 flex shrink-0">
+								<span
+									class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-600 text-sm font-extrabold tabular-nums text-white shadow-md shadow-brand-600/25 ring-4 ring-brand-500/10"
+								>
+									{index + 1}
+								</span>
+							</div>
+							<div class="min-w-0 pt-1">
+								<h3 class="text-lg font-bold leading-snug text-text">{step.title}</h3>
+								<p class="mt-2 text-sm leading-[1.75] text-text-muted sm:text-base">{step.description}</p>
+							</div>
+						</li>
+					))}
+				</ol>
+			</div>
+
+			<div class="relative lg:sticky lg:top-28">
+				<div
+					class="overflow-hidden rounded-[1.375rem] border border-gray-200/90 bg-white p-2 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_24px_48px_-28px_rgba(15,23,42,0.16)] ring-1 ring-brand-500/5"
+				>
+					<img
+						src={imageSrc}
+						alt={imageAlt}
+						width="920"
+						height="360"
+						loading="lazy"
+						decoding="async"
+						class="h-auto w-full rounded-xl object-cover"
+					/>
+				</div>
+				<p class="mt-5 text-center text-xs font-medium leading-relaxed text-muted sm:text-sm">
+					สื่อสารทุกขั้นตอนผ่าน LINE — ลดความเสี่ยง ตรวจสอบได้
+				</p>
+			</div>
+		</div>
+	</div>
+</section>

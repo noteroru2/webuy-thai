@@ -23,6 +23,11 @@ const serviceAreas = serviceAreasRaw
 	.map((item) => item.trim())
 	.filter(Boolean);
 
+const geoLat = Number(import.meta.env.PUBLIC_GEO_LAT ?? '13.7563');
+const geoLon = Number(import.meta.env.PUBLIC_GEO_LON ?? '100.5018');
+const orgId = `${site}/#organization`;
+const localId = `${site}/#localbusiness`;
+
 const contactJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
@@ -31,7 +36,9 @@ const contactJsonLd: Array<Record<string, unknown>> = [
 		url: `${site}/contact/`,
 		mainEntity: {
 			'@type': 'LocalBusiness',
+			'@id': localId,
 			name: siteName,
+			parentOrganization: { '@id': orgId },
 			telephone: businessPhone,
 			areaServed: serviceAreas.map((area) => ({
 				'@type': 'AdministrativeArea',
@@ -40,8 +47,8 @@ const contactJsonLd: Array<Record<string, unknown>> = [
 			hasMap: mapUrl,
 			geo: {
 				'@type': 'GeoCoordinates',
-				latitude: 13.7563,
-				longitude: 100.5018,
+				latitude: geoLat,
+				longitude: geoLon,
 			},
 			openingHoursSpecification: [
 				{
@@ -71,16 +78,22 @@ const contactJsonLd: Array<Record<string, unknown>> = [
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
 		itemListElement: [
-			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: site },
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'ติดต่อเรา', item: `${site}/contact/` },
 		],
 	},
 ];
+const rawMetaKw = import.meta.env.PUBLIC_META_KEYWORDS;
+const contactKeywords =
+	typeof rawMetaKw === 'string' && rawMetaKw.trim() !== ''
+		? `ติดต่อ,${rawMetaKw.trim()}`
+		: 'ติดต่อ,รับซื้อโน๊ตบุ๊ค,รับซื้อคอม,Line @webuy,WE BUY';
 ---
 
 <BaseLayout
 	title={`ติดต่อเรา | ${siteName}`}
-	description="ติดต่อทีมงาน WE BUY | เรารับซื้อ ผ่าน LINE @webuy โทร 064-2579353 พร้อมแผนที่และพื้นที่ให้บริการ"
+	description="ติดต่อทีมงาน WE BUY | เรารับซื้อ — รับซื้อโน้ตบุ๊ค รับซื้อคอม LINE @webuy โทร 064-2579353 พร้อมแผนที่และพื้นที่ให้บริการ"
+	keywords={contactKeywords}
 	pathname="/contact/"
 	jsonLd={contactJsonLd}
 >
@@ -89,7 +102,7 @@ const contactJsonLd: Array<Record<string, unknown>> = [
 			<p class="tech-eyebrow">ติดต่อทีมงาน</p>
 			<h1>ช่องทางติดต่อ — เรารับซื้อ.com</h1>
 			<p>
-				ต้องการประเมินราคาสินค้าหรือสอบถามบริการ ติดต่อเราผ่าน LINE ได้ทันที
+				ต้องการประเมินราคารับซื้อโน้ตบุ๊คหรือรับซื้อคอม (หรือสอบถามบริการอื่น) ติดต่อเราผ่าน LINE ได้ทันที
 				พร้อมทีมงานตอบกลับต่อเนื่อง
 			</p>
 		</div>
