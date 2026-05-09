@@ -17,3 +17,12 @@ export function getSiteUrl(pathname: string): string {
   const path = pathname.startsWith('/') ? pathname : `/${pathname}`;
   return `${base}${path}`;
 }
+
+export function getSocialLinks(): string[] {
+  const env = import.meta.env as Record<string, unknown>;
+  const socialRaw = typeof env.PUBLIC_ORG_SAME_AS === 'string' ? env.PUBLIC_ORG_SAME_AS : 'https://line.me/R/ti/p/@webuy';
+  return socialRaw
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}

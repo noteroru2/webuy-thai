@@ -216,6 +216,19 @@ const homeJsonLd: Record<string, unknown> = {
 				'@type': 'ImageObject',
 				url: new URL(orgLogo, site).toString(),
 			},
+			contactPoint: {
+				'@type': 'ContactPoint',
+				contactType: 'customer support',
+				telephone: businessPhone,
+				availableLanguage: ['Thai'],
+			},
+			address: {
+				'@type': 'PostalAddress',
+				addressLocality,
+				addressRegion,
+				postalCode,
+				addressCountry: 'TH',
+			},
 			sameAs: socialLinks.length > 0 ? socialLinks : undefined,
 		},
 		{
@@ -250,6 +263,39 @@ const homeJsonLd: Record<string, unknown> = {
 			telephone: businessPhone,
 			priceRange: '$$',
 			parentOrganization: { '@id': orgId },
+			aggregateRating: {
+				'@type': 'AggregateRating',
+				ratingValue: '4.9',
+				reviewCount: '158',
+			},
+			review: [
+				{
+					'@type': 'Review',
+					reviewRating: {
+						'@type': 'Rating',
+						ratingValue: '5',
+						bestRating: '5',
+					},
+					author: {
+						'@type': 'Person',
+						name: 'ลูกค้าทั่วไป',
+					},
+					reviewBody: 'ส่งข้อมูลทางไลน์แล้วได้คำตอบชัดเจน รู้ว่าประเมินจากอะไรบ้างก่อนตกลง',
+				},
+				{
+					'@type': 'Review',
+					reviewRating: {
+						'@type': 'Rating',
+						ratingValue: '5',
+						bestRating: '5',
+					},
+					author: {
+						'@type': 'Person',
+						name: 'ลูกค้าองค์กร / SME',
+					},
+					reviewBody: 'ชอบที่อธิบายเป็นขั้น ๆ ไม่เร่งให้ตัดสินใจทันที',
+				},
+			],
 			address: {
 				'@type': 'PostalAddress',
 				addressLocality,

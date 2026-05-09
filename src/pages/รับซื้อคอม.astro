@@ -1,10 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import '../styles/longform.css';
-import { getSiteOrigin } from '../lib/site';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
 const websiteId = `${site}/#website`;
 const pageUrl = `${site}/รับซื้อคอม/`;
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
@@ -78,8 +84,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		description:
 			'บริการรับซื้อคอมพิวเตอร์ตั้งโต๊ะมือสอง ครอบคลุมคอมประกอบ คอมแบรนด์เนม คอมเกมมิ่ง เวิร์กสเตชัน พร้อมคู่มือเตรียมเครื่องก่อนขายและเกณฑ์ประเมินราคาอย่างละเอียด',
 		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', name: orgName },
-		publisher: { '@type': 'Organization', name: orgName },
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
 		mainEntityOfPage: {
 			'@type': 'WebPage',
 			'@id': `${pageUrl}#webpage`,
@@ -89,6 +95,10 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		keywords:
 			'รับซื้อคอม, ขายคอมมือสอง, รับซื้อคอมพิวเตอร์, รับซื้อคอมตั้งโต๊ะ, รับซื้อคอมเกมมิ่ง, รับซื้อ PC, ประเมินราคาคอม, ขายคอมเก่า, รับซื้อคอมสำนักงาน, รับซื้อเวิร์กสเตชัน',
 		image: [new URL('/og-default.png', site).toString()],
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
 	},
 	{
 		'@context': 'https://schema.org',
@@ -114,7 +124,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		name: 'บริการรับซื้อคอมพิวเตอร์',
 		description:
 			'บริการรับซื้อคอมพิวเตอร์มือสองทุกประเภท ทั้ง PC ประกอบ คอมแบรนด์เนม Gaming PC Workstation ประเมินราคาโปร่งใส จ่ายเงินทันที',
-		provider: { '@type': 'Organization', name: orgName },
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
 		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
 		serviceType: 'รับซื้อคอมพิวเตอร์มือสอง',
 		url: pageUrl,
@@ -807,5 +817,12 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL/Marshall และรุ่นยอดนิยมอื่น ๆ</li>
 			</ul>
 		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
 	</article>
 </BaseLayout>
