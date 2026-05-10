@@ -6,13 +6,14 @@ const site = getSiteOrigin();
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const websiteId = `${site}/#website`;
 const pageUrl = `${site}/รับซื้อ/`;
+
 const jsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
 		'@id': `${pageUrl}#webpage`,
-		name: 'รับซื้อสินค้าไอทีมือสอง',
-		description: 'แกนหลัก: รับซื้อโน้ตบุ๊คและรับซื้อคอม — รวมหมวดรับซื้อไอโฟน กล้อง และไอทีมือสอง',
+		name: 'รับซื้อสินค้าไอทีมือสอง ทุกประเภท ราคาดี จ่ายเงินทันที',
+		description: 'ศูนย์รับซื้อโน้ตบุ๊ค คอมพิวเตอร์ ไอโฟน ไอแพด กล้อง และลำโพงแบรนด์เนมมือสอง ครบวงจร ประเมินราคาด่วน 24 ชม.',
 		url: pageUrl,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
@@ -25,51 +26,113 @@ const jsonLd: Array<Record<string, unknown>> = [
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: pageUrl },
 		],
 	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อสินค้าไอทีมือสอง',
+		description: 'รับซื้อโน้ตบุ๊ค, คอมพิวเตอร์, มือถือ และอุปกรณ์ไอทีทุกชนิด ให้ราคาสูง จ่ายเงินสดทันที',
+		provider: { '@type': 'Organization', name: orgName },
+		url: pageUrl,
+	}
 ];
+
 const categories = [
-	{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊ค', desc: 'MacBook, Windows, เกมมิง — ทุกยี่ห้อ' },
-	{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์', desc: 'PC ประกอบ, เล่นเกม, สำนักงาน' },
-	{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อไอโฟน', desc: 'iPhone ทุกรุ่น' },
-	{ href: '/รับซื้อไอแพด/', title: 'รับซื้อไอแพด', desc: 'iPad ทุกซีรีส์' },
-	{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'Air / Pro, Apple Silicon' },
-	{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless, เลนส์' },
-	{ href: '/รับซื้อลำโพง/', title: 'รับซื้อลำโพง', desc: 'JBL, Marshall และยี่ห้อยอดนิยม' },
+	{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊ค', desc: 'รับซื้อ Laptop ทุกยี่ห้อ ทั้งสายทำงาน และ Notebook เกมมิ่งแรง ๆ' },
+	{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์', desc: 'PC ประกอบเอง, คอมแบรนด์เนม, Workstation และจอคอมพิวเตอร์' },
+	{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อไอโฟน', desc: 'iPhone ทุกรุ่น ตั้งแต่รุ่นเก่าจนถึงรุ่นล่าสุด ประเมินตามสุขภาพแบต' },
+	{ href: '/รับซื้อไอแพด/', title: 'รับซื้อไอแพด', desc: 'iPad Pro, Air, mini และ iPad Gen ทุกรุ่น ทั้งแบบ Wi-Fi และใส่ซิม' },
+	{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'MacBook Air / Pro ทั้งชิป Intel และตระกูล M1-M5 ให้ราคาสูง' },
+	{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless, เลนส์ และอุปกรณ์ถ่ายภาพทุกประเภท' },
+	{ href: '/รับซื้อลำโพง/', title: 'รับซื้อลำโพง', desc: 'Marshall, JBL และลำโพงบลูทูธแบรนด์เนมของแท้เท่านั้น' },
 ];
 ---
 
 <BaseLayout
-	title={`รับซื้อสินค้าไอทีมือสอง | ${orgName}`}
-	description="รับซื้อโน้ตบุ๊ค รับซื้อคอม และหมวดอื่น — เลือกหมวดขายมือสอง ประเมินราคาผ่าน Line @webuy"
+	title={`รับซื้อสินค้าไอทีมือสอง | บริการรับซื้อโน้ตบุ๊ค คอม ไอโฟน กล้อง | ${orgName}`}
+	description="WE BUY ศูนย์รับซื้อสินค้าไอทีมือสองครบวงจร รับซื้อโน้ตบุ๊ค คอมพิวเตอร์ ไอโฟน ไอแพด กล้อง ลำโพง ประเมินราคาโปร่งใส จ่ายเงินสดทันที ติดต่อ Line @webuy 24 ชม."
 	pathname="/รับซื้อ/"
 	jsonLd={jsonLd}
 >
 	<div class="container page">
 		<header class="head">
-			<p class="tech-eyebrow">รับซื้อ · categories</p>
-			<h1 class="tech-h2">เลือกหมวดสินค้าที่ต้องการขาย</h1>
+			<p class="tech-eyebrow">WE BUY • Buyback Categories</p>
+			<h1 class="tech-h2">บริการรับซื้อสินค้าไอทีมือสอง ทุกประเภท</h1>
 			<p class="lead">
-				เน้น<strong>รับซื้อโน้ตบุ๊คและรับซื้อคอม</strong>เป็นหลัก พร้อมหมวดรับซื้ออื่น — ให้ราคายุติธรรม ไม่กดราคา ส่งรูปและรายละเอียดทางไลน์{' '}
-				<a href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a> ทีมงานตีราคาให้ได้ภายใน 24 ชั่วโมง
+				เราคือผู้เชี่ยวชาญในการ <strong>รับซื้อสินค้าไอทีมือสอง</strong> ที่เน้นความโปร่งใสและยุติธรรมที่สุด 
+				ไม่ว่าคุณจะมีเครื่องสภาพสวยเหมือนใหม่ หรือเครื่องที่มีตำหนิจากการใช้งาน 
+				ทีมงานของเราพร้อมประเมินราคาให้คุณตามมูลค่าตลาดจริง เลือกหมวดสินค้าที่คุณต้องการขายด้านล่างนี้:
 			</p>
 		</header>
+
 		<div class="grid">
 			{categories.map((c) => (
 				<a class="card" href={c.href}>
-					<h2>{c.title}</h2>
-					<p>{c.desc}</p>
-					<span class="more">ดูรายละเอียด</span>
+					<div class="card-content">
+						<h2>{c.title}</h2>
+						<p>{c.desc}</p>
+					</div>
+					<span class="more">ดูรายละเอียดราคา &rarr;</span>
 				</a>
 			))}
 		</div>
+
+		<section class="trust-signals">
+			<div class="trust-grid">
+				<div class="trust-item">
+					<div class="icon">💰</div>
+					<h3>ให้ราคาสูง & เป็นธรรม</h3>
+					<p>เราประเมินจากสเปกจริงและความต้องการของตลาดมือสอง ไม่มีการกดราคาเกินเหตุ</p>
+				</div>
+				<div class="trust-item">
+					<div class="icon">⚡</div>
+					<h3>ประเมินไวใน 15 นาที</h3>
+					<p>แค่ส่งรูปและรุ่นมาทาง Line ทีมงานพร้อมตอบราคาเบื้องต้นให้คุณทันที</p>
+				</div>
+				<div class="trust-item">
+					<div class="icon">💵</div>
+					<h3>จ่ายเงินทันที</h3>
+					<p>ตรวจเช็คเครื่องเสร็จ รับเงินสดหน้างานหรือโอนเข้าบัญชีทันใจ ไม่ต้องรอข้ามวัน</p>
+				</div>
+				<div class="trust-item">
+					<div class="icon">🛡️</div>
+					<h3>ข้อมูลปลอดภัย</h3>
+					<p>เรามีบริการช่วยล้างข้อมูล (Format) และออกจากระบบบัญชีให้ เพื่อความเป็นส่วนตัว 100%</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="process-summary">
+			<h2 class="tech-h2">ขั้นตอนการขายง่าย ๆ กับ WE BUY</h2>
+			<div class="steps">
+				<div class="step">
+					<span class="step-num">1</span>
+					<p><strong>ส่งข้อมูล:</strong> ทักไลน์ <a href="https://line.me/R/ti/p/@webuy">@webuy</a> ส่งรูปและสเปกเครื่อง</p>
+				</div>
+				<div class="step">
+					<span class="step-num">2</span>
+					<p><strong>รับราคา:</strong> รอรับราคาประเมินเบื้องต้นภายในเวลาไม่กี่นาที</p>
+				</div>
+				<div class="step">
+					<span class="step-num">3</span>
+					<p><strong>นัดรับ:</strong> นัดเจอในพื้นที่บริการ หรือส่งพัสดุตามความสะดวก</p>
+				</div>
+				<div class="step">
+					<span class="step-num">4</span>
+					<p><strong>รับเงิน:</strong> ตรวจสอบเครื่องจริงเสร็จ รับเงินทันที</p>
+				</div>
+			</div>
+		</section>
+
 		<section class="extra" aria-labelledby="more-cats">
-			<h2 id="more-cats" class="tech-h2">สินค้าอื่น ๆ ที่รับซื้อ</h2>
+			<h2 id="more-cats" class="tech-h2">สินค้าอื่น ๆ ที่เรายังรับซื้อ</h2>
 			<p>
-				นอกจากหมวดด้านบน เรายังรับซื้อมือถือ Android เครื่องเล่นเกม การ์ดจอ ทีวี โดรน และอุปกรณ์ไอทีอื่น ๆ
-				หากไม่แน่ใจว่าอยู่หมวดไหน แอดไลน์ส่งรูปและรุ่นมาได้เลย
+				นอกจากหมวดหลักด้านบนแล้ว เรายังรับซื้อมือถือ Android รุ่นท็อป, เครื่องเล่นเกม (PlayStation, Nintendo Switch), 
+				การ์ดจอแยก, จอมอนิเตอร์, ทีวี Smart TV, และอุปกรณ์ไอทีเกรดพรีเมียมอื่น ๆ 
+				หากคุณมีอุปกรณ์ที่ไม่ได้อยู่ในรายการ สามารถสอบถามก่อนได้ครับ
 			</p>
 			<div class="cta-row">
-				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">แอดไลน์ @webuy</a>
-				<a class="btn-ghost" href="/contact/">ติดต่อเรา</a>
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">แอดไลน์ @webuy เพื่อประเมินราคา</a>
+				<a class="btn-ghost" href="/contact/">ติดต่อสอบถามเพิ่มเติม</a>
 			</div>
 		</section>
 	</div>
@@ -77,109 +140,178 @@ const categories = [
 
 <style>
 	.page {
-		padding-block: 2rem 3.5rem;
+		padding-block: 3rem 5rem;
 	}
 	.head {
-		max-width: 62ch;
-		margin-bottom: 1.75rem;
+		max-width: 800px;
+		margin-bottom: 3rem;
 	}
 	.head h1 {
-		margin: 0 0 0.65rem;
-		font-size: clamp(1.45rem, 3vw, 2rem);
-		line-height: 1.25;
+		margin: 0.5rem 0 1rem;
+		font-size: clamp(1.75rem, 4vw, 2.5rem);
+		line-height: 1.2;
+		font-weight: 800;
+		color: var(--text);
 	}
 	.lead {
 		margin: 0;
 		color: var(--muted);
-		font-size: 1rem;
-		line-height: 1.65;
-	}
-	.lead a {
-		font-weight: 700;
+		font-size: 1.15rem;
+		line-height: 1.7;
 	}
 	.grid {
 		display: grid;
-		gap: 1rem;
+		gap: 1.5rem;
+		margin-bottom: 4rem;
 	}
 	@media (min-width: 640px) {
 		.grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
-	@media (min-width: 960px) {
+	@media (min-width: 1024px) {
 		.grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 	}
 	.card {
-		display: grid;
-		gap: 0.35rem;
-		padding: 1.15rem 1.2rem;
-		background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
-		border: 1px solid rgba(15, 23, 42, 0.07);
-		border-radius: var(--radius);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 2rem;
+		background: #fff;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		border-radius: 1rem;
 		text-decoration: none;
 		color: var(--text);
-		box-shadow: 0 2px 14px rgba(15, 23, 42, 0.05);
-		transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+		transition: all 0.3s ease;
 	}
 	.card:hover {
-		border-color: rgba(255, 140, 0, 0.4);
-		box-shadow: var(--shadow-tech);
-		transform: translateY(-2px);
+		border-color: var(--accent);
+		transform: translateY(-5px);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 		text-decoration: none;
 	}
 	.card h2 {
-		margin: 0;
-		font-size: 1.08rem;
+		margin: 0 0 0.75rem;
+		font-size: 1.25rem;
+		font-weight: 700;
 	}
 	.card p {
 		margin: 0;
 		color: var(--muted);
-		font-size: 0.92rem;
+		font-size: 1rem;
 		line-height: 1.5;
 	}
 	.more {
-		margin-top: 0.35rem;
-		font-family: var(--font-mono);
-		font-weight: 600;
-		font-size: 0.72rem;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--accent-dim);
+		margin-top: 1.5rem;
+		font-weight: 700;
+		font-size: 0.9rem;
+		color: var(--accent);
 	}
+
+	.trust-signals {
+		margin-bottom: 5rem;
+		padding: 3rem;
+		background: #f8fafc;
+		border-radius: 1.5rem;
+	}
+	.trust-grid {
+		display: grid;
+		gap: 2rem;
+	}
+	@media (min-width: 768px) {
+		.trust-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		.trust-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	.trust-item {
+		text-align: center;
+	}
+	.trust-item .icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+	.trust-item h3 {
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+	}
+	.trust-item p {
+		font-size: 0.9rem;
+		color: var(--muted);
+		line-height: 1.5;
+	}
+
+	.process-summary {
+		margin-bottom: 5rem;
+	}
+	.steps {
+		display: grid;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+	@media (min-width: 768px) {
+		.steps {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	.step {
+		position: relative;
+		padding: 1.5rem;
+		background: #fff;
+		border: 1px solid #e2e8f0;
+		border-radius: 1rem;
+	}
+	.step-num {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background: var(--accent);
+		color: #fff;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 30px;
+		font-weight: 800;
+		margin-bottom: 1rem;
+	}
+
 	.extra {
-		margin-top: 2.25rem;
-		padding: 1.25rem 1.35rem;
+		padding: 2.5rem;
 		background: linear-gradient(135deg, #fffbeb, #fff7ed);
 		border: 1px solid rgba(180, 83, 9, 0.2);
-		border-radius: var(--radius);
+		border-radius: 1.5rem;
 	}
 	.extra h2 {
-		margin: 0 0 0.5rem;
-		font-size: 1.15rem;
+		margin: 0 0 1rem;
 	}
 	.extra p {
-		margin: 0 0 1rem;
+		margin: 0 0 2rem;
 		color: var(--muted);
-		font-size: 0.95rem;
-		max-width: 62ch;
-		line-height: 1.6;
+		font-size: 1.1rem;
+		max-width: 800px;
+		line-height: 1.7;
 	}
 	.cta-row {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.65rem;
+		gap: 1rem;
 	}
 	.btn-line {
 		display: inline-flex;
 		align-items: center;
-		padding: 0.55rem 1rem;
-		border-radius: 999px;
+		padding: 1rem 2rem;
+		border-radius: 0.75rem;
 		background: #06c755;
 		color: #fff;
 		font-weight: 700;
 		text-decoration: none;
+		transition: background 0.2s;
 	}
 	.btn-line:hover {
 		background: #05b04c;
@@ -188,21 +320,18 @@ const categories = [
 	.btn-ghost {
 		display: inline-flex;
 		align-items: center;
-		padding: 0.55rem 1rem;
-		border-radius: 999px;
-		border: 1px solid rgba(28, 36, 51, 0.15);
+		padding: 1rem 2rem;
+		border-radius: 0.75rem;
+		border: 2px solid #e2e8f0;
 		background: #fff;
 		font-weight: 700;
 		color: var(--text);
 		text-decoration: none;
+		transition: all 0.2s;
 	}
 	.btn-ghost:hover {
 		border-color: var(--accent);
+		color: var(--accent);
 		text-decoration: none;
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.card:hover {
-			transform: none;
-		}
 	}
 </style>

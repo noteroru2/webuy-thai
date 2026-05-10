@@ -1,211 +1,356 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin } from '../lib/site';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
 const websiteId = `${site}/#website`;
 const pageUrl = `${site}/รับซื้อลำโพง/`;
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const serviceAreasRaw =
-  import.meta.env.PUBLIC_SERVICE_AREAS ??
-  'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี';
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
 const serviceAreas = serviceAreasRaw
-  .split(',')
-  .map((item) => item.trim())
-  .filter(Boolean);
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
 
-const faqItems = [
-  {
-    q: 'รับซื้อลำโพง JBL / Marshall รุ่นไหนบ้าง?',
-    a: 'รับซื้อลำโพงยอดนิยมหลายรุ่น เช่น Marshall (Acton, Stanmore, Woburn, Emberton, Kilburn) และ JBL (Flip, Charge, Xtreme, Boombox, PartyBox) โดยประเมินจากรุ่น สภาพเครื่อง เสียงลำโพง แบต และอุปกรณ์ที่มี',
-  },
-  {
-    q: 'ลำโพงแบตเสื่อม/ชาร์จไม่เข้า รับซื้อไหม?',
-    a: 'รับประเมินได้ครับ ราคาจะปรับตามต้นทุนซ่อมและอะไหล่ แนะนำแจ้งอาการตามจริงและแนบวิดีโอทดสอบเสียง',
-  },
-  {
-    q: 'ลำโพงแท้/ปลอมเช็กอย่างไร?',
-    a: 'ทีมงานจะตรวจรุ่น ซีเรียล และรายละเอียดภายนอก/ภายในตามรุ่น หากมีใบเสร็จ กล่อง หรือหลักฐานการซื้อจะช่วยให้ตรวจสอบได้เร็วและเพิ่มความมั่นใจ',
-  },
-  {
-    q: 'ขายด่วนต้องส่งข้อมูลอะไรบ้าง?',
-    a: 'ส่งรุ่นเต็ม + รูปทุกมุม + ภาพพอร์ต/ปุ่ม + วิดีโอทดสอบเสียง/บลูทูธ + อุปกรณ์ที่มี ผ่าน Line @webuy ทีมงานประเมินได้เร็วขึ้นมาก',
-  },
+const priceItems = [
+	{ model: 'Marshall Woburn III / II', price: '12,000 - 18,000 บาท', note: 'ราคาสูงขึ้นหากมีกล่องครบและสภาพบอดี้ไร้รอย' },
+	{ model: 'Marshall Stanmore III / II', price: '7,000 - 11,500 บาท', note: 'รุ่นยอดนิยม ราคาค่อนข้างนิ่งในตลาดมือสอง' },
+	{ model: 'Marshall Emberton II / Willen', price: '2,500 - 4,500 บาท', note: 'เน้นแบตเตอรี่ที่ยังเก็บไฟได้ดีและของแท้ 100%' },
+	{ model: 'JBL Boombox 3 / PartyBox 110-310', price: '8,000 - 16,000+ บาท', note: 'ประเมินจากกำลังขับและสภาพดอกลำโพง' },
+	{ model: 'JBL Charge 5 / Flip 6', price: '1,500 - 3,500 บาท', note: 'รับซื้อทุกสี อุปกรณ์ครบช่วยเพิ่มราคาได้' },
 ];
 
-const jsonLd: Array<Record<string, unknown>> = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${pageUrl}#webpage`,
-    url: pageUrl,
-    name: 'รับซื้อลำโพงมือสอง',
-    description:
-      'WE BUY รับซื้อลำโพง JBL / Marshall มือสอง ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy ตลอด 24 ชั่วโมง',
-    inLanguage: 'th-TH',
-    isPartOf: { '@id': websiteId },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'รับซื้อลำโพง JBL / Marshall มือสอง ประเมินราคาฟรี จ่ายเงินทันที',
-    description:
-      'รับซื้อลำโพง JBL และ Marshall มือสอง ประเมินราคาโปร่งใสจากรุ่น สภาพเสียง แบตเตอรี่ และอุปกรณ์ที่มี ติดต่อ Line @webuy ได้ตลอด 24 ชั่วโมง',
-    inLanguage: 'th-TH',
-    author: { '@type': 'Organization', name: orgName },
-    publisher: { '@type': 'Organization', name: orgName },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${pageUrl}#webpage`,
-    },
-    datePublished: '2026-03-25',
-    dateModified: '2026-03-25',
-    image: [new URL('/og-default.png', site).toString()],
-    keywords:
-      'รับซื้อลำโพง, รับซื้อลำโพง JBL, รับซื้อลำโพง Marshall, ขายลำโพงมือสอง, ประเมินราคาลำโพง, รับซื้อ Marshall Emberton, รับซื้อ JBL Charge',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
-      { '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
-      { '@type': 'ListItem', position: 3, name: 'รับซื้อลำโพง', item: pageUrl },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
-      acceptedAnswer: { '@type': 'Answer', text: item.a },
-    })),
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'บริการรับซื้อลำโพง JBL / Marshall มือสอง',
-    description:
-      'รับซื้อลำโพง JBL และ Marshall มือสอง ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy 24 ชั่วโมง',
-    provider: { '@type': 'Organization', name: orgName },
-    areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
-    serviceType: 'รับซื้อลำโพงมือสอง',
-    url: pageUrl,
-  },
+const faqItems = [
+	{
+		q: 'รับซื้อลำโพงยี่ห้ออะไรบ้าง?',
+		a: 'เน้นรับซื้อลำโพงแบรนด์เนมยอดนิยมอย่าง Marshall, JBL, Bose, Harman Kardon, B&O (Bang & Olufsen), Sony, และ Apple HomePod โดยพิจารณาจากความเป็นของแท้ สภาพเสียง และสภาพภายนอกเป็นหลัก',
+	},
+	{
+		q: 'ลำโพงแบตเสื่อมหรือชาร์จไม่เข้า รับซื้อไหม?',
+		a: 'รับซื้อครับ ทีมงานจะประเมินราคาโดยหักลบค่าเปลี่ยนแบตเตอรี่หรือค่าซ่อมระบบชาร์จตามจริง แนะนำแจ้งอาการชัดเจนตั้งแต่แรกเพื่อการประเมินที่แม่นยำ',
+	},
+	{
+		q: 'จะรู้ได้อย่างไรว่าลำโพงเป็นของแท้หรือของปลอม?',
+		a: 'ทีมงานมีวิธีตรวจสอบเฉพาะทาง ทั้งการดู Serial Number, สัมผัสวัสดุ, คุณภาพเสียง, และการเชื่อมต่อกับแอปพลิเคชัน (เช่น Marshall Bluetooth App หรือ JBL Portable) หากคุณมีหลักฐานการซื้อหรือใบรับประกันจะช่วยยืนยันได้รวดเร็วขึ้น',
+	},
+	{
+		q: 'ลำโพงเสียงแตกหรือเบสหาย รับซื้อไหม?',
+		a: 'รับซื้อครับ แม้ดอกลำโพงจะมีปัญหา ทีมงานยังสามารถประเมินราคาในฐานะเครื่องมีตำหนิหรือเพื่อนำไปเป็นอะไหล่ได้ ทักมาสอบถามราคาก่อนได้เลย',
+	},
+	{
+		q: 'ต้องเตรียมอะไรบ้างก่อนขายลำโพง?',
+		a: 'เตรียมตัวลำโพง, สายชาร์จ/อะแดปเตอร์แท้, กล่องเดิม (ถ้ามี), และใบเสร็จ แจ้งรุ่นที่แน่นอนและสภาพการใช้งาน พร้อมถ่ายวิดีโอทดสอบเสียงสั้น ๆ ส่งมาให้ทีมงานดู',
+	},
+	{
+		q: 'ให้ราคาประเมินนานไหม?',
+		a: 'หากข้อมูลครบถ้วน ทีมงานสามารถแจ้งราคาเบื้องต้นได้ภายใน 15-30 นาที ตลอด 24 ชั่วโมง',
+	},
+	{
+		q: 'จ่ายเงินอย่างไร?',
+		a: 'โอนเงินเข้าบัญชีธนาคารทันทีหลังตรวจสอบเครื่องเสร็จ หรือจ่ายเงินสดหน้างานตามที่ลูกค้าสะดวก',
+	},
+	{
+		q: 'อยู่ต่างจังหวัดขายได้อย่างไร?',
+		a: 'ส่งรูปประเมินราคาทาง Line @webuy ก่อน เมื่อตกลงราคาแล้วส่งพัสดุมาให้เรา เมื่อได้รับของจะโอนเงินให้ทันทีในวันเดียวกัน พร้อมแนะนำวิธีแพ็กป้องกันกระแทก',
+	},
+	{
+		q: 'ลำโพงมีรอยบุบหรือผ้าหุ้มขาด รับไหม?',
+		a: 'รับครับ ตำหนิภายนอกมีผลต่อราคาเล็กน้อยแต่ไม่ทำให้ขายไม่ได้ ทีมงานจะประเมินตามสภาพความสวยงามจริง',
+	},
+	{
+		q: 'รับซื้อลำโพงคอมพิวเตอร์ด้วยไหม?',
+		a: 'รับซื้อบางรุ่น โดยเฉพาะแบรนด์ดังอย่าง Audioengine, Creative, หรือ Razer ส่งรุ่นมาสอบถามก่อนได้ครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อลำโพง Marshall JBL มือสอง ราคาดี จ่ายเงินทันที',
+		description:
+			'WE BUY รับซื้อลำโพงมือสอง Marshall, JBL, Bose และแบรนด์ชั้นนำ ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อลำโพงมือสอง | วิธีการขายลำโพง Marshall และ JBL ให้ได้ราคาดีและไม่โดนหลอก',
+		description:
+			'คู่มือการประเมินราคาลำโพงบลูทูธมือสอง วิธีตรวจสอบของแท้-ของปลอม การเช็คสภาพเสียงและแบตเตอรี่ ครอบคลุม Marshall Acton, Stanmore, Emberton และ JBL ทุกรุ่น',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-03-24',
+		dateModified: '2026-03-24',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords:
+			'รับซื้อลำโพง, รับซื้อ marshall, รับซื้อ jbl, ขายลำโพงมือสอง, รับซื้อลำโพงบลูทูธ, ประเมินราคาลำโพง, รับซื้อ marshall stanmore, รับซื้อ jbl boombox, ขายลำโพง marshall, ขายลำโพง jbl',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อลำโพง', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อลำโพงมือสอง',
+		description:
+			'รับซื้อลำโพงบลูทูธ Marshall, JBL และแบรนด์เนมแท้ทุกรุ่น ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy 24 ชั่วโมง',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อลำโพงมือสอง',
+		url: pageUrl,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'HowTo',
+		name: 'วิธีขายลำโพงมือสองให้ได้ราคาสูงกับ WE BUY',
+		description: 'ขั้นตอนง่าย ๆ ในการเปลี่ยนลำโพงเก่าเป็นเงินสดอย่างปลอดภัย',
+		step: [
+			{ '@type': 'HowToStep', name: 'ส่งข้อมูลและวิดีโอเสียง', text: 'ทัก Line @webuy ส่งรูปทุกมุมและวิดีโอเปิดเพลงทดสอบเสียง' },
+			{ '@type': 'HowToStep', name: 'รับราคาประเมินด่วน', text: 'ทีมงานตรวจสอบความแท้และสภาพ แจ้งราคาภายใน 15 นาที' },
+			{ '@type': 'HowToStep', name: 'นัดรับหรือส่งพัสดุ', text: 'ตกลงราคา นัดหมายจุดรับหรือส่งของตามช่องทางที่สะดวก' },
+			{ '@type': 'HowToStep', name: 'รับเงินทันที', text: 'ตรวจเช็คอุปกรณ์จริงเสร็จ รับเงินโอนหรือเงินสดทันที' },
+		],
+	},
 ];
 ---
 
 <BaseLayout
-  title="รับซื้อลำโพง JBL / Marshall มือสอง | ประเมินราคาฟรี จ่ายเงินทันที | WE BUY"
-  description="WE BUY รับซื้อลำโพง JBL / Marshall มือสอง ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy ตลอด 24 ชั่วโมง"
-  pathname="/รับซื้อลำโพง/"
-  jsonLd={jsonLd}
+	title="รับซื้อลำโพง | รับซื้อ Marshall JBL มือสอง ทุกรุ่น ให้ราคาดี จ่ายเงินทันที | WE BUY"
+	description="WE BUY รับซื้อลำโพงมือสอง Marshall, JBL, Bose และแบรนด์ชั้นนำ ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy"
+	pathname="/รับซื้อลำโพง/"
+	type="article"
+	jsonLd={articleJsonLd}
 >
-  <div class="container">
-    <header class="article-head">
-      <p class="eyebrow">บริการรับซื้อลำโพง</p>
-      <h1>รับซื้อลำโพง JBL / Marshall มือสอง — ประเมินราคาฟรี จ่ายเงินทันที</h1>
-      <p class="lead">
-        ส่งรุ่น + รูปทุกมุม + วิดีโอทดสอบเสียง ผ่าน Line <strong>@webuy</strong> ทีมงานประเมินให้เร็ว พร้อมแนะนำการแพ็กส่งที่ปลอดภัย
-      </p>
-    </header>
-  </div>
+	<article class="container longform">
 
-  <main class="container prose">
-    <section>
-      <h2>ประเมินราคาลำโพงดูอะไรบ้าง?</h2>
-      <ul>
-        <li><strong>รุ่น/ซีรีส์</strong>: JBL Flip/Charge/Xtreme/Boombox/PartyBox, Marshall Emberton/Kilburn/Acton/Stanmore/Woburn</li>
-        <li><strong>สภาพเสียง</strong>: แตกพร่า เบสหาย ปรับวอลุ่มผิดปกติ</li>
-        <li><strong>แบตเตอรี่</strong>: อึด/เสื่อม ชาร์จเข้า-ไม่เข้า</li>
-        <li><strong>การเชื่อมต่อ</strong>: Bluetooth, AUX, USB, ปุ่มกด</li>
-        <li><strong>อุปกรณ์</strong>: สายชาร์จ อะแดปเตอร์แท้ กล่อง ใบเสร็จ</li>
-      </ul>
-    </section>
+		<header class="article-head">
+			<p class="kicker">Bluetooth Speaker Buyback Service</p>
+			<h1>รับซื้อลำโพง Marshall / JBL มือสอง — บริการรับซื้อลำโพงแบรนด์เนมแท้ ประเมินราคาโปร่งใส จ่ายเงินทันที 24 ชม.</h1>
+			<p class="intro">
+				หากคุณมีลำโพง Marshall เสียงดี หรือ JBL สายปาร์ตี้ที่ไม่ได้ใช้งานแล้ว และกำลังมองหาที่ <strong>รับซื้อลำโพง</strong> 
+				ที่ให้ราคายุติธรรมและไม่กดราคา คุณมาถูกที่แล้ว เรารับซื้อลำโพงบลูทูธแบรนด์เนมแท้ทุกรุ่น 
+				ไม่ว่าจะเป็นลำโพงตั้งโต๊ะในบ้าน หรือลำโพงพกพาลุยไปทุกที่ เราประเมินราคาจากความเป็นของแท้ สภาพเสียง 
+				สุขภาพแบตเตอรี่ และความสมบูรณ์ของอุปกรณ์เสริม สนใจประเมินราคาฟรี ทัก <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a> ได้ตลอดเวลาครับ
+			</p>
+		</header>
 
-    <section>
-      <h2>รุ่นยอดนิยมที่คนขายบ่อย</h2>
-      <h3>Marshall</h3>
-      <ul>
-        <li>Emberton / Emberton II — พกพา ใช้บลูทูธเป็นหลัก</li>
-        <li>Kilburn / Kilburn II — เสียงดัง เหมาะฟังในบ้าน/ร้าน</li>
-        <li>Acton / Stanmore / Woburn — กลุ่มตั้งโต๊ะ ให้มิติเสียงดี ราคาขึ้นกับสภาพและอุปกรณ์</li>
-      </ul>
-      <h3>JBL</h3>
-      <ul>
-        <li>Flip / Charge — พกพา แบตมีผลต่อราคา</li>
-        <li>Xtreme / Boombox — กำลังขับสูง ดูสภาพดอกลำโพงและแบตเป็นหลัก</li>
-        <li>PartyBox — เน้นงานปาร์ตี้/ไมค์/ไฟ ต้องทดสอบฟังก์ชันให้ครบ</li>
-      </ul>
-    </section>
+		<PriceGuide title="ราคารับซื้อลำโพงยอดนิยม (อัปเดต 2026)" items={priceItems} />
 
-    <section>
-      <h2>ปัญหาที่พบบ่อย (และกระทบราคา)</h2>
-      <ul>
-        <li><strong>เสียงแตก/เบสหาย</strong>: มักเกี่ยวกับดอกลำโพงหรือวงจรขยาย</li>
-        <li><strong>แบตเสื่อม</strong>: เปิดได้ไม่นานหรือดับเอง</li>
-        <li><strong>ชาร์จไม่เข้า</strong>: พอร์ตหลวม/วงจรชาร์จมีปัญหา</li>
-        <li><strong>เชื่อมต่อ Bluetooth ไม่เสถียร</strong>: อาจต้องเช็กบอร์ด/เฟิร์มแวร์</li>
-      </ul>
-      <p>
-        ถ้าอุปกรณ์อื่น ๆ อย่างโทรศัพท์/โน๊ตบุ๊คอยากขายพร้อมกัน ลองดู <a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> และ <a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a>
-      </p>
-    </section>
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ทำไมต้องขายลำโพงกับ WE BUY</h2>
+			<p>
+				ลำโพงแบรนด์เนมอย่าง Marshall และ JBL เป็นสินค้าที่มีการปลอมแปลงสูงมากในตลาด 
+				การขายให้กับร้านที่ไม่มีความชำนาญอาจทำให้คุณเสียเวลาพิสูจน์ หรือถูกกดราคาจากความกังวลของผู้รับซื้อ 
+				ที่ WE BUY เรามีทีมงานที่เชี่ยวชาญการตรวจเช็คของแท้-ของปลอมอย่างแม่นยำ 
+				ทำให้เรากล้าให้ราคาที่สูงตามมูลค่าจริงของสินค้าแท้
+			</p>
 
-    <section>
-      <h2>เช็กลิสต์ก่อนขายลำโพง</h2>
-      <ol>
-        <li>ชาร์จแบตให้พอทดสอบ และถ่ายวิดีโอทดสอบเสียง 15–30 วินาที</li>
-        <li>ทดสอบ Bluetooth / AUX และปุ่มหลัก</li>
-        <li>ถ่ายรูปหมายเลขรุ่น/ซีเรียล (ถ้ามี) และพอร์ตต่าง ๆ</li>
-        <li>เตรียมอุปกรณ์ที่มากับเครื่องให้ครบ</li>
-      </ol>
-    </section>
+			<h3>ตรวจเช็คของแท้ มั่นใจได้ราคาเต็ม</h3>
+			<p>
+				เราดูละเอียดตั้งแต่รอยเย็บหนัง, น้ำหนัก, ความเนียนของปุ่มกด ไปจนถึงเสียงสตาร์ทที่เป็นเอกลักษณ์ 
+				และที่สำคัญคือการเชื่อมต่อกับแอปพลิเคชัน Official ของแต่ละแบรนด์ 
+				หากเครื่องของคุณเป็นของแท้ 100% เรารับรองว่าคุณจะได้ราคาที่น่าพอใจแน่นอน
+			</p>
 
-    <section>
-      <h2>อยากได้ราคาประเมินเร็ว ต้องส่งอะไรบ้าง?</h2>
-      <ul>
-        <li><strong>รุ่นเต็ม</strong> (เช่น Marshall Emberton II)</li>
-        <li><strong>รูปทุกมุม</strong> + รูปพอร์ต/ปุ่ม/ตำหนิ</li>
-        <li><strong>วิดีโอทดสอบเสียง</strong> 15–30 วินาที (เพิ่ม-ลดวอลุ่ม + เพลง/เสียงพูด)</li>
-        <li><strong>การเชื่อมต่อ</strong>: Bluetooth/AUX ใช้งานได้ไหม</li>
-        <li><strong>อุปกรณ์</strong>: สายชาร์จ/อะแดปเตอร์/กล่อง/ใบเสร็จ</li>
-      </ul>
-      <p>
-        ส่งผ่านไลน์ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a>
-        หรือดูช่องทางทั้งหมดที่หน้า <a href="/contact">ติดต่อเรา</a>
-      </p>
-    </section>
+			<h3>ประเมินราคาผ่าน Line รู้ผลใน 15 นาที</h3>
+			<p>
+				ไม่ต้องขับรถตระเวนหาร้านให้เหนื่อย แค่ถ่ายรูปและอัดคลิปเสียงสั้น ๆ ส่งมาให้เราทาง Line 
+				ทีมงานจะประเมินและแจ้งราคาให้ทราบทันที ช่วยให้คุณวางแผนการขายได้อย่างสะดวกสบาย
+			</p>
+		</section>
 
-    <section class="faq">
-      <h2>คำถามที่พบบ่อยเกี่ยวกับการรับซื้อลำโพง</h2>
-      {faqItems.map((item) => (
-        <details>
-          <summary>{item.q}</summary>
-          <p>{item.a}</p>
-        </details>
-      ))}
-    </section>
+		<ContactBox
+			heading="เช็คราคาลำโพงของคุณตอนนี้"
+			text="ส่งรูปและคลิปเสียงลำโพงมาให้เราประเมินราคาฟรี ตอบกลับไวภายใน 15-30 นาที"
+			variant="primary"
+		/>
 
-    <section>
-      <h2>บริการรับซื้ออื่น ๆ ของ WE BUY</h2>
-      <p>ถ้าคุณขายหลายชิ้นพร้อมกัน เราสามารถประเมินเป็นชุดเดียวเพื่อให้สะดวกขึ้น</p>
-      <ul>
-        <li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — ประเมินจากรุ่น ความจุ สภาพ และสถานะ iCloud</li>
-        <li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Air/mini/Pro</li>
-        <li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — Air/Pro ทั้ง Intel และ M‑series</li>
-        <li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ/คอมเกมมิง/คอมสำนักงาน</li>
-        <li><a href="/blog">บทความ</a> — แนวทางเตรียมของก่อนขายให้ได้ราคาดี</li>
-      </ul>
-    </section>
-  </main>
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เกณฑ์การประเมินราคาลำโพงของเรา</h2>
+			<p>
+				เพื่อให้คุณได้รับราคาที่ดีที่สุด แนะนำให้ตรวจสอบปัจจัยเหล่านี้ก่อนส่งข้อมูลให้เรา:
+			</p>
 
-  <ContactBox
-    heading="อยากขายลำโพง JBL / Marshall ตอนนี้?"
-    text="ส่งรุ่น + รูป + วิดีโอทดสอบเสียงผ่านไลน์ เพื่อประเมินทันที"
-    ctaText="แอดไลน์ @webuy"
-  />
+			<h3>1. ความสมบูรณ์ของเสียง (Sound Quality)</h3>
+			<p>
+				สิ่งสำคัญที่สุดคือ "เสียงต้องไม่แตก" เราตรวจสอบทั้งย่านเสียงแหลมและเสียงเบส 
+				หากดอกลำโพงยังมีสภาพดี เสียงใสคมชัดตามสไตล์แบรนด์ จะช่วยให้คุณได้ราคาสูงสุด 
+				ในกรณีที่เสียงเริ่มพร่ามัว เรายังรับซื้อแต่อาจมีการปรับราคาตามค่าอะไหล่
+			</p>
+
+			<h3>2. สภาพแบตเตอรี่ (Battery Health)</h3>
+			<p>
+				สำหรับลำโพงพกพา แบตเตอรี่คือปัจจัยหลัก เราจะตรวจสอบว่าลำโพงยังเก็บไฟได้ดีไหม 
+				ชาร์จเข้าปกติหรือไม่ ลำโพงที่แบตเตอรี่ยังอึดเหมือนใหม่จะได้รับความสนใจเป็นพิเศษ
+			</p>
+
+			<h3>3. สภาพบอดี้และผ้าหุ้ม (Physical Condition)</h3>
+			<p>
+				สำหรับ Marshall เราดูความสมบูรณ์ของหนังหุ้มและผ้าหน้าตะแกรง ส่วน JBL เราดูสภาพของวัสดุผ้าถัก 
+				เครื่องที่ไม่มีรอยบุบ รอยขีดข่วน หรือรอยขาด จะช่วยเพิ่มมูลค่าได้อย่างมาก
+			</p>
+
+			<h3>4. อุปกรณ์เสริมและกล่อง (Accessories)</h3>
+			<p>
+				สายชาร์จแท้, อะแดปเตอร์เดิม, และที่สำคัญที่สุดคือ "กล่องเดิม" 
+				หากคุณยังมีกล่องและใบเสร็จครบถ้วน จะช่วยเพิ่มมูลค่ารับซื้อได้อีก 500-1,000 บาทเลยทีเดียว
+			</p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เจาะลึกแบรนด์ลำโพงที่เรารับซื้อ</h2>
+			
+			<h3>รับซื้อลำโพง Marshall — ดีไซน์วินเทจ เสียงระดับตำนาน</h3>
+			<p>
+				Marshall เป็นแบรนด์ที่คนขายเยอะที่สุดและตลาดต้องการสูงมาก เรารับซื้อทุกซีรีส์:
+				<ul>
+					<li><strong>Home Series:</strong> Acton, Stanmore, Woburn (ทั้ง Gen II และ Gen III)</li>
+					<li><strong>Portable Series:</strong> Emberton, Willen, Stockwell, Kilburn, Tufton</li>
+				</ul>
+				หากเป็นเครื่องศูนย์ไทย (Ash Asia) จะได้ราคาดีเป็นพิเศษ แต่เครื่องนอกเราก็รับซื้อปกติครับ
+			</p>
+
+			<h3>รับซื้อลำโพง JBL — สายลุย สายปาร์ตี้</h3>
+			<p>
+				JBL โดดเด่นเรื่องความทนทานและเสียงเบสที่หนักแน่น เรารับซื้อตั้งแต่รุ่นเล็กไปจนถึงรุ่นใหญ่:
+				<ul>
+					<li><strong>Series ยอดนิยม:</strong> Flip, Charge, Pulse, Xtreme, Boombox</li>
+					<li><strong>PartyBox Series:</strong> PartyBox Encore, 110, 310, 710</li>
+				</ul>
+				เราตรวจสอบความเป็นของแท้เข้มข้น เนื่องจากเป็นแบรนด์ที่มีของปลอมระบาดมากที่สุด
+			</p>
+		</section>
+
+		<ContactBox
+			heading="มีลำโพง Marshall หรือ JBL อยากขาย?"
+			text="ไม่ว่าจะรุ่นเล็กหรือรุ่นใหญ่ สภาพดีหรือมีตำหนิ ทักมาคุยราคาได้เลย"
+			variant="secondary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>วิธีเตรียมลำโพงก่อนขาย เพื่อราคาที่ดีที่สุด</h2>
+			<p>
+				ทำตามเช็กลิสต์นี้ก่อนส่งรูปประเมิน จะช่วยให้ดีลของคุณจบง่ายและได้ราคาดี:
+			</p>
+			<ol>
+				<li><strong>ทำความสะอาดเบื้องต้น:</strong> เช็ดฝุ่นตามตะแกรงและบอดี้ให้สะอาด เครื่องที่ดูใหม่มักได้ราคาประเมินที่สูงกว่า</li>
+				<li><strong>ชาร์จแบตให้เต็ม:</strong> เพื่อให้ทีมงานนัดรับสามารถตรวจสอบเสียงและแบตเตอรี่ได้ทันทีโดยไม่ต้องรอชาร์จ</li>
+				<li><strong>เตรียมวิดีโอทดสอบ:</strong> อัดคลิปสั้น ๆ เปิดเพลงที่เห็นลำโพงชัดเจน และลองเร่ง-ลดเสียงให้ทีมงานดู</li>
+				<li><strong>รวบรวมอุปกรณ์:</strong> หาอุปกรณ์เสริมที่มีทั้งหมด รวมถึงกล่องและใบเสร็จ (ถ้ามี)</li>
+			</ol>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>พื้นที่ให้บริการรับซื้อลำโพง</h2>
+			<p>เราพร้อมเดินทางไปนัดรับเครื่องถึงมือคุณในหลายพื้นที่:</p>
+			<ul>
+				{serviceAreas.map((area) => <li>{area}</li>)}
+			</ul>
+			<p>
+				สำหรับลูกค้าในพื้นที่ <strong>กรุงเทพฯ, ปริมณฑล, อุบลฯ, ขอนแก่น</strong> สามารถนัดรับได้รวดเร็วภายในวันเดียว 
+				ส่วนลูกค้าต่างจังหวัดสามารถส่งพัสดุมาให้ทีมงานได้ เรามีรีวิวและหลักฐานการจ่ายเงินที่ชัดเจน มั่นใจได้ 100%
+			</p>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				รับซื้อลำโพงบลูทูธแบรนด์เนมแท้ Marshall และ JBL ทุกรุ่น ตรวจเช็คของแท้แน่นอนด้วยทีมงานมืออาชีพ ประเมินราคาตามสภาพเสียงและสุขภาพแบตเตอรี่ 
+				จ่ายเงินทันที นัดรับได้ในเขตกรุงเทพฯ, อุบลราชธานี, ขอนแก่น หรือส่งพัสดุจากทั่วประเทศ ติดต่อ Line @webuy ได้ตลอด 24 ชม.
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อยเกี่ยวกับการรับซื้อลำโพง (FAQ)</h2>
+			<p>
+				ตอบทุกข้อสงสัย เพื่อให้คุณสบายใจก่อนตัดสินใจขายกับเรา
+			</p>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — เปลี่ยนลำโพงเก่าเป็นเงินสดได้ง่าย ๆ วันนี้</h2>
+			<p>
+				ลำโพงบลูทูธแบรนด์เนมมีมูลค่าในตัวเองเสมอ อย่าปล่อยให้ฝุ่นจับจนเสื่อมสภาพไปตามกาลเวลา 
+				เลือกใช้บริการ <strong>รับซื้อลำโพง</strong> กับเรา เพื่อรับเงินสดไปต่อยอดหรือสมทบทุนซื้อรุ่นใหม่ 
+				เราพร้อมให้บริการด้วยความจริงใจ โปร่งใส และรวดเร็วที่สุด
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออื่น ๆ ของ WE BUY</h2>
+			<p>นอกจากลำโพงแล้ว เรายังรับซื้อสินค้าไอทีอีกหลายรายการในราคาสูง:</p>
+			<ul>
+				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone ทุกรุ่น ทุกสภาพ</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Air, Pro, mini ทุกรุ่น</li>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — MacBook, Gaming Notebook ทุกยี่ห้อ</li>
+				<li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ, All-in-One</li>
+				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — DSLR, Mirrorless, Lens ทุกยี่ห้อ</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
 </BaseLayout>
+

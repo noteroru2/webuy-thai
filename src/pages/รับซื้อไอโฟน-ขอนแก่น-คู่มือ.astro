@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { getSiteOrigin } from '../lib/site';
 
@@ -10,100 +11,196 @@ const pageUrl = `${site}/รับซื้อไอโฟน-ขอนแก่
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const localCity = 'ขอนแก่น';
 
+const priceItems = [
+	{ model: 'iPhone 16 Pro / Pro Max', price: '25,000 - 35,000+ บาท', note: 'นัดรับได้ที่เซ็นทรัลขอนแก่น หรือ มข.' },
+	{ model: 'iPhone 15 Series / 14 Pro', price: '16,000 - 28,000 บาท', note: 'เน้นเครื่องสภาพสวย สุขภาพแบต 90%+' },
+	{ model: 'iPhone 11 / 12 / 13 Series', price: '6,000 - 15,000 บาท', note: 'รับซื้อทุกความจุ แม้เครื่องหมดประกัน' },
+	{ model: 'iPhone จอแตก / แบตเสื่อม', price: '2,000 - 8,000 บาท', note: 'รับประเมินตามสภาพจริง เพื่อนำไปเป็นอะไหล่' },
+];
+
 const faqItems = [
-  {
-    q: 'รับซื้อ iPhone ขอนแก่น นัดรับจุดไหนได้บ้าง?',
-    a: 'สามารถนัดรับได้ในเขตตัวเมืองขอนแก่น บริเวณมหาวิทยาลัยขอนแก่น หรือจุดที่สะดวกตามตกลง กรุณาติดต่อ Line @webuy ล่วงหน้าเพื่อจัดคิวงาน',
-  },
-  {
-    q: 'iPhone จอแตก หรือแบตเสื่อม รับซื้อไหม?',
-    a: 'รับประเมินครับ โดยเราจะหักลบค่าซ่อมจอหรือค่าเปลี่ยนแบตตามจริงอย่างเป็นธรรม แจ้งอาการให้ชัดเจนก่อนนัดพบจะช่วยให้ได้ราคาที่แม่นยำ',
-  },
-  {
-    q: 'ติด iCloud หรือเครื่องนอกรับไหม?',
-    a: 'เครื่องติด iCloud จะไม่สามารถรับซื้อได้ในราคาสูง ส่วนเครื่องนอกรับปกติแต่ราคาอาจต่ำกว่าเครื่องศูนย์ไทยเล็กน้อย',
-  },
+	{
+		q: `นัดรับไอโฟนใน${localCity}ได้ที่ไหนบ้าง?`,
+		a: `เรามีทีมงานนัดรับที่เซ็นทรัล${localCity}, มหาวิทยาลัยขอนแก่น (มข.), ตลาดต้นตาล หรือตามคาเฟ่และปั๊มน้ำมันที่ลูกค้าสะดวกในเขตอำเภอเมืองครับ`,
+	},
+	{
+		q: 'ขายไอโฟนที่ขอนแก่นกับ WE BUY ต่างจากขายตามตู้ในห้างยังไง?',
+		a: 'เราให้ราคาที่อิงตามราคากลางตลาดมือสองกรุงเทพฯ ซึ่งส่วนใหญ่มักจะสูงกว่าราคาที่ร้านตู้รับเทิร์น และเราเน้นบริการนัดพบเพื่อความสบายใจของลูกค้า ไม่ต้องเดินหาร้านให้เหนื่อย',
+	},
+	{
+		q: 'เครื่องนอก หรือเครื่องติดล็อกซิม รับซื้อไหม?',
+		a: 'รับซื้อครับ แต่อาจมีส่วนต่างราคาเล็กน้อยเมื่อเทียบกับเครื่องศูนย์ไทย (TH/A) ทักไลน์แจ้ง Model เครื่องให้ทีมงานประเมินก่อนได้เลยครับ',
+	},
+	{
+		q: 'ไอโฟนติด iCloud ขายได้ไหม?',
+		a: 'ทางเราไม่รับซื้อเครื่องที่ติด iCloud หรือจำรหัสผ่านไม่ได้ทุกกรณีครับ ลูกค้าต้องทำการ Sign out ออกให้เรียบร้อยก่อนส่งมอบเพื่อความปลอดภัยของข้อมูลท่านเอง',
+	},
+	{
+		q: 'นัดรับแล้วได้เงินเลยไหม?',
+		a: 'ได้ทันทีครับ หลังจากทีมงานตรวจเช็คสภาพเครื่องประมาณ 5-10 นาที จะทำการโอนเงินเข้าบัญชีหรือจ่ายเงินสดให้ท่านทันทีหน้างานครับ',
+	},
 ];
 
 const jsonLd: Array<Record<string, unknown>> = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${pageUrl}#webpage`,
-    url: pageUrl,
-    name: `รับซื้อไอโฟน ${localCity} นัดรับด่วน`,
-    description: `WE BUY บริการรับซื้อ iPhone มือสองในจังหวัด${localCity} ประเมินราคาไว จ่ายเงินสดทันที นัดรับในเมืองและ มข. แอดไลน์ @webuy`,
-    inLanguage: 'th-TH',
-    isPartOf: { '@id': websiteId },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `WE BUY รับซื้อไอโฟน ${localCity}`,
-    image: [new URL('/og-default.png', site).toString()],
-    '@id': `${pageUrl}#localbusiness`,
-    url: pageUrl,
-    telephone: '0642579353',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: localCity,
-      addressRegion: localCity,
-      addressCountry: 'TH',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: localCity,
-    },
-  },
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: `รับซื้อไอโฟน ${localCity} — นัดรับด่วนในเมืองและ มข. จ่ายเงินสด`,
+		description: `บริการรับซื้อ iPhone มือสองในจังหวัด${localCity} ประเมินราคาด่วน 15 นาที นัดรับถึงที่ จ่ายเงินสดทันที แอดไลน์ @webuy`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		name: `WE BUY รับซื้อไอโฟน ${localCity}`,
+		image: [new URL('/og-default.png', site).toString()],
+		'@id': `${pageUrl}#localbusiness`,
+		url: pageUrl,
+		telephone: '0642579353',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: localCity,
+			addressRegion: localCity,
+			addressCountry: 'TH',
+		},
+		geo: {
+			'@type': 'GeoCoordinates',
+			latitude: 16.4322,
+			longitude: 102.8236
+		},
+		areaServed: [
+			{ '@type': 'City', name: 'มหาวิทยาลัยขอนแก่น' },
+			{ '@type': 'City', name: 'อำเภอเมืองขอนแก่น' },
+			{ '@type': 'City', name: localCity }
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
 ];
 ---
 
 <BaseLayout
-  title={`รับซื้อไอโฟน ${localCity} นัดรับด่วน ประเมินราคาฟรี | WE BUY`}
-  description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมืองและ มข. ประเมินราคาผ่านไลน์ฟรี`}
-  pathname="/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/"
-  jsonLd={jsonLd}
+	title={`รับซื้อไอโฟน ${localCity} | นัดรับด่วน ประเมินราคาฟรี จ่ายเงินชัวร์ | WE BUY`}
+	description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมือง มข. และเซ็นทรัล ประเมินราคาผ่านไลน์ฟรี จ่ายเงินทันที`}
+	pathname="/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/"
+	type="article"
+	jsonLd={jsonLd}
 >
-  <div class="container">
-    <header class="article-head">
-      <p class="eyebrow">Local Service: {localCity}</p>
-      <h1>รับซื้อ iPhone {localCity} นัดรับด่วน ได้เงินชัวร์</h1>
-      <p class="lead">
-        ขาย iPhone ในจังหวัดขอนแก่นได้ง่ายกว่าเดิม ถ่ายรูปและแจ้งรุ่น สุขภาพแบต มาที่ Line <strong>@webuy</strong> เพื่อรับราคาประเมินก่อนตัดสินใจ
-      </p>
-    </header>
-  </div>
+	<article class="container longform">
 
-  <main class="container prose">
-    <section>
-      <h2>เช็กลิสต์ก่อนขาย iPhone สำหรับชาวขอนแก่น</h2>
-      <ul>
-        <li>เช็กรุ่น ความจุ และสุขภาพแบตเตอรี่ (Battery Health)</li>
-        <li>สำรองข้อมูลไว้ที่ iCloud หรือคอมพิวเตอร์</li>
-        <li>Sign out ออกจาก Apple ID ทุกครั้งก่อนส่งมอบ</li>
-        <li>ลบข้อมูลทั้งหมดและคืนค่าโรงงาน (Erase All Content and Settings)</li>
-      </ul>
-    </section>
+		<header class="article-head">
+			<p class="kicker">Khon Kaen Local Service</p>
+			<h1>รับซื้อไอโฟน {localCity} — คู่มือขาย iPhone มือสองให้ได้ราคาดี นัดรับด่วน มข. และในเมือง</h1>
+			<p class="intro">
+				ชาว <strong>{localCity}</strong> ท่านใดที่กำลังวางแผนจะเปลี่ยนไอโฟนเครื่องใหม่ หรือมีเครื่องเก่าเก็บไว้ไม่ได้ใช้งาน 
+				วันนี้คุณสามารถเปลี่ยนไอโฟนเป็นเงินสดได้ง่าย ๆ โดยไม่ต้องเดินทางไปตระเวนหาร้านในห้างให้เสียเวลา 
+				WE BUY มีทีมงานพร้อมนัดรับและประเมินราคาไอโฟนของคุณถึงที่ในเขตเมืองขอนแก่น 
+				รับประกันราคาที่เป็นธรรมตามสภาพจริง และจ่ายเงินทันทีหน้างาน
+			</p>
+		</header>
 
-    <section>
-      <h2>จุดเด่นของการใช้บริการของเราในพื้นที่ขอนแก่น</h2>
-      <p>เรามีเครือข่ายทีมงานที่สามารถวิ่งประเมินและรับเครื่องได้ในโซนตัวเมืองขอนแก่นและ มข. ทำให้การขายไอโฟนของคุณเป็นเรื่องง่าย รวดเร็ว และไม่ต้องเสี่ยงกับการนัดพบบุคคลที่ไม่รู้จัก</p>
-    </section>
+		<PriceGuide title={`ราคารับซื้อไอโฟนใน${localCity} อัปเดต`} items={priceItems} />
 
-    <section class="faq">
-      <h2>คำถามที่พบบ่อย (ขอนแก่น)</h2>
-      {faqItems.map((item) => (
-        <details>
-          <summary>{item.q}</summary>
-          <p>{item.a}</p>
-        </details>
-      ))}
-    </section>
-  </main>
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>จุดนัดรับยอดนิยมในจังหวัด{localCity}</h2>
+			<p>
+				เราเน้นความสะดวกของลูกค้าเป็นหลัก ท่านสามารถเลือกจุดนัดพบที่ท่านมั่นใจและเดินทางสะดวกได้ ดังนี้:
+			</p>
+			<ul>
+				<li><strong>ย่านมหาวิทยาลัยขอนแก่น (มข.):</strong> คอมเพล็กซ์ มข., ยูเซ็นเตอร์, หรือร้านกาแฟย่านหลังมอดินแดง</li>
+				<li><strong>ห้างสรรพสินค้า:</strong> เซ็นทรัลขอนแก่น, ฮักซ์มอลล์ (Hugz Mall), ตึกคอมขอนแก่น</li>
+				<li><strong>พื้นที่พักผ่อน:</strong> ตลาดต้นตาล, บึงแก่นนคร, หรือตามสถานีบริการน้ำมันหลักในตัวเมือง</li>
+			</ul>
+		</section>
 
-  <ContactBox
-    heading="ชาวขอนแก่นพร้อมขาย iPhone หรือยัง?"
-    text="ทักไลน์ @webuy พร้อมแจ้งรุ่นและความจุ ทีมงานขอนแก่นพร้อมให้บริการ"
-    ctaText="แอดไลน์ @webuy"
-  />
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ทำไมชาวขอนแก่นถึงไว้วางใจขายไอโฟนกับเรา</h2>
+			<div class="highlight-box">
+				<strong>จุดเด่น:</strong> บริการที่รวดเร็ว ประเมินราคาจบก่อนนัดพบ และทีมงานมืออาชีพที่เข้าใจสินค้า Apple จริง ๆ
+			</div>
+			
+			<h3>1. ราคามาตรฐานกรุงเทพฯ แต่บริการถึงที่ขอนแก่น</h3>
+			<p>
+				หลายครั้งที่ร้านในต่างจังหวัดอาจให้ราคาต่ำกว่าปกติเนื่องจากมีรอบหมุนเวียนสินค้าช้า 
+				แต่ WE BUY อิงราคาตามตลาดมือสองส่วนกลาง ทำให้คุณได้รับราคาที่สูงกว่าการขายตามตู้ทั่วไป
+			</p>
+
+			<h3>2. ปลอดภัยและเป็นส่วนตัว</h3>
+			<p>
+				เราช่วยคุณตรวจสอบการลบข้อมูล (Reset) และการ Sign out ออกจาก iCloud อย่างถูกวิธีต่อหน้า 
+				เพื่อให้มั่นใจว่าข้อมูลส่วนตัวของคุณจะไม่หลุดรอดไปไหน 100%
+			</p>
+
+			<h3>3. ตอบเร็ว นัดไว ได้เงินทันที</h3>
+			<p>
+				เพียงทักแชท Line <a href="https://line.me/R/ti/p/@webuy">@webuy</a> ส่งรูปและสุขภาพแบต 
+				ทีมงานขอนแก่นจะรีบประสานงานเพื่อขอนัดคิวรับเครื่องภายในวันที่คุณสะดวกที่สุด
+			</p>
+		</section>
+
+		<ContactBox
+			heading={`คนขอนแก่นอยากขายไอโฟนด่วน?`}
+			text="ส่งรูปเครื่องพร้อมระบุรุ่นและความจุมาที่ Line @webuy ได้เลยครับ ประเมินฟรี 24 ชม."
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>5 สิ่งที่ควรเตรียมก่อนนัดรับไอโฟนในขอนแก่น</h2>
+			<ol>
+				<li><strong>เช็คสุขภาพแบต:</strong> เข้าไปที่ Setting > Battery > Battery Health เพื่อดูเปอร์เซ็นต์</li>
+				<li><strong>สำรองข้อมูล:</strong> Backup รูปภาพและ LINE ของคุณให้เรียบร้อย</li>
+				<li><strong>ชาร์จแบตเตอรี่:</strong> เตรียมแบตให้เหลืออย่างน้อย 50% เพื่อให้ทีมงานเปิดทดสอบเครื่องได้ทันที</li>
+				<li><strong>เตรียมอุปกรณ์เสริม:</strong> หากมีกล่อง ชุดชาร์จแท้ หรือใบเสร็จ จะช่วยเพิ่มราคาได้อีกครับ</li>
+				<li><strong>นัดจุดที่สะดวก:</strong> เลือกสถานที่ที่คนพลุกพล่านและมีแสงสว่างเพื่อให้ตรวจสภาพเครื่องได้ชัดเจน</li>
+			</ol>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (ขอนแก่น)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขายไอโฟนในขอนแก่น เลือก WE BUY ได้เงินชัวร์</h2>
+			<p>
+				ไม่ว่าไอโฟนของคุณจะเป็นรุ่นใหม่ล่าสุดหรือรุ่นเก่าหลายปี 
+				เราพร้อมไปรับถึงมือคุณในจังหวัด <strong>ขอนแก่น</strong> ด้วยบริการที่ซื่อตรงและรวดเร็ว 
+				เปลี่ยนมือถือเครื่องเก่าเป็นงบประมาณสำหรับเครื่องใหม่ได้ง่าย ๆ วันนี้
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการอื่น ๆ ของเราในขอนแก่น</h2>
+			<ul>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — Notebook ทุกยี่ห้อ นัดรับในเมืองขอนแก่น</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini นัดรับ มข.</li>
+				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, GoPro, เลนส์ รับซื้อด่วนขอนแก่น</li>
+			</ul>
+		</section>
+
+	</article>
 </BaseLayout>
