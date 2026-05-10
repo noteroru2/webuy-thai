@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อคอมประกอบ/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'เซ็ตสเปก High-End (Intel i9 / Ryzen 9 + RTX 4080/4090)', price: '40,000 - 90,000+ บาท', note: 'ประเมินราคาแยกชิ้นส่วนอย่างละเอียด ให้ราคาสูงสุด' },
+	{ model: 'เซ็ตสเปก Mid-Range (Intel i5 / Ryzen 5 + RTX 4060/3070)', price: '15,000 - 35,000 บาท', note: 'ตลาดต้องการสูง ออกไว ให้ราคาดี' },
+	{ model: 'เซ็ตสเปก Entry (Intel i3 / Ryzen 3 + GTX 1660/RTX 3050)', price: '7,000 - 14,000 บาท', note: 'รับซื้อด่วน เหมายกเคส' },
+	{ model: 'ขายแยกชิ้น (การ์ดจอ VGA, CPU, Mainboard)', price: 'ประเมินตามรุ่น', note: 'รับซื้อการ์ดจอแยก RTX 30/40 Series, RX 6000/7000 Series' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อคอมประกอบแบบยกเคส หรือรับแยกชิ้นด้วย?',
+		a: 'รับทั้งสองแบบครับ! สะดวกสุดคือขายยกเคส ทีมงานประเมินราคาเหมาให้เสร็จสรรพ แต่ถ้าลูกค้าต้องการขายแยกเฉพาะบางชิ้น เช่น ขายเฉพาะการ์ดจอ (VGA) หรือ CPU ทางเราก็ยินดีรับซื้อครับ',
+	},
+	{
+		q: 'คอมประกอบประเมินราคาอย่างไร?',
+		a: 'ต่างจากโน๊ตบุ๊คครับ คอมประกอบเราจะให้ลูกค้าส่งสเปกมาเป็นรายชิ้น (List by item) เช่น CPU รุ่นอะไร, การ์ดจอรุ่นไหน, RAM เท่าไหร่ ทีมงานจะนำราคาอะไหล่มือสองแต่ละชิ้นมารวมกัน ทำให้ลูกค้าได้ราคาที่ตรงตามมูลค่าจริงที่สุดครับ',
+	},
+	{
+		q: 'ไม่มีกล่องอุปกรณ์แล้ว รับซื้อไหม?',
+		a: 'รับซื้อครับ! แต่หากลูกค้ามีกล่องอุปกรณ์ครบ โดยเฉพาะกล่องการ์ดจอและ CPU รวมถึงใบเสร็จที่ระบุระยะเวลาประกัน จะช่วยเพิ่มมูลค่าราคารับซื้อได้อีกครับ',
+	},
+	{
+		q: 'ชุดน้ำเปิด (Custom Water Cooling) รับซื้อไหม?',
+		a: 'รับซื้อครับ แต่คอมที่เป็นชุดน้ำเปิดจะมีความเสี่ยงในการขนย้ายและซ่อมบำรุง รบกวนแจ้งรายละเอียดและถ่ายรูปให้ทีมงานประเมินก่อนครับ',
+	},
+	{
+		q: 'เครื่องติดไวรัส หรือเข้า Windows ไม่ได้ ขายได้ไหม?',
+		a: 'ขายได้ครับ เราประเมินมูลค่าจากฮาร์ดแวร์ (อะไหล่) เป็นหลัก หากฮาร์ดแวร์ยังใช้งานได้ปกติ แค่ซอฟต์แวร์มีปัญหา ก็ได้ราคาตามปกติครับ (ทางเราล้างข้อมูลให้ใหม่ทั้งหมดอยู่แล้ว)',
+	},
+	{
+		q: 'คอมหนักมาก มีบริการไปรับที่บ้านไหม?',
+		a: 'มีบริการ On-site นัดรับถึงบ้าน หรือออฟฟิศครับ (ตามพื้นที่ให้บริการ) ทีมงานจะไปตรวจสอบสเปก เทสเครื่อง และโอนเงินให้หน้างาน ไม่ต้องแบกเคสหนักๆ ออกมาเองครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อคอมประกอบ (Custom PC) เครื่องเกมมิ่ง การ์ดจอ จ่ายเงินสด',
+		description:
+			'WE BUY รับซื้อคอมประกอบ (Custom PC) คอมเล่นเกม (Gaming PC) การ์ดจอ (VGA) และอะไหล่คอมมือสอง ประเมินราคารายชิ้น ให้ราคาสูง บริการรับถึงบ้าน',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อคอมประกอบ Gaming PC ให้ราคาสูง ประเมินราคาแยกชิ้น',
+		description:
+			'บริการรับซื้อคอมพิวเตอร์ประกอบ (Custom PC) เครื่องเล่นเกมสเปกแรง การ์ดจอ RTX / Radeon มือสอง ตีราคาเป็นธรรมตามมูลค่าอะไหล่จริง นัดรับถึงบ้าน',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-05-11',
+		dateModified: '2026-05-11',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords:
+			'รับซื้อคอมประกอบ, รับซื้อคอมเกมมิ่ง, รับซื้อ custom pc, รับซื้อการ์ดจอ, รับซื้อ vga, รับซื้อ rtx, รับซื้ออะไหล่คอม, ขายคอมประกอบ',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อคอมประกอบ', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อคอมพิวเตอร์ประกอบ (Custom PC)',
+		description:
+			'บริการรับซื้อคอมพิวเตอร์ประกอบ คอมเกมมิ่งสเปกแรง และอะไหล่คอมพิวเตอร์ (CPU, VGA, RAM) ให้ราคาสูง ประเมินราคาโปร่งใส มีบริการยกถึงบ้าน',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อ Custom PC / อะไหล่คอมมือสอง',
+		url: pageUrl,
+	},
+];
+---
+
+<BaseLayout
+	title="รับซื้อคอมประกอบ (Custom PC) | รับซื้อคอมเกมมิ่ง การ์ดจอ ราคาดี | WE BUY"
+	description="WE BUY รับซื้อคอมประกอบ (Custom PC) คอมเล่นเกม (Gaming PC) การ์ดจอ (VGA) มือสอง ประเมินราคารายชิ้น ให้ราคาสูง บริการรับถึงบ้าน ติดต่อ Line @webuy"
+	pathname="/รับซื้อคอมประกอบ/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Custom PC & Gaming Rig Buyback</p>
+			<h1>รับซื้อคอมประกอบ (Custom PC) คอมเกมมิ่ง การ์ดจอ ประเมินราคาแยกชิ้น จ่ายเงินทันที</h1>
+			<p class="intro">
+				สำหรับสายจัดสเปกคอม เกมเมอร์ หรือสตรีมเมอร์ ที่ต้องการอัปเกรดเครื่องใหม่และอยากปล่อย <strong>คอมประกอบ (Custom PC)</strong> เครื่องเก่า 
+				WE BUY คือศูนย์ <strong>รับซื้อคอมเกมมิ่งและอะไหล่คอมพิวเตอร์</strong> ที่เข้าใจมูลค่าที่แท้จริงของอุปกรณ์คุณ 
+				การขายคอมประกอบให้ได้ราคาดี ไม่ใช่การตีราคาเหมามั่วๆ แต่ต้องประเมินแยกชิ้นส่วนตามตลาดจริง (CPU, GPU, RAM, Mainboard) 
+				เราให้ราคายุติธรรม อิงตามสเปกและประกันที่เหลืออยู่ รับซื้อทั้งแบบยกเคสไปเลยจบๆ หรือจะขายแยกเฉพาะการ์ดจอก็ได้ 
+				พร้อมบริการขับรถไปยกเคสถึงหน้าบ้านคุณ (ในพื้นที่บริการ) ไม่ต้องแบกให้ปวดหลัง 
+				เช็คราคาฟรี ส่งลิสต์สเปกมาเลยที่ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
+			</p>
+		</header>
+
+		<PriceGuide title="ราคารับซื้อคอมประกอบ อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ทำไมสายจัดสเปก ถึงเลือกขายคอมกับ WE BUY</h2>
+			<p>
+				ปัญหาหลักของการขายคอมประกอบเองคือ ร้านรับซื้อทั่วไปมักไม่มีความรู้ลึกในอะไหล่แต่ละชิ้น จึงใช้วิธีกดราคาแบบเหมาจ่ายถูกๆ 
+				แต่ที่ WE BUY เรามีทีมช่างผู้เชี่ยวชาญด้านฮาร์ดแวร์ ทำให้คุณได้ประโยชน์สูงสุดดังนี้:
+			</p>
+
+			<h3>1. ประเมินราคา "แยกชิ้น (List by Item)"</h3>
+			<p>
+				เมื่อคุณส่งสเปกมา เราจะถอดราคาออกมาให้เห็นเลยว่า CPU (เช่น Intel i5-13400F) ราคาเท่าไหร่, การ์ดจอ (เช่น RTX 4060 Ti) ราคาเท่าไหร่ 
+				แล้วนำมารวมเป็นยอดสุทธิให้คุณ ทำให้ราคาที่คุณได้ สะท้อนมูลค่าจริงของตลาดมือสองมากที่สุด
+			</p>
+
+			<h3>2. ไม่ต้องทนเหนื่อย "แยกขายเอง (Part-Out)"</h3>
+			<p>
+				การแกะอะไหล่ขายทีละชิ้นตามกลุ่ม Facebook อาจได้เงินเยอะกว่านิดหน่อย แต่คุณต้องเจอกับการตอบแชทคน 10 คน แพ็กของ 10 กล่อง และแบกความเสี่ยงที่อะไหล่บางชิ้น (เช่น เคส หรือ PSU) จะขายไม่ออกจมทุน 
+				การขายให้ WE BUY คือการตัดความน่ารำคาญเหล่านั้นทิ้ง ได้เงินก้อนใหญ่ในวันเดียว จบงานไว
+			</p>
+
+			<h3>3. บริการ On-Site ไปยกถึงบ้าน</h3>
+			<p>
+				คอมประกอบบางเครื่องเป็นกระจก Tempered Glass ทั้งใบ หรือใช้ชุดน้ำระบบปิด (AIO) ซึ่งหนักและเสี่ยงแตกหักเวลาขนย้าย 
+				ทีมงานของเรามีบริการขับรถไปเทสเครื่องและยกเคสออกจากบ้านคุณอย่างปลอดภัย (ในพื้นที่บริการหลัก) พร้อมโอนเงินตรงนั้นทันที
+			</p>
+		</section>
+
+		<ContactBox
+			heading="อยากรู้ราคาคอมประกอบของคุณ?"
+			text="เปิดโปรแกรม DxDiag หรือถ่ายรูปสเปกข้างกล่อง ส่งมาให้เราประเมินราคารายชิ้นได้ฟรี!"
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ชิ้นส่วนอะไหล่ (Hardware) ที่เราเน้นรับซื้อ</h2>
+
+			<h3>การ์ดจอ (Graphic Cards / VGA)</h3>
+			<p>
+				หัวใจหลักของคอมเกมมิ่ง เรารับซื้อการ์ดจอแยกทุกรุ่น ทั้งค่ายเขียว (NVIDIA RTX 30, 40 Series) และค่ายแดง (AMD Radeon RX 6000, 7000 Series) 
+				หากกล่องครบ มีประกันศูนย์ไทย (Synnex, Ascenti, JIB, Advice ฯลฯ) จะได้ราคาดีมากเป็นพิเศษ
+			</p>
+
+			<h3>หน่วยประมวลผล (CPU & Mainboard)</h3>
+			<p>
+				รับซื้อ CPU ยอดฮิตอย่าง Intel Core i3, i5, i7, i9 (Gen 10 ขึ้นไป) และ AMD Ryzen 3, 5, 7, 9 (Series 3000 ขึ้นไป) 
+				รวมถึงเมนบอร์ดชิปเซ็ตต่างๆ ทั้ง H, B, Z, และ X Series
+			</p>
+
+			<h3>ชิ้นส่วนอื่นๆ (RAM, SSD, PSU, จอคอม)</h3>
+			<p>
+				รับซื้อ RAM DDR4, DDR5, พื้นที่จัดเก็บข้อมูล M.2 NVMe SSD และพาวเวอร์ซัพพลาย (PSU) มาตรฐาน 80 Plus 
+				นอกจากนี้ หากคุณมี <strong>จอมอนิเตอร์ (Monitor)</strong> สายเกมมิ่ง 144Hz / 240Hz ก็สามารถมัดรวมขายเป็นเซ็ตคอมพลีทได้เลยครับ
+			</p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>วิธีส่งข้อมูลสเปกให้ร้าน เพื่อความรวดเร็วในการประเมินราคา</h2>
+			<p>
+				เพื่อให้ได้ราคาที่แม่นยำ 100% รบกวนลูกค้าสรุปสเปกคร่าวๆ (Spec List) ให้ทีมงานทางไลน์ ดังตัวอย่างนี้:
+			</p>
+			<div class="highlight-box">
+				<ul>
+					<li><strong>CPU:</strong> Intel Core i5-12400F</li>
+					<li><strong>MB:</strong> ASUS PRIME B660M-K D4</li>
+					<li><strong>VGA:</strong> GIGABYTE RTX 3060 8GB</li>
+					<li><strong>RAM:</strong> Corsair Vengeance RGB 16GB (8x2) 3200MHz</li>
+					<li><strong>SSD:</strong> WD Blue SN570 500GB</li>
+					<li><strong>PSU:</strong> Thermaltake 650W 80+ Bronze</li>
+					<li><strong>ประกัน:</strong> ประกอบจาก JIB เมื่อเดือน 1/2024 มีกล่องครบทุกชิ้น</li>
+				</ul>
+			</div>
+			<p><em>*หากไม่ทราบสเปก สามารถคลิกขวาที่หน้า Desktop > Task Manager หรือถ่ายรูปอุปกรณ์ภายในเคสส่งมาให้ทีมงานช่วยดูได้ครับ</em></p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>พื้นที่ให้บริการนัดรับคอมประกอบ</h2>
+			<p>เนื่องจากเคสคอมพิวเตอร์มีน้ำหนักมาก เราขอแนะนำบริการนัดรับถึงบ้าน หรือจุดนัดพบที่สะดวกในพื้นที่ดังนี้:</p>
+			<ul>
+				{serviceAreas.map((area) => <li>{area}</li>)}
+			</ul>
+			<p>
+				ทีมงานจะนำจอพกพา (Portable Monitor) และสายไฟไปเทสเครื่องเบื้องต้นที่จุดนัดพบ ใช้เวลาเทสประมาณ 10-15 นาที 
+				และ <strong>โอนเงินเข้าบัญชีทันที</strong> ก่อนยกเครื่องกลับครับ ปลอดภัยและสบายใจทั้งสองฝ่าย
+			</p>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				WE BUY ศูนย์รับซื้อคอมประกอบ (Custom PC), Gaming PC, จอมอนิเตอร์ และรับแยกซื้ออะไหล่คอมพิวเตอร์ เช่น การ์ดจอ (RTX, Radeon), CPU (Intel, AMD), RAM 
+				ประเมินราคารับซื้อแยกตามชิ้นส่วนอะไหล่ (List by item) เพื่อให้ลูกค้าได้ราคาสูงที่สุดตามตลาดมือสองจริง 
+				ล้างข้อมูลให้อย่างปลอดภัย พร้อมบริการขับรถไปยกคอมถึงบ้าน จ่ายเงินโอนทันที ให้บริการในกรุงเทพฯ, อุบลราชธานี, ขอนแก่น ฯลฯ ติดต่อ Line @webuy 24 ชม.
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (FAQ)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขายคอมประกอบ ได้ราคาจริง ไม่เหนื่อยแบก</h2>
+			<p>
+				ไม่ว่าคุณจะอยากขายเพื่ออัปเกรดสเปกใหม่ หรือเลิกเล่นเกมแล้วต้องการเปลี่ยนคอมเป็นเงินทุน 
+				WE BUY พร้อมดูแลคุณแบบมืออาชีพ ตีราคายุติธรรมตามสเปกจริง และบริการถึงที่อย่างปลอดภัย
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออื่น ๆ ของ WE BUY</h2>
+			<ul>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — Gaming Notebook จาก ASUS, Acer, Lenovo, MSI, HP</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Pro, MacBook Air ชิป M1-M5</li>
+				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone เครื่องสำรองที่ไม่ได้ใช้งาน</li>
+				<li><a href="/รับซื้อเครื่องเกม/">รับซื้อเครื่องเกม</a> — PS5, Nintendo Switch, Steam Deck</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
+</BaseLayout>
