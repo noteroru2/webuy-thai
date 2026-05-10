@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อไอโฟน-อุดรธานี/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const localCity = 'อุดรธานี';
+
+const priceItems = [
+	{ model: 'iPhone 16 Pro / Pro Max', price: '24,000 - 33,000+ บาท', note: 'นัดรับได้ที่เซ็นทรัลอุดร หรือ ยูดีทาวน์' },
+	{ model: 'iPhone 15 Pro / Pro Max', price: '18,000 - 26,000 บาท', note: 'เน้นเครื่องศูนย์ไทย สุขภาพแบต 90%+' },
+	{ model: 'iPhone 13 / 14 Series', price: '9,000 - 18,000 บาท', note: 'รับซื้อด่วนย่าน ม.ราชภัฏอุดรธานี' },
+	{ model: 'iPhone รุ่นเก่า หรือจอแตก', price: '2,000 - 8,000 บาท', note: 'รับซื้อตามสภาพเพื่อทำอะไหล่ แต่ต้องปลด iCloud แล้ว' },
+];
+
+const faqItems = [
+	{
+		q: `นัดรับไอโฟนใน${localCity}ได้ที่ไหนบ้าง?`,
+		a: `เรามีทีมงานนัดรับที่เซ็นทรัลพลาซา อุดรธานี, ยูดีทาวน์ (UD Town), มหาวิทยาลัยราชภัฏอุดรธานี (มรภ.อด.) หรือตามปั๊มน้ำมันและคาเฟ่ที่ลูกค้าสะดวกในเขตเทศบาลนครอุดรธานีครับ`,
+	},
+	{
+		q: 'อยู่ต่างอำเภอ เช่น กุมภวาปี หรือ หนองหาน รับซื้อไหม?',
+		a: 'รับครับ! สำหรับลูกค้าต่างอำเภอ สามารถนัดพบที่จุดกึ่งกลางหรือแจ้งพิกัดเพื่อให้ทีมงานประเมินคิวงานวิ่งไปรับถึงที่ได้ครับ หรือจะใช้บริการส่งพัสดุก็สะดวกเช่นกัน',
+	},
+	{
+		q: 'รับซื้อเครื่องที่สุขภาพแบตต่ำกว่า 80% ไหม?',
+		a: 'รับซื้อปกติครับ เพียงแต่ราคาอาจจะถูกปรับลดลงตามต้นทุนการเปลี่ยนแบตเตอรี่ใหม่เพื่อให้เครื่องพร้อมใช้งานต่อ รบกวนลูกค้าแจ้งเปอร์เซ็นต์แบตก่อนประเมินราคาครับ',
+	},
+	{
+		q: 'จ่ายเงินอย่างไร ชัวร์ไหม?',
+		a: 'ทีมงานจะทำการโอนเงินเข้าบัญชีธนาคารของคุณทันทีหลังตรวจสภาพเครื่องเสร็จสิ้น (ประมาณ 5-10 นาที) มีสลิปยืนยันชัดเจน ปลอดภัย 100% ครับ',
+	},
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: `รับซื้อไอโฟน ${localCity} — นัดรับ เซ็นทรัลอุดร ยูดีทาวน์ จ่ายเงินสด`,
+		description: `บริการรับซื้อ iPhone มือสองในจังหวัดอุดรธานี ทุกรุ่น ทุกสภาพ ประเมินราคาด่วน นัดรับในเมืองอุดรฯ ม.ราชภัฏ จ่ายเงินทันที แอดไลน์ @webuy`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		name: `WE BUY รับซื้อไอโฟน ${localCity}`,
+		image: [new URL('/og-default.png', site).toString()],
+		'@id': `${pageUrl}#localbusiness`,
+		url: pageUrl,
+		telephone: '0642579353',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: localCity,
+			addressRegion: 'Udon Thani',
+			addressCountry: 'TH',
+		},
+		geo: {
+			'@type': 'GeoCoordinates',
+			latitude: 17.4138,
+			longitude: 102.7872
+		},
+		areaServed: [
+			{ '@type': 'City', name: 'เทศบาลนครอุดรธานี' },
+			{ '@type': 'City', name: 'ยูดีทาวน์' },
+			{ '@type': 'City', name: 'มหาวิทยาลัยราชภัฏอุดรธานี' },
+			{ '@type': 'City', name: localCity }
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+];
+---
+
+<BaseLayout
+	title={`รับซื้อไอโฟน ${localCity} | นัดรับด่วน เซ็นทรัล ยูดีทาวน์ จ่ายเงินสด | WE BUY`}
+	description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมืองอุดรฯ เซ็นทรัล และ ยูดีทาวน์ ประเมินราคาออนไลน์ฟรี จ่ายเงินทันที`}
+	pathname="/รับซื้อไอโฟน-อุดรธานี/"
+	type="article"
+	jsonLd={jsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Udon Thani Local Service</p>
+			<h1>รับซื้อไอโฟน {localCity} — คู่มือขาย iPhone มือสองให้ได้ราคาดี นัดรับด่วนทั่วเมืองอุดรฯ</h1>
+			<p class="intro">
+				ชาว <strong>{localCity}</strong> ที่กำลังมองหาที่ขาย iPhone เครื่องเก่าเพื่อเปลี่ยนเป็นเงินสด หรืออัปเกรดเป็นรุ่นใหม่ล่าสุด 
+				วันนี้คุณสามารถจบงานได้ง่ายๆ โดยไม่ต้องเดินทางไปตระเวนหาร้านในเซ็นทรัลหรือตึกคอมให้เสียเวลา 
+				WE BUY มีทีมงานประจำพื้นที่อุดรธานี พร้อมนัดรับและประเมินราคาไอโฟนของคุณถึงที่ ให้ราคาสูงตามมาตรฐานกลาง 
+				และทำการ <strong>จ่ายเงินสด/โอนทันทีหลังตรวจเครื่องเสร็จ</strong> สนใจเช็คราคาฟรี ทักไลน์ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
+			</p>
+		</header>
+
+		<PriceGuide title={`ราคารับซื้อไอโฟนใน${localCity} ประจำเดือนนี้`} items={priceItems} />
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>จุดนัดรับยอดนิยมในจังหวัด{localCity}</h2>
+			<p>
+				เพื่อให้คุณได้รับความสะดวกสบายสูงสุด เรามีบริการนัดรับเครื่องตามจุดต่าง ๆ ทั่วเมืองอุดรธานี:
+			</p>
+			<ul>
+				<li><strong>แลนด์มาร์กสำคัญ:</strong> ยูดีทาวน์ (UD Town), เซ็นทรัลพลาซา อุดรธานี, ตึกคอม อุดรฯ</li>
+				<li><strong>สถานศึกษา:</strong> มหาวิทยาลัยราชภัฏอุดรธานี (มรภ.อด.), วิทยาลัยอาชีวศึกษาอุดรธานี</li>
+				<li><strong>ย่านชุมชน:</strong> ย่านหนองประจักษ์, ย่านสถานีรถไฟอุดรฯ หรือตามสถานีบริการน้ำมัน ปตท. ทั่วเมือง</li>
+			</ul>
+			<p><em>สำหรับลูกค้าที่อยู่ต่างอำเภอ เช่น กุมภวาปี, หนองหาน หรือบ้านดุง สามารถโทรนัดหมายล่วงหน้าเพื่อให้ทีมงานวิ่งไปรับได้ครับ</em></p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ทำไมชาวอุดรฯ ถึงเลือกขายไอโฟนกับ WE BUY</h2>
+			<div class="highlight-box">
+				<strong>จุดเด่นของเรา:</strong> คือความเป็นมืออาชีพที่เข้าใจอุปกรณ์ Apple จริง ๆ และความรวดเร็วในการจ่ายเงิน
+			</div>
+			
+			<h3>1. ราคามาตรฐานกรุงเทพฯ แต่บริการถึงที่อุดรฯ</h3>
+			<p>
+				เราให้ราคาที่อิงจากกลไกตลาดมือสองส่วนกลาง ไม่โดนกดราคาเหมือนร้านตู้ทั่วไปในต่างจังหวัด 
+				มั่นใจได้ว่าคุณจะได้รับเงินที่คุ้มค่ากับสภาพเครื่องแน่นอน
+			</p>
+
+			<h3>2. ปลอดภัยและรวดเร็ว</h3>
+			<p>
+				เรานัดเจอในสถานที่สาธารณะที่สว่างและปลอดภัย ทีมงานจะทำการตรวจเครื่องต่อหน้าคุณ 
+				และอธิบายเกณฑ์การประเมินอย่างโปร่งใส ใช้เวลาเพียง 10-15 นาทีก็จบดีลได้
+			</p>
+
+			<h3>3. ดูแลเรื่องข้อมูลส่วนตัว 100%</h3>
+			<p>
+				เราช่วยคุณตรวจสอบการลบข้อมูล (Factory Reset) และการปิด Find My iPhone ให้ถูกวิธี 
+				เพื่อให้มั่นใจว่ารูปภาพและข้อมูลบัญชีของคุณจะไม่หลุดรอดไปหลังจากการขาย
+			</p>
+		</section>
+
+		<ContactBox
+			heading={`คนอุดรฯ พร้อมขายไอโฟนแล้วหรือยัง?`}
+			text="ส่งรูปเครื่องพร้อมระบุรุ่นและความจุมาประเมินราคาก่อนได้เลยครับ ตอบกลับไว 24 ชม."
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เทคนิคขายไอโฟนในอุดรฯ ให้ได้ราคาดีที่สุด</h2>
+			<ul>
+				<li><strong>เก็บกล่องและชุดชาร์จ:</strong> หากมีกล่องเดิมที่อีมี่ตรงเครื่อง และสายชาร์จแท้ จะช่วยเพิ่มราคาได้มาก</li>
+				<li><strong>เช็คสุขภาพแบตเตอรี่:</strong> หากแบตยังสูงกว่า 85% จะเป็นจุดขายที่ดีมาก</li>
+				<li><strong>ทำความสะอาดเครื่อง:</strong> เช็ดคราบรอยนิ้วมือและฝุ่นตามช่องลำโพงให้สะอาด จะช่วยให้เครื่องดูใหม่ขึ้นตอนตรวจรับ</li>
+			</ul>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				WE BUY บริการรับซื้อไอโฟน (iPhone) มือสองในจังหวัดอุดรธานี ให้ราคาสูงตามสภาพจริง ประเมินราคาผ่าน Line รวดเร็ว 
+				นัดรับถึงที่ในเขตเทศบาลนครอุดรธานี, เซ็นทรัลอุดรฯ, ยูดีทาวน์, และ มรภ.อุดรฯ 
+				มีกระบวนการล้างข้อมูลที่ปลอดภัย จ่ายเงินโอนทันทีหลังตรวจรับเครื่อง ติดต่อ Line @webuy ได้ตลอด 24 ชม.
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (อุดรธานี)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขายไอโฟนในอุดรฯ เลือก WE BUY สบายใจ ได้เงินไว</h2>
+			<p>
+				อย่าปล่อยให้ไอโฟนเครื่องเก่าของคุณวางทิ้งไว้จนแบตเสื่อมและราคาตก 
+				เปลี่ยนมันเป็นเงินทุนสำหรับเครื่องใหม่ได้ง่าย ๆ กับทีมงานมืออาชีพใน <strong>อุดรธานี</strong> 
+				บริการรวดเร็ว ทันใจ และปลอดภัยที่สุดในพื้นที่ครับ
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออื่น ๆ ของเราในอุดรธานี</h2>
+			<ul>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — Gaming Notebook, MacBook รับซื้อด่วนทั่วอุดรฯ</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini นัดรับได้ที่เซ็นทรัลอุดรฯ</li>
+				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, DSLR ทุกยี่ห้อ ให้ราคาสูง</li>
+			</ul>
+		</section>
+
+	</article>
+</BaseLayout>

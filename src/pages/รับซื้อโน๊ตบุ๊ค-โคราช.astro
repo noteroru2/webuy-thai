@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อโน๊ตบุ๊ค-โคราช/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const localCity = 'โคราช (นครราชสีมา)';
+
+const priceItems = [
+	{ model: 'Gaming Notebook (RTX 40 Series)', price: '20,000 - 45,000+ บาท', note: 'นัดรับด่วนย่าน ม.ทส. หรือ เซ็นทรัลโคราช' },
+	{ model: 'MacBook Pro / Air M2 / M3', price: '18,000 - 55,000 บาท', note: 'ประเมินราคาสูงสำหรับเครื่องศูนย์ไทย สภาพสวย' },
+	{ model: 'Notebook ทำงานสเปก Core i5 / i7', price: '6,000 - 15,000 บาท', note: 'รับซื้อถึงที่หน้าบ้าน หรือนัดพบเดอะมอลล์' },
+	{ model: 'โน๊ตบุ๊คเสีย / จอแตก / เปิดไม่ติด', price: '1,000 - 5,000 บาท', note: 'รับซื้อไปทำอะไหล่สำหรับชาวโคราช ไม่ทิ้งให้เสียเปล่า' },
+];
+
+const faqItems = [
+	{
+		q: `ร้านรับซื้อโน๊ตบุ๊คใน${localCity}อยู่ที่ไหน?`,
+		a: `เราเน้นบริการแบบนัดพบ (On-site) เพื่อความสะดวกของลูกค้า โดยจุดที่พบบ่อยที่สุดคือ เดอะมอลล์โคราช, เซ็นทรัลพลาซา นครราชสีมา, เทอร์มินอล 21 โคราช หรือแถวมหาวิทยาลัยเทคโนโลยีสุรนารี (ม.ทส.) ครับ`,
+	},
+	{
+		q: 'นัดรับนอกเขตอำเภอเมืองได้ไหม?',
+		a: 'ได้ครับ สำหรับพื้นที่ใกล้เคียง เช่น จอหอ, สูงเนิน, หรือขามทะเลสอ ทีมงานเราสามารถวิ่งไปรับเครื่องถึงที่ได้ เพียงทักแชทนัดเวลาล่วงหน้าครับ',
+	},
+	{
+		q: 'ขั้นตอนการขายโน๊ตบุ๊คในโคราชทำอย่างไร?',
+		a: 'ง่ายมากครับ 1. ทัก Line @webuy ส่งรูปและสเปก 2. รับราคาประเมินเบื้องต้น 3. นัดสถานที่และเวลาที่สะดวกในโคราช 4. ตรวจเครื่องเสร็จรับเงินโอนทันทีครับ',
+	},
+	{
+		q: 'ให้ราคาสูงกว่าร้านตู้ในห้างไหม?',
+		a: 'เราให้ราคาอ้างอิงจากราคาตลาดมือสองส่วนกลาง (กรุงเทพฯ) ซึ่งโดยปกติจะสูงกว่าการนำไปเทิร์นตามร้านตู้ทั่วไปที่ต้องแบกรับค่าเช่าที่แพงๆ ครับ',
+	},
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: `รับซื้อโน๊ตบุ๊ค ${localCity} — นัดรับถึงที่ เดอะมอลล์ เซ็นทรัล จ่ายเงินสด`,
+		description: `บริการรับซื้อโน๊ตบุ๊คมือสองในจังหวัดนครราชสีมา (โคราช) ทุกยี่ห้อ ประเมินราคาไว นัดรับในเมือง ม.ทส. จอหอ จ่ายเงินทันที ติดต่อ Line @webuy`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		name: `WE BUY รับซื้อโน๊ตบุ๊ค ${localCity}`,
+		image: [new URL('/og-default.png', site).toString()],
+		'@id': `${pageUrl}#localbusiness`,
+		url: pageUrl,
+		telephone: '0642579353',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: 'นครราชสีมา',
+			addressRegion: 'Nakhon Ratchasima',
+			addressCountry: 'TH',
+		},
+		geo: {
+			'@type': 'GeoCoordinates',
+			latitude: 14.9738,
+			longitude: 102.0831
+		},
+		areaServed: [
+			{ '@type': 'City', name: 'อำเภอเมืองนครราชสีมา' },
+			{ '@type': 'City', name: 'จอหอ' },
+			{ '@type': 'City', name: 'มหาวิทยาลัยเทคโนโลยีสุรนารี' },
+			{ '@type': 'City', name: localCity }
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+];
+---
+
+<BaseLayout
+	title={`รับซื้อโน๊ตบุ๊ค ${localCity} | นัดรับถึงที่ ประเมินราคาด่วน จ่ายเงินสด | WE BUY`}
+	description={`หาที่ขายโน๊ตบุ๊คใน${localCity}? WE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ นัดรับในเขตเมืองโคราช เซ็นทรัล เดอะมอลล์ ประเมินราคาออนไลน์ฟรี จ่ายเงินทันที`}
+	pathname="/รับซื้อโน๊ตบุ๊ค-โคราช/"
+	type="article"
+	jsonLd={jsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Korat (Nakhon Ratchasima) Local Service</p>
+			<h1>รับซื้อโน๊ตบุ๊ค {localCity} — บริการนัดรับถึงที่ ประเมินราคาด่วน จบงานไวในวันเดียว</h1>
+			<p class="intro">
+				สำหรับพี่น้องชาว <strong>โคราช (นครราชสีมา)</strong> ที่กำลังมองหาที่ขายโน๊ตบุ๊คเครื่องเก่า ไม่ว่าจะเป็นสายเกมมิ่งแรงๆ สเปกทำงานออฟฟิศ หรือ MacBook 
+				ไม่ต้องเสียเวลาหิ้วเครื่องเดินหาร้านให้เหนื่อย! WE BUY มีทีมงานประจำพื้นที่โคราช พร้อมนัดพบประเมินราคานอกสถานที่ทั่วเมืองนครราชสีมา 
+				ให้ราคายุติธรรมตามสเปกจริง และที่สำคัญคือ <strong>จ่ายเงินทันทีหน้างาน</strong> ไม่มีการฝากขาย สนใจประเมินราคา ทัก <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a> ได้ตลอด 24 ชม.
+			</p>
+		</header>
+
+		<PriceGuide title={`ราคารับซื้อโน๊ตบุ๊คใน${localCity} อัปเดต`} items={priceItems} />
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>พื้นที่ให้บริการนัดรับในนครราชสีมา (โคราช)</h2>
+			<p>
+				เราเน้นความสะดวกของลูกค้าเป็นอันดับหนึ่ง ท่านสามารถเลือกจุดนัดพบที่ท่านมั่นใจและเดินทางสะดวกได้ทั่วเมืองโคราช:
+			</p>
+			<ul>
+				<li><strong>ห้างสรรพสินค้า:</strong> เดอะมอลล์ โคราช (The Mall), เซ็นทรัล โคราช (Central), เทอร์มินอล 21 โคราช (Terminal 21)</li>
+				<li><strong>สถานศึกษา:</strong> มหาวิทยาลัยเทคโนโลยีสุรนารี (ม.ทส.), มรภ.นครราชสีมา, มทร.อีสาน</li>
+				<li><strong>ย่านชุมชน:</strong> ย่านประตูชุมพล (ย่าโม), ย่านจอหอ, ย่านหัวทะเล หรือตามสถานีบริการน้ำมันหลักในเขตอำเภอเมือง</li>
+			</ul>
+			<p><em>สำหรับอำเภออื่น ๆ เช่น ปากช่อง, สีคิ้ว หรือ โชคชัย สามารถคุยคิวงานเพื่อนัดรับครึ่งทางหรือนัดรับถึงที่ตามตกลงได้ครับ</em></p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ทำไมคนโคราชถึงเลือกขายโน๊ตบุ๊คกับ WE BUY</h2>
+			<div class="highlight-box">
+				<strong>จุดแข็งของเรา:</strong> คือความรวดเร็วและความจริงใจ เราประเมินราคาจบตั้งแต่ในแชท ทำให้ท่านไม่ต้องลุ้นราคาตอนเจอตัว
+			</div>
+			
+			<h3>1. ราคาดี มาตรฐานเดียวกับกรุงเทพฯ</h3>
+			<p>
+				หลายครั้งที่ร้านในต่างจังหวัดอาจให้ราคากดต่ำกว่าปกติ แต่เราอิงราคากลางจากตลาดมือสองส่วนกลาง 
+				ทำให้ชาวโคราชได้รับมูลค่าเครื่องที่สูงที่สุดเท่าที่จะเป็นไปได้ในขณะนั้น
+			</p>
+
+			<h3>2. ปลอดภัย นัดเจอในที่สาธารณะ</h3>
+			<p>
+				เราเน้นนัดเจอตามห้างหรือคาเฟ่ที่มีคนพลุกพล่าน เพื่อความสบายใจของลูกค้า ท่านจะได้เห็นกระบวนการตรวจเครื่องทุกขั้นตอน 
+				และรอรับเงินโอนเข้าบัญชีต่อหน้าทันทีหลังตรวจเสร็จ
+			</p>
+
+			<h3>3. รับทุกยี่ห้อ แม้เครื่องมีตำหนิ</h3>
+			<p>
+				รับซื้อทั้ง ASUS, Acer, HP, Dell, Lenovo, MSI รวมถึง MacBook 
+				แม้เครื่องจะมีอาการแบตเสื่อม จอเหลือง หรือบอดี้ถลอก เราก็รับประเมินตามสภาพจริงครับ
+			</p>
+		</section>
+
+		<ContactBox
+			heading={`ชาวโคราชอยากเช็คราคาโน๊ตบุ๊คตอนนี้?`}
+			text="ส่งรูปเครื่องพร้อมระบุรุ่น/สเปก มาที่ Line @webuy ได้เลยครับ ทีมงานโคราชพร้อมแสตนบายตอบ 24 ชม."
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>4 ขั้นตอนขายโน๊ตบุ๊คในโคราชให้ได้ราคาดี</h2>
+			<ol>
+				<li><strong>แจ้งข้อมูลผ่านไลน์:</strong> ส่งรูปเครื่องทุกมุม และรูปหน้าจอที่แสดงสเปก (CPU, RAM, SSD)</li>
+				<li><strong>รับราคาประเมิน:</strong> ทีมงานจะแจ้งราคาที่เรารับซื้อได้ทันที</li>
+				<li><strong>นัดรับในพื้นที่:</strong> เลือกจุดนัดพบในโคราชที่คุณสะดวก เช่น เซ็นทรัล หรือ เดอะมอลล์</li>
+				<li><strong>รับเงินโอน:</strong> ทีมงานใช้เวลาตรวจสภาพไม่เกิน 15 นาที และทำการโอนเงินให้คุณทันที</li>
+			</ol>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				WE BUY บริการรับซื้อโน๊ตบุ๊คมือสองในจังหวัดนครราชสีมา (โคราช) ให้ราคาสูงสำหรับ Gaming Notebook, MacBook และโน๊ตบุ๊คทำงานทุกยี่ห้อ 
+				ประเมินราคาออนไลน์รวดเร็ว นัดรับถึงที่ในเขตอำเภอเมือง, ม.ทส., จอหอ, และห้างชั้นนำ (เดอะมอลล์, เซ็นทรัล, เทอร์มินอล 21) 
+				ตรวจเครื่องเสร็จโอนเงินทันทีหน้างาน ปลอดภัย 100% ติดต่อ Line @webuy
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (โคราช)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขายโน๊ตบุ๊คในโคราช เลือก WE BUY จบไว สบายใจ</h2>
+			<p>
+				ไม่ต้องเสี่ยงกับการโดนกดราคาหน้างาน หรือความยุ่งยากในการส่งพัสดุ 
+				เปลี่ยนโน๊ตบุ๊คเก่าเป็นเงินสดได้ง่าย ๆ วันนี้กับทีมงานมืออาชีพใน <strong>นครราชสีมา</strong> 
+				รับประกันความพึงพอใจ บริการรวดเร็ว และจ่ายเงินจริงแน่นอนครับ
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออื่น ๆ ของเราในนครราชสีมา</h2>
+			<ul>
+				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone ทุกรุ่น นัดรับได้ในเมืองโคราช</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad ทุกซีรีส์ นัดพบได้ที่เซ็นทรัลโคราช</li>
+				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, DSLR รับซื้อด่วนทั่วโคราช</li>
+			</ul>
+		</section>
+
+	</article>
+</BaseLayout>
