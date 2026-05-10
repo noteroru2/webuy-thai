@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อ-apple-watch/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Apple Watch Ultra 2 / Ultra 1', price: '15,000 - 22,000+ บาท', note: 'ราคาขึ้นอยู่กับสภาพตัวเรือนไทเทเนียมและสายแท้' },
+	{ model: 'Apple Watch Series 10 / Series 9', price: '9,000 - 15,000 บาท', note: 'ประเมินจากขนาดหน้าจอ (41mm/45mm) และรุ่น GPS/Cellular' },
+	{ model: 'Apple Watch Series 8 / Series 7', price: '5,000 - 9,500 บาท', note: 'ให้ความสำคัญกับสุขภาพแบตเตอรี่ (Battery Health)' },
+	{ model: 'Apple Watch SE (Gen 2 / Gen 1)', price: '2,500 - 5,500 บาท', note: 'รุ่นยอดนิยม รับซื้อทุกสภาพ' },
+	{ model: 'Apple Watch Series เก่า หรือจอแตก', price: '500 - 3,000 บาท', note: 'รับประเมินเพื่อทำอะไหล่ แต่ต้องปลด iCloud แล้วเท่านั้น' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อ Apple Watch รุ่นไหนบ้าง?',
+		a: 'เรารับซื้อ Apple Watch ทุกรุ่นครับ ตั้งแต่ Series 4, 5, 6, 7, 8, 9, 10 รวมถึง Apple Watch SE และ Apple Watch Ultra ทั้งรุ่น GPS ธรรมดา และรุ่น GPS + Cellular',
+	},
+	{
+		q: 'Apple Watch จอแตก แบตเสื่อม รับซื้อไหม?',
+		a: 'รับซื้อครับ! แม้หน้าจอจะแตก มีรอยขีดข่วนหนัก หรือแบตเตอรี่เสื่อมสภาพ เราก็รับประเมินราคาตามสภาพจริง โดยจะหักลบต้นทุนการซ่อมอย่างเป็นธรรม',
+	},
+	{
+		q: 'ต้องเตรียม Apple Watch อย่างไรก่อนขาย?',
+		a: 'สำคัญที่สุดคือต้อง "ยกเลิกการจับคู่ (Unpair)" จาก iPhone ของคุณ เพื่อเป็นการลบ Activation Lock (iCloud) ออก หากไม่ยกเลิกการจับคู่ เครื่องจะติดล็อกและไม่สามารถรับซื้อได้ครับ',
+	},
+	{
+		q: 'มีแต่ตัวเรือน ไม่มีสาย ไม่มีที่ชาร์จ ขายได้ไหม?',
+		a: 'ขายได้ครับ แต่ราคาอาจจะถูกปรับลดลงบ้างเนื่องจากขาดอุปกรณ์พื้นฐาน หากมีกล่อง สายแท้ และสายชาร์จแม่เหล็กแท้มาด้วย จะได้ราคาสูงที่สุดครับ',
+	},
+	{
+		q: 'สุขภาพแบตเตอรี่ (Battery Health) ดูตรงไหน?',
+		a: 'เข้าไปที่แอป "การตั้งค่า" (Settings) ใน Apple Watch > แบตเตอรี่ > สุขภาพแบตเตอรี่ เลื่อนลงมาดูเปอร์เซ็นต์ความจุสูงสุด หากสูงกว่า 85% จะได้ราคาดีมากครับ',
+	},
+	{
+		q: 'นัดรับได้ที่ไหนบ้าง?',
+		a: 'เรามีบริการนัดรับถึงที่ในเขตกรุงเทพฯ, ปริมณฑล, อุบลราชธานี, และขอนแก่น หากอยู่ต่างจังหวัดสามารถถ่ายรูปประเมินราคาแล้วส่งพัสดุมาได้ครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อ Apple Watch มือสอง ทุกรุ่น ประเมินราคาโปร่งใส',
+		description:
+			'WE BUY รับซื้อ Apple Watch Ultra, Series 10, 9, 8, 7, SE มือสองทุกสภาพ ประเมินราคาจากสุขภาพแบตเตอรี่ จ่ายเงินทันที นัดรับ 24 ชม.',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อ Apple Watch มือสอง ทุกรุ่น | Series 10, 9, Ultra ได้ราคาดี',
+		description:
+			'บริการรับซื้อนาฬิกา Apple Watch มือสอง ให้ราคาสูงตามสเปก GPS/Cellular และสุขภาพแบตเตอรี่ พร้อมคู่มือวิธียกเลิกการจับคู่ก่อนขายอย่างปลอดภัย',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-05-11',
+		dateModified: '2026-05-11',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords:
+			'รับซื้อ apple watch, ขาย apple watch, รับซื้อแอปเปิ้ลวอช, รับซื้อ apple watch ultra, รับซื้อ apple watch series 9, รับซื้อ apple watch se, ประเมินราคา apple watch, ขายสมาร์ทวอทช์',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อ Apple Watch', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อ Apple Watch มือสอง',
+		description:
+			'บริการรับซื้อนาฬิกาสมาร์ทวอทช์ Apple Watch ทุกรุ่น (Ultra, Series 9, 8, SE) ประเมินราคาโปร่งใส จ่ายเงินสดทันที มีบริการนัดรับ',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อ Smartwatch มือสอง',
+		url: pageUrl,
+	},
+];
+---
+
+<BaseLayout
+	title="รับซื้อ Apple Watch | รับซื้อแอปเปิ้ลวอช Series 10, 9, Ultra มือสอง | WE BUY"
+	description="WE BUY รับซื้อ Apple Watch Ultra, Series 10, 9, 8, 7, SE มือสองทุกสภาพ ประเมินราคาจากสุขภาพแบตเตอรี่ จ่ายเงินทันที นัดรับ 24 ชม. ทัก Line @webuy"
+	pathname="/รับซื้อ-apple-watch/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Apple Watch Buyback Service</p>
+			<h1>รับซื้อ Apple Watch (แอปเปิ้ลวอช) มือสอง ทุกรุ่น ประเมินราคาโปร่งใส จ่ายเงินทันที</h1>
+			<p class="intro">
+				หากคุณอัปเกรดนาฬิกาเรือนใหม่ หรือมี <strong>Apple Watch</strong> ที่ไม่ได้ใส่แล้ววางทิ้งไว้เฉยๆ อย่าปล่อยให้แบตเตอรี่เสื่อมจนเสียมูลค่า! 
+				WE BUY ให้บริการ <strong>รับซื้อ Apple Watch</strong> ทุกรุ่น ตั้งแต่ Apple Watch Ultra, Series ล่าสุด ไปจนถึง Apple Watch SE และรุ่นเก่าๆ 
+				เราประเมินราคาอย่างเป็นธรรม โดยดูจากขนาดหน้าจอ (41mm/45mm/49mm) การรองรับเครือข่าย (GPS หรือ Cellular) 
+				และสุขภาพแบตเตอรี่ (Battery Health) พร้อมบริการนัดรับถึงที่และจ่ายเงินทันที
+				เช็คราคาประเมินฟรีได้เลยที่ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
+			</p>
+		</header>
+
+		<PriceGuide title="ราคารับซื้อ Apple Watch อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เกณฑ์การประเมินราคา Apple Watch ของเรา</h2>
+			<p>
+				นาฬิกา Apple Watch เป็นอุปกรณ์ที่สวมใส่ติดตัวตลอดเวลา ทำให้มีโอกาสเกิดรอยขีดข่วนได้ง่าย 
+				ที่ WE BUY เราประเมินราคาตามหลักเกณฑ์ที่ชัดเจน เพื่อให้คุณได้ราคาที่สมเหตุสมผลที่สุด:
+			</p>
+
+			<h3>1. รุ่น, ขนาดหน้าจอ และวัสดุ</h3>
+			<p>
+				มูลค่าของเครื่องขึ้นอยู่กับรุ่น (Series) ขนาดหน้าจอ (เช่น 41mm กับ 45mm ราคาจะต่างกัน) 
+				และวัสดุตัวเรือน โดยตัวเรือนอะลูมิเนียมจะเป็นรุ่นมาตรฐาน ส่วนตัวเรือนสแตนเลสสตีล (Stainless Steel) หรือไทเทเนียม (Titanium) จะมีราคาสูงกว่า
+			</p>
+
+			<h3>2. ระบบ GPS หรือ GPS + Cellular</h3>
+			<p>
+				รุ่นที่รองรับ Cellular (มีขอบสีแดงที่เม็ดมะยม Digital Crown) ซึ่งสามารถใส่ eSIM เพื่อโทรออกและใช้อินเทอร์เน็ตได้โดยไม่ต้องพก iPhone จะได้ราคารับซื้อที่สูงกว่ารุ่น GPS ปกติ
+			</p>
+
+			<h3>3. สุขภาพแบตเตอรี่ (Battery Health)</h3>
+			<p>
+				เนื่องจาก Apple Watch มีแบตเตอรี่ขนาดเล็ก สุขภาพแบตเตอรี่จึงสำคัญมาก เครื่องที่สุขภาพแบตเตอรี่สูงกว่า 85% จะได้ราคาดีมาก 
+				หากแบตเตอรี่ต่ำกว่า 80% หรือขึ้นคำเตือน Service เราก็ยังรับซื้อ แต่จะปรับราคาลงตามต้นทุนค่าเปลี่ยนแบตครับ
+			</p>
+
+			<h3>4. สภาพหน้าจอและตัวเรือน</h3>
+			<p>
+				หน้าจอของ Apple Watch รุ่นอะลูมิเนียม (กระจก Ion-X) จะเกิดรอยขนแมวได้ง่ายกว่ารุ่นสแตนเลส (กระจก Sapphire) 
+				รอยขีดข่วนเล็กน้อยตามการใช้งานถือเป็นเรื่องปกติ แต่หากมีรอยกระจกร้าว จอแตก หรือทัชสกรีนรวน จะกระทบราคาค่อนข้างเยอะ
+			</p>
+
+			<h3>5. สายนาฬิกาและอุปกรณ์</h3>
+			<p>
+				หากมีสายนาฬิกาแท้ (Genuine Band) ที่มาพร้อมกล่อง และสายชาร์จแม่เหล็กแท้ จะช่วยให้ได้ราคารับซื้อสูงสุดครับ
+			</p>
+		</section>
+
+		<ContactBox
+			heading="อยากรู้ราคา Apple Watch ของคุณ?"
+			text="ส่งรูปตัวเรือน แคปหน้าจอสุขภาพแบต และแจ้งรุ่นมาประเมินราคาฟรี รู้ผลไวใน 15 นาที"
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>วิธีเตรียม Apple Watch ก่อนขาย (สำคัญมาก!)</h2>
+			<p>
+				<strong>ข้อควรระวัง:</strong> อย่าทำการรีเซ็ตล้างเครื่อง (Erase All Content) จากตัวนาฬิกาโดยตรง 
+				เพราะเครื่องจะยังคงติด Activation Lock (ติด iCloud) ทำให้ไม่สามารถรับซื้อได้ 
+				วิธีการที่ถูกต้องและปลอดภัยที่สุดคือการ **"ยกเลิกการจับคู่ (Unpair)"** ผ่าน iPhone ครับ:
+			</p>
+
+			<h3>ขั้นตอนการยกเลิกการจับคู่ (Unpair)</h3>
+			<ol>
+				<li>นำ Apple Watch และ iPhone ที่จับคู่ไว้มาวางใกล้ๆ กัน</li>
+				<li>เปิดแอป <strong>"Watch"</strong> บน iPhone</li>
+				<li>ไปที่แท็บ <strong>"นาฬิกาข้อมือของฉัน (My Watch)"</strong> แล้วแตะ <strong>"นาฬิกาทั้งหมด (All Watches)"</strong> ที่มุมซ้ายบน</li>
+				<li>แตะปุ่มข้อมูลตัว <strong>"i"</strong> ถัดจากนาฬิกาที่คุณต้องการเลิกจับคู่</li>
+				<li>แตะ <strong>"เลิกจับคู่กับ Apple Watch (Unpair Apple Watch)"</strong></li>
+				<li>ระบบจะให้กรอกรหัสผ่าน Apple ID เพื่อปิดการใช้งาน "Find My (ค้นหาของฉัน)" </li>
+				<li>รอจนกว่าระบบจะดำเนินการเสร็จสิ้น (นาฬิกาจะรีสตาร์ทกลับไปหน้าตั้งค่าเริ่มต้น)</li>
+			</ol>
+			<p>
+				<em>หากลูกค้าไม่สะดวกทำเอง ไม่เป็นไรครับ! ทีมงานของเรายินดีแนะนำและช่วยเหลือขั้นตอนการ Unpair ต่อหน้าตอนนัดรับเครื่อง เพื่อความมั่นใจและปลอดภัย 100%</em>
+			</p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>พื้นที่ให้บริการรับซื้อ Apple Watch</h2>
+			<p>เพื่อความสะดวกสบายและรวดเร็ว เรามีทีมงานลงพื้นที่นัดรับในเขตบริการหลัก:</p>
+			<ul>
+				{serviceAreas.map((area) => <li>{area}</li>)}
+			</ul>
+			<p>
+				สามารถนัดเจอกันที่ห้างสรรพสินค้า ร้านกาแฟ หรือสถานที่ที่ลูกค้าสะดวกได้เลย เราใช้เวลาตรวจสอบสภาพเครื่องและระบบไม่เกิน 10 นาที 
+				และทำการ <strong>โอนเงินเข้าบัญชีทันที</strong> ปิดดีลไว ไม่ต้องรอข้ามวัน
+			</p>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				WE BUY ศูนย์รับซื้อ Apple Watch มือสองทุกรุ่น (Ultra 1/2, Series 10/9/8/7, SE) ประเมินราคาอย่างเป็นธรรมตามวัสดุตัวเรือน, ระบบ GPS/Cellular และเปอร์เซ็นต์สุขภาพแบตเตอรี่ (Battery Health) 
+				รับซื้อแม้เครื่องมีรอยหรือหน้าจอแตก มีบริการช่วย Unpair และปลด iCloud อย่างปลอดภัย จ่ายเงินสด/โอนทันที 
+				บริการนัดรับในกรุงเทพฯ, อุบลราชธานี, ขอนแก่น และรับพัสดุทั่วประเทศ ติดต่อ Line @webuy
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อยเกี่ยวกับการรับซื้อ Apple Watch (FAQ)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขาย Apple Watch ให้ได้ราคาดี เลือก WE BUY</h2>
+			<p>
+				อย่าปล่อยให้นาฬิกาเรือนเก่าของคุณเสื่อมราคาไปตามกาลเวลา เปลียน Apple Watch เป็นเงินสดสมทบทุนซื้อรุ่นใหม่ได้อย่างรวดเร็ว 
+				กับบริการรับซื้อจากมืออาชีพที่ประเมินราคาโปร่งใส ไม่กดราคา และดูแลเรื่องความปลอดภัยของข้อมูลคุณเป็นอันดับหนึ่ง
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออุปกรณ์ Apple อื่น ๆ ของเรา</h2>
+			<ul>
+				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone ทุกรุ่น ทุกความจุ</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini ให้ราคาสูง</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air / Pro ทั้งชิป M1-M5 และ Intel</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
+</BaseLayout>

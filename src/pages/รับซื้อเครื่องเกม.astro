@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อเครื่องเกม/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'PlayStation 5 (PS5) - รุ่นใส่แผ่น (Disc)', price: '10,000 - 14,000 บาท', note: 'ราคาขึ้นอยู่กับรหัสรุ่น (CFI) สภาพเครื่อง และอุปกรณ์ในกล่อง' },
+	{ model: 'PlayStation 5 (PS5) - รุ่น Digital', price: '8,500 - 12,000 บาท', note: 'รับประเมินพร้อมจอยสอยหรือแผ่นเกมเพิ่มเติม' },
+	{ model: 'Nintendo Switch OLED', price: '6,500 - 9,000 บาท', note: 'สภาพจอภาพและ Joy-Con มีผลต่อราคา' },
+	{ model: 'Nintendo Switch V2 (กล่องแดง)', price: '4,000 - 6,000 บาท', note: 'รับซื้อครบชุดพร้อม Dock และ Grip' },
+	{ model: 'Steam Deck / ROG Ally', price: '9,000 - 18,000 บาท', note: 'เครื่องเกมพกพา Handheld PC อิงตามความจุสเปก' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อเครื่องเกมรุ่นไหนบ้าง?',
+		a: 'เราเน้นรับซื้อเครื่องเกมคอนโซลยอดฮิตในปัจจุบัน ได้แก่ PlayStation 5 (PS5), PlayStation 4 (PS4 Pro / Slim), Nintendo Switch (OLED, V2, Lite), รวมถึงเครื่อง Handheld PC อย่าง Steam Deck และ ROG Ally ครับ',
+	},
+	{
+		q: 'เครื่องถูกแบน (Banned) จากออนไลน์ รับซื้อไหม?',
+		a: 'ขออภัยครับ ทางเรา "ไม่รับซื้อ" เครื่องที่ถูกแบนจากระบบออนไลน์ (เช่น ถูกแบน PSN หรือ Nintendo Switch ถูกแบน) รวมถึงเครื่องที่มีการแปลงระบบสายมืด (Jailbreak/CFW) ทุกกรณีครับ',
+	},
+	{
+		q: 'จอยคอนโทรลเลอร์ (Joy-Con / DualSense) มีอาการเดินเอง (Drift) รับซื้อไหม?',
+		a: 'รับซื้อครับ! อาการอนาล็อกเดินเองเป็นปัญหาปกติที่พบได้บ่อย ทีมงานจะประเมินราคาโดยหักลบค่าซ่อมหรือค่าเปลี่ยนจอยตามจริงครับ แจ้งอาการก่อนประเมินได้เลยครับ',
+	},
+	{
+		q: 'ขายเครื่องพร้อมแผ่นเกมได้ไหม?',
+		a: 'ได้เลยครับ! หากคุณมีแผ่นเกม PS5, PS4 หรือตลับเกม Nintendo Switch สามารถนำมาขายรวมเป็นชุดได้เลย จะช่วยเพิ่มมูลค่ารวมให้ได้ราคาสูงขึ้นครับ',
+	},
+	{
+		q: 'ก่อนขายต้องเตรียมเครื่องอย่างไร?',
+		a: 'รบกวนลูกค้าลบบัญชีผู้ใช้ (Sign Out PSN Account / Nintendo Account) และทำการ Initialize / Format ตัวเครื่องให้กลับเป็นค่าเริ่มต้นโรงงาน เพื่อปกป้องข้อมูลส่วนตัวของคุณครับ',
+	},
+	{
+		q: 'ขาดกล่องหรือขาดอุปกรณ์บางชิ้น ขายได้ไหม?',
+		a: 'ขายได้ครับ แต่ราคาอาจลดลงจากราคากลางเล็กน้อยตามชิ้นส่วนที่หายไป (เช่น ขาดสาย HDMI, ขาด Dock ของ Switch) ควรแจ้งอุปกรณ์ที่มีให้ครบถ้วนตอนประเมินราคาครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อเครื่องเกม PS5, Nintendo Switch มือสอง จ่ายเงินสด',
+		description:
+			'WE BUY รับซื้อเครื่องเล่นเกมคอนโซลมือสอง PlayStation 5 (PS5), PS4, Nintendo Switch (OLED/V2), Steam Deck ให้ราคาสูง ประเมินราคาไว จ่ายเงินทันที',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อเครื่องเกมมือสอง | PS5, Nintendo Switch, Steam Deck',
+		description:
+			'บริการรับซื้อเครื่องเกมคอนโซล PlayStation 5, Nintendo Switch และเครื่องเล่นเกมพกพา ให้ราคายุติธรรม รับซื้อพร้อมแผ่นเกมและจอยเสริม นัดรับรวดเร็ว',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-05-11',
+		dateModified: '2026-05-11',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords:
+			'รับซื้อเครื่องเกม, รับซื้อ ps5, รับซื้อ playstation 5, รับซื้อ nintendo switch, รับซื้อ switch oled, รับซื้อ steam deck, ขายแผ่นเกม, รับซื้อจอย ps5',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อเครื่องเกม', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อเครื่องเล่นเกมมือสอง',
+		description:
+			'บริการรับซื้อเครื่องเกม Console และ Handheld ทุกประเภท PS5, Nintendo Switch, Steam Deck ประเมินราคาโปร่งใส จ่ายเงินสดทันที มีบริการนัดรับ',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อ Video Game Console',
+		url: pageUrl,
+	},
+];
+---
+
+<BaseLayout
+	title="รับซื้อเครื่องเกม | รับซื้อ PS5, Nintendo Switch, Steam Deck มือสอง | WE BUY"
+	description="WE BUY รับซื้อเครื่องเล่นเกมคอนโซลมือสอง PlayStation 5 (PS5), PS4, Nintendo Switch (OLED/V2), Steam Deck ให้ราคาสูง ประเมินราคาไว นัดรับและจ่ายเงินทันที"
+	pathname="/รับซื้อเครื่องเกม/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Gaming Console Buyback</p>
+			<h1>รับซื้อเครื่องเกม PS5, Nintendo Switch, Steam Deck มือสอง ประเมินไว จ่ายเงินทันที</h1>
+			<p class="intro">
+				เล่นเกมจบแล้ว เบื่อแล้ว หรือไม่มีเวลาเล่น? อย่าปล่อยให้เครื่องเกมวางทิ้งไว้จนฝุ่นจับและราคาตก! 
+				บริการ <strong>รับซื้อเครื่องเกม</strong> ของ WE BUY พร้อมเปลี่ยนคอนโซลเครื่องเก่าของคุณเป็นเงินสดอย่างรวดเร็ว 
+				เราเชี่ยวชาญการประเมินราคาเครื่องเกมฮิต ทั้ง <strong>PlayStation 5 (PS5), Nintendo Switch (OLED/V2)</strong> 
+				และเครื่องเล่นเกมพกพายุคใหม่อย่าง <strong>Steam Deck</strong> หรือ <strong>ROG Ally</strong>
+				รับซื้อให้ราคาสูงตามสภาพจริง สามารถขายเหมาพร้อมแผ่นเกมและอุปกรณ์เสริมได้เลย จบงานไว ไม่ต้องปวดหัวกับการลงขายเอง
+				ทักมาเช็คราคาฟรีได้ที่ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
+			</p>
+		</header>
+
+		<PriceGuide title="ราคารับซื้อเครื่องเกม อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เครื่องเกมที่เราเน้นรับซื้อ</h2>
+
+			<h3>1. PlayStation 5 (PS5) & PS4</h3>
+			<p>
+				รับซื้อ PS5 ทั้งรุ่นใส่แผ่น (Disc Edition) และรุ่น Digital Edition ไม่ว่าจะเป็นบอดี้รุ่นแรก (อ้วน) หรือรุ่น Slim 
+				โดยเราจะประเมินราคาจากรหัสโมเดล (CFI-1000, 1100, 1200 ฯลฯ) สภาพรอยรอบเครื่อง และความสมบูรณ์ของจอย DualSense 
+				หากมีแผ่นเกมฮิตๆ หรือจอยเสริม สามารถนำมาบวกราคาเพิ่มได้ครับ ส่วน PS4 Pro และ Slim ก็ยังรับซื้อเช่นกัน
+			</p>
+
+			<h3>2. Nintendo Switch</h3>
+			<p>
+				เครื่องเกมสายครอบครัวที่ตลาดยังมีความต้องการสูง เรารับซื้อทั้งรุ่น <strong>Nintendo Switch OLED</strong>, 
+				<strong>รุ่นกล่องแดง (V2)</strong> และ <strong>Switch Lite</strong> จุดสำคัญที่เราจะตรวจเช็คคือสภาพหน้าจอ 
+				และอาการจอยเดินเอง (Joy-Con Drift) ซึ่งเป็นอาการประจำรุ่น หากมีอาการสามารถแจ้งก่อนได้ครับ
+			</p>
+
+			<h3>3. Handheld PC (Steam Deck, ROG Ally)</h3>
+			<p>
+				ตลาดเครื่องเกมพกพากำลังมาแรง เรารับซื้อเครื่องเล่นเกมระบบ PC อย่าง Steam Deck (LCD/OLED), ASUS ROG Ally, และ Lenovo Legion Go 
+				ให้ราคาตามสเปกความจุและสภาพเครื่องครับ
+			</p>
+		</section>
+
+		<ContactBox
+			heading="มีเครื่องเกมวางทิ้งไว้ อยากเปลี่ยนเป็นเงินสด?"
+			text="ถ่ายรูปเครื่อง กล่อง และแผ่นเกมทั้งหมด ส่งมาให้เราตีราคารวมได้เลยครับ ประเมินฟรี 24 ชม."
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เกณฑ์การประเมินราคาเครื่องเกมของเรา</h2>
+			<p>
+				เพื่อให้การประเมินราคาเป็นไปอย่างแม่นยำและรวดเร็ว ทีมงานจะพิจารณาจากองค์ประกอบดังต่อไปนี้:
+			</p>
+
+			<h3>1. ความสมบูรณ์ของอุปกรณ์ในกล่อง</h3>
+			<p>
+				คอนโซลเป็นสินค้าที่อุปกรณ์ยิบย่อยเยอะ หากอุปกรณ์พื้นฐานครบถ้วน เช่น สาย HDMI แท้, สายชาร์จจอย, สาย Power, 
+				และฐานตั้งเครื่อง (Stand) จะช่วยให้เครื่องได้ราคาประเมินที่ดีที่สุด หากชิ้นส่วนใดหายไปจะมีการหักลบตามราคาอะไหล่
+			</p>
+
+			<h3>2. สภาพจอยคอนโทรลเลอร์ (Controller Condition)</h3>
+			<p>
+				จอยคือชิ้นส่วนที่เสื่อมสภาพไวที่สุด ทีมงานจะทำการทดสอบปุ่มกด อนาล็อก (ไม่หลวม ไม่เดินเอง) ทัชแพด 
+				และแบตเตอรี่ของจอย หากจอยมีปัญหา เรายังรับซื้อตัวเครื่องแต่จะหักราคาค่าซ่อมจอยครับ
+			</p>
+
+			<h3>3. รหัสรุ่นเครื่อง (Model Number)</h3>
+			<p>
+				เช่น PS5 บอดี้เดียวกันแต่อาจมีรหัส CFI ต่างกัน (รุ่นเปิดตัว vs รุ่นปรับปรุงฮีทซิงค์) 
+				หรือ Nintendo Switch กล่องขาว (V1) กับกล่องแดง (V2) ที่แบตเตอรี่อึดต่างกัน รหัสเหล่านี้มีผลต่อราคาตลาดมือสองอย่างชัดเจน
+			</p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>วิธีเตรียมเครื่องเกมก่อนขาย (เพื่อความปลอดภัยของคุณ)</h2>
+			<p>
+				ก่อนส่งมอบเครื่องให้เรา กรุณาสำรองข้อมูลเซฟเกม (อัปโหลดขึ้น Cloud) และทำตามขั้นตอนนี้เพื่อความปลอดภัยของข้อมูลบัตรเครดิตและบัญชีของคุณ:
+			</p>
+			<ul>
+				<li><strong>PlayStation:</strong> ไปที่ Settings > Users and Accounts > เลือก Sign Out 
+					จากนั้นไปที่ System > System Software > Reset Options > <strong>Reset Your Console</strong>
+				</li>
+				<li><strong>Nintendo Switch:</strong> ไปที่ System Settings > System > Formatting Options > <strong>Initialize Console</strong> 
+					(ระบบจะต้องเชื่อมต่ออินเทอร์เน็ตเพื่อลบการเชื่อมโยงบัญชี Nintendo Account)
+				</li>
+			</ul>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>พื้นที่ให้บริการนัดรับเครื่องเกม</h2>
+			<p>เครื่องคอนโซลมักมีขนาดใหญ่และหนัก การส่งพัสดุอาจเสี่ยงเสียหาย เราจึงแนะนำบริการนัดรับถึงที่ (On-site) ในพื้นที่:</p>
+			<ul>
+				{serviceAreas.map((area) => <li>{area}</li>)}
+			</ul>
+			<p>
+				สามารถนัดเจอกันที่ห้างสรรพสินค้า หรือสถานที่ที่มีปลั๊กไฟให้ทีมงานเสียบทดสอบเครื่องประมาณ 5-10 นาที 
+				เมื่อทดสอบเสร็จสิ้นและล้างข้อมูลเรียบร้อยแล้ว ทีมงานจะ <strong>โอนเงินเข้าบัญชีให้ทันที</strong> ไม่ต้องกังวลเรื่องการโดนโกงครับ
+			</p>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				WE BUY ศูนย์รับซื้อเครื่องเล่นเกมมือสอง ให้ราคาสูงสำหรับ PlayStation 5 (PS5), PlayStation 4, Nintendo Switch (OLED, V2) และเครื่องเกมพกพา Handheld PC อย่าง Steam Deck และ ROG Ally 
+				ประเมินราคาตามรุ่น รหัสเครื่อง สภาพจอยคอนโทรลเลอร์ และความครบถ้วนของอุปกรณ์เสริม สามารถขายรวมแผ่นเกมได้ 
+				ไม่รับซื้อเครื่องแบนหรือสายมืด ให้บริการนัดรับในเขตกรุงเทพฯ, ปริมณฑล, อุบลราชธานี, ขอนแก่น จ่ายเงินโอนทันที ปลอดภัย 100% ติดต่อ Line @webuy
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (FAQ)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขายเครื่องเกมง่ายๆ ได้เงินเต็มจำนวน</h2>
+			<p>
+				หยุดปัญหาลงขายเองแล้วโดนต่อราคา โดนนัดแล้วเท หรือความเสี่ยงในการแพ็กเครื่องเกมส่งไปรษณีย์
+				ใช้บริการร้านรับซื้อมืออาชีพอย่าง WE BUY ที่ประเมินราคาจบตั้งแต่ในไลน์ และเดินทางไปรับถึงที่
+				คุยง่าย จบไว จ่ายเงินสด/โอนทันที ไม่มียืดเยื้อ
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออื่น ๆ ของ WE BUY</h2>
+			<ul>
+				<li><a href="/รับซื้อสมาร์ทโฟน-android/">รับซื้อสมาร์ทโฟน Android</a> — Samsung S/Z Series, ROG Phone</li>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — Gaming Notebook, MacBook รับซื้อทุกยี่ห้อ</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini</li>
+				<li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ, เกมมิ่งพีซี</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
+</BaseLayout>

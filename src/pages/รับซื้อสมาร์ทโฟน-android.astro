@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อสมาร์ทโฟน-android/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Samsung Galaxy S24 Ultra', price: '25,000 - 32,000 บาท', note: 'รับซื้อราคาสูงพิเศษสำหรับเครื่องศูนย์ไทย ประกันเหลือ' },
+	{ model: 'Samsung Galaxy Z Fold / Z Flip Series', price: '12,000 - 28,000 บาท', note: 'ประเมินราคาตามสภาพบานพับและรอยพับหน้าจอ' },
+	{ model: 'Samsung Galaxy S23 / S22 Series', price: '8,000 - 20,000 บาท', note: 'ราคาขึ้นอยู่กับความจุ 256GB/512GB และสภาพรอบเครื่อง' },
+	{ model: 'สมาร์ทโฟนเกมมิ่ง (ROG Phone, RedMagic)', price: '10,000 - 25,000 บาท', note: 'หากมีอุปกรณ์เสริม เช่น พัดลมระบายความร้อน จะได้ราคาดีขึ้น' },
+	{ model: 'Oppo, Vivo, Xiaomi (รุ่น Flagship)', price: '5,000 - 18,000 บาท', note: 'เน้นรับซื้อรุ่นท็อปและรุ่นกลาง สภาพสวย' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อสมาร์ทโฟนยี่ห้อไหนบ้าง?',
+		a: 'เรารับซื้อสมาร์ทโฟน Android แบรนด์ชั้นนำเกือบทุกยี่ห้อ โดยเน้นที่ Samsung Galaxy S Series, Z Series, สมาร์ทโฟนเกมมิ่ง (ASUS ROG, RedMagic) รวมถึงรุ่นเรือธง (Flagship) จาก Oppo, Vivo, และ Xiaomi ครับ',
+	},
+	{
+		q: 'เครื่องติดสัญญาเครือข่าย (ติดโปร) รับซื้อไหม?',
+		a: 'ทางเรา "ไม่รับซื้อ" เครื่องที่ยังติดสัญญาเครือข่าย หรือเครื่องที่ถูกล็อก (Lock) ทุกกรณีครับ เพื่อความโปร่งใสและป้องกันปัญหาการบล็อกเครื่องในภายหลัง รบกวนลูกค้าตรวจสอบสถานะเครื่องก่อนนำมาขายครับ',
+	},
+	{
+		q: 'หน้าจอแตก มีรอยไหม้ (Burn-in) หรือเป็นเส้น รับซื้อไหม?',
+		a: 'รับซื้อครับ แต่ราคาจะถูกปรับลดลงตามต้นทุนค่าซ่อมหน้าจอ โดยเฉพาะจอ OLED ของ Samsung ที่มีค่าซ่อมค่อนข้างสูง แนะนำให้แจ้งตำหนิและถ่ายรูปให้ชัดเจน เพื่อการประเมินราคาที่แม่นยำครับ',
+	},
+	{
+		q: 'Samsung ซีรีส์จอพับ (Z Fold / Z Flip) ดูราคาจากอะไร?',
+		a: 'สำหรับรุ่นจอพับ เราจะให้ความสำคัญกับ "บานพับ (Hinge)" ว่ายังกางได้สุด 180 องศาหรือไม่ มีเสียงดังผิดปกติไหม และตรวจดูรอยพับ (Crease) บนหน้าจอด้านในว่ามีรอยแตกร้าวหรือจุดเดดพิกเซลหรือไม่',
+	},
+	{
+		q: 'ก่อนขายต้องเตรียมเครื่องอย่างไรบ้าง?',
+		a: 'ลูกค้าควรสำรองข้อมูล (Backup) ให้เรียบร้อย จากนั้นให้ลบบัญชี Google Account และ Samsung Account ออกจากเครื่อง แล้วทำการ Factory Reset เพื่อความปลอดภัยของข้อมูลส่วนตัวครับ ทีมงานยินดีให้คำแนะนำหรือช่วยทำต่อหน้าตอนนัดรับได้ครับ',
+	},
+	{
+		q: 'มีแต่ตัวเครื่อง ไม่มีกล่อง ไม่มีสายชาร์จ ขายได้ไหม?',
+		a: 'ขายได้แน่นอนครับ เครื่องเปล่าก็รับซื้อ แต่หากลูกค้ามีกล่องที่อีมี่ (IMEI) ตรงกัน และมีอุปกรณ์ชาร์จแท้ จะช่วยเพิ่มราคารับซื้อได้อีกครับ',
+	},
+	{
+		q: 'ใช้เวลาประเมินราคาและจ่ายเงินนานแค่ไหน?',
+		a: 'ประเมินราคาออนไลน์ผ่าน Line ใช้เวลาเพียง 10-15 นาที และเมื่อนัดรับตรวจเครื่องจริงเสร็จสิ้น จะทำการโอนเงินเข้าบัญชีทันที ไม่ต้องรอนานครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อสมาร์ทโฟน Android มือสอง Samsung, ROG, Oppo, Vivo',
+		description:
+			'WE BUY รับซื้อสมาร์ทโฟน Android มือสองทุกรุ่น เน้น Samsung Galaxy S / Z Series และมือถือเกมมิ่ง ประเมินราคาโปร่งใส จ่ายเงินสดทันที บริการนัดรับ 24 ชม.',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อสมาร์ทโฟน Android ทุกรุ่น ให้ราคาสูง | Samsung, ROG Phone, Vivo',
+		description:
+			'บริการรับซื้อโทรศัพท์มือถือ Android มือสอง ให้ราคายุติธรรมตามสเปกและสภาพเครื่อง ครอบคลุมสมาร์ทโฟนเรือธงและมือถือเกมมิ่ง นัดรับรวดเร็วในพื้นที่',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-05-11',
+		dateModified: '2026-05-11',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords:
+			'รับซื้อมือถือ, รับซื้อสมาร์ทโฟน, รับซื้อ samsung, รับซื้อ s24 ultra, รับซื้อ z fold, รับซื้อ z flip, รับซื้อมือถือเกมมิ่ง, รับซื้อ rog phone, ขายมือถือแอนดรอยด์, ประเมินราคามือถือ',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อสมาร์ทโฟน Android', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อสมาร์ทโฟน Android มือสอง',
+		description:
+			'บริการรับซื้อโทรศัพท์มือถือ Android มือสองแบรนด์ชั้นนำ Samsung Galaxy, ASUS ROG, Oppo, Vivo, Xiaomi ประเมินราคาโปร่งใส จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อสมาร์ทโฟนมือสอง',
+		url: pageUrl,
+	},
+];
+---
+
+<BaseLayout
+	title="รับซื้อสมาร์ทโฟน Android | รับซื้อ Samsung, ROG, Oppo มือสอง ราคาดี | WE BUY"
+	description="WE BUY รับซื้อสมาร์ทโฟน Android มือสองทุกรุ่น เน้น Samsung Galaxy S / Z Series และมือถือเกมมิ่ง ประเมินราคาโปร่งใส จ่ายเงินสดทันที ติดต่อ Line @webuy"
+	pathname="/รับซื้อสมาร์ทโฟน-android/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Android Smartphone Buyback Service</p>
+			<h1>รับซื้อสมาร์ทโฟน Android (Samsung, ROG, Oppo, Vivo) มือสองทุกรุ่น ประเมินไว จ่ายเงินทันที</h1>
+			<p class="intro">
+				ตลาดสมาร์ทโฟนฝั่ง Android มีการพัฒนานวัตกรรมใหม่อย่างรวดเร็ว หากคุณมีมือถือเครื่องเก่าที่ต้องการเปลี่ยนเป็นรุ่นใหม่
+				หรือมีเครื่องสำรองที่ไม่ได้ใช้งาน บริการ <strong>รับซื้อสมาร์ทโฟน Android</strong> ของเราคือคำตอบ
+				เราเชี่ยวชาญการรับซื้อสมาร์ทโฟนเรือธง (Flagship) โดยเฉพาะ <strong>Samsung Galaxy S Series, ซีรีส์จอพับ Z Fold/Z Flip</strong>
+				รวมถึงสมาร์ทโฟนสายเกมมิ่งอย่าง <strong>ASUS ROG Phone</strong> และ <strong>RedMagic</strong>
+				เราประเมินราคาตามกลไกตลาดจริงอย่างโปร่งใส ให้ราคาที่ยุติธรรม ไม่กดราคา พร้อมบริการนัดรับถึงที่และจ่ายเงินทันที
+				เช็คราคาฟรีได้ตลอด 24 ชั่วโมงที่ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
+			</p>
+		</header>
+
+		<PriceGuide title="ราคารับซื้อสมาร์ทโฟน Android อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>ทำไมถึงควรขายมือถือ Android กับ WE BUY</h2>
+			<p>
+				การขายสมาร์ทโฟน Android มือสองอาจมีความท้าทายมากกว่าฝั่ง Apple เนื่องจากมีแบรนด์และรุ่นที่หลากหลายมาก
+				ร้านรับซื้อบางแห่งที่ไม่มีความเชี่ยวชาญอาจตีราคารวมๆ หรือกดราคาเพราะกลัวขายออกยาก
+				แต่ที่ WE BUY เราเข้าใจมูลค่าของมือถือ Android แต่ละรุ่นเป็นอย่างดี:
+			</p>
+
+			<h3>1. เราเข้าใจ "ราคาตลาด" ของรุ่นเรือธงและรุ่นเกมมิ่ง</h3>
+			<p>
+				สมาร์ทโฟนเกมมิ่งมักมีราคาสูงและมีกลุ่มเป้าหมายเฉพาะ หากขายตามตู้ทั่วไปมักจะโดนกดราคาอย่างหนัก
+				แต่เราเข้าใจสเปกและฟีเจอร์พิเศษ (เช่น ปุ่ม Trigger, ระบบระบายความร้อน) ทำให้เรากล้าให้ราคาที่สะท้อนความแรงของเครื่องจริง
+			</p>
+
+			<h3>2. ประเมินราคาอย่างโปร่งใส ไร้ข้ออ้าง</h3>
+			<p>
+				เราแจ้งเงื่อนไขการประเมินราคาล่วงหน้าอย่างชัดเจน เช่น ราคาหน้าจอ Burn-in, ราคาบอดี้มีรอยกระแทก
+				ทำให้คุณทราบช่วงราคาที่แน่นอนก่อนตัดสินใจนัดเจอ ไม่เสียเวลาเดินทางฟรี
+			</p>
+
+			<h3>3. ล้างข้อมูล (Wipe Data) ปลอดภัย 100%</h3>
+			<p>
+				Android ผูกกับ Google Account ซึ่งมีข้อมูลสำคัญมากมาย เราแนะนำและช่วยดำเนินการ Factory Reset แบบล้างรหัสผ่าน (Encryption Key)
+				ทำให้มั่นใจได้ว่าข้อมูลส่วนตัวของคุณจะถูกทำลายอย่างถาวรและไม่สามารถกู้คืนได้
+			</p>
+		</section>
+
+		<ContactBox
+			heading="อยากรู้ราคามือถือ Android ของคุณ?"
+			text="ส่งรุ่น ความจุ และรูปเครื่องรอบด้าน มาประเมินราคาฟรี ไม่มีค่าใช้จ่าย รู้ผลไวใน 15 นาที"
+			variant="primary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>เกณฑ์การประเมินราคาที่ผู้ขายควรรู้</h2>
+			<p>
+				เพื่อให้ได้ราคารับซื้อที่ตรงใจที่สุด แนะนำให้ตรวจสอบปัจจัยเหล่านี้ก่อนส่งข้อมูลมาให้เราประเมิน:
+			</p>
+
+			<h3>1. รุ่น ความจุ และปีที่ผลิต</h3>
+			<p>
+				มือถือเรือธงรุ่นล่าสุดย่อมได้ราคาดีที่สุด ความจุก็มีผลมาก เครื่อง 512GB หรือ 1TB จะมีมูลค่าเพิ่มขึ้นจากรุ่น 256GB อย่างเห็นได้ชัด
+				โปรดระบุรุ่นย่อยให้ชัดเจน (เช่น ระบุว่าเป็น S24 Ultra ไม่ใช่แค่ S24)
+			</p>
+
+			<h3>2. สภาพหน้าจอ (จุดสำคัญที่สุดของ Android)</h3>
+			<p>
+				มือถือ Android รุ่นท็อปมักใช้จอ OLED ซึ่งมีโอกาสเกิดอาการ <strong>"Burn-in (จอเบิร์น/จอภาพค้าง)"</strong> หากเปิดภาพเดิมค้างไว้นานๆ
+				และยังมีปัญหาหน้าจอเป็นเส้น (Green Line) ซึ่งพบได้ในบางรุ่น ปัญหาเหล่านี้มีผลต่อราคาประเมินอย่างมาก แนะนำให้ตรวจสอบหน้าจอด้วยพื้นหลังสีขาวล้วนก่อนขาย
+			</p>
+
+			<h3>3. บานพับสำหรับสมาร์ทโฟนจอพับ (Foldables)</h3>
+			<p>
+				หากคุณนำ Z Fold หรือ Z Flip มาขาย เราจะตรวจสอบความสมบูรณ์ของบานพับ ว่าสามารถกางได้สุดหรือไม่ มีรอยขีดข่วนรุนแรงที่สันบานพับไหม
+				รวมถึงความเรียบเนียนของฟิล์มหน้าจอด้านใน
+			</p>
+
+			<h3>4. อุปกรณ์เสริมและประกัน</h3>
+			<p>
+				สมาร์ทโฟนที่ยังมีประกันศูนย์เหลือ (เช่น Samsung Care+) จะได้ราคาบวกเพิ่ม และหากมีกล่องพร้อมสายชาร์จแท้ ก็จะช่วยให้การขายต่อทำได้ง่ายขึ้นและได้ราคาดีกว่าเครื่องเปล่า
+			</p>
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>แบรนด์และซีรีส์ที่เราเน้นรับซื้อ</h2>
+
+			<h3>Samsung Galaxy</h3>
+			<p>
+				แบรนด์ยอดฮิตที่มีสภาพคล่องสูงสุด เรารับซื้อทั้ง <strong>S Series (S22, S23, S24)</strong> ทุกรุ่นย่อย (Ultra, Plus, ธรรมดา)
+				และ <strong>Z Series (Z Fold 4, 5, 6 / Z Flip 4, 5, 6)</strong> สำหรับ Note Series รุ่นเก่าสามารถทักมาสอบถามราคาก่อนได้ครับ
+			</p>
+
+			<h3>Gaming Smartphones</h3>
+			<p>
+				มือถือสายเกมเมอร์สเปกแรง เรารับซื้อ <strong>ASUS ROG Phone</strong> ทุกรุ่น และ <strong>Nubia RedMagic</strong>
+				หากคุณมีอุปกรณ์เสริมเฉพาะรุ่น เช่น AeroActive Cooler แนะนำให้เสนอขายพร้อมกันจะได้ราคารวมที่ดีมาก
+			</p>
+
+			<h3>แบรนด์จีน (Flagship Models)</h3>
+			<p>
+				เรารับซื้อรุ่นท็อปและรุ่นกลางบนจากแบรนด์ชั้นนำ เช่น <strong>Oppo (Find X Series, Reno Series)</strong>,
+				<strong>Vivo (X Series, V Series)</strong>, และ <strong>Xiaomi (Xiaomi Series ตัวเลข, Poco บางรุ่น)</strong>
+			</p>
+
+			<div class="highlight-box">
+				<strong>หมายเหตุ:</strong> ทางเรา <em>ไม่รับซื้อ</em> สมาร์ทโฟนที่ติดสัญญารายเดือน (ติดโปร) หรือเครื่องที่ถูกล็อกเครือข่ายทุกกรณีครับ
+			</div>
+		</section>
+
+		<ContactBox
+			heading="มีมือถือ Android อยากขายหลายเครื่อง?"
+			text="เรารับซื้อแบบเหมาสำหรับลูกค้าที่มีเครื่องหลายตัว ส่งสเปกมาให้ตีราคาเป็นชุดได้เลย"
+			variant="secondary"
+		/>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>พื้นที่ให้บริการรับซื้อมือถือ</h2>
+			<p>เรามีทีมงานพร้อมนัดรับเครื่องถึงที่ ในสถานที่ที่ปลอดภัยและสะดวกสบายสำหรับคุณ:</p>
+			<ul>
+				{serviceAreas.map((area) => <li>{area}</li>)}
+			</ul>
+			<p>
+				สำหรับลูกค้าในเขต <strong>กรุงเทพฯ, ขอนแก่น, และอุบลราชธานี</strong> สามารถนัดหมายรับเครื่องภายในวันเดียวกันได้เลย
+				ส่วนพื้นที่อื่น ๆ เรามีระบบรับซื้อผ่านพัสดุที่โปร่งใส ตรวจเช็คผ่านวิดีโอ และโอนเงินทันทีที่เครื่องถึงมือ
+			</p>
+		</section>
+
+		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
+			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
+			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+				WE BUY ศูนย์รับซื้อสมาร์ทโฟน Android มือสอง ให้ราคาสูงสำหรับรุ่นเรือธง (Samsung Galaxy S/Z Series) และมือถือเกมมิ่ง (ROG Phone, RedMagic) 
+				ประเมินราคาตามสเปกความจุ สภาพบานพับหน้าจอพับ และอาการ Burn-in จ่ายเงินสดทันทีหลังตรวจรับ ไม่รับเครื่องติดสัญญา 
+				บริการนัดรับในเขตกรุงเทพฯ, อุบลราชธานี, ขอนแก่น หรือส่งพัสดุจากทั่วไทย ติดต่อ Line @webuy ตลอด 24 ชม.
+			</p>
+		</div>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (FAQ)</h2>
+			<p>รวมข้อสงสัยเกี่ยวกับการรับซื้อสมาร์ทโฟน Android เพื่อประกอบการตัดสินใจ</p>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section>
+			<h2>สรุป — ขายมือถือ Android ง่ายๆ ได้ราคาจริง</h2>
+			<p>
+				ไม่ต้องเหนื่อยลงประกาศขายเอง หรือปวดหัวกับคนต่อราคาที่หน้างาน
+				เปลี่ยนมือถือ Android เครื่องเก่าของคุณเป็นเงินสดได้ง่ายๆ กับทีมงานมืออาชีพ
+				เราพร้อมให้คำปรึกษา แนะนำการล้างเครื่อง และให้ราคาประเมินที่ดีที่สุดในตลาด
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออื่น ๆ ของ WE BUY</h2>
+			<ul>
+				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — รับซื้อ iPhone ทุกรุ่น ประเมินตามสุขภาพแบตเตอรี่</li>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — รับซื้อโน๊ตบุ๊คทำงานและ Gaming Notebook ทุกยี่ห้อ</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini ให้ราคาสูง</li>
+				<li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ, All-in-One</li>
+				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — DSLR, Mirrorless, Lens ทุกยี่ห้อ</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
+</BaseLayout>
