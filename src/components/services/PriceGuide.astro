@@ -1,0 +1,47 @@
+---
+export interface PriceItem {
+    model: string;
+    price: string;
+    note?: string;
+}
+
+interface Props {
+    title?: string;
+    subtitle?: string;
+    items: PriceItem[];
+    disclaimer?: string;
+}
+
+const {
+    title = "ตารางประเมินราคารับซื้อเบื้องต้น",
+    subtitle = "ราคาอ้างอิงสำหรับเครื่องสภาพสวย อุปกรณ์ครบ (อัปเดตปี 2026)",
+    items,
+    disclaimer = "* ราคาจริงอาจปรับขึ้นหรือลงตาม สภาพแบตเตอรี่ สภาพภายนอก ตำหนิ และอุปกรณ์เสริมที่มี แนะนำส่งภาพและสเปกมาให้ประเมินเพื่อราคาที่แม่นยำที่สุด"
+} = Astro.props;
+---
+<div class="my-8 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden not-prose">
+    <div class="bg-gray-50 px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-200">
+        <h3 class="text-xl font-bold text-gray-900 m-0 pb-1">{title}</h3>
+        {subtitle && <p class="text-sm text-gray-500 m-0">{subtitle}</p>}
+    </div>
+    <div class="p-0">
+        <ul class="divide-y divide-gray-100 list-none m-0 p-0">
+            {items.map((item) => (
+                <li class="px-5 py-4 sm:px-6 sm:py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-gray-50/50 transition-colors">
+                    <div class="font-medium text-gray-900 text-base">{item.model}</div>
+                    <div class="sm:text-right flex flex-col sm:items-end">
+                        <span class="inline-flex items-center rounded-md bg-green-50 px-2.5 py-1 text-sm font-semibold text-green-700 ring-1 ring-inset ring-green-600/20 whitespace-nowrap">
+                            {item.price}
+                        </span>
+                        {item.note && <div class="text-xs text-gray-500 mt-1">{item.note}</div>}
+                    </div>
+                </li>
+            ))}
+        </ul>
+    </div>
+    {disclaimer && (
+        <div class="bg-gray-50/50 px-5 py-3 sm:px-6 sm:py-3 border-t border-gray-200 text-xs text-gray-500 leading-relaxed">
+            {disclaimer}
+        </div>
+    )}
+</div>

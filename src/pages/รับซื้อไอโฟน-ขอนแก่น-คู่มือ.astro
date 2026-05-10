@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import '../styles/longform.css';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const localCity = 'ขอนแก่น';
+
+const faqItems = [
+  {
+    q: 'รับซื้อ iPhone ขอนแก่น นัดรับจุดไหนได้บ้าง?',
+    a: 'สามารถนัดรับได้ในเขตตัวเมืองขอนแก่น บริเวณมหาวิทยาลัยขอนแก่น หรือจุดที่สะดวกตามตกลง กรุณาติดต่อ Line @webuy ล่วงหน้าเพื่อจัดคิวงาน',
+  },
+  {
+    q: 'iPhone จอแตก หรือแบตเสื่อม รับซื้อไหม?',
+    a: 'รับประเมินครับ โดยเราจะหักลบค่าซ่อมจอหรือค่าเปลี่ยนแบตตามจริงอย่างเป็นธรรม แจ้งอาการให้ชัดเจนก่อนนัดพบจะช่วยให้ได้ราคาที่แม่นยำ',
+  },
+  {
+    q: 'ติด iCloud หรือเครื่องนอกรับไหม?',
+    a: 'เครื่องติด iCloud จะไม่สามารถรับซื้อได้ในราคาสูง ส่วนเครื่องนอกรับปกติแต่ราคาอาจต่ำกว่าเครื่องศูนย์ไทยเล็กน้อย',
+  },
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: `รับซื้อไอโฟน ${localCity} นัดรับด่วน`,
+    description: `WE BUY บริการรับซื้อ iPhone มือสองในจังหวัด${localCity} ประเมินราคาไว จ่ายเงินสดทันที นัดรับในเมืองและ มข. แอดไลน์ @webuy`,
+    inLanguage: 'th-TH',
+    isPartOf: { '@id': websiteId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `WE BUY รับซื้อไอโฟน ${localCity}`,
+    image: [new URL('/og-default.png', site).toString()],
+    '@id': `${pageUrl}#localbusiness`,
+    url: pageUrl,
+    telephone: '0642579353',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: localCity,
+      addressRegion: localCity,
+      addressCountry: 'TH',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: localCity,
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={`รับซื้อไอโฟน ${localCity} นัดรับด่วน ประเมินราคาฟรี | WE BUY`}
+  description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมืองและ มข. ประเมินราคาผ่านไลน์ฟรี`}
+  pathname="/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/"
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <header class="article-head">
+      <p class="eyebrow">Local Service: {localCity}</p>
+      <h1>รับซื้อ iPhone {localCity} นัดรับด่วน ได้เงินชัวร์</h1>
+      <p class="lead">
+        ขาย iPhone ในจังหวัดขอนแก่นได้ง่ายกว่าเดิม ถ่ายรูปและแจ้งรุ่น สุขภาพแบต มาที่ Line <strong>@webuy</strong> เพื่อรับราคาประเมินก่อนตัดสินใจ
+      </p>
+    </header>
+  </div>
+
+  <main class="container prose">
+    <section>
+      <h2>เช็กลิสต์ก่อนขาย iPhone สำหรับชาวขอนแก่น</h2>
+      <ul>
+        <li>เช็กรุ่น ความจุ และสุขภาพแบตเตอรี่ (Battery Health)</li>
+        <li>สำรองข้อมูลไว้ที่ iCloud หรือคอมพิวเตอร์</li>
+        <li>Sign out ออกจาก Apple ID ทุกครั้งก่อนส่งมอบ</li>
+        <li>ลบข้อมูลทั้งหมดและคืนค่าโรงงาน (Erase All Content and Settings)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>จุดเด่นของการใช้บริการของเราในพื้นที่ขอนแก่น</h2>
+      <p>เรามีเครือข่ายทีมงานที่สามารถวิ่งประเมินและรับเครื่องได้ในโซนตัวเมืองขอนแก่นและ มข. ทำให้การขายไอโฟนของคุณเป็นเรื่องง่าย รวดเร็ว และไม่ต้องเสี่ยงกับการนัดพบบุคคลที่ไม่รู้จัก</p>
+    </section>
+
+    <section class="faq">
+      <h2>คำถามที่พบบ่อย (ขอนแก่น)</h2>
+      {faqItems.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </section>
+  </main>
+
+  <ContactBox
+    heading="ชาวขอนแก่นพร้อมขาย iPhone หรือยัง?"
+    text="ทักไลน์ @webuy พร้อมแจ้งรุ่นและความจุ ทีมงานขอนแก่นพร้อมให้บริการ"
+    ctaText="แอดไลน์ @webuy"
+  />
+</BaseLayout>

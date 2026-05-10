@@ -1,7 +1,5 @@
 ---
-import '../styles/tailwind.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LandingNav from '../components/landing/LandingNav.astro';
 import Hero from '../components/landing/Hero.astro';
 import FeatureCard from '../components/landing/FeatureCard.astro';
 import ProcessSection from '../components/landing/ProcessSection.astro';
@@ -344,9 +342,8 @@ const homeJsonLd: Record<string, unknown> = {
 };
 ---
 
-<BaseLayout title={homeTitle} description={homeDescription} keywords={metaKeywords} pathname="/" jsonLd={homeJsonLd} hideSiteHeader>
+<BaseLayout title={homeTitle} description={homeDescription} keywords={metaKeywords} pathname="/" jsonLd={homeJsonLd}>
 	<div class="font-sans bg-[#FAFAFA] text-text antialiased">
-		<LandingNav />
 		<Hero />
 		{
 			recent.length === 0 && (

@@ -1,10 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin } from '../lib/site';
+import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
 const websiteId = `${site}/#website`;
 const pageUrl = `${site}/รับซื้อกล้อง/`;
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
@@ -15,6 +22,14 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Mirrorless ระดับโปร (Sony A7RV, Canon R5 II)', price: '60,000 - 100,000+ บาท', note: 'อิงตาม Shutter Count และสภาพเซ็นเซอร์' },
+	{ model: 'Mirrorless ระดับกลาง (Sony A7IV, Fuji X-T5)', price: '30,000 - 55,000 บาท', note: 'ราคาจะสูงขึ้นถ้าขายพร้อมเลนส์คิทหรือเลนส์เกรดโปร' },
+	{ model: 'กล้อง DSLR และ Mirrorless รุ่นเริ่มต้น', price: '5,000 - 20,000 บาท', note: 'รับประเมินแม้กล้องเก่าหรือมีตำหนิยางลอก' },
+	{ model: 'เลนส์กล้อง (Lenses)', price: '1,000 - 40,000+ บาท', note: 'ราคาตกยากหากไม่มีรา ฝ้า และระบบโฟกัสทำงานปกติ' },
+	{ model: 'Action Camera (GoPro Hero 11-13 / DJI)', price: '3,000 - 12,000 บาท', note: 'ประเมินจากสภาพเลนส์และการทำงานของแบตเตอรี่' },
+];
 
 const faqItems = [
 	{ q: 'รับซื้อกล้องประเภทไหนบ้าง?', a: 'รับซื้อกล้อง DSLR, Mirrorless, Compact, Action Camera, กล้องฟิล์ม, เลนส์ทุกประเภท และอุปกรณ์เสริม เช่น แฟลช ขาตั้ง กิมบอล กระเป๋ากล้อง โดยประเมินจากรุ่น สภาพ และการทำงานจริง' },
@@ -686,7 +701,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ, คอมสำนักงาน, Gaming PC, Workstation</li>
 				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone ทุกรุ่นตั้งแต่ iPhone 8 ถึง iPhone 16 Pro Max</li>
 				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad, iPad Air, iPad mini, iPad Pro ทุกรุ่น</li>
-				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4)</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4/M5)</li>
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL/Marshall และรุ่นยอดนิยมอื่น ๆ</li>
 			</ul>
 		</section>

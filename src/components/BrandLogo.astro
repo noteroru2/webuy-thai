@@ -44,21 +44,22 @@
 			/>
 		</svg>
 	</span>
-	<span class="brand-copy">
-		<span class="brand-line1">
-			<span class="brand-we">WE BUY</span>
-			<span class="brand-sep" aria-hidden="true">|</span>
-			<span class="brand-th">เรารับซื้อ</span>
-		</span>
-		<span class="brand-line2">รับซื้อโน้ตบุ๊ค · รับซื้อคอมพิวเตอร์ · ประเมินราคามืออาชีพ</span>
+	<span class="brand-line1">
+		<span class="brand-we">WE BUY</span>
+		<span class="brand-sep" aria-hidden="true">|</span>
+		<span class="brand-th">เรารับซื้อ</span>
 	</span>
+	<span class="brand-line2">รับซื้อโน้ตบุ๊ค · รับซื้อคอมพิวเตอร์ · ประเมินราคามืออาชีพ</span>
 </a>
 
 <style>
 	.brand {
-		display: flex;
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr);
+		grid-template-rows: auto auto;
+		column-gap: 0.7rem;
+		row-gap: 0.28rem;
 		align-items: center;
-		gap: 0.7rem;
 		text-decoration: none;
 		line-height: 1.2;
 		max-width: min(100%, 28rem);
@@ -69,7 +70,8 @@
 		opacity: 0.97;
 	}
 	.brand-mark {
-		flex-shrink: 0;
+		grid-column: 1;
+		grid-row: 1;
 		width: clamp(56px, 16vw, 80px);
 		height: clamp(56px, 16vw, 80px);
 		display: block;
@@ -80,17 +82,14 @@
 		display: block;
 		filter: drop-shadow(0 3px 14px rgba(255, 130, 0, 0.2));
 	}
-	.brand-copy {
-		display: flex;
-		flex-direction: column;
-		gap: 0.22rem;
-		min-width: 0;
-	}
 	.brand-line1 {
+		grid-column: 2;
+		grid-row: 1;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: baseline;
 		gap: 0.15rem 0.35rem;
+		min-width: 0;
 		font-size: clamp(1.05rem, 3.2vw, 1.32rem);
 		font-weight: 800;
 		letter-spacing: -0.02em;
@@ -111,19 +110,35 @@
 		font-weight: 750;
 	}
 	.brand-line2 {
+		grid-column: 2;
+		grid-row: 2;
 		font-size: clamp(0.74rem, 2.1vw, 0.85rem);
 		font-weight: 500;
 		color: #4a4540;
 		letter-spacing: 0.01em;
-		line-height: 1.35;
+		line-height: 1.45;
+		word-break: normal;
+		overflow-wrap: break-word;
+		hyphens: none;
 	}
 	@media (max-width: 1023px) {
 		.brand {
-			max-width: calc(100% - 6.25rem);
+			max-width: none;
+			width: 100%;
+			column-gap: 0.55rem;
 		}
 		.brand-mark {
-			width: clamp(58px, 21vw, 80px);
-			height: clamp(58px, 21vw, 80px);
+			width: clamp(44px, 12vw, 56px);
+			height: clamp(44px, 12vw, 56px);
+			align-self: start;
+		}
+		.brand-line1 {
+			font-size: clamp(0.98rem, 2.8vw, 1.2rem);
+		}
+		.brand-line2 {
+			grid-column: 1 / -1;
+			font-size: clamp(0.78rem, 2.4vw, 0.88rem);
+			padding-top: 0.05rem;
 		}
 	}
 </style>

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
@@ -21,6 +22,14 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Hi-End Gaming PC (RTX 5080/5090)', price: '60,000 - 150,000+ บาท', note: 'ประเมินจาก CPU, เมนบอร์ดเกรดบน และชุดน้ำ' },
+	{ model: 'Mid-Range Gaming PC (RTX 4060/4070)', price: '15,000 - 35,000 บาท', note: 'ราคาสูงขึ้นหากมีกล่องชิ้นส่วนเดิมและประกันเหลือ' },
+	{ model: 'คอมพิวเตอร์สายทำงาน / สตรีมเมอร์', price: '10,000 - 25,000 บาท', note: 'เน้นประเมิน CPU Multi-core และ RAM 32GB+' },
+	{ model: 'คอมพิวเตอร์สำนักงาน (Office PC)', price: '3,000 - 8,000 บาท', note: 'รับประเมินทั้งแบบเครื่องเดียวและเหมาล็อตบริษัท' },
+	{ model: 'ซากคอม / ชิ้นส่วน / จอคอมเก่า', price: '500 - 3,000 บาท', note: 'ประเมินตามอะไหล่ที่ยังนำไปใช้ประโยชน์ต่อได้' },
+];
 
 const faqItems = [
 	{
@@ -181,6 +190,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</header>
 
+		<PriceGuide title="ราคารับซื้อคอมพิวเตอร์อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
 		<!-- ═══════════ ทำไมต้องขายคอมกับเรา ═══════════ -->
 		<section>
 			<h2>ทำไมต้องขายคอมพิวเตอร์ตั้งโต๊ะกับเรา</h2>
@@ -267,7 +278,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<h3>การ์ดจอ (GPU) — ตัวชี้วัดมูลค่าเครื่องเกมมิ่งและเวิร์กสเตชัน</h3>
 			<p>
 				การ์ดจอเป็นชิ้นส่วนที่มีราคาผันผวนมากที่สุดในตลาดมือสอง ขึ้นอยู่กับรุ่น ยี่ห้อ VRAM
-				และความต้องการของตลาดในขณะนั้น การ์ดจอรุ่นยอดนิยมอย่าง NVIDIA GeForce RTX 3060 ขึ้นไป
+				และความต้องการของตลาดในขณะนั้น การ์ดจอรุ่นยอดนิยมอย่าง NVIDIA GeForce RTX 5060 ขึ้นไป
 				หรือ AMD Radeon RX 6700 XT ขึ้นไปมักได้ราคาดี เพราะยังรองรับเกมใหม่และงานกราฟิกได้อย่างลื่นไหล
 				ส่วนการ์ดจอรุ่นเก่าอย่าง GTX 1060 หรือ RX 580 ก็ยังมีตลาดแต่ราคาจะลดลงตามความต้องการ
 			</p>
@@ -383,7 +394,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 			<h3>สเปกที่ทำให้คอมเกมมิ่งได้ราคาสูง</h3>
 			<p>
-				การ์ดจอเป็นตัวชี้วัดหลัก ถ้ามีการ์ดจอรุ่น RTX 3070 ขึ้นไป หรือ RTX 4060 ขึ้นไป
+				การ์ดจอเป็นตัวชี้วัดหลัก ถ้ามีการ์ดจอรุ่น RTX 5070 ขึ้นไป หรือ RTX 5060 ขึ้นไป
 				ราคาเครื่องจะสูงขึ้นอย่างชัดเจน ซีพียู Ryzen 7 หรือ Intel Core i7 ขึ้นไป
 				พร้อม RAM 16GB-32GB และ SSD NVMe 512GB ขึ้นไป ถือเป็นคอนฟิกที่ตลาดต้องการสูง
 				พาวเวอร์ซัพพลาย 650W ขึ้นไปจากยี่ห้อดัง ๆ ก็ช่วยเพิ่มมูลค่าด้วยเช่นกัน
@@ -671,7 +682,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li>รุ่นซีพียูเต็ม (เช่น Intel Core i7-12700K หรือ AMD Ryzen 7 5800X)</li>
 				<li>ขนาดและชนิดแรม (เช่น DDR4 16GB 3200MHz x2)</li>
 				<li>รุ่นและความจุ SSD/HDD (เช่น Samsung 970 EVO 1TB NVMe)</li>
-				<li>รุ่นการ์ดจอ (เช่น NVIDIA RTX 3070 Ti 8GB)</li>
+				<li>รุ่นการ์ดจอ (เช่น NVIDIA RTX 5070 Ti 8GB)</li>
 				<li>ยี่ห้อและกำลังวัตต์พาวเวอร์ซัพพลาย (เช่น Corsair RM750x 750W 80+ Gold)</li>
 				<li>รุ่นเมนบอร์ด (เช่น ASUS ROG STRIX B550-F)</li>
 				<li>อายุการใช้งานโดยประมาณและประวัติการซ่อม</li>
@@ -813,7 +824,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone ทุกรุ่นตั้งแต่ iPhone 8 ถึง iPhone 16 Pro Max</li>
 				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — DSLR, Mirrorless, Compact ทุกยี่ห้อ พร้อมเลนส์และอุปกรณ์เสริม</li>
 				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad, iPad Air, iPad mini, iPad Pro ทุกรุ่น</li>
-				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4)</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4/M5)</li>
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL/Marshall และรุ่นยอดนิยมอื่น ๆ</li>
 			</ul>
 		</section>

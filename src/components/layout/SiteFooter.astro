@@ -55,33 +55,33 @@ const year = new Date().getFullYear();
 				</div>
 			</div>
 
-			<div class="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-8 lg:gap-8">
+			<div class="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:col-span-8 lg:gap-8">
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">บริการของเรา</p>
 					<ul class="mt-4 space-y-2.5 text-sm">
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/บริการ/">ภาพรวมบริการ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อ/">รับซื้อ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อคอม/">รับซื้อคอม</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/บริการ/">ภาพรวมบริการ</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อ/">รับซื้อ</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อคอม/">รับซื้อคอม</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
 					</ul>
 				</div>
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">เกี่ยวกับ</p>
 					<ul class="mt-4 space-y-2.5 text-sm">
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/blog/">บทความ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400" href="/contact/">ติดต่อเรา</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/blog/">บทความ</a></li>
+						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/contact/">ติดต่อเรา</a></li>
 						<li>
-							<a class="text-gray-400 transition hover:text-brand-400" href={mapUrl} target="_blank" rel="noopener noreferrer"
+							<a class="text-gray-400 transition hover:text-brand-400 block" href={mapUrl} target="_blank" rel="noopener noreferrer"
 								>แผนที่ / นำทาง</a
 							>
 						</li>
 					</ul>
 				</div>
-				<div class="col-span-2 sm:col-span-1">
+				<div class="col-span-1 sm:col-span-2 md:col-span-1">
 					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">ที่อยู่ (NAP)</p>
-					<p class="mt-4 text-sm leading-[1.75] text-gray-400">
+					<p class="mt-4 text-sm leading-[1.75] text-gray-400 break-words">
 						<strong class="font-semibold text-gray-200">{siteName}</strong><br />
 						{addressLine1 && (
 							<>
@@ -96,25 +96,22 @@ const year = new Date().getFullYear();
 			</div>
 
 			<div class="col-span-full mt-6 border-t border-white/[0.08] pt-10">
-				<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">คู่มือบริการ · อุบลราชธานี</p>
-				<ul class="mt-4 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-2">
+				<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">คู่มือบริการ · ท้องถิ่น</p>
+				<ul class="mt-4 flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
 					<li>
-						<a class="text-gray-400 transition hover:text-brand-400" href="/บริการ/#คู่มืออุบล">ภาพรวม + 4 คู่มือ</a>
+						<a class="text-gray-400 transition hover:text-brand-400 block" href="/บริการ/#คู่มืออุบล">ภาพรวม + คู่มือท้องถิ่น</a>
 					</li>
 					<li>
-						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซ่อมคอม-อุบลราชธานี-คู่มือนัดซ่อม/">รับซ่อมคอม อุบล</a>
+						<a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/">รับซื้อโน๊ตบุ๊ค อุบล</a>
 					</li>
 					<li>
-						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซ่อมโน๊ตบุ๊ค-อุบลราชธานี-คู่มือซ่อม/">รับซ่อมโน๊ตบุ๊ค อุบล</a>
+						<a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/">รับซื้อไอโฟน ขอนแก่น</a>
 					</li>
 					<li>
-						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซ่อมมือถือ-อุบลราชธานี-คู่มือ/">รับซ่อมมือถือ อุบล</a>
+						<a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซ่อมคอม-อุบลราชธานี-คู่มือนัดซ่อม/">รับซ่อมคอม อุบล</a>
 					</li>
 					<li>
-						<a class="text-gray-400 transition hover:text-brand-400" href="/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ-ประเมินราคา/">รับซื้อไอโฟน อุบล</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400" href="/fixcom-ubon/">จุดซ่อมในเมือง (fixcom-ubon)</a>
+						<a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซ่อมมือถือ-อุบลราชธานี-คู่มือ/">รับซ่อมมือถือ อุบล</a>
 					</li>
 				</ul>
 			</div>

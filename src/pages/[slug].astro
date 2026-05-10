@@ -6,13 +6,21 @@ import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts();
-	return posts.map((post) => ({
-		params: { slug: post.data.slug },
-		props: { entryId: post.id },
-	}));
+	return posts.map((post) => {
+		// Get 4 recent posts (excluding the current one) to display in the Related Posts section
+		const recentPosts = posts
+			.filter((p) => p.id !== post.id)
+			.slice(0, 4)
+			.map((p) => ({ slug: p.data.slug, title: p.data.title }));
+
+		return {
+			params: { slug: post.data.slug },
+			props: { entryId: post.id, recentPosts },
+		};
+	});
 }
 
-const { entryId } = Astro.props;
+const { entryId, recentPosts } = Astro.props;
 const post = await getEntry('posts', entryId);
 if (!post) {
 	return Astro.redirect('/404/', 302);
@@ -161,6 +169,38 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		<div class="prose content">
 			<Content />
 		</div>
+
+		<hr class="my-10 border-gray-100" />
+		
+		<!-- Bottom-Up Links (Content Silos) -->
+		<section class="mb-10">
+			<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
+			<p class="text-gray-600 mb-4 text-sm">หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี จ่ายเงินทันที:</p>
+			<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
+				<li><a href="/รับซื้อโน๊ตบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อโน๊ตบุ๊ค</a></li>
+				<li><a href="/รับซื้อคอม/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อคอม</a></li>
+				<li><a href="/รับซื้อไอโฟน/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอโฟน</a></li>
+				<li><a href="/รับซื้อกล้อง/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อกล้อง</a></li>
+				<li><a href="/รับซื้อแมคบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อแมคบุ๊ค</a></li>
+				<li><a href="/รับซื้อไอแพด/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอแพด</a></li>
+			</ul>
+		</section>
+
+		<!-- Related Posts (Fixing Orphan Pages) -->
+		<section>
+			<h2 class="text-xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+				{Astro.props.recentPosts && Astro.props.recentPosts.map((rp: any) => (
+					<a href={`/${rp.slug}/`} class="group block border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
+						<h3 class="font-bold text-gray-900 group-hover:text-brand-600 text-sm line-clamp-2 leading-snug">{rp.title}</h3>
+					</a>
+				))}
+			</div>
+			<div class="mt-4 text-center">
+				<a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200">ดูบทความทั้งหมด →</a>
+			</div>
+		</section>
+
 	</article>
 </BaseLayout>
 

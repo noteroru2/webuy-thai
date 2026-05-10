@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import '../styles/longform.css';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const localCity = 'อุบลราชธานี';
+
+const faqItems = [
+  {
+    q: 'ร้านรับซื้อโน๊ตบุ๊คในอุบลราชธานีอยู่ตรงไหน นัดรับที่ไหนได้บ้าง?',
+    a: 'สามารถนัดประเมินและรับเครื่องได้ในเขตตัวเมืองอุบลฯ วารินชำราบ หรือจุดนัดพบที่สะดวก แนะนำทัก Line @webuy เพื่อแจ้งรุ่นและสเปกก่อน จะช่วยให้ประหยัดเวลาและได้ราคาเบื้องต้นทันที',
+  },
+  {
+    q: 'มีบริการไปรับโน๊ตบุ๊คถึงบ้านในอุบลฯ ไหม?',
+    a: 'ขึ้นอยู่กับระยะทางและคิวงานในแต่ละวัน สำหรับพื้นที่ในเมืองสามารถประสานงานเพื่อวิ่งไปดูเครื่องได้ หรือส่งผ่านบริการ Delivery ในท้องถิ่น',
+  },
+  {
+    q: 'โน๊ตบุ๊คเสียหรือจอแตก รับซื้อไหม?',
+    a: 'รับประเมินครับ เครื่องเสียยังมีชิ้นส่วนที่ใช้งานได้ เช่น RAM, SSD หรือตัวบอดี้ แนะนำส่งรูปและแจ้งอาการผ่าน Line ก่อนตัดสินใจทิ้ง',
+  },
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: `รับซื้อโน๊ตบุ๊ค ${localCity} ตีราคาถึงที่`,
+    description: `บริการรับซื้อโน๊ตบุ๊คมือสองในจังหวัด${localCity} ประเมินราคาด่วน นัดรับในเมืองและวารินฯ จ่ายเงินสดทันที แอดไลน์ @webuy`,
+    inLanguage: 'th-TH',
+    isPartOf: { '@id': websiteId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `WE BUY รับซื้อโน๊ตบุ๊ค ${localCity}`,
+    image: [new URL('/og-default.png', site).toString()],
+    '@id': `${pageUrl}#localbusiness`,
+    url: pageUrl,
+    telephone: '0642579353',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: localCity,
+      addressRegion: localCity,
+      addressCountry: 'TH',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: localCity,
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={`รับซื้อโน๊ตบุ๊ค ${localCity} นัดรับถึงที่ ประเมินราคาด่วน จ่ายเงินสด | WE BUY`}
+  description={`หาที่ขายโน๊ตบุ๊คใน${localCity}? WE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ นัดรับในเขตเมืองและวารินฯ ประเมินราคาออนไลน์ฟรี จ่ายเงินทันที`}
+  pathname="/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/"
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <header class="article-head">
+      <p class="eyebrow">Local Service: {localCity}</p>
+      <h1>รับซื้อโน๊ตบุ๊ค {localCity} นัดรับถึงที่ จ่ายเงินสด</h1>
+      <p class="lead">
+        ชาวอุบลฯ ที่กำลังมองหาร้านรับซื้อโน๊ตบุ๊คที่ให้ราคายุติธรรม ไม่ต้องขับรถตระเวนหาร้าน แค่ส่งสเปกมาทาง Line <strong>@webuy</strong> ประเมินเสร็จนัดรับได้ทันที
+      </p>
+    </header>
+  </div>
+
+  <main class="container prose">
+    <section>
+      <h2>ขั้นตอนการขายโน๊ตบุ๊คในจังหวัดอุบลราชธานี</h2>
+      <ol>
+        <li><strong>ส่งข้อมูล:</strong> ถ่ายรูปเครื่อง สเปก (CPU, RAM, รุ่น) และแจ้งตำหนิ ส่งมาที่ Line @webuy</li>
+        <li><strong>รับราคาประเมิน:</strong> ทีมงานจะแจ้งราคาประเมินเบื้องต้นภายในไม่กี่นาที</li>
+        <li><strong>นัดหมายจุดรับ:</strong> เลือกจุดนัดพบที่สะดวกในเขตอำเภอเมือง, วารินชำราบ หรือมหาวิทยาลัยใกล้เคียง</li>
+        <li><strong>รับเงินสด:</strong> เมื่อทีมงานตรวจสอบเครื่องตรงตามที่แจ้ง รับเงินโอนหรือเงินสดทันที</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>ทำไมคนอุบลฯ ถึงเลือก WE BUY</h2>
+      <ul>
+        <li>ไม่ต้องเสียเวลาเดินทางไปถามราคาหลายร้าน</li>
+        <li>ได้ทราบช่วงราคาก่อนออกเดินทาง</li>
+        <li>บริการรวดเร็ว ตีราคาตรงไปตรงมา</li>
+        <li>ครอบคลุมทั้งโน๊ตบุ๊คทำงาน โน๊ตบุ๊คเกมมิง และ MacBook</li>
+      </ul>
+    </section>
+
+    <section class="faq">
+      <h2>คำถามที่พบบ่อย (อุบลราชธานี)</h2>
+      {faqItems.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </section>
+  </main>
+
+  <ContactBox
+    heading="อยู่จังหวัดอุบลฯ อยากขายโน๊ตบุ๊คด่วน?"
+    text="ทักไลน์ @webuy พร้อมสเปก ทีมงานประเมินและนัดรับคิวถัดไปให้ทันที"
+    ctaText="แอดไลน์ @webuy"
+  />
+</BaseLayout>

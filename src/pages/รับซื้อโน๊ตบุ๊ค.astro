@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
@@ -21,6 +22,14 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 80,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับจำนวน Core CPU/GPU และ RAM' },
+	{ model: 'Gaming Notebook (RTX 5060 / 5070)', price: '20,000 - 45,000 บาท', note: 'ดูแบรนด์ สเปกจอภาพ และตำหนิตัวเครื่อง' },
+	{ model: 'Ultrabook (Core Ultra / i7 Gen 14-15)', price: '15,000 - 30,000 บาท', note: 'เน้นสภาพสวย น้ำหนักเบา แบตเตอรี่เสื่อมน้อย' },
+	{ model: 'Notebook ทั่วไป (Core i5 / Ryzen 5)', price: '5,000 - 15,000 บาท', note: 'ประเมินตามการ์ดจอแยกและสภาพการใช้งานจริง' },
+	{ model: 'Notebook สเปกเก่า หรือ มีตำหนิ', price: '1,000 - 5,000 บาท', note: 'รับประเมินทุกอาการ จอแตก แบตเสื่อม ทักมาได้เลย' },
+];
 
 const faqItems = [
 	{
@@ -253,7 +262,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<h3>การ์ดจอ (GPU) — ตัวตัดสินราคาสายเกมมิง</h3>
 			<p>
 				สำหรับโน๊ตบุ๊คเกมมิงหรือโน๊ตบุ๊คสำหรับงานกราฟิก การ์ดจอเป็นปัจจัยที่มีน้ำหนักสูงมาก
-				เครื่องที่มี NVIDIA RTX 3060, RTX 4070 หรือสูงกว่าจะได้ราคาดีอย่างเห็นได้ชัด ในขณะที่เครื่องที่ใช้ GPU ออนบอร์ดอย่าง Intel UHD
+				เครื่องที่มี NVIDIA RTX 5060, RTX 5070 หรือสูงกว่าจะได้ราคาดีอย่างเห็นได้ชัด ในขณะที่เครื่องที่ใช้ GPU ออนบอร์ดอย่าง Intel UHD
 				หรือ Intel Iris Xe จะถูกประเมินในหมวดโน๊ตบุ๊คทำงานทั่วไปซึ่งราคาจะต่ำกว่าเกมมิง
 				จุดที่ต้องระวังคือบางรุ่นมี GPU สองตัว (hybrid graphics) ซึ่งต้องระบุรุ่น GPU ที่แน่นอนมาด้วยจึงจะประเมินได้แม่น
 			</p>
@@ -428,7 +437,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<h3>โน๊ตบุ๊คเกมมิง — GPU แยกคือตัวตัดสิน</h3>
 			<p>
 				โน๊ตบุ๊คเกมมิงมักมีราคารับซื้อที่สูงกว่า เพราะชิ้นส่วนหลักอย่าง GPU แยก (dedicated GPU) มีราคาสูงและเป็นที่ต้องการในตลาดมือสอง
-				เครื่องอย่าง ASUS ROG Strix, MSI Raider, Lenovo Legion, Acer Predator หรือ Dell Alienware ที่มี RTX 3070 ขึ้นไป
+				เครื่องอย่าง ASUS ROG Strix, MSI Raider, Lenovo Legion, Acer Predator หรือ Dell Alienware ที่มี RTX 5070 ขึ้นไป
 				มักได้ราคาดีเพราะกลุ่มเกมเมอร์ที่ต้องการเครื่องแรงในราคาถูกลงมีอยู่เสมอ
 				อย่างไรก็ตาม แบตเตอรี่ของโน๊ตบุ๊คเกมมิงมักเสื่อมเร็วกว่าเพราะ TDP สูง
 				ดังนั้น battery health จึงเป็นปัจจัยที่กระทบราคาเกมมิงอย่างชัดเจน
@@ -521,7 +530,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li>รุ่นซีพียู (เช่น Intel Core i7-1260P, AMD Ryzen 7 6800H, Apple M2)</li>
 				<li>ขนาดแรม (เช่น 16GB DDR5)</li>
 				<li>ขนาดและชนิดสตอเรจ (เช่น 512GB NVMe SSD)</li>
-				<li>รุ่นการ์ดจอ (ถ้ามี เช่น NVIDIA RTX 3060 6GB)</li>
+				<li>รุ่นการ์ดจอ (ถ้ามี เช่น NVIDIA RTX 5060 6GB)</li>
 				<li>ขนาดและความละเอียดหน้าจอ (เช่น 15.6" FHD IPS)</li>
 				<li>ปีที่ซื้อโดยประมาณ</li>
 				<li>สถานะแบตเตอรี่ (cycle count หรือ battery health %)</li>
@@ -656,6 +665,14 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				ติดต่อเราได้ทุกเวลาที่ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a>
 				หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
 			</p>
+
+			<div class="mt-8 p-6 bg-gray-50 border border-gray-100 rounded-lg">
+				<h4 class="text-lg font-bold mb-2">📍 ศูนย์บริการรับซื้อท้องถิ่น (Local Hub)</h4>
+				<p class="mb-4 text-sm text-gray-600">สำหรับลูกค้าที่ต้องการนำเครื่องมาให้ประเมินด้วยตัวเอง หรือต้องการให้ทีมงานวิ่งไปรับเครื่องถึงที่ เรารองรับพื้นที่หลักดังนี้:</p>
+				<ul class="list-none p-0 m-0">
+					<li><a href="/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/" class="text-brand-600 hover:text-brand-700 font-medium underline underline-offset-4 decoration-brand-200">รับซื้อโน๊ตบุ๊ค อุบลราชธานี (นัดรับตัวเมืองและวารินชำราบ)</a></li>
+				</ul>
+			</div>
 		</section>
 
 		<!-- ═══════════════════════════════════════════════════════════ -->
@@ -816,7 +833,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — iPhone ทุกรุ่นตั้งแต่ iPhone 8 ถึง iPhone 16 Pro Max</li>
 				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — DSLR, Mirrorless, Compact ทุกยี่ห้อ พร้อมเลนส์และอุปกรณ์เสริม</li>
 				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad, iPad Air, iPad mini, iPad Pro ทุกรุ่น</li>
-				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4)</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4/M5)</li>
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL/Marshall และรุ่นยอดนิยมอื่น ๆ</li>
 			</ul>
 		</section>

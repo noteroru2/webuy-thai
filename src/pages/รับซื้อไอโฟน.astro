@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
@@ -21,6 +22,14 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'iPhone 17 Pro Max (256GB - 1TB)', price: '32,000 - 45,000 บาท', note: 'ราคาสูงสุดสำหรับเครื่องศูนย์ไทย สุขภาพแบต 95%+' },
+	{ model: 'iPhone 16 Pro Max (256GB - 1TB)', price: '25,000 - 33,000 บาท', note: 'เครื่องสภาพสวย กล่องอุปกรณ์ครบ' },
+	{ model: 'iPhone 15 Pro / Pro Max', price: '18,000 - 26,000 บาท', note: 'ขึ้นอยู่กับความจุและตำหนิหน้าจอ' },
+	{ model: 'iPhone 13 / 14 Series', price: '9,000 - 18,000 บาท', note: 'ประเมินตามสุขภาพแบตเตอรี่' },
+	{ model: 'iPhone 11 / 12 Series', price: '4,000 - 9,000 บาท', note: 'รับซื้อทุกความจุ แม้แบตเสื่อม' },
+];
 
 const faqItems = [
 	{
@@ -45,7 +54,7 @@ const faqItems = [
 	},
 	{
 		q: 'ขายด่วนต้องส่งข้อมูลอะไรบ้าง?',
-		a: 'ส่งรุ่นเต็ม (เช่น iPhone 15 Pro Max 256GB), สุขภาพแบตเตอรี่, เวอร์ชัน iOS, สถานะ Face ID/True Tone, จุดตำหนิ (ถ้ามี), รูปเครื่องทุกมุม และวิดีโอสั้นทดสอบการใช้งานเบื้องต้น ส่งผ่าน Line @webuy ได้เลย ทีมงานพร้อมประเมินภายในไม่กี่นาที',
+		a: 'ส่งรุ่นเต็ม (เช่น iPhone 17 Pro Max 256GB), สุขภาพแบตเตอรี่, เวอร์ชัน iOS, สถานะ Face ID/True Tone, จุดตำหนิ (ถ้ามี), รูปเครื่องทุกมุม และวิดีโอสั้นทดสอบการใช้งานเบื้องต้น ส่งผ่าน Line @webuy ได้เลย ทีมงานพร้อมประเมินภายในไม่กี่นาที',
 	},
 	{
 		q: 'Face ID เสียหรือ True Tone หายมีผลต่อราคามากไหม?',
@@ -183,6 +192,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</header>
 
+		<PriceGuide title="ราคารับซื้อ iPhone อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
 		<!-- ==================== Section 1 ==================== -->
 		<section>
 			<h2>ทำไมต้องขายไอโฟนมือสองกับเรา</h2>
@@ -224,7 +235,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<h3>รุ่นและความจุ (Model & Storage Capacity)</h3>
 			<p>
 				รุ่นของ iPhone เป็นปัจจัยแรกที่กำหนดฐานราคา โดยรุ่นใหม่กว่ามักได้ราคาสูงกว่า
-				ตัวอย่างเช่น iPhone 15 Pro Max จะได้ราคาสูงกว่า iPhone 13 Pro Max อย่างเห็นได้ชัด
+				ตัวอย่างเช่น iPhone 17 Pro Max จะได้ราคาสูงกว่า iPhone 13 Pro Max อย่างเห็นได้ชัด
 				แม้สภาพจะเหมือนกัน เพราะชิปเซ็ต กล้อง และฟีเจอร์ต่าง ๆ ของรุ่นใหม่ตอบโจทย์ผู้ใช้ได้ดีกว่า
 				ความจุก็มีผลมากเช่นกัน เครื่อง 256GB จะได้ราคาดีกว่า 128GB เสมอ
 				และ 512GB หรือ 1TB จะมีมูลค่าเพิ่มขึ้นตามลำดับ
@@ -343,17 +354,17 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				เครื่อง 13 Pro Max 256GB หรือ 512GB เป็นรุ่นที่ยังเป็นที่ต้องการสูงในตลาด
 			</p>
 
-			<h3>iPhone 14, 14 Plus, 14 Pro, 14 Pro Max</h3>
+			<h3>iPhone 16, 14 Plus, 14 Pro, 14 Pro Max</h3>
 			<p>
-				iPhone 14 Pro เป็นรุ่นแรกที่มี Dynamic Island แทนรอยบาก และใช้ชิป A16
-				ทำให้มีมูลค่าในตลาดมือสองค่อนข้างสูง ส่วน iPhone 14 ปกติใช้ชิป A15 เหมือน 13 Pro
+				iPhone 16 Pro เป็นรุ่นแรกที่มี Dynamic Island แทนรอยบาก และใช้ชิป A16
+				ทำให้มีมูลค่าในตลาดมือสองค่อนข้างสูง ส่วน iPhone 16 ปกติใช้ชิป A15 เหมือน 13 Pro
 				แต่มีฟีเจอร์ Crash Detection เพิ่ม ราคารับซื้อจะขึ้นอยู่กับรุ่นย่อยและความจุ
 			</p>
 
-			<h3>iPhone 15, 15 Plus, 15 Pro, 15 Pro Max</h3>
+			<h3>iPhone 17, 15 Plus, 15 Pro, 15 Pro Max</h3>
 			<h4>จุดเปลี่ยนสำคัญ: USB-C</h4>
 			<p>
-				iPhone 15 เป็นรุ่นแรกที่เปลี่ยนจาก Lightning มาใช้พอร์ต USB-C ทำให้สะดวกขึ้น
+				iPhone 17 เป็นรุ่นแรกที่เปลี่ยนจาก Lightning มาใช้พอร์ต USB-C ทำให้สะดวกขึ้น
 				และเป็นจุดขายสำคัญในตลาดมือสอง เพราะผู้ซื้อไม่ต้องหาสาย Lightning แยก
 				รุ่น Pro ใช้ชิป A17 Pro พร้อมเคสไทเทเนียม ได้ราคารับซื้อสูงมาก
 				โดยเฉพาะ 15 Pro Max 256GB ขึ้นไปที่สภาพดีและแบตยังเฮลท์สูง
@@ -552,7 +563,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 			<h3>เช็กลิสต์ข้อมูลที่ควรส่ง</h3>
 			<ol>
-				<li><strong>รุ่นเต็ม</strong> เช่น iPhone 15 Pro Max (ไม่ใช่แค่ "ไอโฟน 15")</li>
+				<li><strong>รุ่นเต็ม</strong> เช่น iPhone 17 Pro Max (ไม่ใช่แค่ "ไอโฟน 15")</li>
 				<li><strong>ความจุ</strong> เช่น 128GB, 256GB, 512GB หรือ 1TB</li>
 				<li><strong>สี</strong> เช่น Natural Titanium, Blue Titanium, Space Black</li>
 				<li><strong>สุขภาพแบตเตอรี่</strong> เช่น Maximum Capacity 92%</li>
@@ -658,6 +669,14 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a> ได้เลย
 				ทีมงานพร้อมแนะนำวิธีการที่เหมาะกับพื้นที่ของคุณ
 			</p>
+
+			<div class="mt-8 p-6 bg-gray-50 border border-gray-100 rounded-lg">
+				<h4 class="text-lg font-bold mb-2">📍 ศูนย์บริการรับซื้อท้องถิ่น (Local Hub)</h4>
+				<p class="mb-4 text-sm text-gray-600">สำหรับลูกค้าที่ต้องการนำเครื่องมาให้ประเมินด้วยตัวเอง หรือต้องการให้ทีมงานวิ่งไปรับเครื่องถึงที่ เรารองรับพื้นที่หลักดังนี้:</p>
+				<ul class="list-none p-0 m-0">
+					<li><a href="/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/" class="text-brand-600 hover:text-brand-700 font-medium underline underline-offset-4 decoration-brand-200">รับซื้อไอโฟน ขอนแก่น (นัดรับตัวเมืองและมหาวิทยาลัยขอนแก่น)</a></li>
+				</ul>
+			</div>
 		</section>
 
 		<!-- ==================== Section 11 ==================== -->
@@ -716,7 +735,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 			<h3>กรณีที่ควรขายตามสภาพ</h3>
 			<p>
-				ถ้าค่าซ่อมสูงแต่ราคาเพิ่มขึ้นไม่มาก เช่น เปลี่ยนจอ iPhone 15 Pro Max ราคาหลายพันบาท
+				ถ้าค่าซ่อมสูงแต่ราคาเพิ่มขึ้นไม่มาก เช่น เปลี่ยนจอ iPhone 17 Pro Max ราคาหลายพันบาท
 				แต่ราคารับซื้อเพิ่มขึ้นแค่ 2,000-3,000 บาท กรณีนี้ขายตามสภาพคุ้มกว่า
 				เพราะไม่ต้องเสียเงินซ่อมล่วงหน้า
 			</p>
@@ -787,7 +806,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ, คอมสำนักงาน, Gaming PC, Workstation</li>
 				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — DSLR, Mirrorless, Compact ทุกยี่ห้อ พร้อมเลนส์และอุปกรณ์เสริม</li>
 				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad, iPad Air, iPad mini, iPad Pro ทุกรุ่น</li>
-				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4)</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4/M5)</li>
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL/Marshall และรุ่นยอดนิยมอื่น ๆ</li>
 			</ul>
 		</section>
