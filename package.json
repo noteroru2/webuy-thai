@@ -11,7 +11,11 @@
     "preview": "astro preview",
     "start": "node scripts/start.mjs",
     "astro": "astro",
-    "export:wp": "node scripts/wp-export-to-content.mjs"
+    "export:wp": "node scripts/wp-export-to-content.mjs",
+    "localize:content": "node scripts/localize-content-media.mjs",
+    "curate:content": "node scripts/curate-imported-content.mjs",
+    "quality:content": "node scripts/quality-pass-content.mjs",
+    "quarantine:content": "node scripts/quarantine-content.mjs"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",

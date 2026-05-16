@@ -7,10 +7,11 @@ export const RESERVED_POST_SLUGS = new Set(nonArticleSlugList as string[]);
 /**
  * บทความที่เผยแพร่ (ไม่ชน slug กับหน้า static) เรียงใหม่สุดก่อน
  */
-export async function getPublishedPosts() {
+export async function getPublishedPosts(options?: { includeNoindex?: boolean }) {
+	const includeNoindex = options?.includeNoindex === true;
 	const posts = await getCollection(
 		'posts',
-		({ data }) => !RESERVED_POST_SLUGS.has(data.slug),
+		({ data }) => !RESERVED_POST_SLUGS.has(data.slug) && (includeNoindex || data.noindex !== true),
 	);
 	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }

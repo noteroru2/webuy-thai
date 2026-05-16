@@ -3,9 +3,12 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { loadEnv } from 'vite';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import nonArticleSlugList from './src/data/non-article-slugs.json' with { type: 'json' };
 
 const nonArticleSingleSlugs = new Set(nonArticleSlugList);
+const postsDir = join(process.cwd(), 'src', 'content', 'posts');
 
 const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
 const siteUrl =
@@ -13,6 +16,17 @@ const siteUrl =
 	(env.COOLIFY_FQDN ? `https://${env.COOLIFY_FQDN}` : null) ??
 	env.COOLIFY_URL ??
 	'https://example.com';
+
+const NOINDEX_POST_SLUGS = new Set(
+	readdirSync(postsDir)
+		.filter((file) => file.endsWith('.md'))
+		.map((file) => readFileSync(join(postsDir, file), 'utf8'))
+		.flatMap((content) => {
+			const slugMatch = content.match(/^slug:\s*"([^"\n]+)"\s*$/m);
+			const noindexMatch = /^noindex:\s*true\s*$/m.test(content);
+			return slugMatch && noindexMatch ? [slugMatch[1]] : [];
+		}),
+);
 
 /** Slugs ที่ตรงกับ `noindex: true` ใน frontmatter — ไม่ใส่ sitemap */
 const SITEMAP_EXCLUDED_POST_SLUGS = new Set(['รับซ่อมคอมพิวเตอร์-ยโสธ']);
@@ -35,6 +49,7 @@ export default defineConfig({
 					const pathname = new URL(url).pathname.replace(/\/$/, '');
 					const last = decodeURIComponent(pathname.split('/').filter(Boolean).pop() ?? '');
 					if (SITEMAP_EXCLUDED_POST_SLUGS.has(last)) return false;
+					if (NOINDEX_POST_SLUGS.has(last)) return false;
 				} catch {
 					/* ignore */
 				}
