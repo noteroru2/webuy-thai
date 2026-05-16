@@ -443,7 +443,8 @@ export function upsertBooleanFrontmatterValue(frontmatter, key, nextValue) {
 }
 
 export function parseMarkdownDocument(rawContent) {
-	const match = rawContent.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+	const normalized = String(rawContent ?? '').replace(/^\uFEFF/, '');
+	const match = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
 	if (!match) {
 		return null;
 	}
@@ -467,6 +468,7 @@ export function collapseMarkdownSpacing(body) {
 }
 
 export function saveTextFile(targetPath, content) {
+	const normalized = String(content ?? '').replace(/^\uFEFF/, '');
 	mkdirSync(dirname(targetPath), { recursive: true });
-	writeFileSync(targetPath, content, 'utf8');
+	writeFileSync(targetPath, normalized, 'utf8');
 }

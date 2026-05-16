@@ -16,6 +16,8 @@ interface Props {
 	modifiedTime?: string;
 	jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 	noindex?: boolean;
+	/** Override self-canonical (path with trailing slash, e.g. /รับซื้อคอม/) */
+	canonicalPath?: string;
 }
 
 const {
@@ -30,6 +32,7 @@ const {
 	modifiedTime,
 	jsonLd,
 	noindex = false,
+	canonicalPath,
 } = Astro.props;
 
 const defaultDescription =
@@ -39,7 +42,8 @@ const defaultDescription =
 const description = descriptionProp ?? defaultDescription;
 
 const site = new URL(getSiteOrigin());
-const canonicalUrl = new URL(pathname, site).toString();
+const resolvedCanonicalPath = canonicalPath ?? pathname;
+const canonicalUrl = new URL(resolvedCanonicalPath, site).toString();
 const defaultImage = '/og-default.png';
 const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
 const imageUrl = new URL(ogImage ?? defaultImage, site).toString();

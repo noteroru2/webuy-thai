@@ -41,6 +41,8 @@ const heroAlt = post.data.heroImageAlt ?? plainTitle;
 const orgId = `${site}/#organization`;
 const articlePath = `/${post.data.slug}/`;
 const articleUrl = `${site}${articlePath}`;
+const canonicalPath = post.data.canonical?.trim() || articlePath;
+const canonicalUrl = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
 
 const faqItemsData = post.data.faqItems;
 const faqJsonLd: Array<Record<string, unknown>> =
@@ -72,7 +74,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		url: articleUrl,
 		mainEntityOfPage: {
 			'@type': 'WebPage',
-			'@id': articleUrl,
+			'@id': canonicalUrl,
 		},
 		isAccessibleForFree: true,
 		inLanguage: 'th-TH',
@@ -127,6 +129,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	title={`${plainTitle} | ${orgName}`}
 	description={plainExcerpt || `เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน้ตบุ๊คและรับซื้อคอม`}
 	pathname={articlePath}
+	canonicalPath={canonicalPath}
 	type="article"
 	ogImage={featuredUrl}
 	ogImageAlt={heroAlt}
@@ -163,6 +166,15 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 					decoding="async"
 					fetchpriority="high"
 				/>
+			)
+		}
+
+		{
+			canonicalPath !== articlePath && (
+				<p class="canonical-note">
+					หน้านี้เป็นคู่มือรับซื้อตามพื้นที่ — หน้าหลักบริการรับซื้อคอมพิวเตอร์ครบทุกเขตอยู่ที่{' '}
+					<a href={canonicalPath}>รับซื้อคอมพิวเตอร์</a>
+				</p>
 			)
 		}
 
@@ -247,6 +259,20 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		margin-bottom: 2rem;
 		border: 1px solid rgba(15, 23, 42, 0.08);
 		box-shadow: var(--shadow-tech);
+	}
+	.canonical-note {
+		margin: 0 0 1.25rem;
+		padding: 0.75rem 1rem;
+		font-size: 0.92rem;
+		line-height: 1.5;
+		background: rgba(249, 115, 22, 0.08);
+		border-left: 3px solid var(--accent);
+		border-radius: 0 var(--radius) var(--radius) 0;
+		color: var(--muted);
+	}
+	.canonical-note a {
+		color: var(--accent);
+		font-weight: 600;
 	}
 	.content {
 		font-size: 1.05rem;

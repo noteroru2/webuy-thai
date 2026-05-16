@@ -328,6 +328,9 @@ export function analyzeContentQuality({ title, slug, body, duplicatePatternCount
 
 export function shouldAutoNoindexForQuality(analysis, currentNoindex) {
 	if (currentNoindex === true) return false;
+	if (analysis.flags.includes('local-seo-rewritten') || analysis.flags.includes('local-seo-unique-v2')) {
+		return false;
+	}
 	if (analysis.isOffTopic) return true;
 	if (analysis.score >= 4) return true;
 

@@ -74,6 +74,26 @@
 	font-size: 0.95rem;
 	color: #483a1d;
 }
+.longform .eeat-note {
+	margin: 1.25rem 0 0;
+	padding: 1rem 1.1rem;
+	background: linear-gradient(165deg, #f8fafc 0%, #fff 100%);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: var(--radius);
+	box-shadow: none;
+}
+.longform .eeat-note h2 {
+	margin: 0 0 0.5rem;
+	font-size: 1.05rem;
+	color: #1e293b;
+}
+.longform .eeat-note p {
+	margin: 0.45rem 0;
+	font-size: 0.98rem;
+}
+.longform .eeat-note p:last-child {
+	margin-bottom: 0;
+}
 .longform .faq details {
 	border-top: 1px dashed rgba(36, 48, 67, 0.18);
 	padding-top: 0.55rem;

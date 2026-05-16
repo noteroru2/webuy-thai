@@ -38,6 +38,7 @@ We serve customers nationwide via mail-in services, but we have strong local pre
 
 ### Key Local Pages
 - Ubon Ratchathani Notebook Buying Guide: ${site}/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/
+- Ubon Ratchathani iPhone Buying Guide: ${site}/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ/
 - Khon Kaen iPhone Buying Guide: ${site}/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/
 
 ## 4. Service Directory & URLs

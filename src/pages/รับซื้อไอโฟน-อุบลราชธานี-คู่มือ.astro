@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ/`;
+const localCity = 'อุบลราชธานี';
+
+const priceItems = [
+	{ model: 'iPhone 16 Pro / Pro Max', price: '25,000 - 35,000+ บาท', note: 'นัดรับได้ที่เซ็นทรัลอุบลฯ สุนีย์ทาวเวอร์ หรือ ม.อุบลฯ' },
+	{ model: 'iPhone 15 / 14 Series', price: '14,000 - 28,000 บาท', note: 'เน้นเครื่องสภาพสวย สุขภาพแบต 85% ขึ้นไป' },
+	{ model: 'iPhone 11 / 12 / 13 Series', price: '5,500 - 15,000 บาท', note: 'รับทุกความจุ แม้หมดประกัน' },
+	{ model: 'iPhone จอแตก / แบตเสื่อม', price: '2,000 - 8,000 บาท', note: 'ประเมินตามสภาพจริง ไม่กดราคาเกินเหตุ' },
+];
+
+const faqItems = [
+	{
+		q: `นัดรับไอโฟนใน${localCity}ได้ที่ไหนบ้าง?`,
+		a: `นัดรับได้ที่เซ็นทรัลอุบลราชธานี สุนีย์ทาวเวอร์ (City Mall) ยูพาร์ค มหาวิทยาลัยอุบลราชธานี ตลาดวารินเจริญศรี (วารินชำราบ) หรือจุดที่ลูกค้าสะดวกในเขตอำเภอเมืองครับ`,
+	},
+	{
+		q: 'ขายไอโฟนอุบลฯ กับ WE BUY ต่างจากตู้เทิร์นในห้างยังไง?',
+		a: 'เราอิงราคาตลาดมือสองส่วนกลางและประเมินตามสภาพจริง มักให้ช่วงราคาที่ยืดหยุ่นกว่าตู้รับเทิร์น และมีบริการนัดรับถึงที่ ไม่ต้องเดินหาร้านเอง',
+	},
+	{
+		q: 'เครื่องนอก (LL/A) หรือเครื่องติดล็อกซิม รับซื้อไหม?',
+		a: 'รับครับ แต่อาจมีส่วนต่างเมื่อเทียบเครื่องศูนย์ไทย (TH/A) ส่งรุ่น ความจุ และภาพหน้าจอ About มาประเมินก่อนได้',
+	},
+	{
+		q: 'ไอโฟนติด iCloud ขายได้ไหม?',
+		a: 'ไม่รับเครื่องที่ยังติด iCloud หรือลืมรหัสผ่านทุกกรณี กรุณา Sign out จาก Apple ID และปิด Find My iPhone ก่อนส่งมอบ',
+	},
+	{
+		q: 'นัดรับแล้วได้เงินเลยไหม?',
+		a: 'ได้ทันทีครับ หลังตรวจเครื่องประมาณ 5–10 นาที โอนเข้าบัญชีหรือจ่ายเงินสดหน้างานตามที่ตกลง',
+	},
+	{
+		q: 'ควรส่งข้อมูลอะไรเพื่อให้ประเมินราคาได้ไว?',
+		a: 'ส่งรุ่น ความจุ Battery Health สภาพจอ/ขอบเครื่อง รูปจริง 4 มุม และแจ้งว่าเคยเปลี่ยนจอหรือแบตหรือไม่',
+	},
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: `รับซื้อไอโฟน ${localCity} — นัดรับด่วนในเมืองและวารินชำราบ จ่ายเงินสด`,
+		description: `บริการรับซื้อ iPhone มือสองใน${localCity} ประเมินราคาด่วนผ่าน Line @webuy นัดรับถึงที่ จ่ายเงินทันที`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'LocalBusiness',
+		name: `WE BUY รับซื้อไอโฟน ${localCity}`,
+		image: [new URL('/og-default.png', site).toString()],
+		'@id': `${pageUrl}#localbusiness`,
+		url: pageUrl,
+		telephone: '0642579353',
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: localCity,
+			addressRegion: localCity,
+			addressCountry: 'TH',
+		},
+		geo: {
+			'@type': 'GeoCoordinates',
+			latitude: 15.2287,
+			longitude: 104.8564,
+		},
+		areaServed: [
+			{ '@type': 'City', name: 'อำเภอเมืองอุบลราชธานี' },
+			{ '@type': 'City', name: 'อำเภอวารินชำราบ' },
+			{ '@type': 'City', name: localCity },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+];
+---
+
+<BaseLayout
+	title={`รับซื้อไอโฟน ${localCity} | นัดรับถึงที่ ประเมินราคาฟรี จ่ายเงินชัวร์ | WE BUY`}
+	description={`มองหาร้านรับซื้อ iPhone ใน${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเมือง วารินฯ และ ม.อุบลฯ ประเมินผ่านไลน์ฟรี จ่ายเงินทันที`}
+	pathname="/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ/"
+	type="article"
+	jsonLd={jsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">Ubon Ratchathani Local Service</p>
+			<h1>รับซื้อไอโฟน {localCity} — คู่มือขาย iPhone มือสองให้ได้ราคาดี นัดรับด่วนในเมืองและวารินชำราบ</h1>
+			<p class="intro">
+				ชาว <strong>{localCity}</strong> ที่ต้องการขาย iPhone เครื่องเก่าหรืออัปเกรดรุ่นใหม่
+				ไม่จำเป็นต้องเดินทางไปกรุงเทพฯ หรือส่งพัสดุให้เสี่ยง
+				WE BUY มีทีมงานประจำพื้นที่พร้อมนัดรับและประเมินราคาตามสภาพจริง
+				อิงราคาตลาดมือสอง จ่ายเงินสดหรือโอนทันทีหลังตรวจเครื่อง
+			</p>
+		</header>
+
+		<PriceGuide title={`ราคารับซื้อไอโฟนใน${localCity} อ้างอิง`} items={priceItems} />
+
+		<section class="eeat-note">
+			<h2>จากประสบการณ์นัดรับจริงในอุบลฯ</h2>
+			<p>
+				ทีม WE BUY นัดรับ iPhone ในอุบลราชธานีและวารินชำราบเป็นประจำ — จุดที่ลูกค้าสะดวกที่สุดมักเป็นเซ็นทรัลอุบลฯ สุนีย์ทาวเวอร์ หรือแถว ม.อุบลฯ
+				ปัญหาที่ทำให้ราคาเบื้องต้นกับราคาหน้างานไม่ตรงกัน ส่วนใหญ่ไม่ใช่เรื่อง “ร้านในเมืองกดราคา” แต่เป็นเพราะ<strong>ภาพ Battery Health ที่ส่งมาไม่ตรงของจริง</strong>
+				หรือลืมบอกว่าเคยเปลี่ยนจอนอกศูนย์ (True Tone หาย) เราจึงขอให้ถ่ายหน้าจอ Settings → Battery และรูปขอบจอขณะเปิดสีขาวก่อนนัด
+			</p>
+			<p>
+				อีกเคสที่พบบ่อยในอีสานคือเครื่อง<strong>ยัง Sign in iCloud อยู่</strong> ทั้งที่ลูกค้าคิดว่ารีเซ็ตแล้ว
+				ก่อนออกจากบ้านแนะนำเช็กว่าหน้าจอขึ้น “Hello” และไม่มี Apple ID ค้างอยู่ จะได้ไม่เสียเวลาเดินทางมาเมืองอุบลโดยเปล่าประโยชน์
+			</p>
+		</section>
+
+		<section>
+			<h2>จุดนัดรับยอดนิยมในจังหวัด{localCity}</h2>
+			<ul>
+				<li><strong>เขตอำเภอเมือง:</strong> เซ็นทรัลอุบลราชธานี, สุนีย์ทาวเวอร์, ยูพาร์ค, ปั๊มน้ำมันใหญ่ในเมือง</li>
+				<li><strong>วารินชำราบ:</strong> ม.อุบลฯ, ตลาดวารินเจริญศรี, แม็คโครวารินฯ</li>
+				<li><strong>พื้นที่ใกล้เคียง:</strong> พิบูลมังสาหาร ตระการพืชผล — นัดจุดกลางหรือคุยคิวล่วงหน้าได้</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>ทำไมขายไอโฟนอุบลฯ กับ WE BUY</h2>
+			<div class="highlight-box">
+				<strong>จุดเด่น:</strong> ประเมินผ่าน Line ก่อนนัด รู้ช่วงราคาเบื้องต้น ลดการเดินทางเปล่า และทีมงานเข้าใจสินค้า Apple จริง
+			</div>
+			<h3>1. ราคาอิงตลาด ไม่กดราคาค่าพื้นที่</h3>
+			<p>
+				หลายร้านในต่างจังหวัดอาจให้ราคาต่ำเพราะหมุนเวียนสินค้าช้า
+				เราประเมินจากรุ่น ความจุ สุขภาพแบต และสภาพเครื่องจริง ให้ช่วงราคาที่โปร่งใสก่อนนัดรับ
+			</p>
+			<h3>2. ช่วยเตรียมเครื่องก่อนส่งมอบ</h3>
+			<p>
+				แนะนำขั้นตอน Sign out iCloud ปิด Find My และสำรองข้อมูลให้ถูกต้อง
+				เพื่อความปลอดภัยและให้ดีลจบเร็ว
+			</p>
+			<h3>3. นัดรับวันเดียว ได้เงินทันที</h3>
+			<p>
+				ทัก Line <a href="https://line.me/R/ti/p/@webuy">@webuy</a> ส่งรูปและ Battery Health
+				ทีมงานอุบลฯ ประสานนัดรับและจ่ายเงินหน้างานเมื่อตกลงราคา
+			</p>
+		</section>
+
+		<ContactBox
+			heading={`พร้อมขายไอโฟนใน${localCity}แล้ว?`}
+			text="ส่งรุ่น ความจุ และรูปเครื่องมาที่ Line @webuy ประเมินฟรี 24 ชม."
+			variant="primary"
+		/>
+
+		<section>
+			<h2>5 สิ่งที่ควรเตรียมก่อนนัดรับไอโฟนในอุบลฯ</h2>
+			<ol>
+				<li><strong>เช็ค Battery Health:</strong> Settings → Battery → Battery Health &amp; Charging</li>
+				<li><strong>สำรองข้อมูล:</strong> รูป LINE และแอปสำคัญก่อนรีเซ็ต</li>
+				<li><strong>ชาร์จแบต:</strong> เหลืออย่างน้อย 50% เพื่อเปิดทดสอบได้ทันที</li>
+				<li><strong>อุปกรณ์ครบ:</strong> กล่อง สายชาร์จ ใบเสร็จ (ถ้ามี) ช่วยให้ราคานิ่งขึ้น</li>
+				<li><strong>แจ้งตำหนิจริง:</strong> จอรอย ขอบบุบ เปลี่ยนจอ/แบต — ลดการปรับราคาทีหลัง</li>
+			</ol>
+		</section>
+
+		<section class="faq">
+			<h2>คำถามที่พบบ่อย (อุบลราชธานี)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<section>
+			<h2>สรุป — ขายไอโฟนในอุบลฯ เลือก WE BUY</h2>
+			<p>
+				ไม่ว่า iPhone จะเป็นรุ่นใหม่หรือรุ่นเก่า เราพร้อมนัดรับใน <strong>{localCity}</strong>
+				ด้วยบริการโปร่งใสและรวดเร็ว ทัก Line หรือโทรเพื่อรับช่วงราคาเบื้องต้นได้ทันที
+			</p>
+			<div class="cta-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="background: #06c755; color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">แอดไลน์ @webuy</a>
+				<a class="btn-phone" href="tel:0642579353" style="background: var(--accent); color: #fff; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold;">โทร 064-257-9353</a>
+			</div>
+		</section>
+
+		<section>
+			<h2>บริการอื่น ๆ ในอุบลฯ</h2>
+			<ul>
+				<li><a href="/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/">รับซื้อโน๊ตบุ๊ค อุบล</a> — Notebook ทุกยี่ห้อ</li>
+				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — Air / Pro ชิป M-series</li>
+				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini</li>
+				<li><a href="/รับซื้อ-macbook-อุบลราชธานี-ปัจจัยราคา-2026/">ปัจจัยราคา MacBook อุบล 2026</a> — บทความเชิงลึก</li>
+			</ul>
+		</section>
+
+	</article>
+</BaseLayout>
