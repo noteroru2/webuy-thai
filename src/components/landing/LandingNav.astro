@@ -5,15 +5,23 @@ import ButtonLink from './ButtonLink.astro';
 const navLinkClass =
 	'text-[0.9375rem] font-semibold text-text-muted transition-colors duration-200 hover:text-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:rounded-sm focus-visible:outline-brand-500';
 
-const lineHref = 'https://line.me/R/ti/p/@webuy';
+const ctaHref = '/เช็กราคาก่อนขาย/';
 
 const navItems = [
 	{ href: '/', label: 'หน้าแรก' },
-	{ href: '/บริการ/', label: 'บริการ' },
 	{ href: '/รับซื้อ/', label: 'รับซื้อ' },
-	{ href: '/blog/', label: 'บทความ' },
-	{ href: '/เกี่ยวกับเรา/', label: 'เกี่ยวกับเรา' },
+	{ href: '/พื้นที่ให้บริการ/', label: 'พื้นที่ให้บริการ' },
+	{ href: '/คู่มือก่อนขาย/', label: 'คู่มือก่อนขาย' },
+	{ href: '/เช็กราคาก่อนขาย/', label: 'เช็กราคา' },
+	{ href: '/contact/', label: 'ติดต่อเรา' },
 ];
+
+const mobileExtraNavItems = [
+	{ href: '/ราคากลางรับซื้อ/', label: 'ราคากลางรับซื้อ' },
+	{ href: '/ความน่าเชื่อถือ/', label: 'ความน่าเชื่อถือ' },
+];
+
+const mobileNavItems = [...navItems, ...mobileExtraNavItems];
 ---
 
 <header
@@ -30,10 +38,8 @@ const navItems = [
 
 			<div class="flex shrink-0 items-center gap-2 sm:gap-2.5 lg:hidden" aria-label="ทางลัดมือถือ">
 				<ButtonLink
-					href={lineHref}
+					href={ctaHref}
 					variant="primary"
-					target="_blank"
-					rel="noopener noreferrer"
 					class="!max-w-[min(100%,11rem)] !px-2.5 !py-2 text-center text-[0.6875rem] leading-tight sm:!max-w-none sm:!px-4 sm:!py-2.5 sm:text-sm"
 				>
 					ประเมินราคาฟรี
@@ -53,7 +59,7 @@ const navItems = [
 						role="menu"
 					>
 						{
-							navItems.map((item) => (
+							mobileNavItems.map((item) => (
 								<a
 									class="block rounded-xl px-3 py-2.5 text-sm font-semibold text-text transition-colors hover:bg-brand-50"
 									href={item.href}
@@ -65,9 +71,7 @@ const navItems = [
 						}
 						<a
 							class="mt-1 block rounded-xl bg-brand-600 px-3 py-3 text-center text-sm font-semibold !text-white shadow-md shadow-brand-700/25 transition hover:bg-brand-700 hover:!text-white [text-shadow:0_1px_0_rgba(0,0,0,0.12)]"
-							href={lineHref}
-							target="_blank"
-							rel="noopener noreferrer"
+							href={ctaHref}
 							role="menuitem"
 						>
 							ประเมินราคาฟรี
@@ -77,24 +81,24 @@ const navItems = [
 			</div>
 		</div>
 
-		<nav class="hidden items-center gap-0.5 lg:flex lg:gap-1 xl:gap-1.5" aria-label="หลัก">
+		<nav class="hidden min-w-0 items-center gap-0.5 lg:flex lg:gap-0.5 xl:gap-1" aria-label="หลัก">
 			{
 				navItems.map((item) => (
-					<a class:list={[navLinkClass, 'whitespace-nowrap rounded-lg px-2 py-2 lg:px-2.5 xl:px-3']} href={item.href}>
+					<a
+						class:list={[
+							navLinkClass,
+							'whitespace-nowrap rounded-lg px-1.5 py-2 text-sm lg:px-2 xl:px-2.5 xl:text-[0.9375rem]',
+						]}
+						href={item.href}
+					>
 						{item.label}
 					</a>
 				))
 			}
 		</nav>
 
-		<div class="hidden items-center gap-2 sm:gap-2.5 lg:flex">
-			<ButtonLink
-				href={lineHref}
-				variant="primary"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="!px-4 !py-2 text-xs sm:!px-5 sm:!py-2.5 sm:text-sm lg:!py-2.5"
-			>
+		<div class="hidden shrink-0 items-center gap-2 sm:gap-2.5 lg:flex">
+			<ButtonLink href={ctaHref} variant="primary" class="!px-4 !py-2 text-xs sm:!px-5 sm:!py-2.5 sm:text-sm lg:!py-2.5">
 				ประเมินราคาฟรี
 			</ButtonLink>
 		</div>
