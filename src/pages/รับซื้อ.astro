@@ -36,6 +36,32 @@ const jsonLd: Array<Record<string, unknown>> = [
 	}
 ];
 
+const preSaleLinks = [
+	{
+		href: '/เช็กราคาก่อนขาย/',
+		title: 'เตรียมข้อมูลเช็กราคาก่อนขาย',
+		desc: 'รายการข้อมูลและรูปที่ควรส่งก่อนทัก Line',
+	},
+	{
+		href: '/ราคากลางรับซื้อ/',
+		title: 'แนวราคากลางรับซื้อไอทีมือสอง',
+		desc: 'ปัจจัยราคาตามหมวดสินค้า ไม่ใส่ตัวเลขมั่ว',
+	},
+	{
+		href: '/ความน่าเชื่อถือ/',
+		title: 'ศูนย์ความน่าเชื่อถือ WE BUY',
+		desc: 'ขั้นตอนซื้อขายโปร่งใสและความปลอดภัยข้อมูล',
+	},
+];
+
+const mainMoneyPages = [
+	{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อ iPhone มือสอง', desc: 'ทุกรุ่น ประเมินตามสภาพจริง' },
+	{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊คมือสอง', desc: 'โน้ตบุ๊คทุกยี่ห้อและสเปก' },
+	{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook มือสอง', desc: 'Air / Pro ชิป Intel และ M-series' },
+	{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมมือสอง', desc: 'PC ประกอบและแบรนด์เนม' },
+	{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้องมือสอง', desc: 'DSLR Mirrorless และเลนส์' },
+];
+
 const categories = [
 	{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊ค', desc: 'รับซื้อ Laptop ทุกยี่ห้อ ทั้งสายทำงาน และ Notebook เกมมิ่งแรง ๆ' },
 	{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์', desc: 'PC แบรนด์เนม, All-in-One และคอมสำนักงาน' },
@@ -80,6 +106,31 @@ const categories = [
 			))}
 		</div>
 
+		<section class="pre-sale-hub" aria-labelledby="pre-sale-hub-heading">
+			<h2 id="pre-sale-hub-heading" class="tech-h2">ก่อนขาย เช็กราคาและความน่าเชื่อถือได้ก่อน</h2>
+			<p class="pre-sale-lead">
+				ส่งข้อมูลให้ครบก่อนทัก Line จะได้ช่วงราคาเบื้องต้นที่ชัดขึ้น — อ่านแนวทางและขั้นตอนจากลิงก์ด้านล่าง
+				หรือ <a href="/คู่มือก่อนขาย/">อ่านคู่มือก่อนขาย</a> รวมบทความขายได้ไหม ราคา และความปลอดภัย
+			</p>
+			<div class="pre-sale-links">
+				{preSaleLinks.map((link) => (
+					<a class="pre-sale-card" href={link.href}>
+						<h3>{link.title}</h3>
+						<p>{link.desc}</p>
+					</a>
+				))}
+			</div>
+			<h3 class="pre-sale-sub">หมวดรับซื้อหลัก</h3>
+			<div class="money-links">
+				{mainMoneyPages.map((page) => (
+					<a class="money-link" href={page.href}>
+						<strong>{page.title}</strong>
+						<span>{page.desc}</span>
+					</a>
+				))}
+			</div>
+		</section>
+
 		<section class="trust-signals">
 			<div class="trust-grid">
 				<div class="trust-item">
@@ -118,7 +169,10 @@ const categories = [
 				</div>
 				<div class="step">
 					<span class="step-num">3</span>
-					<p><strong>นัดรับ:</strong> นัดเจอในพื้นที่บริการ หรือส่งพัสดุตามความสะดวก</p>
+					<p>
+						<strong>นัดรับ:</strong> นัดเจอในพื้นที่บริการ หรือส่งพัสดุตามความสะดวก —
+						<a href="/พื้นที่ให้บริการ/">ดูพื้นที่ให้บริการรับซื้อ</a>
+					</p>
 				</div>
 				<div class="step">
 					<span class="step-num">4</span>
@@ -213,6 +267,106 @@ const categories = [
 		font-weight: 700;
 		font-size: 0.9rem;
 		color: var(--accent);
+	}
+
+	.pre-sale-hub {
+		margin-bottom: 4rem;
+		padding: 2.5rem;
+		background: linear-gradient(135deg, #fffbeb, #fff7ed);
+		border: 1px solid rgba(180, 83, 9, 0.2);
+		border-radius: 1.5rem;
+	}
+	.pre-sale-hub .tech-h2 {
+		margin: 0 0 0.75rem;
+	}
+	.pre-sale-lead {
+		margin: 0 0 1.75rem;
+		max-width: 42rem;
+		color: var(--muted);
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+	.pre-sale-links {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+	@media (min-width: 768px) {
+		.pre-sale-links {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	.pre-sale-card {
+		display: block;
+		padding: 1.25rem 1.5rem;
+		background: #fff;
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		border-radius: 1rem;
+		text-decoration: none;
+		color: var(--text);
+		transition: border-color 0.2s, box-shadow 0.2s;
+	}
+	.pre-sale-card:hover {
+		border-color: var(--accent);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+		text-decoration: none;
+	}
+	.pre-sale-card h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--accent);
+	}
+	.pre-sale-card p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--muted);
+		line-height: 1.5;
+	}
+	.pre-sale-sub {
+		margin: 0 0 1rem;
+		font-size: 1.1rem;
+		font-weight: 700;
+	}
+	.money-links {
+		display: grid;
+		gap: 0.75rem;
+	}
+	@media (min-width: 640px) {
+		.money-links {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		.money-links {
+			grid-template-columns: repeat(5, 1fr);
+		}
+	}
+	.money-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0.875rem 1rem;
+		background: #fff;
+		border: 1px solid #e2e8f0;
+		border-radius: 0.75rem;
+		font-size: 0.875rem;
+		text-decoration: none;
+		color: var(--text);
+		transition: border-color 0.2s, background 0.2s;
+	}
+	.money-link:hover {
+		border-color: var(--accent);
+		background: #fff7ed;
+		text-decoration: none;
+	}
+	.money-link strong {
+		font-weight: 700;
+	}
+	.money-link span {
+		font-size: 0.75rem;
+		color: var(--muted);
+		line-height: 1.4;
 	}
 
 	.trust-signals {

@@ -1,0 +1,367 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ButtonLink from '../components/landing/ButtonLink.astro';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
+const phoneDisplay = businessPhone.replace(/^\+66/, '0').replace(/-/g, '');
+const telHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
+const lineUrl = 'https://line.me/R/ti/p/@webuy';
+const pagePath = '/ราคากลางรับซื้อ/';
+
+const pageDescription =
+	'WE BUY ราคากลางรับซื้อไอทีมือสอง iPhone MacBook โน๊ตบุ๊ค คอม กล้อง — ประเมินตามรุ่นและสภาพจริง ไม่ใส่ราคามั่ว ทัก Line @webuy';
+
+const priceFactors = [
+	{
+		title: 'iPhone',
+		href: '/รับซื้อไอโฟน/',
+		note: 'iPhone มือสองขายได้กี่บาท ขึ้นกับรุ่น ความจุ และสภาพจริง',
+		factors: ['รุ่นและความจุ (ยังเป็นที่ต้องการหรือไม่)', 'สุขภาพแบตเตอรี่ (%)', 'สภาพจอและตัวเครื่อง', 'สถานะ iCloud / Find My', 'กล่อง สายชาร์จ ใบเสร็จ (ถ้ามี)'],
+	},
+	{
+		title: 'MacBook',
+		href: '/รับซื้อแมคบุ๊ค/',
+		note: 'MacBook มือสองขายได้กี่บาท ดูจากรุ่นชิป RAM SSD และสภาพแบต',
+		factors: ['รุ่น Air / Pro และชิป (M หรือ Intel)', 'RAM และความจุ SSD', 'จำนวนรอบชาร์จแบต (ถ้าดูได้)', 'สภาพจอ คีย์บอร์ด Trackpad', 'Apple ID / Activation Lock'],
+	},
+	{
+		title: 'iPad',
+		href: '/รับซื้อไอแพด/',
+		note: 'ประเมินตามรุ่น Wi‑Fi/Cellular และสภาพจอ',
+		factors: ['รุ่นและความจุ', 'สภาพจอและตัวเครื่อง', 'สุขภาพแบตเตอรี่', 'Apple Pencil / Keyboard (ถ้ามี)', 'สถานะ iCloud / Find My'],
+	},
+	{
+		title: 'โน๊ตบุ๊ค',
+		href: '/รับซื้อโน๊ตบุ๊ค/',
+		note: 'โน๊ตบุ๊คเก่าขายได้ไหม — ได้ ถ้าสเปกยังใช้งานได้และสภาพตรงที่แจ้ง',
+		factors: ['CPU และการ์ดจอ (ถ้ามี)', 'RAM และ SSD/HDD', 'สภาพจอ แบต คีย์บอร์ด', 'แบรนด์และรุ่นที่ตลาดยังต้องการ', 'อุปกรณ์ครบ (สายชาร์จ กล่อง)'],
+	},
+	{
+		title: 'คอมประกอบ',
+		href: '/รับซื้อคอม/',
+		note: 'คอมมือสองขายได้ราคาเท่าไหร่ ขึ้นกับชิ้นส่วนหลักและสภาพการใช้งาน',
+		factors: ['CPU และการ์ดจอ (รุ่นและรุ่นย่อย)', 'RAM และ SSD/HDD', 'เคส พัดลม และอุณหภูมิ', 'จอ คีย์บอร์ด เมาส์ที่ขายพร้อม', 'ประวัติซ่อมหรืออาการเสีย'],
+	},
+	{
+		title: 'กล้อง',
+		href: '/รับซื้อกล้อง/',
+		note: 'กล้องมือสองขายได้ไหม — ได้ ตามรุ่น เลนส์ และชัตเตอร์คาวน์',
+		factors: ['ยี่ห้อ รุ่น และเลนส์ที่แนบ', 'จำนวนชัตเตอร์ (Shutter count)', 'สภาพเซ็นเซอร์ เลนส์ จอ', 'อุปกรณ์เสริม (แบต สาย กระเป๋า)', 'ประวัติซ่อมหรือความชื้น'],
+	},
+	{
+		title: 'Apple Watch',
+		href: '/รับซื้อ-apple-watch/',
+		note: 'ประเมินตามรุ่น Series / SE / Ultra และสภาพสาย',
+		factors: ['รุ่นและขนาดตัวเรือน', 'สภาพจอและตัวเครื่อง', 'สุขภาพแบตเตอรี่', 'สายที่แนบมา (แท้/เทียบ)', 'สถานะ iCloud / Activation Lock'],
+	},
+	{
+		title: 'เครื่องเกม',
+		href: '/รับซื้อเครื่องเกม/',
+		note: 'PS5, Switch, Steam Deck ฯลฯ ดูรุ่น ความจุ และจอยที่แนบ',
+		factors: ['รุ่นเครื่องและความจุ (ดิสก์/การ์ด)', 'สภาพตัวเครื่องและพอร์ต', 'จอย เกม อุปกรณ์ที่แนบครบ', 'บัญชีผูกหรือล็อก (ถ้ามี)', 'ประวัติซ่อมหรือเปิดไม่ติด'],
+	},
+];
+
+const priceUpFactors = [
+	'รุ่นยังเป็นที่ต้องการในตลาดมือสอง',
+	'สภาพตัวเครื่องและจอดี ไม่มีรอยร้าว',
+	'แบตเตอรี่ยังดี (สุขภาพแบตสูง)',
+	'อุปกรณ์ครบ — กล่อง สายชาร์จ จอย (ตามรุ่น)',
+	'มีใบเสร็จหรือประกันที่ยังใช้ได้ (ถ้ามี)',
+	'ไม่ติดล็อกบัญชี — ออกจาก Apple ID / Find My แล้ว',
+];
+
+const priceDownFactors = [
+	'จอแตก เป็นเส้น หรือจอเบิร์น',
+	'แบตเสื่อม ต้องเสียบไฟตลอด',
+	'เครื่องซ่อมหนัก หรืออาการร้อนผิดปกติ',
+	'อุปกรณ์ไม่ครบ (ไม่มีสายชาร์จ จอย กล่อง)',
+	'ติดบัญชีเจ้าของ / iCloud / Activation Lock',
+	'เปิดไม่ติด หรือฟังก์ชันสำคัญใช้ไม่ได้',
+];
+
+const faqItems = [
+	{
+		question: 'iPhone มือสองขายได้กี่บาท?',
+		answer:
+			'ไม่มีราคาเดียวตายตัว — WE BUY ประเมินตามรุ่น ความจุ สุขภาพแบต สภาพจอ และสถานะ iCloud ส่งรูปและสเปกมาที่ LINE @webuy เพื่อรับช่วงราคาเบื้องต้น',
+	},
+	{
+		question: 'MacBook มือสองขายได้กี่บาท?',
+		answer:
+			'ขึ้นกับรุ่น (Air/Pro) ชิป RAM SSD และสภาพแบต ราคากลางเป็นแนวทางปัจจัย ราคาจริงยืนยันหลังตรวจเครื่อง',
+	},
+	{
+		question: 'โน๊ตบุ๊คเก่าขายได้ไหม?',
+		answer:
+			'ขายได้ถ้ายังเปิดใช้งานได้ สเปกตรงที่แจ้ง และไม่มีปัญหาหนัก เช่น จอเสียหรือติดบัญชี — แจ้งรุ่น CPU RAM SSD และรูปจริงมาประเมิน',
+	},
+	{
+		question: 'คอมมือสองขายได้ราคาเท่าไหร่?',
+		answer:
+			'ประเมินจาก CPU การ์ดจอ RAM SSD และสภาพการใช้งาน คอมประกอบและแบรนด์เนมใช้เกณฑ์ชิ้นส่วนหลักเหมือนกัน — ส่งสเปกมาเช็กราคาเบื้องต้นได้ฟรี',
+	},
+	{
+		question: 'กล้องมือสองขายได้ไหม?',
+		answer:
+			'รับซื้อกล้อง DSLR/Mirrorless ตามรุ่น เลนส์ และชัตเตอร์คาวน์ สภาพเลนส์และเซ็นเซอร์มีผลมาก — ส่งรูปและรุ่นมาประเมินก่อนนัดรับ',
+	},
+	{
+		question: 'ทำไมหน้านี้ไม่ใส่ราคาตัวเลข?',
+		answer:
+			'เพื่อความถูกต้อง ราคามือสองเปลี่ยนตามตลาดและสภาพจริง WE BUY ให้ช่วงราคาเฉพาะเครื่องหลังได้ข้อมูลครบ ไม่ใช้ราคามั่วบนหน้าเว็บ',
+	},
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${site}${pagePath}#webpage`,
+		name: formatPageTitle('ราคากลางรับซื้อ'),
+		description: pageDescription,
+		url: `${site}${pagePath}`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@type': 'WebSite', url: `${site}/` },
+		about: {
+			'@type': 'Thing',
+			name: 'ราคากลางรับซื้อสินค้าไอทีมือสอง',
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'ราคากลางรับซื้อ', item: `${site}${pagePath}` },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		'@id': `${site}${pagePath}#faq`,
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.question,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: item.answer,
+			},
+		})),
+	},
+];
+---
+
+<BaseLayout
+	title={formatPageTitle('ราคากลางรับซื้อ')}
+	description={pageDescription}
+	pathname={pagePath}
+	jsonLd={jsonLd}
+>
+	<div class="font-sans bg-[#FAFAFA] text-text antialiased">
+		<section class="border-b border-gray-200 bg-white">
+			<div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+				<nav class="text-sm text-text-muted" aria-label="breadcrumb">
+					<ol class="flex flex-wrap items-center gap-1.5">
+						<li><a class="hover:text-brand-700" href="/">หน้าแรก</a></li>
+						<li aria-hidden="true">/</li>
+						<li class="font-medium text-text" aria-current="page">ราคากลางรับซื้อ</li>
+					</ol>
+				</nav>
+				<p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">แนวทางราคา · {orgName}</p>
+				<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">ราคากลางรับซื้อ — ประเมินตามรุ่นและสภาพจริง</h1>
+				<p class="mt-5 max-w-3xl text-lg leading-[1.75] text-text-muted">
+					<strong class="font-semibold text-text">คำตอบสั้น:</strong> ไม่มีราคาเดียวสำหรับทุกเครื่อง — ราคารับซื้อขึ้นกับรุ่น สเปก
+					สภาพจริง และว่าติดล็อกบัญชีหรือไม่ WE BUY ให้ช่วงราคาเบื้องต้นหลังได้ข้อมูลครบ ไม่ใส่ตัวเลขมั่วบนหน้านี้
+				</p>
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+					<ButtonLink href="/เช็กราคาก่อนขาย/" variant="primary">เช็กราคาก่อนขาย — ส่งข้อมูลอะไรบ้าง</ButtonLink>
+					<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer">
+						ทัก LINE @webuy
+					</ButtonLink>
+					<ButtonLink href={telHref} variant="secondary">โทร {phoneDisplay}</ButtonLink>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">ปัจจัยราคาตามหมวดสินค้า</h2>
+				<p class="mt-3 max-w-2xl text-text-muted">
+					ตารางด้านล่างเป็นแนวทางว่าทีมงานดูอะไรบ้าง — ราคาจริงยืนยันหลังตรวจเครื่อง ลิงก์ไปหน้ารับซื้อแต่ละหมวดอยู่ในหัวข้อการ์ด
+					หรืออ่าน <a class="font-semibold text-brand-700 hover:underline" href="/คู่มือก่อนขาย/">คู่มือขาย iPhone MacBook โน๊ตบุ๊ค คอม กล้อง</a>
+					แยกตามคำถามก่อนขาย
+				</p>
+				<div class="mt-8 hidden overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm md:block">
+					<table class="w-full min-w-[640px] border-collapse text-left text-sm">
+						<thead>
+							<tr class="border-b border-gray-200 bg-[#FAFAFA]">
+								<th class="px-4 py-3 font-semibold text-text" scope="col">หมวด</th>
+								<th class="px-4 py-3 font-semibold text-text" scope="col">แนวคำถาม / หมายเหตุ</th>
+								<th class="px-4 py-3 font-semibold text-text" scope="col">ปัจจัยหลักที่มีผลต่อราคา</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-gray-100">
+							{
+								priceFactors.map((row) => (
+									<tr>
+										<td class="px-4 py-4 align-top font-semibold">
+											<a class="text-brand-800 hover:text-brand-600 hover:underline" href={row.href}>
+												{row.title}
+											</a>
+										</td>
+										<td class="px-4 py-4 align-top text-text-muted">{row.note}</td>
+										<td class="px-4 py-4 align-top">
+											<ul class="space-y-1 text-text-muted">
+												{row.factors.map((f) => (
+													<li class="flex gap-2">
+														<span class="text-brand-600" aria-hidden="true">•</span>
+														{f}
+													</li>
+												))}
+											</ul>
+										</td>
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				</div>
+				<div class="mt-8 grid gap-6 md:hidden">
+					{
+						priceFactors.map((cat) => (
+							<article class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+								<h3 class="text-lg font-bold">
+									<a class="text-brand-800 hover:underline" href={cat.href}>{cat.title}</a>
+								</h3>
+								<p class="mt-1 text-sm text-text-muted">{cat.note}</p>
+								<ul class="mt-3 space-y-1.5 text-sm text-text-muted">
+									{cat.factors.map((f) => (
+										<li class="flex gap-2">
+											<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true" />
+											{f}
+										</li>
+									))}
+								</ul>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<div class="grid gap-8 md:grid-cols-2">
+					<div>
+						<h2 class="text-xl font-bold text-emerald-800">ปัจจัยที่มักทำให้ราคาสูงขึ้น</h2>
+						<ul class="mt-4 space-y-2 text-sm text-text-muted">
+							{
+								priceUpFactors.map((item) => (
+									<li class="flex gap-2 rounded-lg border border-emerald-100 bg-emerald-50/60 px-3 py-2">
+										<span class="text-emerald-600" aria-hidden="true">↑</span>
+										{item}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+					<div>
+						<h2 class="text-xl font-bold text-rose-800">ปัจจัยที่มักทำให้ราคาลดลง</h2>
+						<ul class="mt-4 space-y-2 text-sm text-text-muted">
+							{
+								priceDownFactors.map((item) => (
+									<li class="flex gap-2 rounded-lg border border-rose-100 bg-rose-50/60 px-3 py-2">
+										<span class="text-rose-600" aria-hidden="true">↓</span>
+										{item}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">หน้ารับซื้อหลัก</h2>
+				<ul class="mt-4 flex flex-wrap gap-2">
+					<li>
+						<a
+							class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+							href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a
+						>
+					</li>
+					<li>
+						<a
+							class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+							href="/รับซื้อแมคบุ๊ค/">รับซื้อแมคบุ๊ค</a
+						>
+					</li>
+					<li>
+						<a
+							class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+							href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a
+						>
+					</li>
+					<li>
+						<a
+							class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+							href="/รับซื้อคอม/">รับซื้อคอม</a
+						>
+					</li>
+					<li>
+						<a
+							class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+							href="/รับซื้อกล้อง/">รับซื้อกล้อง</a
+						>
+					</li>
+					<li>
+						<a
+							class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+							href="/รับซื้อเครื่องเกม/">รับซื้อเครื่องเกม</a
+						>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">คำถามที่พบบ่อย</h2>
+				<div class="mt-6 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-[#FAFAFA]">
+					{
+						faqItems.map((item) => (
+							<details class="group px-5 py-4">
+								<summary class="cursor-pointer list-none font-semibold text-text marker:content-none group-open:text-brand-800">
+									{item.question}
+								</summary>
+								<p class="mt-3 text-sm leading-relaxed text-text-muted">{item.answer}</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="border-t border-brand-500/20 bg-gradient-to-b from-brand-50/80 to-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">อยากรู้ราคาเครื่องคุณ?</h2>
+				<p class="mx-auto mt-3 max-w-xl text-text-muted">
+					ดูว่าต้องส่งข้อมูลอะไรที่หน้าเช็กราคาก่อนขาย แล้วทัก LINE หรือโทรหาเรา — ประเมินเบื้องต้นฟรี
+				</p>
+				<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+					<ButtonLink href="/เช็กราคาก่อนขาย/" variant="primary">ไปหน้าเช็กราคาก่อนขาย</ButtonLink>
+					<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer">
+						แชท LINE @webuy
+					</ButtonLink>
+					<ButtonLink href={telHref} variant="secondary">โทร {phoneDisplay}</ButtonLink>
+				</div>
+			</div>
+		</section>
+	</div>
+</BaseLayout>

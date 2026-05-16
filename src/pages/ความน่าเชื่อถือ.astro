@@ -1,0 +1,340 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ButtonLink from '../components/landing/ButtonLink.astro';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
+const phoneDisplay = businessPhone.replace(/^\+66/, '0').replace(/-/g, '');
+const telHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
+const lineUrl = 'https://line.me/R/ti/p/@webuy';
+const pagePath = '/ความน่าเชื่อถือ/';
+
+const pageDescription =
+	'WE BUY ศูนย์ความน่าเชื่อถือรับซื้อไอทีมือสอง — ประเมินโปร่งใส ขั้นตอนชัด ความปลอดภัยข้อมูลก่อนขาย ไม่กล่าวเกินจริง ทัก Line @webuy';
+
+const assessmentFactors = [
+	{ title: 'รุ่น', detail: 'รุ่นที่ตลาดมือสองยังต้องการมักได้ช่วงราคาที่แตกต่างจากรุ่นที่หมดยุด' },
+	{ title: 'สเปก', detail: 'CPU, RAM, การ์ดจอ, ชิป (M/Intel) และฟีเจอร์ที่มีผลต่อการใช้งานจริง' },
+	{ title: 'ความจุ', detail: 'ความจุ SSD/HDD หรือความจุ iPhone/iPad ที่ส่งผลต่อความต้องการซื้อต่อ' },
+	{ title: 'สภาพเครื่อง', detail: 'จอ ตัวเครื่อง แบตเตอรี่ อาการเปิดไม่ติด หรือฟังก์ชันสำคัญที่ใช้ไม่ได้' },
+	{ title: 'อุปกรณ์', detail: 'กล่อง สายชาร์จ จอย เลนส์ หรืออุปกรณ์ที่แนบมาครบตามที่แจ้ง' },
+	{ title: 'ประกัน', detail: 'ใบเสร็จหรือประกันที่ยังใช้ได้ (ถ้ามี) เป็นข้อมูลประกอบ ไม่ใช่การันตีราคา' },
+	{ title: 'ราคาตลาดมือสอง', detail: 'อ้างอิงแนวโน้มรับซื้อ–ขายมือสองในช่วงนั้น ไม่ใช่ราคาป้ายใหม่' },
+];
+
+const priceChangeReasons = [
+	'สภาพจริงต่างจากรูปหรือคำอธิบายที่ส่งมา (เช่น จอเป็นเส้น แบตเสื่อม)',
+	'พบอาการที่ตรวจไม่เห็นจากรูป — ร้อนผิดปกติ พอร์ตเสีย หรือเปิดไม่ติด',
+	'สถานะบัญชี — ยังติด iCloud / Apple ID / Google / Samsung Account',
+	'อุปกรณ์ไม่ครบตามที่แจ้ง หรือมีประวัติซ่อมหนัก',
+	'ตลาดมือสองปรับตัวระหว่างวันประเมินเบื้องต้นกับวันตรวจจริง',
+];
+
+const transactionSteps = [
+	{ step: '1', title: 'ลูกค้าส่งข้อมูล', detail: 'รุ่น สเปก สภาพ และรูปถ่ายชัด ๆ ผ่าน LINE @webuy หรือช่องทางที่ตกลง' },
+	{ step: '2', title: 'ประเมินเบื้องต้น', detail: 'ทีมงานให้ช่วงราคาโดยประมาณจากข้อมูลที่ได้ — ยังไม่ใช่ราคาสุดท้าย' },
+	{ step: '3', title: 'ตรวจสภาพจริง', detail: 'นัดรับหรือส่งมอบเพื่อตรวจเครื่องตามขั้นตอนมาตรฐานของ WE BUY' },
+	{ step: '4', title: 'แจ้งราคาสุดท้าย', detail: 'สรุปราคาหลังตรวจครบ อธิบายสาเหตุหากต่างจากช่วงเบื้องต้น' },
+	{ step: '5', title: 'ชำระเงินหลังตกลง', detail: 'จ่ายเมื่อลูกค้ายอมรับราคาสุดท้ายเท่านั้น — ไม่บังคับขายหากไม่ตกลง' },
+];
+
+const dataSecurityTips = [
+	{
+		title: 'ล้างข้อมูลก่อนขาย',
+		detail: 'รีเซ็ตเครื่องและลบข้อมูลส่วนตัวออกจากเครื่องก่อนส่งมอบ เพื่อลดความเสี่ยงข้อมูลรั่วไหล',
+	},
+	{
+		title: 'ออกจากบัญชีที่ผูกเครื่อง',
+		detail: 'ออกจาก iCloud / Apple ID, Google Account, Samsung Account และบัญชีเกมหรือแอปที่ผูกเครื่อง',
+	},
+	{
+		title: 'สำรองข้อมูลก่อนส่งมอบ',
+		detail: 'แบ็กอัปรูป เอกสาร และข้อมูลสำคัญไว้ก่อนรีเซ็ต — WE BUY ไม่รับผิดชอบข้อมูลที่ลูกค้าลืมสำรอง',
+	},
+];
+
+const notAcceptedItems = [
+	'เครื่องติดล็อกเจ้าของ (iCloud / Find My / Activation Lock ฯลฯ)',
+	'เครื่องที่ยืนยันเจ้าของหรือที่มาไม่ได้ตามนโยบายของร้าน',
+	'เครื่องที่เกี่ยวข้องกับของผิดกฎหมายหรือไม่สามารถตรวจสอบได้',
+	'เครื่องอาการหนักมากจนประเมินไม่ได้อย่างเป็นธรรม (เช่น เปิดไม่ติดโดยไม่ทราบสาเหตุ)',
+];
+
+const moneyPageLinks = [
+	{ href: '/รับซื้อไอโฟน/', label: 'รับซื้อไอโฟน' },
+	{ href: '/รับซื้อแมคบุ๊ค/', label: 'รับซื้อแมคบุ๊ค' },
+	{ href: '/รับซื้อโน๊ตบุ๊ค/', label: 'รับซื้อโน๊ตบุ๊ค' },
+	{ href: '/รับซื้อคอม/', label: 'รับซื้อคอม' },
+	{ href: '/รับซื้อกล้อง/', label: 'รับซื้อกล้อง' },
+];
+
+const faqItems = [
+	{
+		question: 'WE BUY ประเมินราคาจากอะไร?',
+		answer:
+			'จากรุ่น สเปก ความจุ สภาพเครื่อง อุปกรณ์ ประกัน (ถ้ามี) และแนวราคาตลาดมือสองในช่วงนั้น — ดูรายละเอียดในหน้านี้และหน้าราคากลางรับซื้อ',
+	},
+	{
+		question: 'ทำไมราคาประเมินเบื้องต้นเปลี่ยนหลังตรวจเครื่องจริง?',
+		answer:
+			'เพราะการตรวจจริงอาจพบสภาพหรือบัญชีที่ต่างจากรูป/คำอธิบาย ราคาเบื้องต้นเป็นช่วงโดยประมาณ ราคาสุดท้ายยืนยันหลังตรวจครบเท่านั้น',
+	},
+	{
+		question: 'ต้องล้างข้อมูลและออกจากบัญชีก่อนขายไหม?',
+		answer:
+			'แนะนำให้สำรองข้อมูล ออกจาก iCloud / Google / Samsung Account แล้วรีเซ็ตเครื่องก่อนส่งมอบ — ช่วยความปลอดภัยและลดปัญหาติดล็อก',
+	},
+	{
+		question: 'รับซื้อเครื่องติด iCloud หรือบัญชีเจ้าของไหม?',
+		answer:
+			'โดยทั่วไปไม่รับซื้อเครื่องที่ติดล็อกบัญชีหรือยืนยันเจ้าของไม่ได้ — ควรออกจากบัญชีก่อนสอบถามราคา',
+	},
+	{
+		question: 'จ่ายเงินเมื่อไหร่?',
+		answer:
+			'ชำระหลังลูกค้าตกลงราคาสุดท้ายจากการตรวจเครื่องจริง หากไม่ตกลงราคา ไม่จำเป็นต้องขาย',
+	},
+	{
+		question: 'ถ้าไม่ตกลงราคาหลังตรวจจะเป็นอย่างไร?',
+		answer:
+			'ลูกค้าสามารถไม่ขายได้ — WE BUY ไม่บังคับให้ขายหลังได้ราคาสุดท้าย ควรแจ้งข้อกังวลกับทีมงานก่อนตัดสินใจ',
+	},
+	{
+		question: 'ข้อมูลที่ส่งใน LINE ปลอดภัยไหม?',
+		answer:
+			'ใช้เฉพาะเพื่อประเมินราคาและนัดรับเครื่อง แนะนำไม่ส่งรหัสผ่านหรือข้อมูลบัญชีธนาคารในแชท — ติดต่อเพิ่มได้ที่หน้าติดต่อเรา',
+	},
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${site}${pagePath}#webpage`,
+		name: formatPageTitle('ความน่าเชื่อถือ'),
+		description: pageDescription,
+		url: `${site}${pagePath}`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@type': 'WebSite', url: `${site}/` },
+		about: {
+			'@type': 'Thing',
+			name: 'ความน่าเชื่อถือ WE BUY รับซื้อสินค้าไอทีมือสอง',
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'ความน่าเชื่อถือ', item: `${site}${pagePath}` },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		'@id': `${site}${pagePath}#faq`,
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.question,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: item.answer,
+			},
+		})),
+	},
+];
+---
+
+<BaseLayout
+	title={formatPageTitle('ความน่าเชื่อถือ')}
+	description={pageDescription}
+	pathname={pagePath}
+	jsonLd={jsonLd}
+>
+	<div class="font-sans bg-[#FAFAFA] text-text antialiased">
+		<section class="border-b border-gray-200 bg-white">
+			<div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+				<nav class="text-sm text-text-muted" aria-label="breadcrumb">
+					<ol class="flex flex-wrap items-center gap-1.5">
+						<li><a class="hover:text-brand-700" href="/">หน้าแรก</a></li>
+						<li aria-hidden="true">/</li>
+						<li class="font-medium text-text" aria-current="page">ความน่าเชื่อถือ</li>
+					</ol>
+				</nav>
+				<p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Trust Center · {orgName}</p>
+				<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">ความน่าเชื่อถือ — ขายมือสองกับ WE BUY อย่างโปร่งใส</h1>
+				<p class="mt-5 max-w-3xl text-lg leading-[1.75] text-text-muted">
+					<strong class="font-semibold text-text">คำตอบสั้น:</strong> WE BUY ประเมินราคาจากรุ่น สเปก สภาพจริง
+					และแนวตลาดมือสอง — ให้ช่วงราคาเบื้องต้นก่อน ยืนยันราคาสุดท้ายหลังตรวจเครื่อง ชำระเมื่อตกลงเท่านั้น
+					ไม่กล่าวอ้างราคาสูงสุดหรือรับซื้อทุกกรณี
+				</p>
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+					<ButtonLink href="/เช็กราคาก่อนขาย/" variant="primary">เช็กราคาก่อนขาย</ButtonLink>
+					<ButtonLink href="/ราคากลางรับซื้อ/" variant="secondary">ดูแนวราคากลาง</ButtonLink>
+					<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer">
+						ทัก LINE @webuy
+					</ButtonLink>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">WE BUY ประเมินราคาจากอะไร</h2>
+				<p class="mt-3 max-w-2xl text-text-muted">
+					ทุกเครื่องได้รับการพิจารณาเป็นชิ้น ๆ ไม่มีราคาเดียวสำหรับทุกรุ่น — ปัจจัยหลักมีดังนี้
+				</p>
+				<ul class="mt-8 grid gap-4 sm:grid-cols-2">
+					{
+						assessmentFactors.map((item) => (
+							<li class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+								<h3 class="font-semibold text-brand-800">{item.title}</h3>
+								<p class="mt-2 text-sm leading-relaxed text-text-muted">{item.detail}</p>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">ทำไมราคาประเมินเบื้องต้นอาจเปลี่ยนหลังตรวจเครื่องจริง</h2>
+				<p class="mt-3 text-text-muted">
+					ช่วงราคาแรกอิงจากข้อมูลและรูปที่ลูกค้าส่ง — ราคาสุดท้ายต้องสอดคล้องกับสภาพจริงหลังตรวจ
+				</p>
+				<ul class="mt-6 space-y-2">
+					{
+						priceChangeReasons.map((reason) => (
+							<li class="flex gap-3 rounded-xl border border-amber-100 bg-amber-50/50 px-4 py-3 text-sm text-text-muted">
+								<span class="shrink-0 font-semibold text-amber-700" aria-hidden="true">!</span>
+								{reason}
+							</li>
+						))
+					}
+				</ul>
+				<p class="mt-6 text-sm text-text-muted">
+					ดูแนวปัจจัยราคาเพิ่มเติมที่ <a class="font-medium text-brand-800 hover:underline" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a>
+				</p>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">ขั้นตอนซื้อขายแบบโปร่งใส</h2>
+				<ol class="mt-8 space-y-4">
+					{
+						transactionSteps.map((item) => (
+							<li class="flex gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+								<span
+									class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white"
+									aria-hidden="true">{item.step}</span
+								>
+								<div>
+									<h3 class="font-semibold text-text">{item.title}</h3>
+									<p class="mt-1 text-sm leading-relaxed text-text-muted">{item.detail}</p>
+								</div>
+							</li>
+						))
+					}
+				</ol>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">ความปลอดภัยของข้อมูลก่อนขาย</h2>
+				<div class="mt-8 grid gap-6 md:grid-cols-3">
+					{
+						dataSecurityTips.map((tip) => (
+							<article class="rounded-2xl border border-sky-100 bg-sky-50/40 p-5">
+								<h3 class="font-semibold text-sky-900">{tip.title}</h3>
+								<p class="mt-2 text-sm leading-relaxed text-text-muted">{tip.detail}</p>
+							</article>
+						))
+					}
+				</div>
+				<p class="mt-8 text-sm leading-relaxed text-text-muted sm:text-base">
+					<a class="font-semibold text-brand-700 hover:underline" href="/คู่มือก่อนขาย/">รวมบทความก่อนขายทุกหัวข้อ</a>
+					— ขายได้ไหม ราคา และวิธีล้างข้อมูลก่อนส่งมอบ
+				</p>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">เครื่องที่ไม่รับซื้อหรือควรตรวจเพิ่ม</h2>
+				<p class="mt-3 text-text-muted">
+					นโยบายนี้ช่วยปกป้องทั้งผู้ขายและร้าน — หากไม่แน่ใจ สอบถามก่อนส่งมอบเครื่อง
+				</p>
+				<ul class="mt-6 space-y-2">
+					{
+						notAcceptedItems.map((item) => (
+							<li class="flex gap-2 rounded-lg border border-rose-100 bg-rose-50/50 px-4 py-3 text-sm text-text-muted">
+								<span class="text-rose-600" aria-hidden="true">×</span>
+								{item}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">หน้ารับซื้อหลัก</h2>
+				<ul class="mt-4 flex flex-wrap gap-2">
+					{
+						moneyPageLinks.map((link) => (
+							<li>
+								<a
+									class="inline-flex rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text hover:border-brand-500/30 hover:bg-brand-50"
+									href={link.href}>{link.label}</a
+								>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">คำถามที่พบบ่อย</h2>
+				<div class="mt-6 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-[#FAFAFA]">
+					{
+						faqItems.map((item) => (
+							<details class="group px-5 py-4">
+								<summary class="cursor-pointer list-none font-semibold text-text marker:content-none group-open:text-brand-800">
+									{item.question}
+								</summary>
+								<p class="mt-3 text-sm leading-relaxed text-text-muted">{item.answer}</p>
+							</details>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="border-t border-brand-500/20 bg-gradient-to-b from-brand-50/80 to-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">พร้อมขายหรืออยากเช็กราคาก่อน?</h2>
+				<p class="mx-auto mt-3 max-w-xl text-text-muted">
+					เริ่มจากหน้าเช็กราคาก่อนขาย ดูแนวราคากลาง หรือติดต่อเราโดยตรง — ประเมินเบื้องต้นฟรี ไม่มีข้อผูกมัด
+				</p>
+				<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+					<ButtonLink href="/เช็กราคาก่อนขาย/" variant="primary">เช็กราคาก่อนขาย</ButtonLink>
+					<ButtonLink href="/ราคากลางรับซื้อ/" variant="secondary">ราคากลางรับซื้อ</ButtonLink>
+					<ButtonLink href="/contact/" variant="secondary">ติดต่อเรา</ButtonLink>
+					<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer">
+						แชท LINE @webuy
+					</ButtonLink>
+					<ButtonLink href={telHref} variant="secondary">โทร {phoneDisplay}</ButtonLink>
+				</div>
+			</div>
+		</section>
+	</div>
+</BaseLayout>
+

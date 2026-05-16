@@ -154,6 +154,52 @@ const faqItems = [
 	},
 ];
 
+const preSaleLinks = [
+	{
+		href: '/เช็กราคาก่อนขาย/',
+		title: 'เช็กราคาก่อนขาย',
+		description: 'ดูว่าต้องส่งรุ่น สเปก รูป และสภาพอะไรก่อนทัก Line',
+	},
+	{
+		href: '/ราคากลางรับซื้อ/',
+		title: 'ดูราคากลางรับซื้อ',
+		description: 'แนวปัจจัยราคาตามหมวดสินค้า — ไม่ใส่ตัวเลขมั่ว',
+	},
+	{
+		href: '/ความน่าเชื่อถือ/',
+		title: 'อ่านขั้นตอนประเมินอย่างโปร่งใส',
+		description: 'ขั้นตอนซื้อขาย ความปลอดภัยข้อมูล และนโยบายรับซื้อ',
+	},
+];
+
+const mainMoneyPages = [
+	{
+		href: '/รับซื้อไอโฟน/',
+		title: 'รับซื้อ iPhone มือสอง',
+		description: 'ทุกรุ่น ประเมินตามสภาพและสุขภาพแบต',
+	},
+	{
+		href: '/รับซื้อโน๊ตบุ๊ค/',
+		title: 'รับซื้อโน๊ตบุ๊คมือสอง',
+		description: 'MacBook และโน้ตบุ๊คทุกยี่ห้อ',
+	},
+	{
+		href: '/รับซื้อแมคบุ๊ค/',
+		title: 'รับซื้อ MacBook มือสอง',
+		description: 'MacBook Air / Pro ชิป Intel และ M-series',
+	},
+	{
+		href: '/รับซื้อคอม/',
+		title: 'รับซื้อคอมมือสอง',
+		description: 'PC ประกอบ คอมสำนักงาน และเกมมิ่ง',
+	},
+	{
+		href: '/รับซื้อกล้อง/',
+		title: 'รับซื้อกล้องมือสอง',
+		description: 'DSLR Mirrorless เลนส์ และอุปกรณ์เสริม',
+	},
+];
+
 const homeServices = [
 	{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน้ตบุ๊ก', description: 'โน้ตบุ๊กหลากแบรนด์และสเปก — แกนหลักของเรา', icon: 'buyNb' as const },
 	{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์มือสอง', description: 'PC สำนักงาน เล่นเกม Workstation — ประเมินตามสภาพ', icon: 'buyPc' as const },
@@ -424,6 +470,53 @@ const homeJsonLd: Record<string, unknown> = {
 			bulletPoints={processBullets}
 			steps={processSteps}
 		/>
+
+		<section
+			class="border-b border-gray-200/80 bg-gradient-to-b from-[#fffbeb] to-white py-16 sm:py-20"
+			aria-labelledby="pre-sale-heading"
+		>
+			<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+				<h2 id="pre-sale-heading" class="text-[clamp(1.5rem,2.8vw+1rem,2.25rem)] font-extrabold tracking-tight text-text">
+					ก่อนขาย เช็กราคาและความน่าเชื่อถือได้ก่อน
+				</h2>
+				<p class="mt-4 max-w-[42rem] text-base leading-[1.75] text-text-muted sm:text-lg">
+					เตรียมข้อมูลให้ครบก่อนทัก Line จะได้ช่วงราคาเบื้องต้นที่ชัดขึ้น — อ่านแนวทางและขั้นตอนได้จากลิงก์ด้านล่าง
+					หรือเปิด <a class="font-semibold text-brand-700 hover:underline" href="/คู่มือก่อนขาย/">คู่มือก่อนขายสินค้าไอทีมือสอง</a>
+					รวมบทความตามหัวข้อ
+				</p>
+				<div class="mt-8 grid gap-4 sm:grid-cols-3">
+					{
+						preSaleLinks.map((link) => (
+							<a
+								href={link.href}
+								class="group flex h-full flex-col rounded-[1.125rem] border border-amber-200/80 bg-white p-5 shadow-sm transition hover:border-brand-500/30 hover:shadow-md"
+							>
+								<h3 class="font-bold text-brand-800 group-hover:text-brand-600">{link.title}</h3>
+								<p class="mt-2 flex-1 text-sm leading-relaxed text-text-muted">{link.description}</p>
+							</a>
+						))
+					}
+				</div>
+				<h3 class="mt-12 text-lg font-bold text-text">หมวดรับซื้อหลัก</h3>
+				<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+					{
+						mainMoneyPages.map((page) => (
+							<a
+								href={page.href}
+								class="rounded-xl border border-gray-200/90 bg-white px-4 py-3 text-sm font-semibold text-text shadow-sm transition hover:border-brand-500/30 hover:bg-brand-50 hover:text-brand-800"
+							>
+								<span class="block">{page.title}</span>
+								<span class="mt-1 block text-xs font-normal text-text-muted">{page.description}</span>
+							</a>
+						))
+					}
+				</div>
+				<p class="mt-6 text-sm text-text-muted">
+					ดูหมวดรับซื้อทั้งหมดได้ที่{' '}
+					<a class="font-semibold text-brand-600 hover:underline" href="/รับซื้อ/">หน้ารับซื้อสินค้าไอทีมือสอง</a>
+				</p>
+			</div>
+		</section>
 
 		<SeoProseSection />
 

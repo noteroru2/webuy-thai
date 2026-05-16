@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ButtonLink from '../components/landing/ButtonLink.astro';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
+
+const site = getSiteOrigin();
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
+const phoneDisplay = businessPhone.replace(/^\+66/, '0').replace(/-/g, '');
+const telHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
+const lineUrl = 'https://line.me/R/ti/p/@webuy';
+const pagePath = '/พื้นที่ให้บริการ/';
+
+const pageDescription =
+	'WE BUY พื้นที่ให้บริการรับซื้อไอทีมือสอง อุบล ขอนแก่น อุดร โคราช ประเมินผ่าน Line @webuy นัดหมายตามความเหมาะสม ไม่ใส่ราคามั่ว';
+
+const serviceAreas = [
+	{
+		name: 'อุบลราชธานี',
+		detail:
+			'รับซื้อ iPhone, โน๊ตบุ๊ค, MacBook, คอม และกล้องมือสอง — ประเมินผ่าน Line แล้วนัดรับหรือจัดส่งตามความเหมาะสมในเขตเมืองและใกล้เคียง',
+	},
+	{
+		name: 'วารินชำราบ',
+		detail:
+			'ครอบคลุมผ่านทีมพื้นที่อุบลราชธานี — ส่งรูปและสเปกมาประเมินก่อน แล้วนัดหมายรับเครื่องตามจุดที่ตกลง',
+	},
+	{
+		name: 'ขอนแก่น',
+		detail:
+			'รับซื้อไอโฟนและสินค้าไอทีมือสอง — เช็กราคาเบื้องต้นใน Line ก่อนนัดตรวจเครื่องจริง',
+	},
+	{
+		name: 'อุดรธานี',
+		detail:
+			'บริการรับซื้อไอโฟนมือสอง — ประเมินตามสภาพจริง ไม่ใส่ตัวเลขมั่ว นัดหมายตามความเหมาะสม',
+	},
+	{
+		name: 'นครราชสีมา / โคราช',
+		detail:
+			'รับซื้อโน๊ตบุ๊คและสินค้าไอทีมือสองในโคราช — ส่งข้อมูลและรูปผ่าน Line เพื่อช่วงราคาเบื้องต้น',
+	},
+	{
+		name: 'กรุงเทพ',
+		detail:
+			'รับประเมินราคาผ่าน Line @webuy และนัดหมายรับเครื่องตามความเหมาะสม — ไม่ได้ระบุว่ามีนัดรับถึงที่ทุกเขต',
+	},
+];
+
+const localGeoPages = [
+	{
+		href: '/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/',
+		title: 'รับซื้อโน๊ตบุ๊ค อุบลราชธานี',
+		summary: 'คู่มือขายโน๊ตบุ๊คในอุบลฯ และวารินชำราบ — นัดรับตามจุดที่สะดวก',
+		region: 'อุบลราชธานี',
+	},
+	{
+		href: '/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ/',
+		title: 'รับซื้อไอโฟน อุบลราชธานี',
+		summary: 'คู่มือขาย iPhone ในเมืองอุบลและวารินฯ — ประเมินผ่าน Line ก่อนนัดรับ',
+		region: 'อุบลราชธานี',
+	},
+	{
+		href: '/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/',
+		title: 'รับซื้อไอโฟน ขอนแก่น',
+		summary: 'คู่มือขาย iPhone ในขอนแก่น — เช็กราคาเบื้องต้นก่อนนัดตรวจ',
+		region: 'ขอนแก่น',
+	},
+	{
+		href: '/รับซื้อไอโฟน-อุดรธานี/',
+		title: 'รับซื้อไอโฟน อุดรธานี',
+		summary: 'รับซื้อ iPhone มือสองในอุดรธานี — ประเมินตามสภาพจริง',
+		region: 'อุดรธานี',
+	},
+	{
+		href: '/รับซื้อโน๊ตบุ๊ค-โคราช/',
+		title: 'รับซื้อโน๊ตบุ๊ค โคราช',
+		summary: 'รับซื้อโน๊ตบุ๊คมือสองในนครราชสีมา — ส่งสเปกและรูปใน Line',
+		region: 'นครราชสีมา',
+	},
+];
+
+const moneyPages = [
+	{ href: '/รับซื้อไอโฟน/', label: 'รับซื้อไอโฟน' },
+	{ href: '/รับซื้อแมคบุ๊ค/', label: 'รับซื้อแมคบุ๊ค' },
+	{ href: '/รับซื้อโน๊ตบุ๊ค/', label: 'รับซื้อโน๊ตบุ๊ค' },
+	{ href: '/รับซื้อคอม/', label: 'รับซื้อคอม' },
+	{ href: '/รับซื้อกล้อง/', label: 'รับซื้อกล้อง' },
+	{ href: '/รับซื้อไอแพด/', label: 'รับซื้อ iPad' },
+];
+
+const conversionLinks = [
+	{ href: '/เช็กราคาก่อนขาย/', title: 'เช็กราคาก่อนขาย', detail: 'รายการข้อมูลและรูปที่ควรส่งก่อนทัก Line' },
+	{ href: '/ราคากลางรับซื้อ/', title: 'ราคากลางรับซื้อ', detail: 'ปัจจัยที่มีผลต่อราคาแต่ละประเภทสินค้า' },
+	{ href: '/ความน่าเชื่อถือ/', title: 'ความน่าเชื่อถือ', detail: 'ขั้นตอนประเมินและนโยบายรับซื้อ' },
+];
+
+const jsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${site}${pagePath}#webpage`,
+		name: formatPageTitle('พื้นที่ให้บริการ'),
+		description: pageDescription,
+		url: `${site}${pagePath}`,
+		inLanguage: 'th-TH',
+		isPartOf: { '@type': 'WebSite', url: `${site}/` },
+		about: {
+			'@type': 'Thing',
+			name: 'พื้นที่ให้บริการรับซื้อสินค้าไอทีมือสอง',
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'พื้นที่ให้บริการ', item: `${site}${pagePath}` },
+		],
+	},
+];
+---
+
+<BaseLayout
+	title={formatPageTitle('พื้นที่ให้บริการ')}
+	description={pageDescription}
+	pathname={pagePath}
+	jsonLd={jsonLd}
+>
+	<div class="font-sans bg-[#FAFAFA] text-text antialiased">
+		<section class="border-b border-gray-200 bg-white">
+			<div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+				<nav class="text-sm text-text-muted" aria-label="breadcrumb">
+					<ol class="flex flex-wrap items-center gap-1.5">
+						<li><a class="hover:text-brand-700" href="/">หน้าแรก</a></li>
+						<li aria-hidden="true">/</li>
+						<li class="font-medium text-text" aria-current="page">พื้นที่ให้บริการ</li>
+					</ol>
+				</nav>
+				<p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Service Area · {orgName}</p>
+				<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">พื้นที่ให้บริการรับซื้อสินค้าไอทีมือสอง</h1>
+				<p class="mt-5 max-w-3xl text-lg leading-[1.75] text-text-muted">
+					WE BUY ให้บริการรับซื้อสินค้าไอทีมือสอง เช่น <strong class="font-semibold text-text">iPhone, MacBook, โน๊ตบุ๊ค, คอม, กล้อง และ iPad</strong>
+					ประเมินราคาตามสภาพจริง — ลูกค้าในภาคอีสานและพื้นที่ใกล้เคียงสามารถเริ่มจากการส่งข้อมูลใน Line ก่อนนัดรับหรือจัดส่ง
+				</p>
+			</div>
+		</section>
+
+		<section class="py-10 sm:py-12">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<div class="rounded-2xl border border-brand-200 bg-brand-50/60 p-6 sm:p-8">
+					<p class="text-sm font-bold uppercase tracking-[0.12em] text-brand-800">คำตอบสั้น</p>
+					<p class="mt-3 text-base leading-relaxed text-text sm:text-lg">
+						<strong class="font-semibold text-text">ลูกค้าสามารถส่งรูป รุ่น สภาพ และอุปกรณ์</strong> ทาง
+						<a class="font-semibold text-brand-700 hover:underline" href={lineUrl} target="_blank" rel="noopener noreferrer"
+							>Line @webuy</a
+						>
+						เพื่อประเมินราคาเบื้องต้น ก่อนนัดรับหรือจัดส่งสินค้าตามความเหมาะสม — ไม่ใส่ตัวเลขมั่วและไม่บังคับขาย
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16" id="พื้นที่หลัก">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">พื้นที่หลักที่ให้บริการ</h2>
+				<p class="mt-3 max-w-2xl text-text-muted">
+					รายการด้านล่างเป็นพื้นที่ที่ลูกค้ามักติดต่อ WE BUY — การนัดรับหรือส่งเครื่องเป็นไปตามความเหมาะสมและการตกลงใน Line
+					ไม่ได้หมายความว่ามีนัดรับถึงที่ทุกจังหวัดหรือทุกเขต
+				</p>
+				<ul class="mt-8 grid gap-4 sm:grid-cols-2">
+					{
+						serviceAreas.map((area) => (
+							<li>
+								<article class="h-full rounded-xl border border-gray-200 bg-[#FAFAFA] p-5 shadow-sm">
+									<h3 class="text-lg font-bold text-text">{area.name}</h3>
+									<p class="mt-2 text-sm leading-relaxed text-text-muted">{area.detail}</p>
+								</article>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="py-12 sm:py-16" id="หน้าคู่มือพื้นที่">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">คู่มือรับซื้อตามพื้นที่</h2>
+				<p class="mt-3 max-w-2xl text-text-muted">
+					หน้าด้านล่างเป็นคู่มือ/หลักฐานการให้บริการในแต่ละจังหวัดที่มีอยู่จริงบนเว็บไซต์ — อ่านรายละเอียดการนัดรับและปัจจัยราคาในแต่ละหน้า
+				</p>
+				<ul class="mt-8 space-y-4">
+					{
+						localGeoPages.map((page) => (
+							<li>
+								<article class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:border-brand-300 hover:shadow-md">
+									<p class="text-xs font-bold uppercase tracking-wide text-brand-700">{page.region}</p>
+									<h3 class="mt-1 text-lg font-bold">
+										<a class="text-brand-800 hover:text-brand-600 hover:underline" href={page.href}>
+											{page.title}
+										</a>
+									</h3>
+									<p class="mt-2 text-sm leading-relaxed text-text-muted">{page.summary}</p>
+								</article>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">หมวดรับซื้อหลัก</h2>
+				<p class="mt-3 text-text-muted">ดูรายละเอียดบริการรับซื้อและปัจจัยราคาแต่ละประเภท — ใช้ได้ทุกพื้นที่ที่ WE BUY รับประเมิน</p>
+				<ul class="mt-6 flex flex-wrap gap-3">
+					{
+						moneyPages.map((page) => (
+							<li>
+								<a
+									class="inline-flex rounded-full border border-gray-200 bg-[#FAFAFA] px-4 py-2 text-sm font-semibold text-brand-800 shadow-sm transition hover:border-brand-400 hover:bg-brand-50"
+									href={page.href}
+								>
+									{page.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</section>
+
+		<section class="border-t border-brand-500/20 bg-gradient-to-b from-brand-50/80 to-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">เช็กราคาและติดต่อ WE BUY</h2>
+				<p class="mt-3 max-w-2xl text-text-muted">
+					ส่งรูปและสเปกมาได้เลย — ได้ช่วงราคาเบื้องต้นก่อนนัดหมายรับหรือจัดส่งเครื่อง
+				</p>
+				<div class="mt-8 grid gap-4 sm:grid-cols-3">
+					{
+						conversionLinks.map((link) => (
+							<a
+								class="block rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:border-brand-400 hover:shadow-md"
+								href={link.href}
+							>
+								<span class="font-bold text-brand-800">{link.title}</span>
+								<p class="mt-2 text-sm text-text-muted">{link.detail}</p>
+							</a>
+						))
+					}
+				</div>
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+					<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer">
+						ทัก LINE @webuy
+					</ButtonLink>
+					<ButtonLink href={telHref} variant="primary">โทร {phoneDisplay}</ButtonLink>
+				</div>
+			</div>
+		</section>
+	</div>
+</BaseLayout>
