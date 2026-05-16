@@ -1,0 +1,45 @@
+---
+const gaId =
+	typeof import.meta.env.PUBLIC_GA4_MEASUREMENT_ID === 'string'
+		? import.meta.env.PUBLIC_GA4_MEASUREMENT_ID.trim()
+		: '';
+---
+
+{
+	gaId && (
+		<>
+			<script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+			<script is:inline define:vars={{ gaId }}>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() {
+					dataLayer.push(arguments);
+				}
+				gtag('js', new Date());
+				gtag('config', gaId, { send_page_view: true });
+
+				document.addEventListener(
+					'click',
+					(e) => {
+						const anchor = e.target instanceof Element ? e.target.closest('a[href]') : null;
+						if (!anchor) return;
+						const href = anchor.getAttribute('href') || '';
+						if (/line\.me|@webuy/i.test(href)) {
+							gtag('event', 'line_click', {
+								event_category: 'conversion',
+								link_url: href,
+								link_text: (anchor.textContent || '').trim().slice(0, 80),
+							});
+						}
+						if (href.startsWith('tel:')) {
+							gtag('event', 'phone_click', {
+								event_category: 'conversion',
+								link_url: href,
+							});
+						}
+					},
+					{ capture: true },
+				);
+			</script>
+		</>
+	)
+}

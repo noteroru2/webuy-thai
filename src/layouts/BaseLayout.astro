@@ -2,6 +2,8 @@
 import { getSiteOrigin } from '../lib/site';
 import LandingNav from '../components/landing/LandingNav.astro';
 import SiteFooter from '../components/layout/SiteFooter.astro';
+import SiteAnalytics from '../components/analytics/SiteAnalytics.astro';
+import { LINE_OA_URL } from '../lib/site-line';
 import '../styles/fonts.css';
 import '../styles/tailwind.css';
 interface Props {
@@ -92,6 +94,7 @@ const robotsContent = noindex
 		{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 		{type === 'article' && <meta property="article:author" content={orgName} />}
 		<title>{title}</title>
+		<SiteAnalytics />
 		<slot name="head" />
 		{jsonLd &&
 			(Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((item) => (
@@ -359,7 +362,7 @@ const robotsContent = noindex
 		</main>
 		<a
 			class="line-float"
-			href="https://line.me/R/ti/p/@webuy"
+			href={LINE_OA_URL}
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="แอดไลน์ @webuy ตลอด 24 ชั่วโมง"

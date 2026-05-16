@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPublishedPosts } from '../lib/posts';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
+import { isIntentArticle } from '../lib/intent-articles';
 import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -27,6 +28,7 @@ if (!post) {
 }
 
 const { Content } = await render(post);
+const showIntentHubLinks = isIntentArticle(post.data.slug);
 
 const plainTitle = post.data.title;
 const plainExcerpt = post.data.description;
@@ -182,8 +184,53 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<Content />
 		</div>
 
+		{
+			showIntentHubLinks && (
+				<section class="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5">
+					<h2 class="text-lg font-bold text-gray-900">คู่มือและเช็กราคาก่อนขาย</h2>
+					<p class="mt-2 text-sm leading-relaxed text-gray-600">
+						อ่านบทความที่เกี่ยวข้องเพิ่ม หรือกลับไปดู hub รวมทุกหัวข้อก่อนทัก Line @webuy
+					</p>
+					<ul class="mt-3 flex flex-wrap gap-2 list-none p-0 m-0 text-sm">
+						<li>
+							<a
+								href="/คู่มือก่อนขาย/"
+								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+							>
+								คู่มือก่อนขาย
+							</a>
+						</li>
+						<li>
+							<a
+								href="/เช็กราคาก่อนขาย/"
+								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+							>
+								เช็กราคาก่อนขาย
+							</a>
+						</li>
+						<li>
+							<a
+								href="/ราคากลางรับซื้อ/"
+								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+							>
+								ราคากลางรับซื้อ
+							</a>
+						</li>
+						<li>
+							<a
+								href="/ความน่าเชื่อถือ/"
+								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+							>
+								ความน่าเชื่อถือ
+							</a>
+						</li>
+					</ul>
+				</section>
+			)
+		}
+
 		<hr class="my-10 border-gray-100" />
-		
+
 		<!-- Bottom-Up Links (Content Silos) -->
 		<section class="mb-10">
 			<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
