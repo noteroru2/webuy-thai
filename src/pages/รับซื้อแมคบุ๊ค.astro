@@ -4,7 +4,7 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
@@ -154,7 +154,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title="รับซื้อ MacBook | รับซื้อ MacBook Air / Pro ทุกรุ่น ประเมินราคาฟรี | WE BUY"
+	title={formatPageTitle('รับซื้อ MacBook มือสอง')}
 	description="WE BUY รับซื้อ MacBook มือสองทุกรุ่น MacBook Air / Pro ทั้ง Intel และ M1-M5 ประเมินราคาโปร่งใสตามสเปกและรอบชาร์จ จ่ายเงินทันที บริการ 24 ชม. ติดต่อ Line @webuy"
 	pathname="/รับซื้อแมคบุ๊ค/"
 	type="article"

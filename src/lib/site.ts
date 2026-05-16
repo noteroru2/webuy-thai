@@ -18,6 +18,30 @@ export function getSiteUrl(pathname: string): string {
   return `${base}${path}`;
 }
 
+const TITLE_BRAND = 'WE BUY';
+const TITLE_SUFFIX = ` | ${TITLE_BRAND}`;
+const TITLE_MAX_LEN = 60;
+
+/** Suffix for HTML `<title>` tags (keeps titles shorter than full org name). */
+export function formatPageTitle(pageTitle: string): string {
+  const brand =
+    (typeof import.meta.env.PUBLIC_TITLE_BRAND === 'string' &&
+      import.meta.env.PUBLIC_TITLE_BRAND.trim()) ||
+    TITLE_BRAND;
+  const suffix = ` | ${brand}`;
+  let base = pageTitle
+    .replace(/\s*\|\s*WE BUY\s*(\|\s*เรารับซื้อ)?\s*$/i, '')
+    .replace(/\s*\|\s*เรารับซื้อ\.com\s*$/i, '')
+    .trim();
+  const maxBase = TITLE_MAX_LEN - suffix.length;
+  if (base.length > maxBase) {
+    const cut = base.slice(0, maxBase + 1);
+    const lastSpace = cut.lastIndexOf(' ');
+    base = (lastSpace > maxBase * 0.45 ? cut.slice(0, lastSpace) : base.slice(0, maxBase)).trim();
+  }
+  return `${base}${suffix}`;
+}
+
 export function getSocialLinks(): string[] {
   const env = import.meta.env as Record<string, unknown>;
   const socialRaw = typeof env.PUBLIC_ORG_SAME_AS === 'string' ? env.PUBLIC_ORG_SAME_AS : 'https://line.me/R/ti/p/@webuy';

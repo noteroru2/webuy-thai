@@ -4,7 +4,7 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
@@ -154,7 +154,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title="รับซื้อไอแพด | รับซื้อ iPad Pro Air mini Gen ทุกรุ่น จ่ายเงินทันที | WE BUY"
+	title={formatPageTitle('รับซื้อ iPad มือสอง')}
 	description="WE BUY รับซื้อ iPad มือสองทุกรุ่น ทุกสภาพ ประเมินราคาฟรีจากสเปกและ Battery Health จ่ายเงินสด/โอนทันที บริการ 24 ชม. ติดต่อ Line @webuy"
 	pathname="/รับซื้อไอแพด/"
 	type="article"

@@ -1,0 +1,16 @@
+{
+	"canonicalSitemap": [
+		{
+			"comment": "Bangkok district PC pages: canonical to hub, excluded from sitemap by design",
+			"pathPattern": "^/รับซื้อคอม-[^/]+/$",
+			"canonicalPath": "/รับซื้อคอม/",
+			"excludeFromSitemap": true
+		}
+	],
+	"legacyAliases": [
+		{
+			"comment": "Legacy noindex alias/redirect pages (rab-sue/*)",
+			"pathPattern": "^/rab-sue"
+		}
+	]
+}

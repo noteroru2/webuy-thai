@@ -4,7 +4,7 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
@@ -154,7 +154,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title="รับซื้อลำโพง | รับซื้อ Marshall JBL มือสอง ทุกรุ่น ให้ราคาดี จ่ายเงินทันที | WE BUY"
+	title={formatPageTitle('รับซื้อลำโพง Marshall JBL')}
 	description="WE BUY รับซื้อลำโพงมือสอง Marshall, JBL, Bose และแบรนด์ชั้นนำ ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy"
 	pathname="/รับซื้อลำโพง/"
 	type="article"

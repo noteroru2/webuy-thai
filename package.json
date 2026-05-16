@@ -17,7 +17,8 @@
     "quality:content": "node scripts/quality-pass-content.mjs",
     "quarantine:content": "node scripts/quarantine-content.mjs",
     "rewrite:noindex": "node scripts/rewrite-noindex-local-posts.mjs",
-    "canonical:bangkok-pc": "node scripts/apply-bangkok-pc-canonical.mjs"
+    "canonical:bangkok-pc": "node scripts/apply-bangkok-pc-canonical.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",

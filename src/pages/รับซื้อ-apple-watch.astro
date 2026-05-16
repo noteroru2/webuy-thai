@@ -4,7 +4,7 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
@@ -126,7 +126,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title="รับซื้อ Apple Watch | รับซื้อแอปเปิ้ลวอช Series 10, 9, Ultra มือสอง | WE BUY"
+	title={formatPageTitle('รับซื้อ Apple Watch มือสอง')}
 	description="WE BUY รับซื้อ Apple Watch Ultra, Series 10, 9, 8, 7, SE มือสองทุกสภาพ ประเมินราคาจากสุขภาพแบตเตอรี่ จ่ายเงินทันที นัดรับ 24 ชม. ทัก Line @webuy"
 	pathname="/รับซื้อ-apple-watch/"
 	type="article"

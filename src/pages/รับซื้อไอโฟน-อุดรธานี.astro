@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin } from '../lib/site';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
 const websiteId = `${site}/#website`;
@@ -87,7 +87,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title={`รับซื้อไอโฟน ${localCity} | นัดรับด่วน เซ็นทรัล ยูดีทาวน์ จ่ายเงินสด | WE BUY`}
+	title={formatPageTitle(`รับซื้อไอโฟน ${localCity}`)}
 	description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมืองอุดรฯ เซ็นทรัล และ ยูดีทาวน์ ประเมินราคาออนไลน์ฟรี จ่ายเงินทันที`}
 	pathname="/รับซื้อไอโฟน-อุดรธานี/"
 	type="article"

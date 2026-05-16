@@ -31,6 +31,27 @@ const NOINDEX_POST_SLUGS = new Set(
 /** Slugs ที่ตรงกับ `noindex: true` ใน frontmatter — ไม่ใส่ sitemap */
 const SITEMAP_EXCLUDED_POST_SLUGS = new Set(['รับซ่อมคอมพิวเตอร์-ยโสธ']);
 
+const LEGACY_REDIRECT_SLUGS = new Set(
+	nonArticleSlugList.filter((slug) => slug === 'rab-sue' || slug.startsWith('rab-sue-')),
+);
+
+const CANONICAL_ALIAS_POST_SLUGS = new Set(
+	readdirSync(postsDir)
+		.filter((file) => file.endsWith('.md'))
+		.map((file) => readFileSync(join(postsDir, file), 'utf8'))
+		.flatMap((content) => {
+			const slugMatch = content.match(/^slug:\s*"?([^"\n]+)"?\s*$/m);
+			const canonicalMatch = content.match(/^canonical:\s*"?([^"\n]+)"?\s*$/m);
+			if (!slugMatch || !canonicalMatch) return [];
+			const slug = slugMatch[1].trim();
+			let canonical = canonicalMatch[1].trim();
+			if (!canonical.startsWith('/')) canonical = `/${canonical}`;
+			if (!canonical.endsWith('/')) canonical = `${canonical}/`;
+			const selfPath = `/${slug}/`;
+			return canonical !== selfPath ? [slug] : [];
+		}),
+);
+
 export default defineConfig({
 	site: siteUrl,
 	trailingSlash: 'always',
@@ -50,6 +71,8 @@ export default defineConfig({
 					const last = decodeURIComponent(pathname.split('/').filter(Boolean).pop() ?? '');
 					if (SITEMAP_EXCLUDED_POST_SLUGS.has(last)) return false;
 					if (NOINDEX_POST_SLUGS.has(last)) return false;
+					if (LEGACY_REDIRECT_SLUGS.has(last)) return false;
+					if (CANONICAL_ALIAS_POST_SLUGS.has(last)) return false;
 				} catch {
 					/* ignore */
 				}

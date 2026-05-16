@@ -9,7 +9,7 @@ import LocalAreaSection from '../components/home/LocalAreaSection.astro';
 import FaqSectionPremium from '../components/home/FaqSectionPremium.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import { getPublishedPosts } from '../lib/posts';
-import { getSiteOrigin } from '../lib/site';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const allPosts = await getPublishedPosts();
 const recent = allPosts.slice(0, 6);
@@ -182,8 +182,9 @@ const websiteId = `${site}/#website`;
 const faqId = `${site}/#faq`;
 const localId = `${site}/#localbusiness`;
 
-const homeTitle = `รับซื้อโน้ตบุ๊ค รับซื้อคอมมือสอง | ${siteName}`;
-const homeDescription = `${orgName} — แกนหลักคือรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง ประเมินยุติธรรม โปร่งใส มีหมวดรับซื้ออื่นและบริการซ่อม/จำหน่ายเสริม ติดต่อ LINE @webuy โทร ${phoneDisplay}`;
+const homeTitle = formatPageTitle('รับซื้อโน๊ตบุ๊ค รับซื้อคอมมือสอง');
+const homeDescription =
+	'WE BUY รับซื้อสินค้าไอทีมือสอง โน๊ตบุ๊ค iPhone MacBook คอม กล้อง ประเมินโปร่งใส นัดรับสะดวก จ่ายหลังตรวจเครื่อง ทัก Line @webuy เช็กราคาเบื้องต้น';
 
 const homeJsonLd: Record<string, unknown> = {
 	'@context': 'https://schema.org',

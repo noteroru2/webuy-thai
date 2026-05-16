@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPublishedPosts } from '../lib/posts';
-import { getSiteOrigin } from '../lib/site';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
 import { getEntry, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -126,7 +126,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title={`${plainTitle} | ${orgName}`}
+	title={formatPageTitle(plainTitle)}
 	description={plainExcerpt || `เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน้ตบุ๊คและรับซื้อคอม`}
 	pathname={articlePath}
 	canonicalPath={canonicalPath}

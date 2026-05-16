@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getSiteOrigin } from '../lib/site';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
 const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
@@ -91,7 +91,7 @@ const contactKeywords =
 ---
 
 <BaseLayout
-	title={`ติดต่อเรา | ${siteName}`}
+	title={formatPageTitle('ติดต่อเรา')}
 	description="ติดต่อทีมงาน WE BUY | เรารับซื้อ — รับซื้อโน้ตบุ๊ค รับซื้อคอม LINE @webuy โทร 064-2579353 พร้อมแผนที่และพื้นที่ให้บริการ"
 	keywords={contactKeywords}
 	pathname="/contact/"

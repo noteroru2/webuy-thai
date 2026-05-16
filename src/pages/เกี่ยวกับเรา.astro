@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getSiteOrigin } from '../lib/site';
+import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
 const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
@@ -27,7 +27,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title={`เกี่ยวกับเรา | ${orgName}`}
+	title={formatPageTitle('เกี่ยวกับเรา')}
 	description={`รู้จัก ${orgName} (${siteName}) — แกนหลักรับซื้อโน้ตบุ๊คและรับซื้อคอมมือสอง โปร่งใส ติดต่อ LINE @webuy`}
 	pathname="/เกี่ยวกับเรา/"
 	jsonLd={jsonLd}

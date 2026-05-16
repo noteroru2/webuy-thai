@@ -4,7 +4,7 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
-import { getSiteOrigin, getSocialLinks } from '../lib/site';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
 const site = getSiteOrigin();
@@ -154,7 +154,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title="รับซื้อโน๊ตบุ๊ค | ประเมินราคาโน๊ตบุ๊คมือสอง ได้ราคาดี | WE BUY"
+	title={formatPageTitle('รับซื้อโน๊ตบุ๊ค มือสอง')}
 	description="WE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ MacBook Dell HP Lenovo ASUS Acer MSI ประเมินราคาฟรี จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy"
 	pathname="/รับซื้อโน๊ตบุ๊ค/"
 	type="article"
