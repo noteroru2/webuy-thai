@@ -5,7 +5,7 @@ import ButtonLink from './ButtonLink.astro';
 const navLinkClass =
 	'text-[0.9375rem] font-semibold text-text-muted transition-colors duration-200 hover:text-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:rounded-sm focus-visible:outline-brand-500';
 
-const ctaHref = '/เช็กราคาก่อนขาย/';
+const lineHref = 'https://line.me/R/ti/p/@webuy';
 
 const navItems = [
 	{ href: '/', label: 'หน้าแรก' },
@@ -38,8 +38,10 @@ const mobileNavItems = [...navItems, ...mobileExtraNavItems];
 
 			<div class="flex shrink-0 items-center gap-2 sm:gap-2.5 lg:hidden" aria-label="ทางลัดมือถือ">
 				<ButtonLink
-					href={ctaHref}
+					href={lineHref}
 					variant="primary"
+					target="_blank"
+					rel="noopener noreferrer"
 					class="!max-w-[min(100%,11rem)] !px-2.5 !py-2 text-center text-[0.6875rem] leading-tight sm:!max-w-none sm:!px-4 sm:!py-2.5 sm:text-sm"
 				>
 					ประเมินราคาฟรี
@@ -71,7 +73,9 @@ const mobileNavItems = [...navItems, ...mobileExtraNavItems];
 						}
 						<a
 							class="mt-1 block rounded-xl bg-brand-600 px-3 py-3 text-center text-sm font-semibold !text-white shadow-md shadow-brand-700/25 transition hover:bg-brand-700 hover:!text-white [text-shadow:0_1px_0_rgba(0,0,0,0.12)]"
-							href={ctaHref}
+							href={lineHref}
+							target="_blank"
+							rel="noopener noreferrer"
 							role="menuitem"
 						>
 							ประเมินราคาฟรี
@@ -98,7 +102,13 @@ const mobileNavItems = [...navItems, ...mobileExtraNavItems];
 		</nav>
 
 		<div class="hidden shrink-0 items-center gap-2 sm:gap-2.5 lg:flex">
-			<ButtonLink href={ctaHref} variant="primary" class="!px-4 !py-2 text-xs sm:!px-5 sm:!py-2.5 sm:text-sm lg:!py-2.5">
+			<ButtonLink
+				href={lineHref}
+				variant="primary"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="!px-4 !py-2 text-xs sm:!px-5 sm:!py-2.5 sm:text-sm lg:!py-2.5"
+			>
 				ประเมินราคาฟรี
 			</ButtonLink>
 		</div>
