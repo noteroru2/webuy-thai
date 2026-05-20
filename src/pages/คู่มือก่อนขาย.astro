@@ -59,6 +59,13 @@ const conversionLinks = [
 	{ href: '/ความน่าเชื่อถือ/', title: 'ความน่าเชื่อถือ', detail: 'ขั้นตอนประเมิน ความปลอดภัยข้อมูล และนโยบายเครื่องติดล็อก' },
 ];
 
+const androidBrandPages = [
+	{ href: '/รับซื้อ-samsung-มือสอง/', label: 'Samsung' },
+	{ href: '/รับซื้อ-oppo-มือสอง/', label: 'Oppo' },
+	{ href: '/รับซื้อ-xiaomi-มือสอง/', label: 'Xiaomi' },
+	{ href: '/รับซื้อ-vivo-มือสอง/', label: 'Vivo' },
+];
+
 const moneyPages = [
 	{ href: '/รับซื้อไอโฟน/', label: 'รับซื้อไอโฟน' },
 	{ href: '/รับซื้อแมคบุ๊ค/', label: 'รับซื้อแมคบุ๊ค' },
@@ -66,6 +73,7 @@ const moneyPages = [
 	{ href: '/รับซื้อคอม/', label: 'รับซื้อคอม' },
 	{ href: '/รับซื้อกล้อง/', label: 'รับซื้อกล้อง' },
 	{ href: '/รับซื้อไอแพด/', label: 'รับซื้อ iPad' },
+	{ href: '/รับซื้อสมาร์ทโฟน-android/', label: 'รับซื้อ Android' },
 ];
 
 const jsonLd: Array<Record<string, unknown>> = [
@@ -234,6 +242,29 @@ const jsonLd: Array<Record<string, unknown>> = [
 					</ButtonLink>
 					<ButtonLink href={telHref} variant="primary">โทร {phoneDisplay}</ButtonLink>
 				</div>
+			</div>
+		</section>
+
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-2xl font-bold">แบรนด์มือถือ Android ที่มีหน้าประเมินเฉพาะ</h2>
+				<p class="mt-3 text-text-muted">
+					ถ้าคุณขายมือถือฝั่ง Android และอยากดูคำแนะนำแบบเจาะแบรนด์ ตอนนี้เราแยกหน้าเฉพาะไว้แล้วเพื่อให้ตอบ intent ได้ตรงกว่า ทั้งเรื่องรุ่นที่ตลาดยังต้องการ ปัจจัยราคา และสิ่งที่ควรเช็กก่อนส่งประเมิน
+				</p>
+				<ul class="mt-6 flex flex-wrap gap-3">
+					{
+						androidBrandPages.map((page) => (
+							<li>
+								<a
+									class="inline-flex rounded-full border border-gray-200 bg-[#FAFAFA] px-4 py-2 text-sm font-semibold text-brand-800 shadow-sm transition hover:border-brand-400 hover:bg-brand-50"
+									href={page.href}
+								>
+									{page.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
 			</div>
 		</section>
 

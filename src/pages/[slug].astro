@@ -45,6 +45,12 @@ const articlePath = `/${post.data.slug}/`;
 const articleUrl = `${site}${articlePath}`;
 const canonicalPath = post.data.canonical?.trim() || articlePath;
 const canonicalUrl = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
+const shouldRedirectAlias = post.data.noindex === true && canonicalPath !== articlePath;
+const encodedCanonicalPath = encodeURI(canonicalPath);
+
+if (shouldRedirectAlias) {
+	return Astro.redirect(encodedCanonicalPath, 301);
+}
 
 const faqItemsData = post.data.faqItems;
 const faqJsonLd: Array<Record<string, unknown>> =
