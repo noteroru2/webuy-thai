@@ -1,10 +1,12 @@
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { readdirSync, readFileSync } from 'node:fs';
 import sirv from 'sirv';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
+const postsDir = path.join(root, 'src', 'content', 'posts');
 const port = Number(process.env.PORT || '3000');
 
 const serve = sirv(dist, {
@@ -54,23 +56,53 @@ const redirects = new Map([
 	['/ลำโพง/', '/รับซื้อลำโพง/'],
 ]);
 
+const contentAliasRedirects = new Map(
+	readdirSync(postsDir)
+		.filter((file) => file.endsWith('.md'))
+		.flatMap((file) => {
+			const content = readFileSync(path.join(postsDir, file), 'utf8');
+			const slugMatch = content.match(/^slug:\s*"?([^"\n]+)"?\s*$/m);
+			const canonicalMatch = content.match(/^canonical:\s*"?([^"\n]+)"?\s*$/m);
+			const isNoindex = /^noindex:\s*true\s*$/m.test(content);
+			if (!slugMatch || !canonicalMatch || !isNoindex) return [];
+
+			const slug = slugMatch[1].trim();
+			let canonical = canonicalMatch[1].trim();
+			if (!canonical.startsWith('/')) canonical = `/${canonical}`;
+			if (!canonical.endsWith('/')) canonical = `${canonical}/`;
+
+			const source = `/${slug}/`;
+			return canonical !== source ? [[source, canonical]] : [];
+		}),
+);
+
 http
 	.createServer((req, res) => {
 		res.setHeader('X-Content-Type-Options', 'nosniff');
 		res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
 
 		const url = req.url ?? '/';
+		const parsed = new URL(url, 'http://127.0.0.1');
+		const decodedPathname = decodeURI(parsed.pathname);
+		const normalizedUrl = decodedPathname + parsed.search;
 
-		const fileRedirect = redirectTrailingSlashFile(url);
+		const fileRedirect = redirectTrailingSlashFile(normalizedUrl);
 		if (fileRedirect) {
 			res.writeHead(301, { Location: fileRedirect });
 			res.end();
 			return;
 		}
 
-		const target = redirects.get(url);
+		const target = redirects.get(decodedPathname);
 		if (target) {
-			res.writeHead(301, { Location: target });
+			res.writeHead(301, { Location: encodeURI(target + parsed.search) });
+			res.end();
+			return;
+		}
+
+		const contentAliasTarget = contentAliasRedirects.get(decodedPathname);
+		if (contentAliasTarget) {
+			res.writeHead(301, { Location: encodeURI(contentAliasTarget + parsed.search) });
 			res.end();
 			return;
 		}
