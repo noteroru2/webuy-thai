@@ -1,0 +1,358 @@
+/* Typography for Markdown articles ([slug].astro) */
+
+.article {
+	padding-block: 2rem 4rem;
+	max-width: 42rem;
+	margin-inline: auto;
+	overflow-x: hidden;
+}
+
+.article-head {
+	margin-bottom: 2rem;
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.article .back {
+	margin: 0 0 1rem;
+	font-size: 0.9rem;
+}
+
+.article .back a {
+	color: var(--muted);
+	text-decoration: none;
+}
+
+.article .back a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+}
+
+.article .article-kicker {
+	margin: 0 0 0.35rem;
+}
+
+.article .date {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 0.78rem;
+	letter-spacing: 0.04em;
+	color: var(--muted);
+	margin-bottom: 0.65rem;
+}
+
+.article .title {
+	margin: 0;
+	font-size: clamp(1.55rem, 3.2vw, 2.05rem);
+	line-height: 1.28;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: var(--text);
+}
+
+.article .hero-img {
+	width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+	margin-bottom: 2rem;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	box-shadow: var(--shadow-tech);
+}
+
+.article .canonical-note {
+	margin: 0 0 1.5rem;
+	padding: 0.85rem 1rem;
+	font-size: 0.92rem;
+	line-height: 1.6;
+	background: rgba(249, 115, 22, 0.08);
+	border-left: 3px solid var(--accent);
+	border-radius: 0 var(--radius) var(--radius) 0;
+	color: var(--muted);
+}
+
+.article .canonical-note a {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+/* ── Main article body (Markdown) ── */
+.article-prose {
+	font-size: 1.0625rem;
+	line-height: 1.8;
+	color: #334155;
+	max-width: none;
+}
+
+.article-prose :global(p) {
+	margin: 0 0 1.15em;
+	line-height: 1.8;
+}
+
+.article-prose :global(p:last-child) {
+	margin-bottom: 0;
+}
+
+.article-prose :global(h2) {
+	margin: 2.25em 0 0.65em;
+	padding-top: 0.15em;
+	font-size: clamp(1.28rem, 2.5vw, 1.5rem);
+	font-weight: 800;
+	line-height: 1.35;
+	letter-spacing: -0.02em;
+	color: var(--text);
+	border-bottom: 2px solid rgba(249, 115, 22, 0.22);
+	padding-bottom: 0.45em;
+}
+
+.article-prose :global(h2:first-child) {
+	margin-top: 0;
+}
+
+.article-prose :global(h3) {
+	margin: 1.75em 0 0.5em;
+	font-size: 1.15rem;
+	font-weight: 700;
+	line-height: 1.4;
+	color: #1e293b;
+}
+
+.article-prose :global(h4) {
+	margin: 1.35em 0 0.4em;
+	font-size: 1.02rem;
+	font-weight: 700;
+	color: #475569;
+}
+
+.article-prose :global(ul),
+.article-prose :global(ol) {
+	margin: 0.65em 0 1.25em;
+	padding-left: 1.35rem;
+	display: block;
+}
+
+.article-prose :global(ul) {
+	list-style-type: disc;
+}
+
+.article-prose :global(ol) {
+	list-style-type: decimal;
+}
+
+.article-prose :global(li) {
+	margin: 0.4em 0;
+	padding-left: 0.2em;
+	line-height: 1.75;
+}
+
+.article-prose :global(li::marker) {
+	color: var(--accent-dim);
+	font-weight: 600;
+}
+
+.article-prose :global(li > ul),
+.article-prose :global(li > ol) {
+	margin-top: 0.35em;
+	margin-bottom: 0.35em;
+}
+
+.article-prose :global(strong) {
+	font-weight: 700;
+	color: var(--text);
+}
+
+.article-prose :global(a) {
+	color: var(--accent-dim);
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	text-decoration-color: rgba(249, 115, 22, 0.45);
+	word-break: break-word;
+}
+
+.article-prose :global(a:hover) {
+	color: var(--accent);
+	text-decoration-color: var(--accent);
+}
+
+.article-prose :global(blockquote) {
+	margin: 1.25em 0;
+	padding: 0.85rem 1rem;
+	border-left: 4px solid var(--accent);
+	background: rgba(255, 247, 237, 0.85);
+	border-radius: 0 var(--radius) var(--radius) 0;
+	color: #475569;
+	font-size: 0.98em;
+}
+
+.article-prose :global(hr) {
+	margin: 2em 0;
+	border: none;
+	border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.article-prose :global(code) {
+	font-family: var(--font-mono);
+	font-size: 0.88em;
+	padding: 0.15em 0.4em;
+	background: rgba(15, 23, 42, 0.06);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 6px;
+	color: var(--ink);
+}
+
+.article-prose :global(pre) {
+	margin: 1.25em 0;
+	padding: 1rem;
+	overflow-x: auto;
+	background: #0f172a;
+	color: #e2e8f0;
+	border-radius: var(--radius);
+	font-size: 0.88em;
+	line-height: 1.55;
+}
+
+.article-prose :global(pre code) {
+	background: none;
+	border: none;
+	padding: 0;
+	color: inherit;
+}
+
+/* Images & WP legacy blocks */
+.article-prose :global(img) {
+	max-width: 100% !important;
+	height: auto !important;
+	display: block;
+	margin-block: 1.25rem;
+	border-radius: var(--radius);
+	box-sizing: border-box;
+}
+
+.article-prose :global(img[style*='width']) {
+	width: auto !important;
+	max-width: 100% !important;
+}
+
+.article-prose :global(figure) {
+	max-width: 100% !important;
+	width: auto !important;
+	margin: 1.25rem 0;
+	box-sizing: border-box;
+}
+
+.article-prose :global(figure img) {
+	margin-block: 0;
+}
+
+.article-prose :global(figcaption) {
+	font-size: 0.9rem;
+	color: var(--muted);
+	margin-top: 0.5rem;
+	text-align: center;
+}
+
+.article-prose :global(.wp-block-image),
+.article-prose :global(.wp-caption),
+.article-prose :global(.alignnone),
+.article-prose :global(.aligncenter),
+.article-prose :global(.alignwide),
+.article-prose :global(.alignfull) {
+	max-width: 100% !important;
+	width: auto !important;
+	box-sizing: border-box;
+}
+
+.article-prose :global(iframe) {
+	max-width: 100%;
+	border: 0;
+	border-radius: var(--radius);
+}
+
+.article-prose :global(video) {
+	max-width: 100%;
+	height: auto;
+	border-radius: var(--radius);
+}
+
+/* FAQ block (from frontmatter) */
+.article-faq {
+	margin-top: 2.5rem;
+	padding: 1.25rem 1.35rem;
+	background: linear-gradient(165deg, #ffffff 0%, #fafbfc 100%);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow-sm);
+}
+
+.article-faq h2 {
+	margin: 0 0 1rem;
+	font-size: 1.25rem;
+	font-weight: 800;
+	color: var(--text);
+}
+
+.article-faq details {
+	border-top: 1px dashed rgba(15, 23, 42, 0.12);
+	padding: 0.75rem 0 0;
+	margin-top: 0.75rem;
+}
+
+.article-faq details:first-of-type {
+	border-top: none;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.article-faq summary {
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.45;
+	color: var(--text);
+	list-style: none;
+}
+
+.article-faq summary::-webkit-details-marker {
+	display: none;
+}
+
+.article-faq summary::before {
+	content: '+';
+	display: inline-block;
+	width: 1.25rem;
+	margin-right: 0.35rem;
+	color: var(--accent);
+	font-weight: 700;
+}
+
+.article-faq details[open] summary::before {
+	content: '−';
+}
+
+.article-faq details p {
+	margin: 0.5rem 0 0 1.6rem;
+	font-size: 0.98rem;
+	line-height: 1.7;
+	color: #475569;
+}
+
+/* Post-footer sections */
+.article .post-footer {
+	margin-top: 2.5rem;
+	padding-top: 2rem;
+	border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.article .post-footer h2 {
+	font-size: 1.2rem;
+	font-weight: 800;
+	color: var(--text);
+	margin: 0 0 0.75rem;
+}
+
+.article .post-footer > p {
+	font-size: 0.95rem;
+	color: var(--muted);
+	line-height: 1.65;
+	margin-bottom: 1rem;
+}

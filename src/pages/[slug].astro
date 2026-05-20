@@ -4,6 +4,7 @@ import { getPublishedPosts } from '../lib/posts';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 import { isIntentArticle } from '../lib/intent-articles';
 import { getEntry, render } from 'astro:content';
+import '../styles/article-prose.css';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts({ includeNoindex: true });
@@ -186,9 +187,23 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			)
 		}
 
-		<div class="prose content">
+		<div class="article-prose content">
 			<Content />
 		</div>
+
+		{
+			faqItemsData && faqItemsData.length > 0 && (
+				<section class="article-faq" aria-labelledby="article-faq-heading">
+					<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
+					{faqItemsData.map((item) => (
+						<details>
+							<summary>{item.question}</summary>
+							<p>{item.answer}</p>
+						</details>
+					))}
+				</section>
+			)
+		}
 
 		{
 			showIntentHubLinks && (
@@ -235,8 +250,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			)
 		}
 
-		<hr class="my-10 border-gray-100" />
-
+		<div class="post-footer">
 		<!-- Bottom-Up Links (Content Silos) -->
 		<section class="mb-10">
 			<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
@@ -265,110 +279,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200">ดูบทความทั้งหมด →</a>
 			</div>
 		</section>
+		</div>
 
 	</article>
 </BaseLayout>
-
-<style>
-	.article {
-		padding-block: 2rem 4rem;
-		max-width: 720px;
-		margin-inline: auto;
-		overflow-x: hidden;
-	}
-	.article-head {
-		margin-bottom: 1.5rem;
-	}
-	.back {
-		margin: 0 0 1rem;
-		font-size: 0.9rem;
-	}
-	.back a {
-		color: var(--muted);
-	}
-	.back a:hover {
-		color: var(--accent);
-	}
-	.article-kicker {
-		margin: 0 0 0.35rem;
-	}
-	.date {
-		display: block;
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		letter-spacing: 0.04em;
-		color: var(--muted);
-		margin-bottom: 0.5rem;
-	}
-	.title {
-		margin: 0;
-		font-size: clamp(1.5rem, 3vw, 2rem);
-		line-height: 1.25;
-	}
-	.hero-img {
-		width: 100%;
-		height: auto;
-		border-radius: var(--radius);
-		margin-bottom: 2rem;
-		border: 1px solid rgba(15, 23, 42, 0.08);
-		box-shadow: var(--shadow-tech);
-	}
-	.canonical-note {
-		margin: 0 0 1.25rem;
-		padding: 0.75rem 1rem;
-		font-size: 0.92rem;
-		line-height: 1.5;
-		background: rgba(249, 115, 22, 0.08);
-		border-left: 3px solid var(--accent);
-		border-radius: 0 var(--radius) var(--radius) 0;
-		color: var(--muted);
-	}
-	.canonical-note a {
-		color: var(--accent);
-		font-weight: 600;
-	}
-	.content {
-		font-size: 1.05rem;
-	}
-	.content :global(a) {
-		word-break: break-word;
-	}
-	.content :global(img) {
-		max-width: 100% !important;
-		height: auto !important;
-		display: block;
-		margin-block: 1rem;
-		box-sizing: border-box;
-	}
-	.content :global(img[style*='width']) {
-		width: auto !important;
-		max-width: 100% !important;
-	}
-	.content :global(figure) {
-		max-width: 100% !important;
-		width: auto !important;
-		margin: 1rem 0;
-		box-sizing: border-box;
-	}
-	.content :global(figure img) {
-		margin-block: 0;
-	}
-	.content :global(.wp-block-image),
-	.content :global(.wp-caption),
-	.content :global(.alignnone),
-	.content :global(.aligncenter),
-	.content :global(.alignwide),
-	.content :global(.alignfull) {
-		max-width: 100% !important;
-		width: auto !important;
-		box-sizing: border-box;
-	}
-	.content :global(iframe) {
-		max-width: 100%;
-		border: 0;
-	}
-	.content :global(video) {
-		max-width: 100%;
-		height: auto;
-	}
-</style>
