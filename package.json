@@ -16,6 +16,7 @@
     "curate:content": "node scripts/curate-imported-content.mjs",
     "quality:content": "node scripts/quality-pass-content.mjs",
     "quarantine:content": "node scripts/quarantine-content.mjs",
+    "cleanup:legacy": "node scripts/finalize-legacy-cleanup.mjs",
     "rewrite:noindex": "node scripts/rewrite-noindex-local-posts.mjs",
     "canonical:bangkok-pc": "node scripts/apply-bangkok-pc-canonical.mjs",
     "seo:audit": "node scripts/seo-audit.mjs"

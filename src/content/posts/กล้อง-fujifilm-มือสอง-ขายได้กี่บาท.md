@@ -18,6 +18,8 @@ faqItems:
     answer: "บางกรณีต้องตรวจเพิ่ม — แจ้งข้อความ Error และรูปจอ"
   - question: "WE BUY รับ Fujifilm ทุกรุ่นไหม"
     answer: "ประเมินเป็นชิ้น ๆ ตามสภาพและความต้องการตลาด"
+noindex: true
+canonical: "/รับซื้อกล้อง/"
 qualityScore: 0
 qualityFlags: []
 ---
