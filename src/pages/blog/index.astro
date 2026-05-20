@@ -15,21 +15,116 @@ const filteredPosts =
 				return title.includes(searchQ) || desc.includes(searchQ);
 			})
 		: posts;
+
 const site = getSiteOrigin();
 const websiteId = `${site}/#website`;
 const rawMetaKw = import.meta.env.PUBLIC_META_KEYWORDS;
 const blogKeywords =
 	typeof rawMetaKw === 'string' && rawMetaKw.trim() !== ''
 		? rawMetaKw.trim()
-		: 'บทความรับซื้อโน้ตบุ๊ค,บทความรับซื้อคอม,รับซื้อโน๊ตบุ๊ค,รับซื้อคอม,รับซื้อไอโฟน,รับซื้อกล้อง,คู่มือขายมือสอง,ไอทีมือสอง';
+		: 'บทความขายไอทีมือสอง,รับซื้อโน๊ตบุ๊ค,รับซื้อคอม,รับซื้อไอโฟน,รับซื้อไอแพด,รับซื้อแมคบุ๊ค,คู่มือก่อนขาย,เช็กราคาก่อนขาย';
+
+const featureSlugs = [
+	'รับซื้อโน๊ตบุ๊คอุบล-notebook-laptop-จ',
+	'รับซื้อไอโฟนอุบล',
+	'รับซื้อไอแพด-อุบล',
+	'รับซื้อโน๊ตบุ๊ค-ขอนแก่น',
+	'รับซื้อแมคบุ๊ค-ขอนแก่น',
+	'รับซื้อ-dell-notebook',
+	'รับซื้อ-samsung-มือสอง',
+];
+
+const featuredPosts = featureSlugs
+	.map((slug) => posts.find((post) => post.data.slug === slug))
+	.filter(Boolean);
+
+const brandSlugs = [
+	'รับซื้อ-dell-notebook',
+	'รับซื้อ-hp-notebook',
+	'รับซื้อ-asus-notebook',
+	'รับซื้อ-acer-notebook',
+	'รับซื้อ-lenovo-notebook',
+	'รับซื้อ-samsung-มือสอง',
+];
+
+const brandPosts = brandSlugs
+	.map((slug) => posts.find((post) => post.data.slug === slug))
+	.filter(Boolean);
+
+function matchesAny(post, needles) {
+	const haystack = `${post.data.slug} ${post.data.title} ${post.data.description ?? ''}`.toLowerCase();
+	return needles.some((needle) => haystack.includes(needle));
+}
+
+function pickClusterPosts(needles, limit = 6) {
+	return posts.filter((post) => matchesAny(post, needles)).slice(0, limit);
+}
+
+const clusters = [
+	{
+		id: 'notebook',
+		title: 'คลัสเตอร์โน๊ตบุ๊ค',
+		description: 'หน้าเงินและคำถามก่อนขายสำหรับโน๊ตบุ๊ค เกมมิ่ง และโน๊ตบุ๊คมือสองในอุบล',
+		href: '/รับซื้อโน๊ตบุ๊ค/',
+		posts: pickClusterPosts(['โน๊ตบุ๊ค', 'notebook', 'laptop'], 6),
+	},
+	{
+		id: 'iphone',
+		title: 'คลัสเตอร์ iPhone',
+		description: 'รวมทั้งหน้าบริการหลัก คำถามขายได้ไหม และหน้า local intent สำหรับคนขาย iPhone',
+		href: '/รับซื้อไอโฟน/',
+		posts: pickClusterPosts(['iphone', 'ไอโฟน'], 6),
+	},
+	{
+		id: 'ipad',
+		title: 'คลัสเตอร์ iPad',
+		description: 'ดึงแรงจากหน้า local อุบลและหน้า problem/price intent ของ iPad ให้แน่นขึ้น',
+		href: '/รับซื้อไอแพด/',
+		posts: pickClusterPosts(['ipad', 'ไอแพด'], 6),
+	},
+	{
+		id: 'macbook',
+		title: 'คลัสเตอร์ MacBook',
+		description: 'เน้นบทความที่ตอบคำถามราคากับอาการเสีย เพื่อส่งแรงเข้าหน้ารับซื้อแมคบุ๊ค',
+		href: '/รับซื้อแมคบุ๊ค/',
+		posts: pickClusterPosts(['macbook', 'แมคบุ๊ค'], 6),
+	},
+	{
+		id: 'computer',
+		title: 'คลัสเตอร์คอมพิวเตอร์',
+		description: 'รวมบทความคอมสำนักงาน คอมบริษัท คอมเปิดไม่ติด และคำถามราคาก่อนขาย',
+		href: '/รับซื้อคอม/',
+		posts: pickClusterPosts(['คอม', 'computer', 'pc'], 6),
+	},
+	{
+		id: 'guide',
+		title: 'คลัสเตอร์คำถามก่อนขาย',
+		description: 'บทความ intent สูงสำหรับคำถามแบบ ขายได้ไหม ปลอดภัยไหม และต้องเตรียมอะไรบ้าง',
+		href: '/คู่มือก่อนขาย/',
+		posts: posts.filter((post) => {
+			const slug = post.data.slug.toLowerCase();
+			return slug.includes('ขายได้ไหม') || slug.includes('ปลอดภัยไหม') || slug.includes('ล้างข้อมูล');
+		}).slice(0, 6),
+	},
+];
+
+const localPosts = posts.filter((post) =>
+	[
+		'อุบล',
+		'ขอนแก่น',
+		'อุดร',
+		'โคราช',
+		'วาริน',
+	].some((needle) => matchesAny(post, [needle])),
+).slice(0, 8);
 
 const listJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
-		name: 'บทความ | เรารับซื้อ.com',
+		name: 'คลังบทความและหน้าคลัสเตอร์ WE BUY',
 		description:
-			'รวมบทความเรื่องรับซื้อโน้ตบุ๊คและรับซื้อคอมมือสอง ประกอบด้วยคู่มือขายมือสองและหมวดไอทีอื่นจาก WE BUY | เรารับซื้อ',
+			'รวมบทความและหน้าคลัสเตอร์ของ WE BUY สำหรับการขาย iPhone, iPad, MacBook, โน๊ตบุ๊ค, คอม และสินค้าไอทีมือสอง พร้อมคู่มือก่อนขาย เช็กราคา และหน้าพื้นที่ให้บริการ',
 		url: `${site}/blog/`,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
@@ -56,82 +151,150 @@ const listJsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title="บทความ | เรารับซื้อ.com"
-	description="คู่มือรับซื้อโน้ตบุ๊ค รับซื้อคอมมือสอง ประเมินราคาและเตรียมเครื่องก่อนขาย — WE BUY | เรารับซื้อ"
+	title="บทความและหน้าคลัสเตอร์ | WE BUY"
+	description="รวมหน้าคลัสเตอร์และบทความขายไอทีมือสองของ WE BUY สำหรับ iPhone, iPad, MacBook, โน๊ตบุ๊ค, คอมพิวเตอร์ และคู่มือก่อนขายที่มี intent สูง"
 	keywords={blogKeywords}
 	pathname="/blog/"
 	jsonLd={listJsonLd}
 >
 	<div class="container page-head">
-		<p class="tech-eyebrow">Knowledge base · Markdown</p>
-		<h1 class="page-title tech-h2">บทความ</h1>
+		<p class="tech-eyebrow">Knowledge Hub · Indexable clusters</p>
+		<h1 class="page-title tech-h2">บทความและหน้าคลัสเตอร์</h1>
 		<p class="intro">
-			เน้นเนื้อหาเกี่ยวกับ<strong>รับซื้อโน้ตบุ๊ค</strong>และ<strong>รับซื้อคอม</strong>มือสอง รวมถึงคู่มือขายไอทีและบทความจากฐานข้อมูลเดิม
-			แก้ไขไฟล์ใน <code>src/content/posts/</code> แล้ว build ใหม่ — แอดไลน์ <strong>@webuy</strong> เพื่อประเมินราคา
-		</p>
-		<nav class="hub-strip" aria-label="คู่มือและ hub หลัก">
-			<a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a>
-			<a href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a>
+			หน้านี้ถูกจัดให้เป็น <strong>index hub</strong> ของเว็บ เพื่อรวมหน้าเงิน บทความ intent สูง และ local page ที่ควรส่งแรงเข้าหากัน
+			ถ้าอยากดูเป็นเส้นทางใช้งานจริง เริ่มจาก <a href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a>, <a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a> และ
 			<a href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a>
+		</p>
+		<nav class="hub-strip" aria-label="Hub หลัก">
+			<a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a>
+			<a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a>
+			<a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a>
+			<a href="/รับซื้อแมคบุ๊ค/">รับซื้อแมคบุ๊ค</a>
+			<a href="/รับซื้อคอม/">รับซื้อคอม</a>
 			<a href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a>
-			<a href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a>
 		</nav>
-		{
-			posts.length === 0 ? (
-				<p class="hint">
-					ยังไม่มีไฟล์ใน <code>src/content/posts/</code> — ถ้ามี WordPress เดิมให้รัน{' '}
-					<code>npm run export:wp</code> หนึ่งครั้งเพื่อดึงโพสต์มาเป็น .md
-				</p>
-			) : (
-				<p class="meta">
-					{searchRaw
-						? `พบ ${filteredPosts.length} จาก ${posts.length} บทความ`
-						: `${posts.length} บทความ`}
-				</p>
-			)
-		}
-		{
-			posts.length > 0 && (
-				<form class="blog-search" method="get" action="/blog/">
-					<label class="sr-only" for="blog-q">ค้นหาบทความ</label>
-					<input
-						id="blog-q"
-						class="blog-search-input"
-						type="search"
-						name="q"
-						value={searchRaw}
-						placeholder="ค้นหาหัวข้อหรือคำอธิบาย..."
-						autocomplete="off"
-						spellcheck={false}
-					/>
-					<button type="submit" class="blog-search-btn">ค้นหา</button>
-					{
-						searchRaw ? (
-							<a class="blog-search-clear" href="/blog/">ล้าง</a>
-						) : null
-					}
-				</form>
-			)
-		}
+		<p class="meta">
+			{searchRaw
+				? `พบ ${filteredPosts.length} จาก ${posts.length} บทความ`
+				: `${posts.length} บทความในคลังหลัก`}
+		</p>
+		<form class="blog-search" method="get" action="/blog/">
+			<label class="sr-only" for="blog-q">ค้นหาบทความ</label>
+			<input
+				id="blog-q"
+				class="blog-search-input"
+				type="search"
+				name="q"
+				value={searchRaw}
+				placeholder="ค้นหาหัวข้อ เช่น iPhone, MacBook, อุบล, ขายได้ไหม..."
+				autocomplete="off"
+				spellcheck={false}
+			/>
+			<button type="submit" class="blog-search-btn">ค้นหา</button>
+			{searchRaw ? <a class="blog-search-clear" href="/blog/">ล้าง</a> : null}
+		</form>
 	</div>
 
-	{
-		posts.length > 0 && filteredPosts.length === 0 && searchRaw && (
-			<div class="container empty-results">
-				<p>ไม่พบบทความที่ตรงกับ &ldquo;{searchRaw}&rdquo;</p>
-				<a href="/blog/">ดูบทความทั้งหมด</a>
+	{!searchRaw && featuredPosts.length > 0 && (
+		<section class="container section-shell">
+			<div class="section-head">
+				<div>
+					<p class="section-kicker">Featured index pages</p>
+					<h2>หน้าที่ควรเป็นแกนของการติดอันดับ</h2>
+				</div>
+				<p>รวมหน้า local และหน้าที่ตอบ intent ชัดที่สุด เพื่อใช้เป็นศูนย์กลาง internal link ของเว็บ</p>
 			</div>
-		)
-	}
-	{
-		posts.length > 0 && filteredPosts.length > 0 && (
-			<div class="container grid">
+			<div class="grid">
+				{featuredPosts.map((post) => (
+					<PostCard post={post} headingLevel="h3" />
+				))}
+			</div>
+		</section>
+	)}
+
+	{!searchRaw && (
+		<section class="container section-shell">
+			<div class="section-head">
+				<div>
+					<p class="section-kicker">Topic clusters</p>
+					<h2>โครงบทความที่ช่วยให้เว็บแน่นขึ้น</h2>
+				</div>
+				<p>แต่ละคลัสเตอร์มีหน้าบริการหลักเป็นเสา และมีบทความ intent สูงคอยส่งแรงกลับเข้าไป</p>
+			</div>
+			<div class="cluster-grid">
+				{clusters.map((cluster) => (
+					<section class="cluster-card" id={cluster.id}>
+						<h3><a href={cluster.href}>{cluster.title}</a></h3>
+						<p>{cluster.description}</p>
+						<ul>
+							{cluster.posts.map((post) => (
+								<li><a href={`/${post.data.slug}/`}>{post.data.title}</a></li>
+							))}
+						</ul>
+						<a class="cluster-link" href={cluster.href}>ไปหน้าหลักของคลัสเตอร์</a>
+					</section>
+				))}
+			</div>
+		</section>
+	)}
+
+	{!searchRaw && brandPosts.length > 0 && (
+		<section class="container section-shell">
+			<div class="section-head">
+				<div>
+					<p class="section-kicker">Brand pages</p>
+					<h2>หน้าที่ตั้งใจดันคีย์แบบแบรนด์</h2>
+				</div>
+				<p>รวมหน้าแบรนด์ที่ใช้ตอบ intent ตรงสำหรับคนที่ค้นหาตามยี่ห้อหรือซีรีส์ ไม่ใช่แค่รวมคีย์เวิร์ดไว้ในหน้าหลักอย่างเดียว</p>
+			</div>
+			<div class="local-list">
+				{brandPosts.map((post) => (
+					<a class="local-pill" href={`/${post.data.slug}/`}>{post.data.title}</a>
+				))}
+			</div>
+		</section>
+	)}
+
+	{!searchRaw && localPosts.length > 0 && (
+		<section class="container section-shell">
+			<div class="section-head">
+				<div>
+					<p class="section-kicker">Local intent</p>
+					<h2>หน้าท้องถิ่นที่ควรดันต่อ</h2>
+				</div>
+				<p>รวมหน้าที่มีคำค้นเชิงพื้นที่ เช่น อุบล ขอนแก่น อุดร และโคราช เพื่อให้ authority ด้าน GEO ชัดขึ้น</p>
+			</div>
+			<div class="local-list">
+				{localPosts.map((post) => (
+					<a class="local-pill" href={`/${post.data.slug}/`}>{post.data.title}</a>
+				))}
+			</div>
+		</section>
+	)}
+
+	{posts.length > 0 && filteredPosts.length === 0 && searchRaw && (
+		<div class="container empty-results">
+			<p>ไม่พบบทความที่ตรงกับ “{searchRaw}”</p>
+			<a href="/blog/">ดูบทความทั้งหมด</a>
+		</div>
+	)}
+
+	{filteredPosts.length > 0 && (
+		<section class="container section-shell">
+			<div class="section-head">
+				<div>
+					<p class="section-kicker">{searchRaw ? 'Search results' : 'All indexable articles'}</p>
+					<h2>{searchRaw ? 'ผลการค้นหา' : 'บทความทั้งหมดในคลังหลัก'}</h2>
+				</div>
+				<p>{searchRaw ? 'เรียงจากใหม่ไปเก่าในกองที่เปิด index' : 'แสดงเฉพาะบทความที่ยังเปิด index และไม่ชนกับ static pages'}</p>
+			</div>
+			<div class="grid">
 				{filteredPosts.map((post) => (
 					<PostCard post={post} />
 				))}
 			</div>
-		)
-	}
+		</section>
+	)}
 </BaseLayout>
 
 <style>
@@ -140,30 +303,33 @@ const listJsonLd: Array<Record<string, unknown>> = [
 	}
 	.page-title {
 		margin: 0 0 0.5rem;
-		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-size: clamp(1.8rem, 3vw, 2.4rem);
 	}
 	.intro {
-		margin: 0 0 0.6rem;
+		margin: 0 0 0.9rem;
 		color: var(--muted);
-		font-size: 0.95rem;
-		max-width: 62ch;
+		font-size: 0.98rem;
+		max-width: 66ch;
+	}
+	.intro a {
+		font-weight: 700;
 	}
 	.hub-strip {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem 0.65rem;
-		margin: 0 0 1.25rem;
+		margin: 0 0 1rem;
 		padding: 0;
 		list-style: none;
 	}
 	.hub-strip a {
 		display: inline-block;
-		padding: 0.35rem 0.75rem;
-		font-size: 0.875rem;
-		font-weight: 600;
+		padding: 0.42rem 0.78rem;
+		font-size: 0.88rem;
+		font-weight: 700;
 		border-radius: 999px;
 		border: 1px solid rgba(249, 115, 22, 0.25);
-		background: rgba(255, 247, 237, 0.9);
+		background: rgba(255, 247, 237, 0.92);
 		color: var(--accent-dim);
 		text-decoration: none;
 	}
@@ -171,15 +337,6 @@ const listJsonLd: Array<Record<string, unknown>> = [
 		border-color: var(--accent);
 		background: #fff;
 		text-decoration: none;
-	}
-	.intro code {
-		font-family: var(--font-mono);
-		font-size: 0.85em;
-		padding: 0.15em 0.4em;
-		background: rgba(15, 23, 42, 0.05);
-		border: 1px solid rgba(15, 23, 42, 0.08);
-		border-radius: 6px;
-		color: var(--accent-dim);
 	}
 	.meta {
 		margin: 0 0 0.85rem;
@@ -204,13 +361,12 @@ const listJsonLd: Array<Record<string, unknown>> = [
 		flex-wrap: wrap;
 		align-items: center;
 		gap: 0.5rem;
-		max-width: 36rem;
-		margin-top: 0.25rem;
+		max-width: 40rem;
 	}
 	.blog-search-input {
-		flex: 1 1 12rem;
+		flex: 1 1 15rem;
 		min-width: 0;
-		padding: 0.55rem 0.75rem;
+		padding: 0.6rem 0.8rem;
 		font: inherit;
 		font-size: 0.95rem;
 		border: 1px solid rgba(15, 23, 42, 0.12);
@@ -223,9 +379,9 @@ const listJsonLd: Array<Record<string, unknown>> = [
 		outline-offset: 1px;
 	}
 	.blog-search-btn {
-		padding: 0.55rem 1rem;
+		padding: 0.6rem 1rem;
 		font: inherit;
-		font-weight: 600;
+		font-weight: 700;
 		font-size: 0.9rem;
 		border: none;
 		border-radius: var(--radius);
@@ -242,36 +398,97 @@ const listJsonLd: Array<Record<string, unknown>> = [
 		text-decoration: underline;
 		text-underline-offset: 3px;
 	}
-	.empty-results {
-		padding-bottom: 3rem;
-		color: var(--muted);
+	.section-shell {
+		padding-block: 1.25rem 2.5rem;
 	}
-	.empty-results a {
-		font-weight: 600;
-		color: var(--accent-dim);
+	.section-head {
+		display: grid;
+		gap: 0.5rem;
+		margin-bottom: 1.1rem;
 	}
-	.hint {
+	.section-head h2 {
+		margin: 0;
+		font-size: clamp(1.35rem, 2vw, 1.8rem);
+	}
+	.section-head p {
 		margin: 0;
 		color: var(--muted);
-		max-width: 48ch;
+		max-width: 60ch;
 	}
-	.hint code {
-		font-family: var(--font-mono);
-		font-size: 0.85em;
-		padding: 0.15em 0.4em;
-		background: rgba(15, 23, 42, 0.05);
-		border: 1px solid rgba(15, 23, 42, 0.08);
-		border-radius: 6px;
+	.section-kicker {
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
 		color: var(--accent-dim);
 	}
 	.grid {
 		display: grid;
 		gap: 1.25rem;
-		padding-bottom: 4rem;
+	}
+	.cluster-grid {
+		display: grid;
+		gap: 1rem;
+	}
+	.cluster-card {
+		padding: 1.2rem 1.15rem;
+		border-radius: 18px;
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%);
+		box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+	}
+	.cluster-card h3 {
+		margin: 0 0 0.45rem;
+		font-size: 1.08rem;
+	}
+	.cluster-card h3 a {
+		text-decoration: none;
+	}
+	.cluster-card p {
+		margin: 0 0 0.8rem;
+		color: var(--muted);
+		font-size: 0.94rem;
+	}
+	.cluster-card ul {
+		margin: 0;
+		padding-left: 1.1rem;
+	}
+	.cluster-card li + li {
+		margin-top: 0.35rem;
+	}
+	.cluster-link {
+		display: inline-block;
+		margin-top: 0.9rem;
+		font-weight: 700;
+	}
+	.local-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+	}
+	.local-pill {
+		display: inline-flex;
+		padding: 0.48rem 0.8rem;
+		border-radius: 999px;
+		background: #f8fafc;
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+	.empty-results {
+		padding-bottom: 3rem;
+		color: var(--muted);
+	}
+	.empty-results a {
+		font-weight: 700;
 	}
 	@media (min-width: 700px) {
 		.grid {
 			grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+		}
+		.cluster-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 </style>
