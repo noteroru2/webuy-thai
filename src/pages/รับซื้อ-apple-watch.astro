@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import ArticleFigure from '../components/longform/ArticleFigure.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
@@ -148,6 +149,13 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 		<PriceGuide title="ราคารับซื้อ Apple Watch อ้างอิง (อัปเดต 2026)" items={priceItems} />
 
+		<ArticleFigure
+			src="/media/imported/wp.xn-c3c3a0aa6cvaf8b9dze.com/hero__w8w7dclctnmi_large-3eb688d2ae.jpg"
+			alt="ภาพรวม Apple Watch หลายรุ่นที่ใช้ประกอบการประเมินก่อนรับซื้อ"
+			caption="<strong>ประเมินตามรุ่นและสภาพจริง:</strong> Apple Watch แต่ละรุ่นต่างกันทั้งวัสดุตัวเรือน ขนาดหน้าจอ และสุขภาพแบตเตอรี่ จึงควรดูภาพจริงก่อนให้ช่วงราคา"
+			variant="wide"
+		/>
+
 		<!-- ═══════════════════════════════════════════════════════════ -->
 		<section>
 			<h2>เกณฑ์การประเมินราคา Apple Watch ของเรา</h2>
@@ -215,6 +223,13 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</section>
 
+		<ArticleFigure
+			src="/media/imported/wp.xn-c3c3a0aa6cvaf8b9dze.com/Apple-WWDC23-watchOS-10-5up-230605.jpg.news_app_ed-bada4a0a85.jpg"
+			alt="ตัวอย่างหน้าจอและฟีเจอร์ของ Apple Watch ที่มักใช้ตรวจสภาพก่อนขาย"
+			caption="<strong>ก่อนขายควรเช็กระบบหลัก:</strong> หน้าจอ การตอบสนอง ปุ่มด้านข้าง สุขภาพแบต และการยกเลิกการจับคู่จาก iPhone ให้เรียบร้อย"
+			variant="soft"
+		/>
+
 		<!-- ═══════════════════════════════════════════════════════════ -->
 		<section>
 			<h2>พื้นที่ให้บริการรับซื้อ Apple Watch</h2>
@@ -230,6 +245,32 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a>
 				· <a href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a>
 				· <a href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a>
+			</p>
+		</section>
+
+		<section>
+			<h2>Apple Watch แบบไหนที่ยังขายได้ แม้มีตำหนิ</h2>
+			<p>
+				จุดเด่นของ Apple Watch คือแม้จะเป็นอุปกรณ์ขนาดเล็ก แต่ถ้าระบบหลักยังใช้งานได้ มันยังมีมูลค่าในตลาดมือสองค่อนข้างดี
+				โดยเฉพาะรุ่น Ultra, Series ใหม่ และรุ่น SE ที่ยังมีคนหาซื้อใช้งานต่ออยู่เรื่อย ๆ
+			</p>
+			<ul>
+				<li><strong>จอเป็นรอยหรือมีรอยขนแมว:</strong> รับซื้อได้ตามปกติ หากยังมองเห็นชัดและทัชไม่รวน</li>
+				<li><strong>แบตเสื่อม:</strong> ยังประเมินได้ โดยอิงต้นทุนเปลี่ยนแบตและความต้องการของรุ่นนั้น</li>
+				<li><strong>ไม่มีสายหรือที่ชาร์จ:</strong> ขายได้ แต่จะมีส่วนต่างจากชุดที่อุปกรณ์ครบ</li>
+				<li><strong>ตัวเรือนมีรอยกระแทก:</strong> ต้องดูว่ากระทบปุ่ม เม็ดมะยม หรือเซนเซอร์ด้านหลังหรือไม่</li>
+			</ul>
+			<p>
+				สิ่งที่ขายไม่ได้จริงคือเครื่องที่ยังติด Activation Lock หรือยังผูกกับบัญชีเดิมอยู่ เพราะไม่สามารถส่งต่อใช้งานได้อย่างปลอดภัยครับ
+			</p>
+		</section>
+
+		<section>
+			<h2>ก่อนส่งประเมิน ควรถ่ายรูปอะไรบ้าง</h2>
+			<p>
+				ถ้าต้องการให้เราตอบราคาได้ใกล้เคียงจริงที่สุด แนะนำให้ถ่ายรูปตัวเรือนด้านหน้า ด้านหลัง มุมข้าง รอยตำหนิสำคัญ
+				และภาพหน้าจอที่แสดง Battery Health รวมถึงหน้ารายละเอียดรุ่น ถ้ามีกล่องหรือสายแท้ ก็ควรถ่ายรวมมาด้วย
+				ข้อมูลครบตั้งแต่แรกช่วยให้ราคาที่คุยกันแม่นขึ้น และลดโอกาสที่ต้องปรับตอนนัดรับครับ
 			</p>
 		</section>
 

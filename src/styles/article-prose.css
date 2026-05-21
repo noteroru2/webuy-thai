@@ -223,9 +223,14 @@
 	max-width: 100% !important;
 	height: auto !important;
 	display: block;
-	margin-block: 1.25rem;
+	margin-block: 1.4rem;
 	border-radius: var(--radius);
 	box-sizing: border-box;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	box-shadow:
+		0 16px 36px rgba(15, 23, 42, 0.08),
+		0 2px 6px rgba(15, 23, 42, 0.04);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96));
 }
 
 .article-prose :global(img[style*='width']) {
@@ -236,19 +241,64 @@
 .article-prose :global(figure) {
 	max-width: 100% !important;
 	width: auto !important;
-	margin: 1.25rem 0;
+	margin: 1.6rem 0 1.8rem;
 	box-sizing: border-box;
+	padding: 0.8rem;
+	border-radius: calc(var(--radius) + 6px);
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	background:
+		radial-gradient(circle at top left, rgba(249, 115, 22, 0.08), transparent 38%),
+		linear-gradient(180deg, #ffffff, #f8fafc);
+	box-shadow:
+		0 18px 42px rgba(15, 23, 42, 0.08),
+		0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .article-prose :global(figure img) {
 	margin-block: 0;
+	border: none;
+	box-shadow: none;
+	background: transparent;
+	width: 100%;
 }
 
 .article-prose :global(figcaption) {
-	font-size: 0.9rem;
-	color: var(--muted);
-	margin-top: 0.5rem;
+	font-size: 0.92rem;
+	line-height: 1.65;
+	color: #64748b;
+	margin-top: 0.75rem;
+	padding-top: 0.7rem;
 	text-align: center;
+	border-top: 1px dashed rgba(148, 163, 184, 0.45);
+}
+
+.article-prose :global(.content-figure) {
+	max-width: min(42rem, 100%);
+	margin-inline: auto;
+}
+
+.article-prose :global(.content-figure--wide) {
+	max-width: min(52rem, calc(100vw - 2rem)) !important;
+	width: min(52rem, calc(100vw - 2rem)) !important;
+	margin-inline: calc(50% - min(26rem, calc((100vw - 2rem) / 2)));
+}
+
+.article-prose :global(.content-figure--compact) {
+	max-width: min(30rem, 100%);
+}
+
+.article-prose :global(.content-figure--soft) {
+	background:
+		linear-gradient(180deg, rgba(255, 247, 237, 0.92), rgba(255, 255, 255, 0.98)),
+		#fff;
+}
+
+.article-prose :global(.content-figure figcaption strong) {
+	color: var(--text);
+}
+
+.article-prose :global(p > img:only-child) {
+	margin-inline: auto;
 }
 
 .article-prose :global(.wp-block-image),
@@ -260,6 +310,16 @@
 	max-width: 100% !important;
 	width: auto !important;
 	box-sizing: border-box;
+}
+
+.article-prose :global(.aligncenter) {
+	margin-inline: auto !important;
+}
+
+.article-prose :global(.alignwide),
+.article-prose :global(.alignfull) {
+	max-width: min(52rem, calc(100vw - 2rem)) !important;
+	margin-inline: calc(50% - min(26rem, calc((100vw - 2rem) / 2))) !important;
 }
 
 .article-prose :global(iframe) {
@@ -355,4 +415,18 @@
 	color: var(--muted);
 	line-height: 1.65;
 	margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+	.article-prose :global(figure) {
+		padding: 0.7rem;
+	}
+
+	.article-prose :global(.content-figure--wide),
+	.article-prose :global(.alignwide),
+	.article-prose :global(.alignfull) {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-inline: 0 !important;
+	}
 }

@@ -1,0 +1,17 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	caption?: string;
+	variant?: 'default' | 'wide' | 'compact' | 'soft';
+}
+
+const { src, alt, caption, variant = 'default' } = Astro.props;
+const figureClass =
+	variant === 'default' ? 'content-figure' : `content-figure content-figure--${variant}`;
+---
+
+<figure class={figureClass}>
+	<img src={src} alt={alt} loading="lazy" decoding="async" />
+	{caption && <figcaption set:html={caption} />}
+</figure>

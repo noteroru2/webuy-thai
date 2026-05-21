@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
@@ -448,10 +449,43 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		{recent.length > 0 && (
 			<div class="mt-12 pt-12 border-t border-gray-100">
 				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<NaturalSeoSections
+					theme="บริการรับซื้อ MacBook มือสองและแนวทางเตรียมเครื่องก่อนขาย"
+					audience="คนที่กำลังจะขาย MacBook และอยากรู้ว่าราคาแตกต่างกันเพราะอะไร"
+					geo="ลูกค้าทั่วประเทศที่ต้องการเช็กราคาก่อนนัดรับหรือส่งประเมิน"
+					emphasis="อธิบายเรื่องชิป สเปก แบต และบัญชี Apple ให้ชัด เพื่อให้ผู้ขายเห็นเหตุผลของการประเมินและเตรียมเครื่องได้ตรงจุด"
+					prepareItems={[
+						'เช็กรุ่น Air หรือ Pro ปี ชิป RAM และ SSD ให้ครบ',
+						'ถ่ายภาพหน้า About This Mac และสถานะแบตหรือรอบชาร์จถ้าดูได้',
+						'แจ้งสภาพจอ คีย์บอร์ด Trackpad และมุมเครื่องตามจริง',
+						'ออกจาก Apple ID และปิด Find My Mac ก่อนนัดส่งมอบ',
+						'เตรียมอะแดปเตอร์ชาร์จและอุปกรณ์แท้ที่มีร่วมกับเครื่อง'
+					]}
+					valueFactors={[
+						'ชิปรุ่นใหม่และสเปก RAM/SSD สูงมีผลกับราคาชัดเจน',
+						'สภาพแบตและจอเป็นตัวแปรหลักที่ผู้ขายไม่ควรมองข้าม',
+						'เครื่องที่ปลดบัญชีเรียบร้อยพร้อมรีเซ็ตปิดดีลง่ายกว่า',
+						'อะแดปเตอร์แท้และบอดี้สวยช่วยเพิ่มความน่าเชื่อถือของเครื่อง',
+						'ข้อมูลครบช่วยให้การประเมินแคบลงและใกล้ความจริงมากขึ้น'
+					]}
+					commonMistakes={[
+						'ระบุแค่ว่าเป็น MacBook แต่ไม่บอกปีหรือชิป',
+						'ไม่เช็ก RAM/SSD ซึ่งกระทบราคาชัดเจน',
+						'ไม่แจ้งปัญหาจอหรือแบตตั้งแต่แรก',
+						'ยังไม่ออกจาก Apple ID หรือปิด Find My Mac',
+						'คาดหวังราคาจากตอนซื้อโดยไม่ดูภาพรวมตลาดมือสอง'
+					]}
+					internalLinks={[
+						{ href: '/เช็กราคาก่อนขาย/', label: 'ดูข้อมูลที่ควรส่งก่อนเช็กราคา' },
+						{ href: '/ราคากลางรับซื้อ/', label: 'อ่านแนวทางราคากลางรับซื้อ' },
+						{ href: '/คู่มือก่อนขาย/', label: 'ดูคู่มือก่อนขายทั้งหมด' },
+						{ href: '/ความน่าเชื่อถือ/', label: 'อ่านแนวทางความปลอดภัยก่อนส่งมอบเครื่อง' }
+					]}
+					density="medium"
+				/>
 				<BlogPreviewMagazine posts={recent} />
 			</div>
 		)}
 
 	</article>
 </BaseLayout>
-

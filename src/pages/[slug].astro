@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import { buildArticleLongform } from '../lib/article-longform';
 import { getPublishedPosts } from '../lib/posts';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 import { isIntentArticle } from '../lib/intent-articles';
@@ -48,6 +50,7 @@ const canonicalPath = post.data.canonical?.trim() || articlePath;
 const canonicalUrl = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`}`;
 const shouldRedirectAlias = post.data.noindex === true && canonicalPath !== articlePath;
 const encodedCanonicalPath = encodeURI(canonicalPath);
+const articleLongform = buildArticleLongform(plainTitle, post.data.slug, canonicalPath);
 
 if (shouldRedirectAlias) {
 	return Astro.redirect(encodedCanonicalPath, 301);
@@ -190,6 +193,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		<div class="article-prose content">
 			<Content />
 		</div>
+
+		<NaturalSeoSections {...articleLongform} />
 
 		{
 			faqItemsData && faqItemsData.length > 0 && (

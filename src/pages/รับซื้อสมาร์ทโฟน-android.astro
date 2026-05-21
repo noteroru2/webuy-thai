@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
@@ -341,6 +342,40 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		{recent.length > 0 && (
 			<div class="mt-12 pt-12 border-t border-gray-100">
 				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<NaturalSeoSections
+					theme="การรับซื้อสมาร์ทโฟน Android มือสองแบบดูสภาพจริง"
+					audience="เจ้าของมือถือ Android ที่อยากรู้ว่าควรเตรียมข้อมูลอะไรเพื่อให้ได้ช่วงราคาที่แฟร์"
+					geo="ลูกค้าทั่วประเทศที่ต้องการขายมือถือเรือธง จอพับ หรือรุ่นเกมมิ่ง"
+					emphasis="ให้ข้อมูลชัดเรื่องรุ่น จอ บัญชี และอุปกรณ์ เพื่อไม่ให้การประเมิน Android ถูกเหมารวมจนเสียมูลค่าของรุ่นที่ยังแข็งในตลาด"
+					prepareItems={[
+						'ระบุแบรนด์ รุ่นเต็ม ความจุ และเลขโมเดลถ้าดูได้',
+						'ถ่ายรูปหน้าจอและตัวเครื่องหลายมุม รวมถึงจุดที่มีรอยหรืออาการผิดปกติ',
+						'แจ้งเรื่องเบิร์นอิน เส้นบนจอ บานพับ หรือความร้อนผิดปกติให้ครบ',
+						'ออกจาก Google Account หรือบัญชีแบรนด์ก่อนนัดส่งมอบ',
+						'แนบข้อมูลอุปกรณ์แท้ กล่อง หรือประกันที่ยังเหลือถ้ามี'
+					]}
+					valueFactors={[
+						'รุ่นเรือธง จอพับ และรุ่นเกมมิ่งยังมีความต้องการในตลาดสูงกว่ารุ่นทั่วไป',
+						'สภาพจอ OLED และการไม่มีเส้นหรือเบิร์นอินมีผลต่อราคาอย่างมาก',
+						'เครื่องที่ปลดบัญชีพร้อมรีเซ็ตได้ทันทีปิดดีลง่ายกว่า',
+						'กล่องและอุปกรณ์แท้ช่วยเพิ่มความมั่นใจของตลาดมือสอง',
+						'การแจ้งข้อมูลตรงช่วยลดการหักเผื่อจากความไม่แน่นอนของร้าน'
+					]}
+					commonMistakes={[
+						'บอกแค่ว่าเป็น Samsung หรือ Oppo โดยไม่ระบุรุ่นย่อยชัดเจน',
+						'ไม่แจ้งอาการเบิร์นอิน เส้นบนจอ หรือจอเปลี่ยนมาก่อน',
+						'ยังติด Google Account หรือรีเซ็ตแล้วมี FRP',
+						'ไม่บอกว่ามีประวัติซ่อมหรือเปลี่ยนแบตมาก่อน',
+						'ใช้ราคาประกาศขายออนไลน์เทียบกับการรับซื้อโดยไม่ดูสภาพจริง'
+					]}
+					internalLinks={[
+						{ href: '/เช็กราคาก่อนขาย/', label: 'ดูข้อมูลที่ควรส่งก่อนเช็กราคา' },
+						{ href: '/ราคากลางรับซื้อ/', label: 'อ่านแนวทางราคากลางรับซื้อ' },
+						{ href: '/คู่มือก่อนขาย/', label: 'ดูคู่มือก่อนขายและคำถามที่พบบ่อย' },
+						{ href: '/รับซื้อ/', label: 'กลับไปดูหมวดรับซื้อทั้งหมด' }
+					]}
+					density="medium"
+				/>
 				<BlogPreviewMagazine posts={recent} />
 			</div>
 		)}
