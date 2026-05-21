@@ -2,6 +2,8 @@ export function getSiteOrigin(): string {
   const env = import.meta.env as Record<string, unknown>;
   const siteUrl = typeof env.SITE_URL === 'string' ? env.SITE_URL : undefined;
   if (siteUrl) return siteUrl.replace(/\/+$/, '');
+  const publicSiteUrl = typeof env.PUBLIC_SITE_URL === 'string' ? env.PUBLIC_SITE_URL : undefined;
+  if (publicSiteUrl) return publicSiteUrl.replace(/\/+$/, '');
 
   const fqdn = typeof env.COOLIFY_FQDN === 'string' ? env.COOLIFY_FQDN : undefined;
   if (fqdn) return `https://${fqdn}`.replace(/\/+$/, '');

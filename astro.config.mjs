@@ -6,16 +6,17 @@ import { loadEnv } from 'vite';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import nonArticleSlugList from './src/data/non-article-slugs.json' with { type: 'json' };
+import { isPlaceholderSiteUrl, resolveSiteUrl } from './scripts/resolve-site-url.mjs';
 
 const nonArticleSingleSlugs = new Set(nonArticleSlugList);
 const postsDir = join(process.cwd(), 'src', 'content', 'posts');
 
 const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
-const siteUrl =
-	env.SITE_URL ??
-	(env.COOLIFY_FQDN ? `https://${env.COOLIFY_FQDN}` : null) ??
-	env.COOLIFY_URL ??
-	'https://example.com';
+const siteUrl = resolveSiteUrl(env);
+
+if (isPlaceholderSiteUrl(siteUrl)) {
+	throw new Error('Refusing to build sitemap with placeholder site URL https://example.com');
+}
 
 const NOINDEX_POST_SLUGS = new Set(
 	readdirSync(postsDir)
