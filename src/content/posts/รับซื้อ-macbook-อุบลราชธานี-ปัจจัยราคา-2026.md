@@ -19,8 +19,10 @@ faqItems:
     answer: "นัดรับได้ที่เซ็นทรัลอุบลฯ สุนีย์ทาวเวอร์ ม.อุบลฯ วารินชำราบ หรือจุดที่ลูกค้าสะดวก ทัก Line @webuy เพื่อนัดคิว"
   - question: "ควรส่งข้อมูลอะไรเพื่อให้ประเมินราคา MacBook ได้ไว"
     answer: "ส่งรุ่น ชิป RAM SSD Battery health รูปเครื่อง 4 มุม รูปหน้าจอ About This Mac และแจ้งตำหนิทุกจุด"
+noindex: true
+canonical: "/รับซื้อแมคบุ๊ค-อุบลราชธานี/"
 qualityScore: 1
-qualityFlags: ["cta_spam"]
+qualityFlags: ["legacy_alias"]
 ---
 
 

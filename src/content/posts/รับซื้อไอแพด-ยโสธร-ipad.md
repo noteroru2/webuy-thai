@@ -5,7 +5,7 @@ pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อไอแพด-ยโสธร-ipad"
 noindex: true
-canonical: "/รับซื้อไอแพด/"
+canonical: "/รับซื้อไอแพด-ยโสธร/"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
 ---

@@ -6,6 +6,7 @@ import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
+import { isanIphonePages } from '../lib/isanLocalHubs';
 
 const site = getSiteOrigin();
 const socialLinks = getSocialLinks();
@@ -22,6 +23,29 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const iphoneShowcase = [
+	{
+		src: '/media/apple-local/iphone15-black-back.webp',
+		alt: 'ตัวอย่าง iPhone 15 สีดำสำหรับประกอบการประเมินราคารับซื้อ',
+		caption: 'รูปฝาหลังช่วยให้ดูรอยมุมเครื่อง สีเครื่อง และสภาพบอดี้ได้ชัดก่อนคุยราคา',
+	},
+	{
+		src: '/media/apple-local/iphone15-black-front.webp',
+		alt: 'ตัวอย่างหน้าจอ iPhone 15 สำหรับตรวจสภาพก่อนขาย',
+		caption: 'รูปด้านหน้าช่วยเช็กสภาพจอ การแสดงผล และใช้ยืนยันว่าหน้าจอใช้งานได้จริง',
+	},
+	{
+		src: '/media/apple-local/iphone-orange-back.webp',
+		alt: 'ตัวอย่าง iPhone สีส้มสำหรับหมวดรับซื้อไอโฟน',
+		caption: 'ถ่ายรูปเครื่องจริงหลายสีหลายมุมจะช่วยให้ประเมินได้แม่นขึ้น โดยเฉพาะรุ่นที่มีรอยขอบ',
+	},
+	{
+		src: '/media/apple-local/iphone-orange-duo.webp',
+		alt: 'ตัวอย่างภาพเปรียบเทียบ iPhone กับกล่องเครื่องจริง',
+		caption: 'ถ้ามีกล่องเดิมหรืออุปกรณ์แท้ติดมาด้วย ควรถ่ายรวมไว้ตั้งแต่ต้นเพราะมีผลต่อมูลค่ารวม',
+	},
+];
 
 const priceItems = [
 	{ model: 'iPhone 17 Pro Max (256GB - 1TB)', price: '32,000 - 45,000 บาท', note: 'ราคาสูงสุดสำหรับเครื่องศูนย์ไทย สุขภาพแบต 95%+' },
@@ -213,10 +237,26 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</section>
 
-		<PriceGuide title="ราคารับซื้อ iPhone อ้างอิง (อัปเดต 2026)" items={priceItems} />
+			<PriceGuide title="ราคารับซื้อ iPhone อ้างอิง (อัปเดต 2026)" items={priceItems} />
 
-		<!-- ==================== Section 1 ==================== -->
-		<section>
+			<section class="highlight-box" style="margin-top: 1.5rem;">
+				<h2>ตัวอย่างเครื่องจริงในหมวด iPhone</h2>
+				<p>
+					ภาพชุดนี้เป็นตัวอย่างเครื่องที่ใช้ประกอบการประเมินจริงในหมวด iPhone เพื่อให้เห็นว่าการตีราคาไม่ได้ดูแค่ชื่อรุ่น
+					แต่ดูสภาพบอดี้ จอ กล้อง ขอบเครื่อง และความครบของอุปกรณ์ไปพร้อมกัน
+				</p>
+				<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+					{iphoneShowcase.map((item) => (
+						<figure class="rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
+							<img src={item.src} alt={item.alt} loading="lazy" decoding="async" class="w-full rounded-xl object-cover" />
+							<figcaption class="mt-2 text-sm text-gray-600">{item.caption}</figcaption>
+						</figure>
+					))}
+				</div>
+			</section>
+
+			<!-- ==================== Section 1 ==================== -->
+			<section>
 			<h2>ทำไมต้องขายไอโฟนมือสองกับเรา</h2>
 			<p>
 				ตลาดรับซื้อ iPhone มือสองในประเทศไทยมีผู้เล่นหลายราย ทั้งร้านหน้าร้านในห้างสรรพสินค้า
@@ -691,16 +731,19 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				ทีมงานพร้อมแนะนำวิธีการที่เหมาะกับพื้นที่ของคุณ
 			</p>
 
-			<div class="mt-8 p-6 bg-gray-50 border border-gray-100 rounded-lg">
-				<h4 class="text-lg font-bold mb-2">📍 ศูนย์บริการรับซื้อท้องถิ่น (Local Hub)</h4>
-				<p class="mb-4 text-sm text-gray-600">สำหรับลูกค้าที่ต้องการนำเครื่องมาให้ประเมินด้วยตัวเอง หรือต้องการให้ทีมงานวิ่งไปรับเครื่องถึงที่ เรารองรับพื้นที่หลักดังนี้:</p>
-				<ul class="list-none p-0 m-0 space-y-2">
-					<li><a href="/รับซื้อไอโฟนอุบล/" class="text-brand-600 hover:text-brand-700 font-medium underline underline-offset-4 decoration-brand-200">รับซื้อไอโฟน อุบลราชธานี (นัดรับเมืองและวารินชำราบ)</a></li>
-					<li><a href="/รับซื้อไอโฟน-ขอนแก่น-คู่มือ/" class="text-brand-600 hover:text-brand-700 font-medium underline underline-offset-4 decoration-brand-200">รับซื้อไอโฟน ขอนแก่น (นัดรับตัวเมืองและมหาวิทยาลัยขอนแก่น)</a></li>
-					<li><a href="/รับซื้อไอโฟน-โคราช/" class="text-brand-600 hover:text-brand-700 font-medium underline underline-offset-4 decoration-brand-200">รับซื้อไอโฟน โคราช (เช็กราคาก่อนนัดรับ)</a></li>
-				</ul>
-			</div>
-		</section>
+				<div class="mt-8 p-6 bg-gray-50 border border-gray-100 rounded-lg">
+					<h4 class="text-lg font-bold mb-2">📍 ศูนย์บริการรับซื้อท้องถิ่น (Local Hub)</h4>
+					<p class="mb-4 text-sm text-gray-600">ตอนนี้หมวดรับซื้อ iPhone มีหน้าท้องถิ่นครบทุกจังหวัดในภาคอีสานแล้ว เพื่อให้คนค้นหาตามจังหวัดเจอหน้าที่ตรงกับ intent มากขึ้น:</p>
+					<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+						{isanIphonePages.map((item) => (
+							<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+								<p class="font-semibold text-text">{item.label}</p>
+								<p class="mt-1 text-sm text-gray-600">{item.caption}</p>
+							</a>
+						))}
+					</div>
+				</div>
+			</section>
 
 		<!-- ==================== Section 11 ==================== -->
 		<section>
@@ -854,12 +897,12 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — MacBook Air/Pro (Intel, M1/M2/M3/M4/M5)</li>
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL/Marshall และรุ่นยอดนิยมอื่น ๆ</li>
 			</ul>
-			<p>
-				หน้าท้องถิ่นที่กำลังดันเพิ่มตอนนี้ ได้แก่ <a href="/รับซื้อไอโฟนอุบล/">รับซื้อไอโฟน อุบล</a>,
-				<a href="/รับซื้อไอโฟน-อุดรธานี/"> รับซื้อไอโฟน อุดรธานี</a> และ
-				<a href="/รับซื้อไอโฟน-โคราช/"> รับซื้อไอโฟน โคราช</a> เพื่อให้คนค้นหาตามจังหวัดเจอหน้าที่ตรง intent มากขึ้น
-			</p>
-		</section>
+				<p>
+					ตอนนี้หน้ารับซื้อไอโฟนครอบคลุมครบทุกจังหวัดในภาคอีสานแล้ว ทั้ง <a href="/รับซื้อไอโฟนอุบล/">อุบลราชธานี</a>,
+					<a href="/รับซื้อไอโฟน-ขอนแก่น/"> ขอนแก่น</a>, <a href="/รับซื้อไอโฟน-อุดรธานี/">อุดรธานี</a>,
+					<a href="/รับซื้อไอโฟน-โคราช/"> นครราชสีมา</a> และจังหวัดรองอื่น ๆ เพื่อให้คนค้นหาตามพื้นที่เจอหน้าที่ตอบตรงกว่าเดิม
+				</p>
+			</section>
 
 		{recent.length > 0 && (
 			<div class="mt-12 pt-12 border-t border-gray-100">

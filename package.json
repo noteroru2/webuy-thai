@@ -19,7 +19,12 @@
     "cleanup:legacy": "node scripts/finalize-legacy-cleanup.mjs",
     "rewrite:noindex": "node scripts/rewrite-noindex-local-posts.mjs",
     "canonical:bangkok-pc": "node scripts/apply-bangkok-pc-canonical.mjs",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "notebook:images": "node scripts/convert-notebook-showcase-images.mjs",
+    "notebook:heroes": "node scripts/apply-notebook-hero-images.mjs",
+    "apple:images": "node scripts/convert-apple-local-images.mjs",
+    "apple:local": "node scripts/generate-isan-apple-local-pages.mjs",
+    "apple:aliases": "node scripts/fix-apple-local-aliases.mjs"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",

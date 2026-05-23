@@ -7,6 +7,7 @@ import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
+import { isanMacbookPages } from '../lib/isanLocalHubs';
 
 const site = getSiteOrigin();
 const socialLinks = getSocialLinks();
@@ -23,6 +24,19 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const macbookShowcase = [
+	{
+		src: '/media/notebook-showcase/macbook-air-on-box.webp',
+		alt: 'ตัวอย่าง MacBook Air สำหรับประกอบการประเมินราคารับซื้อ',
+		caption: 'MacBook ที่สภาพบอดี้สวยและมีกล่องเดิมครบ มักช่วยให้ปิดดีลได้ง่ายขึ้น',
+	},
+	{
+		src: '/media/notebook-showcase/macbook-boot-screen.webp',
+		alt: 'ตัวอย่าง MacBook เปิดเครื่องได้สำหรับการตรวจสภาพก่อนขาย',
+		caption: 'รูปตอนเปิดเครื่องช่วยให้ดูการแสดงผลเบื้องต้นและยืนยันว่าเครื่องยังบูตใช้งานได้จริง',
+	},
+];
 
 const priceItems = [
 	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 85,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับจำนวน Core CPU/GPU และ RAM' },
@@ -184,9 +198,24 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</header>
 
-		<PriceGuide title="ราคารับซื้อ MacBook อ้างอิง (อัปเดต 2026)" items={priceItems} />
+			<PriceGuide title="ราคารับซื้อ MacBook อ้างอิง (อัปเดต 2026)" items={priceItems} />
 
-		<section class="eeat-note">
+			<section class="highlight-box" style="margin-top: 1.5rem;">
+				<h2>ตัวอย่าง MacBook ที่ใช้ประกอบการประเมินจริง</h2>
+				<p>
+					ในหมวด MacBook เราดูทั้งสภาพภายนอก การเปิดติด รอบชาร์จ และความครบของอุปกรณ์เดิม ภาพตัวอย่างด้านล่างช่วยให้เห็นแนวทางการส่งรูปที่ช่วยประเมินราคาได้ใกล้เคียงขึ้น
+				</p>
+				<div class="mt-5 grid gap-4 sm:grid-cols-2">
+					{macbookShowcase.map((item) => (
+						<figure class="rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
+							<img src={item.src} alt={item.alt} loading="lazy" decoding="async" class="w-full rounded-xl object-cover" />
+							<figcaption class="mt-2 text-sm text-gray-600">{item.caption}</figcaption>
+						</figure>
+					))}
+				</div>
+			</section>
+
+			<section class="eeat-note">
 			<h2>บทเรียนจากการรับซื้อ MacBook จริง (รวมงานในอีสาน)</h2>
 			<p>
 				เมื่อลูกค้าถามว่า “ทำไมราคาต่างจากที่โพสต์ในกลุ่ม” คำตอบที่พบบ่อยคือ<strong>รอบชาร์จ (Cycle Count) สูงกว่าที่แจ้ง</strong>
@@ -405,6 +434,20 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li>เมื่อเครื่องถึงมือทีมงาน จะมีการแกะกล่องและตรวจสอบสภาพพร้อมถ่ายวิดีโอเป็นหลักฐาน</li>
 				<li>โอนเงินเข้าบัญชีลูกค้าทันทีหลังตรวจสอบเสร็จสิ้น (ภายในวันเดียวกัน)</li>
 			</ol>
+			<div class="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
+				<h3 class="text-xl font-bold">หน้ารับซื้อแมคบุ๊คครบทุกจังหวัดในอีสาน</h3>
+				<p class="mt-2 text-sm text-gray-600">
+					ถ้าคุณค้นหาตามจังหวัด ตอนนี้หมวด MacBook มีหน้า local ครบทั้งภาคอีสานแล้ว เพื่อรวมแรงค้นหาและพาคนอ่านไปเจอหน้าที่ตรงกับพื้นที่มากขึ้น
+				</p>
+				<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+					{isanMacbookPages.map((item) => (
+						<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+							<p class="font-semibold text-text">{item.label}</p>
+							<p class="mt-1 text-sm text-gray-600">{item.caption}</p>
+						</a>
+					))}
+				</div>
+			</div>
 		</section>
 
 		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
@@ -420,14 +463,14 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<p>
 				ส่งสเปกและรูปให้ครบก่อนทัก Line จะได้ช่วงราคาเบื้องต้นที่ใกล้เคียงจริงมากขึ้น
 			</p>
-			<ul>
-				<li><a href="/เช็กราคาก่อนขาย/">เช็กราคา MacBook ก่อนขาย</a> — ข้อมูลและรูปที่ควรส่ง</li>
-				<li><a href="/ราคากลางรับซื้อ/">ดูราคากลางรับซื้อ MacBook</a> — ปัจจัยราคาและแนวทางประเมิน</li>
-				<li><a href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือของ WE BUY</a> — ขั้นตอนโปร่งใสและความปลอดภัยข้อมูล</li>
-				<li><a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย MacBook</a> — ล้างข้อมูลและเช็กสภาพก่อนขาย</li>
-				<li><a href="/รับซื้อแมคบุ๊ค-ขอนแก่น/">รับซื้อแมคบุ๊ค ขอนแก่น</a> — หน้า local สำหรับคนขาย MacBook ในขอนแก่น</li>
-				<li><a href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ WE BUY</a> — นัดรับตามจังหวัด</li>
-			</ul>
+				<ul>
+					<li><a href="/เช็กราคาก่อนขาย/">เช็กราคา MacBook ก่อนขาย</a> — ข้อมูลและรูปที่ควรส่ง</li>
+					<li><a href="/ราคากลางรับซื้อ/">ดูราคากลางรับซื้อ MacBook</a> — ปัจจัยราคาและแนวทางประเมิน</li>
+					<li><a href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือของ WE BUY</a> — ขั้นตอนโปร่งใสและความปลอดภัยข้อมูล</li>
+					<li><a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย MacBook</a> — ล้างข้อมูลและเช็กสภาพก่อนขาย</li>
+					<li><a href="/รับซื้อแมคบุ๊ค-อุบลราชธานี/">รับซื้อแมคบุ๊ค อุบลราชธานี</a> — หน้า local สำหรับคนขาย MacBook ในอุบล</li>
+					<li><a href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ WE BUY</a> — นัดรับตามจังหวัด</li>
+				</ul>
 		</section>
 
 		<!-- ═══════════════════════════════════════════════════════════ -->
@@ -474,11 +517,12 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — DSLR, Mirrorless, Lens ทุกยี่ห้อ</li>
 				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — JBL, Marshall และแบรนด์ยอดนิยม</li>
 			</ul>
-			<p>
-				ถ้าคุณค้นหาตามจังหวัด ดูต่อได้ที่ <a href="/รับซื้อแมคบุ๊ค-ขอนแก่น/">รับซื้อแมคบุ๊ค ขอนแก่น</a> และ
-				<a href="/รับซื้อแมคบุ๊ค-โคราช/"> รับซื้อแมคบุ๊ค โคราช</a> ซึ่งเป็นหน้าที่เขียนให้ตรงกับ intent แบบ local โดยตรง
-			</p>
-		</section>
+				<p>
+					ถ้าคุณค้นหาตามจังหวัด ตอนนี้หมวด MacBook ครอบคลุมครบทั้ง <a href="/รับซื้อแมคบุ๊ค-อุบลราชธานี/">อุบลราชธานี</a>,
+					<a href="/รับซื้อแมคบุ๊ค-ขอนแก่น/"> ขอนแก่น</a>, <a href="/รับซื้อแมคบุ๊ค-อุดรธานี/">อุดรธานี</a>,
+					<a href="/รับซื้อแมคบุ๊ค-โคราช/"> นครราชสีมา</a> และจังหวัดอีสานอื่น ๆ แล้ว
+				</p>
+			</section>
 
 		{recent.length > 0 && (
 			<div class="mt-12 pt-12 border-t border-gray-100">

@@ -7,6 +7,7 @@ import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
+import { isanIpadPages } from '../lib/isanLocalHubs';
 
 const site = getSiteOrigin();
 const socialLinks = getSocialLinks();
@@ -23,6 +24,24 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const ipadShowcase = [
+	{
+		src: '/media/apple-local/ipad-mini-silver-back.webp',
+		alt: 'ตัวอย่าง iPad mini สำหรับประกอบการประเมินราคารับซื้อ',
+		caption: 'ภาพฝาหลัง iPad ช่วยดูรอยมุมเครื่อง รอยบุบ และสภาพบอดี้ได้ชัดเจนก่อนคุยราคา',
+	},
+	{
+		src: '/media/apple-local/xiaomi-pad-front.webp',
+		alt: 'ตัวอย่างภาพแท็บเล็ตด้านหน้าสำหรับแนวทางการส่งรูปประเมิน',
+		caption: 'แม้จะเป็นแท็บเล็ต Android แต่ภาพลักษณะนี้ช่วยบอกแนวทางว่าควรถ่ายหน้าจอให้เห็นการแสดงผลเต็ม ๆ อย่างไร',
+	},
+	{
+		src: '/media/apple-local/xiaomi-pad-back.webp',
+		alt: 'ตัวอย่างภาพแท็บเล็ตด้านหลังสำหรับแนวทางการถ่ายรูปก่อนประเมิน',
+		caption: 'ฝาหลังและมุมกล้องเป็นจุดที่ควรถ่ายให้ชัดทุกครั้ง ไม่ว่าจะเป็น iPad หรือแท็บเล็ตในหมวดใกล้เคียง',
+	},
+];
 
 const priceItems = [
 	{ model: 'iPad Pro (M4 / M5) - ทุกขนาด', price: '28,000 - 55,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับความจุ 1TB/2TB และ Nano-texture' },
@@ -175,10 +194,26 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</header>
 
-		<PriceGuide title="ราคารับซื้อ iPad อ้างอิง (อัปเดต 2026)" items={priceItems} />
+			<PriceGuide title="ราคารับซื้อ iPad อ้างอิง (อัปเดต 2026)" items={priceItems} />
 
-		<!-- ═══════════════════════════════════════════════════════════ -->
-		<section>
+			<section class="highlight-box" style="margin-top: 1.5rem;">
+				<h2>ตัวอย่างเครื่องจริงในหมวดแท็บเล็ต</h2>
+				<p>
+					เรานำภาพตัวอย่างจากเครื่องจริงมาใส่ไว้เพื่อให้เห็นว่าการประเมินราคาในหมวด iPad และแท็บเล็ตจะดูทั้งหน้าจอ
+					ฝาหลัง มุมเครื่อง และความพร้อมใช้งานร่วมกัน ไม่ได้ดูแค่ชื่อรุ่นอย่างเดียว
+				</p>
+				<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{ipadShowcase.map((item) => (
+						<figure class="rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
+							<img src={item.src} alt={item.alt} loading="lazy" decoding="async" class="w-full rounded-xl object-cover" />
+							<figcaption class="mt-2 text-sm text-gray-600">{item.caption}</figcaption>
+						</figure>
+					))}
+				</div>
+			</section>
+
+			<!-- ═══════════════════════════════════════════════════════════ -->
+			<section>
 			<h2>ทำไมต้องขาย iPad กับเรา</h2>
 			<p>
 				การขาย iPad มือสองให้ได้ราคาดีต้องอาศัยผู้รับซื้อที่เข้าใจรายละเอียดของอุปกรณ์ Apple อย่างแท้จริง
@@ -318,14 +353,28 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<ul>
 				{serviceAreas.map((area) => <li>{area}</li>)}
 			</ul>
-			<p>
-				สำหรับลูกค้าใน <strong>อุบลราชธานี</strong> และ <strong>ขอนแก่น</strong> เรามีทีมงานประจำพื้นที่
-				ที่สามารถนัดรับเครื่องและตรวจเช็กได้รวดเร็วภายในวันเดียว ส่วนพื้นที่อื่น ๆ
-				สามารถสอบถามคิวงานนัดรับ หรือเลือกใช้บริการส่งพัสดุซึ่งเราดูแลให้เป็นพิเศษ
-			</p>
-			<p class="mt-4 text-sm leading-relaxed" style="color: var(--muted);">
-				<a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย iPad</a>
-				· <a href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a>
+				<p>
+					สำหรับลูกค้าใน <strong>อุบลราชธานี</strong> และ <strong>ขอนแก่น</strong> เรามีทีมงานประจำพื้นที่
+					ที่สามารถนัดรับเครื่องและตรวจเช็กได้รวดเร็วภายในวันเดียว ส่วนพื้นที่อื่น ๆ
+					สามารถสอบถามคิวงานนัดรับ หรือเลือกใช้บริการส่งพัสดุซึ่งเราดูแลให้เป็นพิเศษ
+				</p>
+				<div class="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
+					<h3 class="text-xl font-bold">หน้ารับซื้อไอแพดครบทุกจังหวัดในอีสาน</h3>
+					<p class="mt-2 text-sm text-gray-600">
+						ถ้าคุณค้นหาตามจังหวัด ตอนนี้หมวด iPad มีหน้า local ครบทั้งภาคอีสานแล้ว เพื่อให้แต่ละพื้นที่เจอหน้าที่ตรงคำถามมากขึ้น
+					</p>
+					<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+						{isanIpadPages.map((item) => (
+							<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+								<p class="font-semibold text-text">{item.label}</p>
+								<p class="mt-1 text-sm text-gray-600">{item.caption}</p>
+							</a>
+						))}
+					</div>
+				</div>
+				<p class="mt-4 text-sm leading-relaxed" style="color: var(--muted);">
+					<a href="/คู่มือก่อนขาย/">คู่มือก่อนขาย iPad</a>
+					· <a href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a>
 				· <a href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a>
 			</p>
 		</section>
@@ -369,17 +418,22 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		<section>
 			<h2>บริการรับซื้ออื่น ๆ ของ WE BUY</h2>
 			<p>นอกเหนือจาก iPad เรายังรับซื้อสินค้าไอทีอีกหลากหลายรายการ:</p>
-			<ul>
-				<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — ทุกรุ่น ทุกความจุ จ่ายเงินทันที</li>
-				<li><a href="/รับซื้อไอแพด-ขอนแก่น/">รับซื้อไอแพด ขอนแก่น</a> — เหมาะกับคนขาย iPad ในขอนแก่นที่อยากเช็กราคาก่อนนัดรับ</li>
-				<li><a href="/รับซื้อไอแพด-อุบล/">รับซื้อไอแพด อุบล</a> — หน้าท้องถิ่นสำหรับอุบลและวาริน</li>
+				<ul>
+					<li><a href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a> — ทุกรุ่น ทุกความจุ จ่ายเงินทันที</li>
+					<li><a href="/รับซื้อไอแพด-ขอนแก่น/">รับซื้อไอแพด ขอนแก่น</a> — เหมาะกับคนขาย iPad ในขอนแก่นที่อยากเช็กราคาก่อนนัดรับ</li>
+					<li><a href="/รับซื้อไอแพด-อุบล/">รับซื้อไอแพด อุบล</a> — หน้าท้องถิ่นสำหรับอุบลและวาริน</li>
 				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — MacBook, Gaming, Working Notebook</li>
 				<li><a href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a> — Air, Pro ชิป Intel และ M1-M5</li>
 				<li><a href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a> — PC ประกอบ, All-in-One</li>
-				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, DSLR, Lens ทุกยี่ห้อ</li>
-				<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — Marshall, JBL แบรนด์เนมแท้</li>
-			</ul>
-		</section>
+					<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, DSLR, Lens ทุกยี่ห้อ</li>
+					<li><a href="/รับซื้อลำโพง/">รับซื้อลำโพง</a> — Marshall, JBL แบรนด์เนมแท้</li>
+				</ul>
+				<p>
+					ฝั่ง local ของ iPad ตอนนี้ครอบคลุมครบทั้ง <a href="/รับซื้อไอแพด-อุบล/">อุบลราชธานี</a>,
+					<a href="/รับซื้อไอแพด-ขอนแก่น/"> ขอนแก่น</a>, <a href="/รับซื้อไอแพด-อุดรธานี/">อุดรธานี</a>,
+					<a href="/รับซื้อไอแพด-โคราช/"> นครราชสีมา</a> และจังหวัดอีสานอื่น ๆ แล้ว
+				</p>
+			</section>
 
 		{recent.length > 0 && (
 			<div class="mt-12 pt-12 border-t border-gray-100">

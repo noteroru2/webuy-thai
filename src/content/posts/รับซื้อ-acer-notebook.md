@@ -2,8 +2,10 @@
 title: "รับซื้อ Acer Notebook มือสอง ทั้ง Swift, Aspire, Nitro และ Predator"
 description: "WE BUY รับซื้อ Acer notebook มือสอง ประเมินจากรุ่น Swift, Aspire, Nitro, Predator รวมถึงสเปก แบต หน้าจอ และสภาพเครื่องจริง"
 pubDate: "2026-05-20"
-updatedDate: "2026-05-20"
+updatedDate: "2026-05-23"
 slug: "รับซื้อ-acer-notebook"
+heroImage: "/media/notebook-showcase/acer-aspire-3-silver.webp"
+heroImageAlt: "ตัวอย่าง Acer Notebook เครื่องจริง"
 qualityScore: 9
 qualityFlags: []
 faqItems:
@@ -20,8 +22,13 @@ faqItems:
 WE BUY รับซื้อ Acer หลายสาย โดยเฉพาะ **Swift, Aspire, Nitro, Predator และรุ่นทำงานทั่วไป** ประเมินตามสเปกจริงและอาการใช้งานจริง ไม่ตีราคาแบบเหมารวมว่าเป็น Acer เหมือนกันแล้วต้องได้ช่วงเดียวกัน
 
 <figure class="content-figure content-figure--soft">
-  <img src="/media/imported/mercular.s3.ap-southeast-1.amazonaws.com/acer-nitro-5-series-recommend-5-b612beb075.jpg" alt="ตัวอย่างโน๊ตบุ๊ค Acer กลุ่มเกมมิงที่ใช้เทียบสภาพก่อนประเมินราคามือสอง" loading="lazy" decoding="async" />
-  <figcaption><strong>Acer เกมมิงต้องดูมากกว่าสเปก:</strong> กลุ่ม Nitro และ Predator มักถูกประเมินเพิ่มเรื่องความร้อน เสียงพัดลม และสภาพบานพับควบคู่กับการ์ดจอ</figcaption>
+  <img src="/media/notebook-showcase/acer-aspire-3-silver.webp" alt="ตัวอย่าง Acer Notebook เครื่องจริงที่ใช้ประกอบการประเมิน" loading="lazy" decoding="async" />
+  <figcaption><strong>Acer เกมมิงกับ Acer ใช้งานทั่วไปดูไม่เหมือนกัน:</strong> กลุ่ม Aspire จะดูความคุ้มค่าและสภาพใช้งานจริง ส่วน Nitro และ Predator จะดูความร้อน เสียงพัดลม และเสถียรภาพเพิ่ม</figcaption>
+</figure>
+
+<figure class="content-figure">
+  <img src="/media/notebook-showcase/acer-aspire-naruto.webp" alt="ตัวอย่าง Acer Aspire อีกเครื่องที่ใช้ประกอบการประเมินในหมวดงานทั่วไป" loading="lazy" decoding="async" />
+  <figcaption><strong>เครื่องใช้งานทั่วไปก็ยังมีมูลค่า:</strong> ถ้าจอไม่เสีย แบตยังพอใช้งาน และสเปกสมดุล เครื่องกลุ่มนี้ยังมีตลาดต่อเนื่อง</figcaption>
 </figure>
 
 ## จุดต่างของ Acer แต่ละกลุ่มตอนประเมิน

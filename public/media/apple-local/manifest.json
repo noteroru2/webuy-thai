@@ -1,0 +1,47 @@
+[
+  {
+    "file": "/media/apple-local/xiaomi-pad-front.webp",
+    "label": "Xiaomi Pad ด้านหน้า",
+    "category": "tablet"
+  },
+  {
+    "file": "/media/apple-local/xiaomi-pad-back.webp",
+    "label": "Xiaomi Pad ด้านหลัง",
+    "category": "tablet"
+  },
+  {
+    "file": "/media/apple-local/iphone15-black-front.webp",
+    "label": "iPhone 15 สีดำ ด้านหน้า",
+    "category": "iphone"
+  },
+  {
+    "file": "/media/apple-local/iphone15-black-back.webp",
+    "label": "iPhone 15 สีดำ ด้านหลัง",
+    "category": "iphone"
+  },
+  {
+    "file": "/media/apple-local/iphone15-black-side.webp",
+    "label": "iPhone 15 สีดำ มุมข้าง",
+    "category": "iphone"
+  },
+  {
+    "file": "/media/apple-local/ipad-mini-silver-back.webp",
+    "label": "iPad mini สีเงิน ด้านหลัง",
+    "category": "ipad"
+  },
+  {
+    "file": "/media/apple-local/iphone-orange-back.webp",
+    "label": "iPhone สีส้ม ด้านหลัง",
+    "category": "iphone"
+  },
+  {
+    "file": "/media/apple-local/iphone-orange-duo.webp",
+    "label": "iPhone สีส้ม คู่กล่อง",
+    "category": "iphone"
+  },
+  {
+    "file": "/media/apple-local/iphone-dark-front.webp",
+    "label": "iPhone หน้าจอมืด มุมใช้งาน",
+    "category": "iphone"
+  }
+]

@@ -5,7 +5,7 @@ pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อไอโฟน-iphone-ร้อยเอ็ด"
 noindex: true
-canonical: "/รับซื้อไอโฟน/"
+canonical: "/รับซื้อไอโฟน-ร้อยเอ็ด/"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
 ---

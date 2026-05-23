@@ -2,8 +2,10 @@
 title: "รับซื้อ ASUS Notebook มือสอง ทั้ง ZenBook, VivoBook, ROG และ TUF"
 description: "ขาย ASUS notebook มือสองได้ที่ WE BUY รับซื้อ ZenBook, VivoBook, ROG, TUF และรุ่นใช้งานทั่วไป ประเมินจากสเปก จอ แบต และสภาพเครื่องจริง"
 pubDate: "2026-05-20"
-updatedDate: "2026-05-20"
+updatedDate: "2026-05-23"
 slug: "รับซื้อ-asus-notebook"
+heroImage: "/media/notebook-showcase/rog-strix-open-front.webp"
+heroImageAlt: "ตัวอย่าง ASUS ROG Notebook เครื่องจริง"
 qualityScore: 9
 qualityFlags: []
 faqItems:
@@ -20,8 +22,13 @@ faqItems:
 WE BUY รับซื้อ ASUS หลายสาย เช่น **ZenBook, VivoBook, ExpertBook, ROG และ TUF Gaming** โดยประเมินจากรุ่นเต็ม สเปกจริง และสภาพเครื่องก่อนให้ราคา
 
 <figure class="content-figure">
-  <img src="/media/imported/wp.xn-c3c3a0aa6cvaf8b9dze.com/what-is-the-best-laptop-for-casual-use-2d287c8965.webp" alt="ตัวอย่างโน๊ตบุ๊คบางเบาที่ใช้ประกอบการประเมินเครื่องกลุ่มทำงานและนักศึกษา" loading="lazy" decoding="async" />
+  <img src="/media/notebook-showcase/rog-strix-open-front.webp" alt="ตัวอย่าง ASUS ROG Notebook เครื่องจริงที่ใช้ประกอบการประเมิน" loading="lazy" decoding="async" />
   <figcaption><strong>ASUS แต่ละสายดูไม่เหมือนกัน:</strong> กลุ่ม ZenBook และ VivoBook มักถูกมองเรื่องแบต จอ และสภาพตัวเครื่องมากกว่ากลุ่ม ROG หรือ TUF ที่ต้องดูภาระงานหนักกับระบบระบายความร้อนเพิ่ม</figcaption>
+</figure>
+
+<figure class="content-figure content-figure--soft">
+  <img src="/media/notebook-showcase/asus-tuf-f16-rtx4050.webp" alt="ตัวอย่าง ASUS TUF Gaming ที่ใช้ประกอบการประเมินในหมวดเกมมิงโน๊ตบุ๊ค" loading="lazy" decoding="async" />
+  <figcaption><strong>ROG กับ TUF เป็นเครื่องเกมมิงคนละบุคลิก:</strong> นอกจากรุ่นการ์ดจอแล้ว เรายังดูเสียงพัดลม ความร้อน และสภาพอะแดปเตอร์จริงประกอบด้วย</figcaption>
 </figure>
 
 ## ASUS รุ่นไหนที่ตลาดยังต้องการ

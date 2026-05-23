@@ -3,10 +3,10 @@ title: "รับซื้อโน๊ตบุ๊คอุบลราชธา
 titleHtml: "รับซื้อโน๊ตบุ๊คอุบลราชธานี: นัดรับตัวเมือง วารินชำราบ และประเมินราคาก่อนขาย"
 description: "หน้ารับซื้อโน๊ตบุ๊คอุบลราชธานีสำหรับคนที่ต้องการเช็กราคาก่อนขาย ส่งสเปกและรูปเครื่องเพื่อประเมินเบื้องต้นได้ พร้อมนัดรับในตัวเมืองอุบลและวารินชำราบ"
 pubDate: "2026-05-20"
-updatedDate: "2026-05-20"
+updatedDate: "2026-05-23"
 slug: "รับซื้อโน๊ตบุ๊คอุบล-notebook-laptop-จ"
-heroImage: "/media/imported/wp.xn-c3c3a0aa6cvaf8b9dze.com/Picture2-fe05406236.jpg"
-heroImageAlt: "รับซื้อโน๊ตบุ๊คอุบลราชธานี"
+heroImage: "/media/notebook-showcase/shop-owner-ubon-showroom.webp"
+heroImageAlt: "ตัวอย่างหน้าร้านและโน๊ตบุ๊คที่รับประเมินในอุบลราชธานี"
 qualityScore: 0
 qualityFlags: []
 faqItems:
