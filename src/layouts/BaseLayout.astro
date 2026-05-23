@@ -53,6 +53,9 @@ const resolvedOgImageAlt = ogImageAlt ?? siteName;
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const locale = import.meta.env.PUBLIC_SITE_LOCALE ?? 'th_TH';
 const twitterSite = import.meta.env.PUBLIC_TWITTER_SITE;
+const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
+const phoneDisplay = businessPhone.replace(/^\+66/, '0').replace(/-/g, '');
+const phoneHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
 const robotsContent = noindex
 	? 'noindex, nofollow, noarchive'
 	: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
@@ -197,14 +200,67 @@ const robotsContent = noindex
 				border-radius: 999px;
 				background: #dfffe8;
 			}
+			.mobile-contact-bar {
+				position: fixed;
+				left: max(12px, env(safe-area-inset-left));
+				right: max(12px, env(safe-area-inset-right));
+				bottom: max(12px, env(safe-area-inset-bottom));
+				z-index: 80;
+				display: flex;
+				gap: 0.75rem;
+				padding: 0.7rem;
+				border: 1px solid rgba(249, 115, 22, 0.18);
+				border-radius: 22px;
+				background: rgba(255, 255, 255, 0.96);
+				box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+				backdrop-filter: blur(12px);
+			}
+			.mobile-contact-link {
+				flex: 1 1 0;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 3rem;
+				padding: 0.8rem 0.95rem;
+				border-radius: 16px;
+				font-size: 0.95rem;
+				font-weight: 800;
+				text-decoration: none;
+				text-align: center;
+				letter-spacing: 0.01em;
+			}
+			.mobile-contact-link:hover {
+				text-decoration: none;
+			}
+			.mobile-contact-link--line {
+				background: linear-gradient(180deg, #fb923c 0%, #f97316 100%);
+				color: #fff;
+				box-shadow: 0 10px 20px rgba(249, 115, 22, 0.24);
+			}
+			.mobile-contact-link--phone {
+				background: #fff;
+				color: var(--accent-dim);
+				border: 1px solid rgba(249, 115, 22, 0.2);
+			}
 			/* โทรศัพท์: ซ่อนปุ่มลอย — แท็บเล็ตค่อยแสดงทางลัด */
+			@media (max-width: 767px) {
+				body {
+					padding-bottom: calc(6.25rem + env(safe-area-inset-bottom));
+				}
+			}
 			@media (min-width: 768px) and (max-width: 1023px) {
 				.line-float {
 					display: inline-flex;
 				}
+				.mobile-contact-bar {
+					display: none;
+				}
 			}
 			@media (min-width: 1024px) {
 				.line-float {
+					display: none;
+				}
+				.mobile-contact-bar {
 					display: none;
 				}
 			}
@@ -360,16 +416,29 @@ const robotsContent = noindex
 		<main id="main-content" tabindex="-1">
 			<slot />
 		</main>
-		<a
-			class="line-float"
-			href={LINE_OA_URL}
+			<a
+				class="line-float"
+				href={LINE_OA_URL}
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="แอดไลน์ @webuy ตลอด 24 ชั่วโมง"
-		>
-			<span class="line-dot"></span>
-			<span>LINE @webuy</span>
-		</a>
-		<SiteFooter />
-	</body>
-</html>
+			>
+				<span class="line-dot"></span>
+				<span>LINE @webuy</span>
+			</a>
+			<div class="mobile-contact-bar" aria-label="ติดต่อด่วนผ่านไลน์หรือโทรศัพท์">
+				<a
+					class="mobile-contact-link mobile-contact-link--line"
+					href={LINE_OA_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					LINE @webuy
+				</a>
+				<a class="mobile-contact-link mobile-contact-link--phone" href={phoneHref}>
+					โทร {phoneDisplay}
+				</a>
+			</div>
+			<SiteFooter />
+		</body>
+	</html>
