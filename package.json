@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "start": "node scripts/start.mjs",
     "astro": "astro",
     "export:wp": "node scripts/wp-export-to-content.mjs",
@@ -24,13 +24,17 @@
     "notebook:heroes": "node scripts/apply-notebook-hero-images.mjs",
     "apple:images": "node scripts/convert-apple-local-images.mjs",
     "apple:local": "node scripts/generate-isan-apple-local-pages.mjs",
-    "apple:aliases": "node scripts/fix-apple-local-aliases.mjs"
+    "apple:aliases": "node scripts/fix-apple-local-aliases.mjs",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
-    "turndown": "^7.2.0"
+    "turndown": "^7.2.0",
+    "wrangler": "^4.94.0"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.5.4",
     "@astrojs/sitemap": "^3.7.1",
     "@fontsource-variable/noto-sans-thai": "^5.2.8",
     "@fontsource/ibm-plex-mono": "^5.2.7",
@@ -40,5 +44,8 @@
     "astro": "^6.0.8",
     "sirv": "^3.0.2",
     "tailwindcss": "^4.2.4"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
