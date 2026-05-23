@@ -1,17 +1,22 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+import LegacyRedirect from '../components/LegacyRedirect.astro';
+import ImportantLocalServiceSection from '../components/local/ImportantLocalServiceSection.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { buildArticleLongform } from '../lib/article-longform';
+import {
+	buildImportantLocalServiceJsonLd,
+	getImportantLocalServiceContext,
+} from '../lib/local-service-pages';
+import { isIntentArticle } from '../lib/intent-articles';
 import { getPublishedPosts } from '../lib/posts';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
-import { isIntentArticle } from '../lib/intent-articles';
-import { getEntry, render } from 'astro:content';
 import '../styles/article-prose.css';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts({ includeNoindex: true });
 	return posts.map((post) => {
-		// Get 4 recent posts (excluding the current one) to display in the Related Posts section
 		const recentPosts = posts
 			.filter((p) => p.id !== post.id)
 			.slice(0, 4)
@@ -26,18 +31,17 @@ export async function getStaticPaths() {
 
 const { entryId, recentPosts } = Astro.props;
 const post = await getEntry('posts', entryId);
+
 if (!post) {
 	return Astro.redirect('/404/', 302);
 }
-
-const { Content } = await render(post);
-const showIntentHubLinks = isIntentArticle(post.data.slug);
 
 const plainTitle = post.data.title;
 const plainExcerpt = post.data.description;
 const site = getSiteOrigin();
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const orgLogo = import.meta.env.PUBLIC_ORG_LOGO_URL ?? '/favicon.svg';
+const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
 const publishedIso = post.data.pubDate.toISOString();
 const modifiedIso = (post.data.updatedDate ?? post.data.pubDate).toISOString();
 const featuredUrl = post.data.heroImage;
@@ -51,10 +55,11 @@ const canonicalUrl = `${site}${canonicalPath.startsWith('/') ? canonicalPath : `
 const shouldRedirectAlias = post.data.noindex === true && canonicalPath !== articlePath;
 const encodedCanonicalPath = encodeURI(canonicalPath);
 const articleLongform = buildArticleLongform(plainTitle, post.data.slug, canonicalPath);
+const localServiceContext = getImportantLocalServiceContext(plainTitle, post.data.slug);
+const showIntentHubLinks = isIntentArticle(post.data.slug);
 
-if (shouldRedirectAlias) {
-	return Astro.redirect(encodedCanonicalPath, 301);
-}
+const renderedEntry = shouldRedirectAlias ? null : await render(post);
+const Content = renderedEntry?.Content;
 
 const faqItemsData = post.data.faqItems;
 const faqJsonLd: Array<Record<string, unknown>> =
@@ -75,6 +80,18 @@ const faqJsonLd: Array<Record<string, unknown>> =
 				},
 			]
 		: [];
+
+const localServiceJsonLd = localServiceContext
+	? buildImportantLocalServiceJsonLd(localServiceContext, {
+			articleUrl,
+			canonicalUrl,
+			description: plainExcerpt || `บริการ ${plainTitle}`,
+			orgId,
+			orgName,
+			businessPhone,
+			featuredUrl,
+		})
+	: [];
 
 const articleJsonLd: Array<Record<string, unknown>> = [
 	{
@@ -133,158 +150,185 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			{ '@type': 'ListItem', position: 3, name: plainTitle, item: articleUrl },
 		],
 	},
+	...localServiceJsonLd,
 	...faqJsonLd,
 ];
 ---
 
-<BaseLayout
-	title={formatPageTitle(plainTitle)}
-	description={plainExcerpt || `เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน้ตบุ๊คและรับซื้อคอม`}
-	pathname={articlePath}
-	canonicalPath={canonicalPath}
-	type="article"
-	ogImage={featuredUrl}
-	ogImageAlt={heroAlt}
-	publishedTime={publishedIso}
-	modifiedTime={modifiedIso}
-	jsonLd={articleJsonLd}
-	noindex={post.data.noindex === true}
->
-	<article class="container article">
-		<header class="article-head">
-			<p class="back">
-				<a href="/blog/">← กลับไปหน้าบทความ</a>
-			</p>
-			<p class="tech-eyebrow article-kicker">Article</p>
-			<time class="date" datetime={publishedIso}>
-				{post.data.pubDate.toLocaleDateString('th-TH', {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric',
-				})}
-			</time>
-			<h1 class="title" set:html={titleHtml} />
-		</header>
-
-		{
-			featuredUrl && (
-				<img
-					class="hero-img"
-					src={featuredUrl}
-					alt={heroAlt}
-					width="1200"
-					height="675"
-					loading="eager"
-					decoding="async"
-					fetchpriority="high"
-				/>
-			)
-		}
-
-		{
-			canonicalPath !== articlePath && (
-				<p class="canonical-note">
-					หน้านี้เป็นคู่มือรับซื้อตามพื้นที่ — หน้าหลักบริการรับซื้อคอมพิวเตอร์ครบทุกเขตอยู่ที่{' '}
-					<a href={canonicalPath}>รับซื้อคอมพิวเตอร์</a>
-				</p>
-			)
-		}
-
-		<div class="article-prose content">
-			<Content />
-		</div>
-
-		<NaturalSeoSections {...articleLongform} />
-
-		{
-			faqItemsData && faqItemsData.length > 0 && (
-				<section class="article-faq" aria-labelledby="article-faq-heading">
-					<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
-					{faqItemsData.map((item) => (
-						<details>
-							<summary>{item.question}</summary>
-							<p>{item.answer}</p>
-						</details>
-					))}
-				</section>
-			)
-		}
-
-		{
-			showIntentHubLinks && (
-				<section class="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5">
-					<h2 class="text-lg font-bold text-gray-900">คู่มือและเช็กราคาก่อนขาย</h2>
-					<p class="mt-2 text-sm leading-relaxed text-gray-600">
-						อ่านบทความที่เกี่ยวข้องเพิ่ม หรือกลับไปดู hub รวมทุกหัวข้อก่อนทัก Line @webuy
+{
+	shouldRedirectAlias ? (
+		<LegacyRedirect
+			to={encodedCanonicalPath}
+			from={articlePath}
+			title={plainTitle}
+			description={plainExcerpt}
+		/>
+	) : (
+		<BaseLayout
+			title={formatPageTitle(plainTitle)}
+			description={
+				plainExcerpt ||
+				`เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน๊ตบุ๊คและรับซื้อคอม`
+			}
+			pathname={articlePath}
+			canonicalPath={canonicalPath}
+			type="article"
+			ogImage={featuredUrl}
+			ogImageAlt={heroAlt}
+			publishedTime={publishedIso}
+			modifiedTime={modifiedIso}
+			jsonLd={articleJsonLd}
+			noindex={post.data.noindex === true}
+		>
+			<article class="container article">
+				<header class="article-head">
+					<p class="back">
+						<a href="/blog/">← กลับไปหน้าบทความ</a>
 					</p>
-					<ul class="mt-3 flex flex-wrap gap-2 list-none p-0 m-0 text-sm">
-						<li>
-							<a
-								href="/คู่มือก่อนขาย/"
-								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
-							>
-								คู่มือก่อนขาย
-							</a>
-						</li>
-						<li>
-							<a
-								href="/เช็กราคาก่อนขาย/"
-								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
-							>
-								เช็กราคาก่อนขาย
-							</a>
-						</li>
-						<li>
-							<a
-								href="/ราคากลางรับซื้อ/"
-								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
-							>
-								ราคากลางรับซื้อ
-							</a>
-						</li>
-						<li>
-							<a
-								href="/ความน่าเชื่อถือ/"
-								class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
-							>
-								ความน่าเชื่อถือ
-							</a>
-						</li>
-					</ul>
-				</section>
-			)
-		}
+					<p class="tech-eyebrow article-kicker">Article</p>
+					<time class="date" datetime={publishedIso}>
+						{post.data.pubDate.toLocaleDateString('th-TH', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</time>
+					<h1 class="title" set:html={titleHtml} />
+				</header>
 
-		<div class="post-footer">
-		<!-- Bottom-Up Links (Content Silos) -->
-		<section class="mb-10">
-			<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
-			<p class="text-gray-600 mb-4 text-sm">หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี จ่ายเงินทันที:</p>
-			<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
-				<li><a href="/รับซื้อโน๊ตบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อโน๊ตบุ๊ค</a></li>
-				<li><a href="/รับซื้อคอม/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อคอม</a></li>
-				<li><a href="/รับซื้อไอโฟน/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอโฟน</a></li>
-				<li><a href="/รับซื้อกล้อง/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อกล้อง</a></li>
-				<li><a href="/รับซื้อแมคบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อแมคบุ๊ค</a></li>
-				<li><a href="/รับซื้อไอแพด/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอแพด</a></li>
-			</ul>
-		</section>
+				{
+					featuredUrl && (
+						<img
+							class="hero-img"
+							src={featuredUrl}
+							alt={heroAlt}
+							width="1200"
+							height="675"
+							loading="eager"
+							decoding="async"
+							fetchpriority="high"
+						/>
+					)
+				}
 
-		<!-- Related Posts (Fixing Orphan Pages) -->
-		<section>
-			<h2 class="text-xl font-bold mb-6">บทความที่น่าสนใจ</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-				{Astro.props.recentPosts && Astro.props.recentPosts.map((rp: any) => (
-					<a href={`/${rp.slug}/`} class="group block border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
-						<h3 class="font-bold text-gray-900 group-hover:text-brand-600 text-sm line-clamp-2 leading-snug">{rp.title}</h3>
-					</a>
-				))}
-			</div>
-			<div class="mt-4 text-center">
-				<a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200">ดูบทความทั้งหมด →</a>
-			</div>
-		</section>
-		</div>
+				{
+					canonicalPath !== articlePath && (
+						<p class="canonical-note">
+							หน้านี้เป็นคู่มือรับซื้อตามพื้นที่ และลิงก์หลักของบริการอยู่ที่{' '}
+							<a href={canonicalPath}>{canonicalPath}</a>
+						</p>
+					)
+				}
 
-	</article>
-</BaseLayout>
+				<div class="article-prose content">
+					{Content && <Content />}
+				</div>
+
+				{localServiceContext && <ImportantLocalServiceSection context={localServiceContext} />}
+
+				<NaturalSeoSections {...articleLongform} />
+
+				{
+					faqItemsData && faqItemsData.length > 0 && (
+						<section class="article-faq" aria-labelledby="article-faq-heading">
+							<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
+							{faqItemsData.map((item) => (
+								<details>
+									<summary>{item.question}</summary>
+									<p>{item.answer}</p>
+								</details>
+							))}
+						</section>
+					)
+				}
+
+				{
+					showIntentHubLinks && (
+						<section class="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5">
+							<h2 class="text-lg font-bold text-gray-900">คู่มือและเช็กราคาก่อนขาย</h2>
+							<p class="mt-2 text-sm leading-relaxed text-gray-600">
+								อ่านบทความที่เกี่ยวข้องเพิ่ม หรือกลับไปดู hub รวมทุกหัวข้อก่อนทัก Line @webuy
+							</p>
+							<ul class="mt-3 flex flex-wrap gap-2 list-none p-0 m-0 text-sm">
+								<li>
+									<a
+										href="/คู่มือก่อนขาย/"
+										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+									>
+										คู่มือก่อนขาย
+									</a>
+								</li>
+								<li>
+									<a
+										href="/เช็กราคาก่อนขาย/"
+										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+									>
+										เช็กราคาก่อนขาย
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ราคากลางรับซื้อ/"
+										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+									>
+										ราคากลางรับซื้อ
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ความน่าเชื่อถือ/"
+										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+									>
+										ความน่าเชื่อถือ
+									</a>
+								</li>
+							</ul>
+						</section>
+					)
+				}
+
+				<div class="post-footer">
+					<section class="mb-10">
+						<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
+						<p class="text-gray-600 mb-4 text-sm">
+							หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี จ่ายเงินทันที:
+						</p>
+						<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
+							<li><a href="/รับซื้อโน๊ตบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อโน๊ตบุ๊ค</a></li>
+							<li><a href="/รับซื้อคอม/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อคอม</a></li>
+							<li><a href="/รับซื้อไอโฟน/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอโฟน</a></li>
+							<li><a href="/รับซื้อกล้อง/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อกล้อง</a></li>
+							<li><a href="/รับซื้อแมคบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อแมคบุ๊ค</a></li>
+							<li><a href="/รับซื้อไอแพด/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอแพด</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2 class="text-xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							{recentPosts &&
+								recentPosts.map((rp: { slug: string; title: string }) => (
+									<a
+										href={`/${rp.slug}/`}
+										class="group block border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow bg-white"
+									>
+										<h3 class="font-bold text-gray-900 group-hover:text-brand-600 text-sm line-clamp-2 leading-snug">
+											{rp.title}
+										</h3>
+									</a>
+								))}
+						</div>
+						<div class="mt-4 text-center">
+							<a
+								href="/blog/"
+								class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200"
+							>
+								ดูบทความทั้งหมด →
+							</a>
+						</div>
+					</section>
+				</div>
+			</article>
+		</BaseLayout>
+	)
+}

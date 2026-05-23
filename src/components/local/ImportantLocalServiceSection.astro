@@ -1,0 +1,158 @@
+---
+import type { ImportantLocalServiceContext } from '../../lib/local-service-pages';
+
+interface Props {
+	context: ImportantLocalServiceContext;
+}
+
+const { context } = Astro.props;
+---
+
+<section class="important-local-section" aria-labelledby="important-local-heading">
+	<div class="important-local-head">
+		<p class="tech-eyebrow">Local Focus</p>
+		<h2 id="important-local-heading">
+			บริบทพื้นที่ขาย{context.service.shortLabel}ใน{context.province.label}
+		</h2>
+		<p>
+			หน้า{context.servicePageTitle}นี้ไม่ได้ทำขึ้นเพื่อย้ำชื่อจังหวัดซ้ำ ๆ แต่ตั้งใจตอบโจทย์คนค้นหาในพื้นที่จริง
+			โดยเฉพาะคนที่อยากรู้ว่าควรเริ่มส่งข้อมูลอะไร นัดรับแบบไหนถึงคุยราคาได้ใกล้ความจริง และต้องดูจุดไหนของเครื่องก่อนขาย
+		</p>
+	</div>
+
+	<div class="important-local-grid">
+		<article class="tech-card important-local-card">
+			<h3>โซนที่หน้า local นี้โฟกัส</h3>
+			<p>{context.province.localAngle}</p>
+			<ul>
+				{context.province.focusAreas.map((area) => (
+					<li>{area}</li>
+				))}
+			</ul>
+			<p class="important-local-note">{context.province.meetupNote}</p>
+		</article>
+
+		<article class="tech-card important-local-card">
+			<h3>สิ่งที่คนขายในพื้นที่นี้มักถาม</h3>
+			<p>{context.service.valueAngle}</p>
+			<ul>
+				{context.province.sellerPatterns.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</article>
+
+		<article class="tech-card important-local-card">
+			<h3>ข้อมูลที่ควรส่งมาก่อนนัดรับ</h3>
+			<ul>
+				{context.service.prepareItems.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+			<h4>ปัจจัยที่มีผลกับราคามาก</h4>
+			<ul>
+				{context.service.decisionFactors.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</article>
+	</div>
+
+	<div class="important-local-links">
+		<p>ดูหน้าที่เกี่ยวข้องในพื้นที่เดียวกันหรือกลับไปหน้าหลักของหมวดนี้ได้ที่:</p>
+		<ul>
+			{context.crossLinks.map((link) => (
+				<li>
+					<a href={link.href}>{link.label}</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.important-local-section {
+		margin: 1.5rem 0 2rem;
+		padding: 1.25rem;
+		border: 1px solid rgba(249, 115, 22, 0.14);
+		border-radius: 20px;
+		background: linear-gradient(180deg, rgba(255, 248, 243, 0.88) 0%, #fff 100%);
+		box-shadow: var(--shadow-tech);
+	}
+	.important-local-head h2 {
+		margin: 0.2rem 0 0.6rem;
+		font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+	}
+	.important-local-head p:last-child {
+		margin: 0;
+		color: var(--muted);
+		max-width: 70ch;
+	}
+	.important-local-grid {
+		margin-top: 1rem;
+		display: grid;
+		gap: 0.9rem;
+	}
+	.important-local-card {
+		padding: 1rem 1.1rem 1rem 1.3rem;
+	}
+	.important-local-card h3,
+	.important-local-card h4 {
+		margin: 0 0 0.55rem;
+		font-size: 1rem;
+	}
+	.important-local-card h4 {
+		margin-top: 0.8rem;
+	}
+	.important-local-card p {
+		margin: 0 0 0.65rem;
+		color: var(--muted);
+	}
+	.important-local-card ul {
+		margin: 0;
+		padding-left: 1rem;
+		display: grid;
+		gap: 0.32rem;
+	}
+	.important-local-note {
+		margin-top: 0.7rem;
+		font-size: 0.95rem;
+	}
+	.important-local-links {
+		margin-top: 1rem;
+		padding-top: 0.9rem;
+		border-top: 1px dashed rgba(15, 23, 42, 0.12);
+	}
+	.important-local-links p {
+		margin: 0 0 0.55rem;
+		font-size: 0.95rem;
+		color: var(--muted);
+	}
+	.important-local-links ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+	}
+	.important-local-links a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.48rem 0.8rem;
+		border-radius: 999px;
+		border: 1px solid rgba(249, 115, 22, 0.16);
+		background: rgba(255, 255, 255, 0.9);
+		font-weight: 700;
+		font-size: 0.93rem;
+	}
+	.important-local-links a:hover {
+		text-decoration: none;
+		background: rgba(255, 248, 243, 1);
+	}
+	@media (min-width: 860px) {
+		.important-local-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

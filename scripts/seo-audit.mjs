@@ -259,14 +259,19 @@ function auditHtmlPage(filePath, distRoot, siteOrigin, whitelist) {
 	const html = readFileSync(filePath, 'utf8');
 	const pagePath = filePathToUrlPath(filePath, distRoot);
 	const pageUrl = `${siteOrigin}${pagePath === '/' ? '' : pagePath}`;
-	const legacyAlias = isLegacyAlias(pagePath, whitelist);
 	const issues = [];
 
 	const title = firstMatch(html, /<title[^>]*>([^<]*)<\/title>/i);
 	const description = firstMatch(html, /<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i);
 	const canonical = firstMatch(html, /<link\s+rel=["']canonical["']\s+href=["']([^"']*)["']/i);
 	const robots = firstMatch(html, /<meta\s+name=["']robots["']\s+content=["']([^"']*)["']/i);
+	const metaRefresh = /<meta\s+http-equiv=["']refresh["'][^>]*content=["'][^"']*url=/i.test(html);
 	const isNoindex = robots?.toLowerCase().includes('noindex') ?? false;
+	const canonicalPath = canonical ? normalizePathname(canonical) : null;
+	const expectedSelf = normalizePathname(pageUrl);
+	const legacyAlias =
+		isLegacyAlias(pagePath, whitelist) ||
+		Boolean(metaRefresh && isNoindex && canonicalPath && canonicalPath !== expectedSelf);
 
 	const h1Tags = allMatches(html, /<h1\b[^>]*>([\s\S]*?)<\/h1>/gi);
 	const h1Texts = h1Tags.map(([, inner]) => stripTags(inner)).filter(Boolean);
@@ -301,11 +306,9 @@ function auditHtmlPage(filePath, distRoot, siteOrigin, whitelist) {
 	if (!canonical) {
 		addIssue(issues, 'canonical_missing', 'error', 'Missing canonical link');
 	} else {
-		const canonicalPath = normalizePathname(canonical);
 		if (!canonicalPath) {
 			addIssue(issues, 'canonical_invalid', 'error', `Invalid canonical URL: ${canonical}`);
 		} else {
-			const expectedSelf = normalizePathname(pageUrl);
 			const whitelisted = isWhitelistedCanonical(pagePath, canonicalPath, whitelist);
 			if (!legacyAlias && canonicalPath !== expectedSelf && !whitelisted) {
 				addIssue(
