@@ -1,0 +1,317 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อ-server/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,เชียงใหม่,สงขลา';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Rack Server High-End (Dual Xeon, 256GB RAM+)', price: '30,000 - 120,000+ บาท', note: 'Dell PowerEdge R740/R840, HP ProLiant DL380/DL560 Gen10' },
+	{ model: 'Rack Server Mid-Range (Single Xeon, 64-128GB RAM)', price: '8,000 - 35,000 บาท', note: 'Dell R620/R630, HP DL360 G8/G9, Lenovo SR630' },
+	{ model: 'Tower Server สำนักงาน', price: '3,000 - 15,000 บาท', note: 'Dell T340/T440, HP ML350, Lenovo ST250' },
+	{ model: 'Server ซาก/เสีย หรือชิ้นส่วน', price: '500 - 8,000 บาท', note: 'ประเมินตามสภาพของ CPU, RAM, HDD/SSD และ Chassis' },
+	{ model: 'Blade Server + Chassis', price: '5,000 - 80,000 บาท', note: 'HP BladeSystem c7000, Dell PowerEdge M1000e' },
+];
+
+const serverLocalPages = [
+	{ href: '/รับซื้อ-server-เชียงใหม่/', label: 'รับซื้อ Server เชียงใหม่', caption: 'B2B ภาคเหนือ ออกเอกสาร จ่ายทันที' },
+	{ href: '/รับซื้อ-server-ขอนแก่น/', label: 'รับซื้อ Server ขอนแก่น', caption: 'B2B ภาคอีสาน ประเมินรวมล็อต' },
+	{ href: '/รับซื้อ-server-อุบลราชธานี/', label: 'รับซื้อ Server อุบลราชธานี', caption: 'B2B อีสานใต้ รับทุกยี่ห้อ' },
+	{ href: '/รับซื้อ-server-นครราชสีมา/', label: 'รับซื้อ Server นครราชสีมา', caption: 'B2B โคราช ราคาดีสุดในตลาด' },
+	{ href: '/รับซื้อ-server-กรุงเทพมหานคร/', label: 'รับซื้อ Server กรุงเทพ', caption: 'B2B กรุงเทพและปริมณฑล' },
+];
+
+const serverBrandPages = [
+	{ href: '/รับซื้อ-server-dell/', label: 'รับซื้อ Server Dell PowerEdge' },
+	{ href: '/รับซื้อ-server-hp/', label: 'รับซื้อ Server HP ProLiant' },
+	{ href: '/รับซื้อ-server-lenovo/', label: 'รับซื้อ Server Lenovo ThinkSystem' },
+	{ href: '/รับซื้อ-server-ibm/', label: 'รับซื้อ Server IBM Power' },
+	{ href: '/รับซื้อ-server-supermicro/', label: 'รับซื้อ Server Supermicro' },
+	{ href: '/รับซื้อ-server-huawei/', label: 'รับซื้อ Server Huawei FusionServer' },
+	{ href: '/รับซื้อ-server-hitachi/', label: 'รับซื้อ Server Hitachi' },
+	{ href: '/รับซื้อ-server-เสีย/', label: 'รับซื้อ Server เสีย/ซาก' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อ Server ยี่ห้อและรุ่นไหนบ้าง?',
+		a: 'รับซื้อ Server ทุกยี่ห้อครับ ทั้ง Dell PowerEdge, HP ProLiant, Lenovo ThinkSystem, IBM Power, Supermicro, Fujitsu, Huawei FusionServer และยี่ห้ออื่น ๆ รับทั้งแบบ Tower, Rack-mount และ Blade Server ทุกรุ่น ทุกสเปก',
+	},
+	{
+		q: 'Server เสียหรือเปิดไม่ติดรับซื้อไหม?',
+		a: 'รับครับ เราประเมินราคาตามสภาพจริงของชิ้นส่วนที่ยังมีมูลค่า เช่น CPU, RAM, HDD/SSD, PSU และ Chassis แม้ Server จะเปิดไม่ติดหรือมีปัญหา ก็ยังสามารถประเมินราคาซากได้',
+	},
+	{
+		q: 'ปลดระวาง Server ทั้งองค์กร ยกล็อตได้ไหม?',
+		a: 'ได้ครับ WE BUY รับประเมินรวมเป็นล็อต ทีมงานสามารถนัดเข้าสำรวจสถานที่และประเมินราคารวมทั้งหมดได้ พร้อมออกเอกสารรับซื้ออย่างเป็นทางการสำหรับบันทึกทางบัญชีขององค์กร',
+	},
+	{
+		q: 'Server มีข้อมูลสำคัญอยู่ต้องทำอย่างไรก่อนขาย?',
+		a: 'ควรสำรองข้อมูลสำคัญและทำการล้าง Drive ให้เรียบร้อยก่อนครับ หากต้องการความมั่นใจสูงสุด สามารถทำ Secure Erase หรือ Degauss HDD ก่อนส่งมอบ ทีมงาน WE BUY ไม่สามารถรับผิดชอบข้อมูลที่อยู่บน Drive ได้หลังรับมอบแล้ว',
+	},
+	{
+		q: 'ราคารับซื้อ Server พิจารณาจากอะไร?',
+		a: 'พิจารณาจาก 1) ยี่ห้อและรุ่น 2) สเปก CPU (จำนวน Socket, รุ่น Xeon) 3) ปริมาณ RAM ที่ติดมา 4) จำนวนและขนาด HDD/SSD 5) สภาพ PSU และ Chassis 6) อายุรุ่นและ End of Life Status',
+	},
+	{
+		q: 'มีเอกสารรับซื้ออย่างเป็นทางการไหม?',
+		a: 'มีครับ WE BUY ออกเอกสารรับซื้ออย่างเป็นทางการพร้อม Serial Number ทุกรายการ สำหรับบันทึกทางบัญชีและการตรวจสอบทรัพย์สินขององค์กร',
+	},
+	{
+		q: 'ติดต่อช่องทางไหนตอบเร็วที่สุด?',
+		a: 'Line @webuy ครับ สามารถส่งรายการ Server พร้อมสเปกและรูปได้ทันที ทีมงานจะประเมินราคาเบื้องต้นและนัดหมายเข้าสำรวจได้ภายในวันเดียวกัน',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อ Server มือสอง ทุกยี่ห้อ ทุกรุ่น จ่ายเงินทันที',
+		description: 'WE BUY รับซื้อ Server มือสองทุกยี่ห้อ Dell HP Lenovo IBM Supermicro ทั้ง Tower Rack Blade รับทั้งล็อตองค์กร ออกเอกสาร จ่ายเงินทันที',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อ Server มือสอง | คู่มือปลดระวาง Server และประเมินราคา',
+		description: 'รวมข้อมูลการรับซื้อ Server มือสอง ตั้งแต่วิธีประเมินราคา ปัจจัยที่มีผลต่อมูลค่า ขั้นตอนปลดระวางสำหรับองค์กร และบริการรับเหมายกล็อต',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: { '@type': 'WebPage', '@id': `${pageUrl}#webpage` },
+		datePublished: '2026-06-05',
+		dateModified: '2026-06-05',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords: 'รับซื้อ server, รับซื้อ server มือสอง, ขาย server, ปลดระวาง server, รับซื้อ server dell, รับซื้อ server hp, รับซื้อ server lenovo, รับเหมาอุปกรณ์ไอที',
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อ Server', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อ Server มือสอง',
+		description: 'บริการรับซื้อ Server มือสองทุกยี่ห้อ ทุกรุ่น รับทั้งรายชิ้นและยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อ Server มือสอง',
+		url: pageUrl,
+	},
+];
+---
+
+<BaseLayout
+	title={formatPageTitle('รับซื้อ Server มือสอง')}
+	description="WE BUY รับซื้อ Server มือสองทุกยี่ห้อ Dell, HP, Lenovo, IBM, Supermicro ทั้ง Tower, Rack, Blade รับทั้งรายชิ้นและยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที Line @webuy"
+	pathname="/รับซื้อ-server/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">B2B IT Asset Buyback — Server</p>
+			<h1>รับซื้อ Server มือสอง ทุกยี่ห้อ ทุกรุ่น — รับยกล็อตองค์กร ออกเอกสาร จ่ายทันที</h1>
+			<p class="intro">
+				หากองค์กรของคุณกำลัง <strong>ปลดระวาง Server</strong> หรืออยากขาย Server ที่ไม่ได้ใช้งานแล้ว
+				WE BUY คือพันธมิตรที่เข้าใจคุณค่าของอุปกรณ์ระดับ Enterprise อย่างแท้จริง
+				เรารับซื้อ Server ทุกยี่ห้อ ทั้ง Dell PowerEdge, HP ProLiant, Lenovo ThinkSystem, IBM Power, Supermicro และอื่น ๆ
+				รับทั้งแบบ Tower, Rack-mount และ Blade Server ทุกสเปกและทุกสภาพ
+				พร้อมออกเอกสารรับซื้ออย่างเป็นทางการและจ่ายเงินสดในวันเดียวกัน
+				ทักหา <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a> ได้ตลอดเวลาครับ
+			</p>
+		</header>
+
+		<PriceGuide title="ราคารับซื้อ Server อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
+		<section>
+			<h2>ทำไมต้องเลือก WE BUY สำหรับการปลดระวาง Server</h2>
+			<p>
+				การขาย Server มือสองต้องการผู้รับซื้อที่มีความเชี่ยวชาญด้านอุปกรณ์ระดับ Enterprise จริง ๆ
+				เพราะ Server แต่ละรุ่นมีสเปกซับซ้อน ทั้งจำนวน CPU Socket, ประเภท RAM (DDR3/DDR4/DDR5 ECC),
+				ประเภท HDD (SAS/SATA/NVMe) และอายุการรับประกันที่เหลือ ซึ่งล้วนส่งผลต่อราคาอย่างมีนัยสำคัญ
+			</p>
+
+			<h3>ประเมินราคาตามสเปกจริง ไม่เหมารวม</h3>
+			<p>
+				เราไม่ประเมินแบบเหมาจ่ายตายตัวต่อเครื่อง แต่ดูรายละเอียดของแต่ละหน่วย:
+				จำนวนและรุ่น CPU (Xeon E5/E7/Scalable), ปริมาณ RAM ที่ติดมา, จำนวนและขนาด HDD/SSD,
+				สภาพ PSU และ Chassis รวมถึงรุ่นและ Generation ของ Server
+			</p>
+
+			<h3>บริการรับยกล็อตสำหรับองค์กร</h3>
+			<p>
+				WE BUY รับซื้อ Server ยกชุดสำหรับองค์กรที่ต้องการปลดระวางพร้อมกันหลายเครื่อง
+				ทีมงานสามารถนัดเข้าสำรวจ Data Center หรือห้อง Server ของคุณเพื่อประเมินราคารวมทั้งล็อต
+				พร้อมออกเอกสารรับซื้ออย่างเป็นทางการสำหรับแผนกบัญชีและ IT Asset Management
+			</p>
+		</section>
+
+		<ContactBox
+			heading="มี Server ที่ต้องการขายหรือปลดระวาง?"
+			text="แจ้งรายการ Server พร้อมยี่ห้อรุ่นมาทาง Line @webuy ทีมงานจะประเมินราคาและนัดหมายเร็วที่สุด"
+			variant="primary"
+		/>
+
+		<section>
+			<h2>ปัจจัยที่มีผลต่อราคา Server มือสอง</h2>
+
+			<h3>1. ยี่ห้อ รุ่น และ Generation</h3>
+			<p>
+				Dell PowerEdge, HP ProLiant และ Lenovo ThinkSystem Generation ล่าสุด (Gen10/Gen11) ยังมีตลาดรองรับสูงกว่า Gen รุ่นเก่า
+				Server ที่ยังอยู่ใน Support Lifecycle ของผู้ผลิตมีมูลค่าสูงกว่า End-of-Life อย่างเห็นได้ชัด
+			</p>
+
+			<h3>2. จำนวนและรุ่น CPU</h3>
+			<p>
+				Dual-Socket Server (2P) มีมูลค่าสูงกว่า Single-Socket (1P) อย่างมีนัยสำคัญ
+				Intel Xeon Scalable (Skylake/Cascade Lake) มีตลาดรองรับดีกว่า Xeon รุ่นเก่า (E5 v2/v3)
+			</p>
+
+			<h3>3. ปริมาณ RAM ที่ติดมา</h3>
+			<p>
+				ECC RAM ติดมาในเครื่องมีมูลค่าสูงมาก เพราะ ECC RDIMM ราคาในตลาดสูง
+				Server ที่มี RAM ติดมาครบ (128GB, 256GB, 512GB) ได้ราคาดีกว่า Server เปล่าไม่มี RAM อย่างชัดเจน
+			</p>
+
+			<h3>4. จำนวนและประเภท HDD/SSD</h3>
+			<p>
+				SAS SSD และ NVMe NVMe มีมูลค่าสูงกว่า SATA HDD มาก
+				Server ที่มี Drive ติดมาครบ Drive Bay ได้ราคาดีกว่า Server เปล่าไม่มี Storage
+			</p>
+		</section>
+
+		<section>
+			<h2>รับซื้อ Server แยกตามยี่ห้อ</h2>
+			<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				{serverBrandPages.map((item) => (
+					<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+						<p class="font-semibold text-text">{item.label}</p>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<section>
+			<h2>รับซื้อ Server ตามพื้นที่ให้บริการ</h2>
+			<p>WE BUY ให้บริการรับซื้อ Server ครอบคลุมทั่วประเทศ สำหรับจังหวัดหลักที่มีฐานธุรกิจขนาดใหญ่:</p>
+			<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				{serverLocalPages.map((item) => (
+					<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+						<p class="font-semibold text-text">{item.label}</p>
+						<p class="mt-1 text-sm text-gray-600">{item.caption}</p>
+					</a>
+				))}
+			</div>
+			<p class="mt-4">
+				สำหรับจังหวัดอื่น ๆ สามารถส่งพัสดุหรือนัดรับได้ทั่วประเทศ ทักมาทาง Line @webuy เพื่อนัดหมาย
+			</p>
+		</section>
+
+		<ContactBox
+			heading="พร้อมประเมินราคา Server ของคุณ"
+			text="แจ้งรายการอุปกรณ์มาทาง Line @webuy รับราคาเบื้องต้นรวดเร็ว ออกเอกสารอย่างเป็นทางการ"
+			variant="secondary"
+		/>
+
+		<section class="faq">
+			<h2>คำถามที่พบบ่อยเกี่ยวกับการรับซื้อ Server (FAQ)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออุปกรณ์ B2B อื่น ๆ</h2>
+			<ul>
+				<li><a href="/รับซื้อ-ups/">รับซื้อ UPS เครื่องสำรองไฟ</a> — APC, Eaton, CyberPower ทุกขนาด</li>
+				<li><a href="/รับซื้อ-nas-storage/">รับซื้อ NAS Storage</a> — Synology, QNAP, NetApp</li>
+				<li><a href="/รับซื้อ-network-switch/">รับซื้อ Network Switch</a> — Cisco, HP, Dell Networking</li>
+				<li><a href="/รับซื้อ-mikrotik/">รับซื้อ MikroTik</a> — Router, Switch, Wireless ทุกรุ่น</li>
+				<li><a href="/รับซื้ออุปกรณ์ไอทีเก่าบริษัท/">รับซื้ออุปกรณ์ IT เก่าบริษัท</a> — รับยกล็อตพร้อมออกเอกสาร</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<NaturalSeoSections
+					theme="บริการรับซื้อ Server มือสองและการปลดระวางอุปกรณ์ Enterprise สำหรับองค์กร"
+					audience="ผู้จัดการ IT และเจ้าหน้าที่จัดซื้อขององค์กรที่ต้องการขาย Server และอุปกรณ์ Data Center มือสอง"
+					geo="องค์กรทั่วประเทศไทยที่ต้องการปลดระวาง IT Asset อย่างมีประสิทธิภาพ"
+					emphasis="อธิบายปัจจัยราคา Server ระดับ Enterprise และขั้นตอนการปลดระวางอย่างถูกต้องและปลอดภัย"
+					prepareItems={[
+						'รวบรวม Serial Number และ Model Number ของ Server แต่ละเครื่อง',
+						'ตรวจสอบสเปก CPU, RAM และ Storage ที่ติดมาในเครื่อง',
+						'สำรองและลบข้อมูลสำคัญบน Drive ก่อนส่งมอบ',
+						'ถ่ายรูป Server ทุกมุมพร้อมฉลาก Label ด้านหลัง',
+						'แจ้งจำนวนเครื่องและรายการอุปกรณ์ที่จะขายทั้งหมด',
+					]}
+					valueFactors={[
+						'Server Generation ใหม่และ Support Status ที่ยังไม่ EOL',
+						'ปริมาณ ECC RAM และจำนวน Drive ที่ติดมาในเครื่อง',
+						'จำนวน CPU Socket และรุ่น Xeon ที่ใช้',
+						'สภาพ Chassis, Rail Kit และ Bezel ที่ครบถ้วน',
+						'มี iDRAC/iLO License ที่ยังใช้งานได้หรือไม่',
+					]}
+					commonMistakes={[
+						'ไม่ระบุ RAM ที่ติดมาทำให้ประเมินราคาต่างจากความเป็นจริง',
+						'ลืมตรวจสอบว่า Drive ยังอยู่ในเครื่องหรือถูกถอดออกไปแล้ว',
+						'ไม่ลบข้อมูลก่อนส่งมอบ เสี่ยงข้อมูลองค์กรรั่วไหล',
+						'ประเมินราคาจากราคาซื้อเดิมโดยไม่ดูตลาดมือสองปัจจุบัน',
+					]}
+					internalLinks={[
+						{ href: '/รับซื้ออุปกรณ์ไอทีเก่าบริษัท/', label: 'รับซื้ออุปกรณ์ IT เก่าบริษัทยกล็อต' },
+						{ href: '/รับซื้อ-ups/', label: 'รับซื้อ UPS เครื่องสำรองไฟ' },
+						{ href: '/รับเหมาอุปกรณ์ไอที/', label: 'บริการรับเหมาอุปกรณ์ IT ครบล็อต' },
+						{ href: '/ความน่าเชื่อถือ/', label: 'ความน่าเชื่อถือและขั้นตอนโปร่งใส' },
+					]}
+					density="medium"
+				/>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
+</BaseLayout>

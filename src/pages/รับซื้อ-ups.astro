@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อ-ups/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,เชียงใหม่,สงขลา';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'UPS Industrial 20-100 kVA (APC / Eaton)', price: '20,000 - 100,000+ บาท', note: 'Three-Phase / Online Double Conversion สำหรับ Data Center' },
+	{ model: 'UPS Online 6-10 kVA (APC Smart-UPS VT)', price: '8,000 - 30,000 บาท', note: 'APC SUVT10KF4B5S, Eaton 9PX / 9SX' },
+	{ model: 'UPS Online 3 kVA (APC / Eaton / CyberPower)', price: '3,000 - 10,000 บาท', note: 'APC SRT3000XLI, Eaton 5PX3000iRT2U' },
+	{ model: 'UPS Smart 1500VA / 2200VA', price: '1,500 - 5,000 บาท', note: 'APC SUA1500, SUA2200 และรุ่นเทียบเท่า' },
+	{ model: 'UPS Line-Interactive 600VA-1000VA', price: '300 - 1,500 บาท', note: 'Syndome, True Online, Cleanline และยี่ห้ออื่น ๆ' },
+];
+
+const upsLocalPages = [
+	{ href: '/รับซื้อ-ups-เชียงใหม่/', label: 'รับซื้อ UPS เชียงใหม่', caption: 'B2B ภาคเหนือ รับทุกขนาด จ่ายทันที' },
+	{ href: '/รับซื้อ-ups-ขอนแก่น/', label: 'รับซื้อ UPS ขอนแก่น', caption: 'B2B ภาคอีสาน ประเมินรวมล็อต' },
+	{ href: '/รับซื้อ-ups-อุบลราชธานี/', label: 'รับซื้อ UPS อุบลราชธานี', caption: 'B2B อีสานใต้ รับทุกยี่ห้อ' },
+	{ href: '/รับซื้อ-ups-นครราชสีมา/', label: 'รับซื้อ UPS นครราชสีมา', caption: 'B2B โคราช ราคาดีสุดในตลาด' },
+	{ href: '/รับซื้อ-ups-กรุงเทพมหานคร/', label: 'รับซื้อ UPS กรุงเทพ', caption: 'B2B กรุงเทพและปริมณฑล' },
+];
+
+const upsBrandPages = [
+	{ href: '/รับซื้อ-ups-apc/', label: 'รับซื้อ UPS APC' },
+	{ href: '/รับซื้อ-ups-cyberpower/', label: 'รับซื้อ UPS CyberPower' },
+	{ href: '/รับซื้อ-ups-true-online/', label: 'รับซื้อ UPS True Online (Socomec)' },
+	{ href: '/รับซื้อ-ups-syndome/', label: 'รับซื้อ UPS Syndome' },
+	{ href: '/รับซื้อ-ups-cleanline/', label: 'รับซื้อ UPS Cleanline' },
+	{ href: '/รับซื้อ-ups-server/', label: 'รับซื้อ UPS สำหรับ Server Room' },
+	{ href: '/รับซื้อแบตเตอรี่-ups/', label: 'รับซื้อแบตเตอรี่ UPS แยกชิ้น' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อ UPS ยี่ห้อและรุ่นไหนบ้าง?',
+		a: 'รับซื้อ UPS ทุกยี่ห้อครับ ทั้ง APC, Eaton (MGE/Powerware), CyberPower, Syndome, True Online (Socomec), Cleanline, Delta และยี่ห้ออื่น ๆ รับทุกขนาดตั้งแต่ 600VA จนถึงระดับ 100 kVA ขึ้นไป',
+	},
+	{
+		q: 'UPS ที่แบตเตอรี่หมดอายุแล้วรับซื้อไหม?',
+		a: 'รับครับ UPS ที่แบตเตอรี่หมดอายุแต่ Inverter และ Circuit ยังทำงานได้ปกติ ยังมีมูลค่าในตลาด เพราะผู้ซื้อสามารถเปลี่ยนแบตเตอรี่แล้วใช้งานต่อได้ เราประเมินราคาตามสภาพจริง',
+	},
+	{
+		q: 'ปลดระวาง UPS ยกล็อตทำอย่างไร?',
+		a: 'ทักมาทาง Line @webuy แจ้งจำนวนและยี่ห้อรุ่น ทีมงานจะนัดเข้าสำรวจและประเมินราคารวมทั้งล็อตได้ พร้อมออกเอกสารรับซื้ออย่างเป็นทางการ',
+	},
+	{
+		q: 'ราคารับซื้อ UPS พิจารณาจากอะไร?',
+		a: 'พิจารณาจาก 1) ยี่ห้อและรุ่น 2) ขนาด VA/kVA 3) ประเภท (Line-Interactive, Online Single/Double Conversion) 4) สภาพ Inverter และ Circuit 5) อายุการใช้งานและปีที่ผลิต 6) สภาพแบตเตอรี่ที่ติดมา',
+	},
+	{
+		q: 'แบตเตอรี่ UPS แยกชิ้นรับซื้อไหม?',
+		a: 'รับครับ แบตเตอรี่ UPS ที่ยังอยู่ในสภาพดีหรือยังมีเปอร์เซ็นต์ความจุที่ดีอยู่มีมูลค่าในตลาด ทั้งแบตเตอรี่ขนาดเล็กสำหรับ UPS สำนักงาน และแบตเตอรี่ชุดใหญ่สำหรับ UPS Industrial',
+	},
+	{
+		q: 'มีเอกสารรับซื้ออย่างเป็นทางการไหม?',
+		a: 'มีครับ WE BUY ออกเอกสารรับซื้ออย่างเป็นทางการพร้อมระบุรายการ Serial Number ทุกรายการ สำหรับแผนกบัญชีและการจัดการทรัพย์สินขององค์กร',
+	},
+	{
+		q: 'ติดต่อช่องทางไหนตอบเร็วที่สุด?',
+		a: 'Line @webuy ครับ สามารถส่งรายการ UPS พร้อมสเปกและรูปได้ทันที ทีมงานจะประเมินราคาเบื้องต้นและนัดหมายเข้าสำรวจได้ภายในวันเดียวกัน',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง ทุกยี่ห้อ จ่ายเงินทันที',
+		description: 'WE BUY รับซื้อ UPS เครื่องสำรองไฟมือสอง APC Eaton CyberPower Syndome รับทุกขนาด ทุกสภาพ รับยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง | คู่มือปลดระวางและประเมินราคา',
+		description: 'รวมข้อมูลการรับซื้อ UPS มือสอง ปัจจัยราคา ประเภท UPS ที่มีมูลค่า ขั้นตอนปลดระวางสำหรับองค์กร และบริการรับเหมายกล็อต',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: { '@type': 'WebPage', '@id': `${pageUrl}#webpage` },
+		datePublished: '2026-06-05',
+		dateModified: '2026-06-05',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords: 'รับซื้อ ups, รับซื้อ ups มือสอง, ขาย ups, ปลดระวาง ups, รับซื้อ ups apc, รับซื้อเครื่องสำรองไฟ, รับซื้อ ups eaton, รับซื้อ ups cyberpower',
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อ UPS', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อ UPS เครื่องสำรองไฟ มือสอง',
+		description: 'บริการรับซื้อ UPS เครื่องสำรองไฟมือสองทุกยี่ห้อ ทุกขนาด รับทั้งรายชิ้นและยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง',
+		url: pageUrl,
+	},
+];
+---
+
+<BaseLayout
+	title={formatPageTitle('รับซื้อ UPS เครื่องสำรองไฟ มือสอง')}
+	description="WE BUY รับซื้อ UPS เครื่องสำรองไฟมือสอง APC, Eaton, CyberPower, Syndome รับทุกขนาดตั้งแต่ 600VA ถึง 100 kVA+ รับยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที Line @webuy"
+	pathname="/รับซื้อ-ups/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<article class="container longform">
+
+		<header class="article-head">
+			<p class="kicker">B2B IT Asset Buyback — UPS / เครื่องสำรองไฟ</p>
+			<h1>รับซื้อ UPS เครื่องสำรองไฟ มือสอง ทุกยี่ห้อ ทุกขนาด — รับยกล็อต ออกเอกสาร จ่ายทันที</h1>
+			<p class="intro">
+				หากองค์กรของคุณกำลัง <strong>ปลดระวาง UPS</strong> หรือต้องการขาย UPS ที่อัปเกรดระบบแล้ว
+				WE BUY รับซื้อ UPS ทุกยี่ห้อ ทุกขนาด ตั้งแต่ UPS สำนักงานขนาดเล็ก 600VA ไปจนถึง UPS Industrial ระดับ 100 kVA ขึ้นไป
+				รับทั้ง APC, Eaton, CyberPower, Syndome, True Online, Cleanline และยี่ห้ออื่น ๆ
+				พร้อมออกเอกสารรับซื้ออย่างเป็นทางการและจ่ายเงินสดในวันเดียวกัน
+				ทักหา <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">Line @webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a> ได้ตลอดเวลาครับ
+			</p>
+		</header>
+
+		<PriceGuide title="ราคารับซื้อ UPS อ้างอิง (อัปเดต 2026)" items={priceItems} />
+
+		<section>
+			<h2>ทำไมต้องเลือก WE BUY สำหรับการขาย UPS มือสอง</h2>
+			<p>
+				UPS มีหลากหลายประเภทและขนาด ผู้รับซื้อที่ไม่มีความเชี่ยวชาญมักประเมินราคาต่ำกว่าความเป็นจริง
+				WE BUY เข้าใจความแตกต่างระหว่าง Line-Interactive, Online Single Conversion และ Online Double Conversion
+				ซึ่งมีผลต่อราคาอย่างมาก เราให้ราคาที่ยุติธรรมตามมูลค่าจริงของอุปกรณ์
+			</p>
+
+			<h3>รับทุกขนาดและทุกประเภท</h3>
+			<p>
+				ตั้งแต่ UPS ขนาดเล็กสำหรับสำนักงาน (600VA–3 kVA) ไปจนถึง UPS Industrial ขนาดใหญ่สำหรับ Data Center (10 kVA–100+ kVA)
+				รับทั้งแบบ Single-Phase และ Three-Phase
+			</p>
+
+			<h3>บริการรับยกล็อตสำหรับองค์กร</h3>
+			<p>
+				WE BUY รับซื้อ UPS ยกชุดสำหรับองค์กรที่อัปเกรดระบบหรือปลดระวางพร้อมกันหลายเครื่อง
+				ทีมงานสามารถนัดเข้าสำรวจและประเมินราคารวมทั้งล็อต พร้อมออกเอกสารรับซื้ออย่างเป็นทางการ
+			</p>
+		</section>
+
+		<ContactBox
+			heading="มี UPS ที่ต้องการขายหรือปลดระวาง?"
+			text="แจ้งรายการ UPS พร้อมยี่ห้อรุ่นและขนาดมาทาง Line @webuy ทีมงานจะประเมินราคาและนัดหมายเร็วที่สุด"
+			variant="primary"
+		/>
+
+		<section>
+			<h2>ประเภท UPS และมูลค่าในตลาดมือสอง</h2>
+
+			<h3>1. Online Double Conversion (True Online)</h3>
+			<p>
+				UPS ประเภทนี้มีมูลค่าสูงที่สุดในตลาดมือสอง เพราะให้การปกป้องไฟฟ้าสมบูรณ์แบบที่สุด
+				พบในรุ่น APC Smart-UPS VT, Eaton 9PX/9SX, CyberPower OL Series
+				ขนาด 3 kVA ขึ้นไปยังคงได้ราคาดีแม้อายุหลายปี
+			</p>
+
+			<h3>2. Online Single Conversion (Line-Interactive)</h3>
+			<p>
+				ประเภทนี้พบมากที่สุดในตลาด เช่น APC Smart-UPS SMT, CyberPower PR Series
+				ยังมีมูลค่าดีหากสภาพ Inverter ยังสมบูรณ์ แม้แบตเตอรี่จะหมดอายุแล้ว
+			</p>
+
+			<h3>3. Line-Interactive ขนาดเล็ก</h3>
+			<p>
+				UPS สำหรับสำนักงาน 600VA–2200VA ยี่ห้อ Syndome, True Online, Cleanline, APC Back-UPS
+				ยังมีตลาดรองรับสำหรับ SME ที่ต้องการประหยัดงบ
+			</p>
+		</section>
+
+		<section>
+			<h2>รับซื้อ UPS แยกตามยี่ห้อ</h2>
+			<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				{upsBrandPages.map((item) => (
+					<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+						<p class="font-semibold text-text">{item.label}</p>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<section>
+			<h2>รับซื้อ UPS ตามพื้นที่ให้บริการ</h2>
+			<p>WE BUY ให้บริการรับซื้อ UPS ครอบคลุมทั่วประเทศ สำหรับจังหวัดหลักที่มีฐานธุรกิจขนาดใหญ่:</p>
+			<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				{upsLocalPages.map((item) => (
+					<a href={item.href} class="rounded-2xl border border-gray-200 bg-white p-4 no-underline transition hover:border-brand-300 hover:shadow-sm">
+						<p class="font-semibold text-text">{item.label}</p>
+						<p class="mt-1 text-sm text-gray-600">{item.caption}</p>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<ContactBox
+			heading="พร้อมประเมินราคา UPS ของคุณ"
+			text="แจ้งรายการ UPS พร้อมยี่ห้อรุ่นและขนาดมาทาง Line @webuy ออกเอกสารอย่างเป็นทางการ"
+			variant="secondary"
+		/>
+
+		<section class="faq">
+			<h2>คำถามที่พบบ่อยเกี่ยวกับการรับซื้อ UPS (FAQ)</h2>
+			{faqItems.map((item) => (
+				<details>
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</section>
+
+		<section>
+			<h2>บริการรับซื้ออุปกรณ์ B2B อื่น ๆ</h2>
+			<ul>
+				<li><a href="/รับซื้อ-server/">รับซื้อ Server มือสอง</a> — Dell, HP, Lenovo, Supermicro ทุกรุ่น</li>
+				<li><a href="/รับซื้อ-nas-storage/">รับซื้อ NAS Storage</a> — Synology, QNAP, NetApp</li>
+				<li><a href="/รับซื้อ-network-switch/">รับซื้อ Network Switch</a> — Cisco, HP, Dell Networking</li>
+				<li><a href="/รับซื้ออุปกรณ์ไอทีเก่าบริษัท/">รับซื้ออุปกรณ์ IT เก่าบริษัท</a> — รับยกล็อตพร้อมออกเอกสาร</li>
+			</ul>
+		</section>
+
+		{recent.length > 0 && (
+			<div class="mt-12 pt-12 border-t border-gray-100">
+				<h2 class="text-2xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+				<NaturalSeoSections
+					theme="บริการรับซื้อ UPS เครื่องสำรองไฟมือสองสำหรับองค์กร"
+					audience="ผู้จัดการ IT และเจ้าหน้าที่จัดซื้อขององค์กรที่ต้องการขาย UPS และอุปกรณ์ไฟฟ้าสำรองมือสอง"
+					geo="องค์กรทั่วประเทศไทยที่ต้องการปลดระวาง UPS อย่างมีประสิทธิภาพ"
+					emphasis="อธิบายความแตกต่างของประเภท UPS และปัจจัยราคาที่ทีม IT ต้องรู้ก่อนขาย"
+					prepareItems={[
+						'รวบรวม Model Number และ Serial Number ของ UPS แต่ละเครื่อง',
+						'ตรวจสอบขนาด VA/kVA และประเภท UPS (Line-Interactive / Online)',
+						'ตรวจสอบสภาพแบตเตอรี่ที่ติดมาในเครื่อง',
+						'ถ่ายรูป UPS ทุกมุมพร้อมฉลากด้านหลัง',
+						'แจ้งจำนวนเครื่องที่ต้องการขายทั้งหมด',
+					]}
+					valueFactors={[
+						'ประเภท UPS: Online Double Conversion ราคาสูงกว่า Line-Interactive',
+						'ขนาด VA/kVA: ยิ่งใหญ่ยิ่งราคาดี',
+						'สภาพ Inverter และ Circuit Board ภายใน',
+						'ยี่ห้อและ Generation ของรุ่น',
+						'แบตเตอรี่ที่ติดมาว่ายังดีหรือหมดอายุแล้ว',
+					]}
+					commonMistakes={[
+						'ไม่ระบุขนาด VA/kVA ทำให้ประเมินราคาผิดพลาด',
+						'สับสนระหว่าง UPS ประเภท Offline, Line-Interactive และ Online',
+						'ประเมินราคาจากราคาซื้อเดิมโดยไม่ดูตลาดมือสองปัจจุบัน',
+						'ลืมแจ้งว่าแบตเตอรี่ยังดีหรือหมดอายุ',
+					]}
+					internalLinks={[
+						{ href: '/รับซื้อ-server/', label: 'รับซื้อ Server มือสอง' },
+						{ href: '/รับซื้อแบตเตอรี่-ups/', label: 'รับซื้อแบตเตอรี่ UPS แยกชิ้น' },
+						{ href: '/รับเหมาอุปกรณ์ไอที/', label: 'บริการรับเหมาอุปกรณ์ IT ครบล็อต' },
+						{ href: '/ความน่าเชื่อถือ/', label: 'ความน่าเชื่อถือและขั้นตอนโปร่งใส' },
+					]}
+					density="medium"
+				/>
+				<BlogPreviewMagazine posts={recent} />
+			</div>
+		)}
+
+	</article>
+</BaseLayout>
