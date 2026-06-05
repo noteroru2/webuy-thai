@@ -219,6 +219,178 @@ const jsonLd: Array<Record<string, unknown>> = [
 			</div>
 		</section>
 
+		<!-- ═══════════════════════════════════════════════════════════ -->
+		<section class="border-t border-gray-200 bg-white py-12 sm:py-16" id="คู่มือเชิงลึกการเช็กราคา">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<h2 class="text-3xl font-extrabold text-brand-900">คู่มือถ่ายรูปและเช็กสเปกเครื่องก่อนส่งประเมินราคา</h2>
+				<p class="mt-4 text-lg text-text-muted leading-relaxed">
+					หนึ่งในขั้นตอนที่สำคัญที่สุดในการได้รับราคาประเมินที่ **แม่นยำ รวดเร็ว และไม่มีการกดราคาหน้างาน** คือการเตรียมข้อมูลที่ชัดเจนและเป็นจริง 100% การส่งสเปกฮาร์ดแวร์แบบละเอียดและภาพถ่ายในมุมมองที่ถูกต้อง จะช่วยให้ทีมงานช่างเทคนิคของ WE BUY สามารถวิเคราะห์สภาพและเสนอช่วงราคาที่ตรงกับมูลค่าจริงของอุปกรณ์ของคุณได้ทันทีโดยไม่ต้องถามซ้ำหลายรอบ
+				</p>
+
+				<div class="mt-10 space-y-12">
+					<!-- หัวข้อหลักที่ 1 -->
+					<div>
+						<h3 class="text-2xl font-bold text-text">1. วิธีดูสเปกและจับภาพหน้าจอ (Spec Screenshots Guide) แยกตามระบบปฏิบัติการ</h3>
+						<p class="mt-3 text-base text-text-muted leading-relaxed">
+							สเปกภายในคือหัวใจหลักในการกำหนดราคารับซื้อของอุปกรณ์คอมพิวเตอร์และมือถือ นี่คือขั้นตอนง่าย ๆ ในการดูสเปกเชิงลึกและแคปเจอร์หน้าจอเพื่อส่งให้เรา:
+						</p>
+
+						<div class="mt-6 space-y-6">
+							<!-- Windows OS -->
+							<div class="rounded-xl border border-gray-200 bg-gray-50/50 p-5">
+								<strong class="text-brand-950 block text-lg mb-2">💻 ฝั่งคอมพิวเตอร์ / โน้ตบุ๊ค Windows (10 & 11)</strong>
+								<p class="text-sm leading-relaxed text-text-muted mb-3">
+									การดูผ่าน System Information หรือคำสั่ง DxDiag จะให้รายละเอียดฮาร์ดแวร์ครบถ้วนที่สุด:
+								</p>
+								<ul class="space-y-2 text-sm text-text list-decimal pl-5">
+									<li>กดปุ่ม <strong>Windows + R</strong> บนคีย์บอร์ดเพื่อเปิดหน้าต่าง Run</li>
+									<li>พิมพ์คำว่า <code class="bg-gray-200 px-1.5 py-0.5 rounded font-mono text-xs">dxdiag</code> แล้วกด Enter</li>
+									<li>รอระบบโหลดสักครู่ จะปรากฏหน้าต่าง DirectX Diagnostic Tool ให้ถ่ายรูปหรือแคปเจอร์หน้าแรก (System) ซึ่งจะแสดงรุ่น CPU และความจุ RAM</li>
+									<li>จากนั้นคลิกแท็บ <strong>Display</strong> หรือ <strong>Render</strong> เพื่อดูรุ่นการ์ดจอ (เช่น NVIDIA GeForce, AMD Radeon, Intel Iris Xe)</li>
+									<li><strong>การเช็กความจุฮาร์ดดิสก์ (SSD/HDD):</strong> เปิด File Explorer คลิกที่ "This PC" แล้วถ่ายรูปหน้าต่างที่เห็นไดรฟ์ C: หรือ D: เพื่อดูความจุพื้นที่เก็บข้อมูลทั้งหมด</li>
+								</ul>
+							</div>
+
+							<!-- macOS -->
+							<div class="rounded-xl border border-gray-200 bg-gray-50/50 p-5">
+								<strong class="text-brand-950 block text-lg mb-2">🍎 ฝั่ง MacBook / iMac / Mac mini (macOS)</strong>
+								<p class="text-sm leading-relaxed text-text-muted mb-3">
+									ระบบปฏิบัติการ macOS ออกแบบมาให้ดูข้อมูลทั้งหมดได้ในหน้าเดียวอย่างง่ายดาย:
+								</p>
+								<ul class="space-y-2 text-sm text-text list-decimal pl-5">
+									<li>คลิกสัญลักษณ์ <strong>โลโก้ Apple ()</strong> ที่มุมซ้ายบนสุดของหน้าจอ</li>
+									<li>เลือกเมนู <strong>เกี่ยวกับ Mac นี้ (About This Mac)</strong></li>
+									<li>จะขึ้นหน้าต่างเล็ก ๆ แสดงปีที่ผลิต, รุ่นชิปประมวลผล (เช่น Apple M1, M2 Pro, Intel Core i7), ขนาด RAM และพื้นที่เก็บข้อมูล</li>
+									<li><strong>สำหรับชิป Apple Silicon:</strong> แคปหน้าจอนี้ส่งมาได้เลย</li>
+									<li><strong>การเช็กสถานะแบตเตอรี่ (MacBook):</strong> ไปที่การตั้งค่าระบบ (System Settings) > แบตเตอรี่ (Battery) > ดูที่ "สุขภาพแบตเตอรี่" (Battery Health) เพื่อแคปเจอร์เปอร์เซ็นต์สูงสุดและจำนวนรอบชาร์จ (Cycle Count) ใน System Report > Power ซึ่งจะช่วยเพิ่มความแม่นยำในการให้ราคา</li>
+								</ul>
+							</div>
+
+							<!-- iOS / iPadOS -->
+							<div class="rounded-xl border border-gray-200 bg-gray-50/50 p-5">
+								<strong class="text-brand-950 block text-lg mb-2">📱 ฝั่ง iPhone / iPad (iOS & iPadOS)</strong>
+								<p class="text-sm leading-relaxed text-text-muted mb-3">
+									ข้อมูลในหน้าการตั้งค่าจะระบุโมเดลและความจุที่ถูกต้อง 100%:
+								</p>
+								<ul class="space-y-2 text-sm text-text list-decimal pl-5">
+									<li>ไปที่แอป <strong>การตั้งค่า (Settings) > ทั่วไป (General) > เกี่ยวกับ (About)</strong> แล้วแคปเจอร์หน้าจอนี้ส่งมา (ต้องเห็นชื่อรุ่น โมเดลเครื่อง และความจุ)</li>
+									<li>ไปที่ <strong>การตั้งค่า (Settings) > แบตเตอรี่ (Battery) > สุขภาพแบตเตอรี่และการชาร์จ (Battery Health & Charging)</strong> แล้วแคปเจอร์หน้าจอเพื่อแสดงเปอร์เซ็นต์ความจุสูงสุด (Maximum Capacity)</li>
+									<li>หากเครื่องเคยมีประวัติเปลี่ยนหน้าจอหรือชิ้นส่วนอื่น ๆ มา จะมีระบุในหน้า "เกี่ยวกับ" ว่าเป็นชิ้นส่วนที่ไม่รู้จัก (Unknown Part) หรือชิ้นส่วนแท้ของ Apple (Genuine Apple Part) แนะนำให้แจ้งตามตรงเพื่อการประเมินราคาที่สมเหตุสมผลที่สุด</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- หัวข้อหลักที่ 2 -->
+					<div>
+						<h3 class="text-2xl font-bold text-text">2. เทคนิคการจัดมุมกล้อง 5 มุมทองคำ (5 Golden Photo Angles) สำหรับการตรวจภายนอก</h3>
+						<p class="mt-3 text-base text-text-muted leading-relaxed">
+							สภาพภายนอกคือปัจจัยหลักที่ส่งผลต่อการจำแนกเกรดสภาพเครื่อง (Grade A, B, C, D) การถ่ายรูปที่ชัดเจนจะช่วยย้ำระดับความสวยของเครื่อง และทำให้ร้านค้าประเมินราคาได้ใกล้เคียงกับราคาจ่ายจริงมากที่สุด แนะนำให้ถ่ายภาพในที่ที่มีแสงสว่างเพียงพอ (เช่น แสงธรรมชาติข้างหน้าต่าง หรือเปิดไฟห้องให้สว่าง) โดยมี 5 มุมสำคัญดังนี้:
+						</p>
+						
+						<div class="mt-6 overflow-x-auto rounded-xl border border-gray-200">
+							<table class="w-full text-left text-sm text-text">
+								<thead class="bg-gray-50 text-xs uppercase text-text-muted">
+									<tr>
+										<th class="px-6 py-4 font-bold">มุมถ่ายภาพ</th>
+										<th class="px-6 py-4 font-bold">จุดประสงค์ในการตรวจสอบ</th>
+										<th class="px-6 py-4 font-bold">เทคนิคสำคัญในการถ่ายภาพ</th>
+									</tr>
+								</thead>
+								<tbody class="divide-y divide-gray-200 bg-white">
+									<tr>
+										<td class="px-6 py-4 font-semibold">1. ด้านหน้าตรง (เปิดหน้าจอ)</td>
+										<td class="px-6 py-4 text-brand-800">ตรวจสอบสีหน้าจอ ความสว่าง และรอยแตกร้าวบนกระจกหน้าจอ</td>
+										<td class="px-6 py-4 text-text-muted">เปิดหน้าจอให้เห็นภาพพื้นหลังสีอ่อน (ถ้ามีรอยเบิร์น จอเหลือง หรือเส้นพิกเซลขัดข้องจะเห็นชัดเจนที่สุด) หลีกเลี่ยงมุมสะท้อนของหลอดไฟ</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold">2. ด้านหลังเครื่องตรง</td>
+										<td class="px-6 py-4 text-brand-800">ตรวจสอบรอยขีดข่วน รอยลอกของสี รอยบิ่น หรือคราบฝังแน่น</td>
+										<td class="px-6 py-4 text-text-muted">ถอดเคสออกทุกครั้ง เช็ดฝุ่นหรือคราบนิ้วมือออกก่อนถ่าย เพื่อไม่ให้ทีมงานเข้าใจผิดว่าเป็นรอยตำหนิถาวร</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold">3. ซูมมุมเครื่องทั้ง 4 ด้าน</td>
+										<td class="px-6 py-4 text-brand-800">ตรวจสอบรอยบุบ รอยยุบจากการตกกระแทก หรือรอยขูดขีดลึก</td>
+										<td class="px-6 py-4 text-text-muted">ถ่ายเน้นที่ขอบโลหะหรือพลาสติกที่เป็นมุมโค้ง หากไม่มีรอยให้ถ่ายย้ำความสวยงามเพื่อรับเรทราคาสภาพนางฟ้า (เกรด A)</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold">4. ช่องและพอร์ตเชื่อมต่อ</td>
+										<td class="px-6 py-4 text-brand-800">ตรวจสอบความสะอาด คราบชื้น หรือการบิดเบี้ยวของช่องชาร์จไฟ</td>
+										<td class="px-6 py-4 text-text-muted">ถ่ายช่อง USB, HDMI, Type-C หรือช่องหูฟังให้เห็นพินด้านในชัดเจน หากมีอแดปเตอร์หรือสายชาร์จแท้ให้จัดวางข้าง ๆ เพื่อความสมบูรณ์</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold">5. ถ่ายคู่กับกล่องและอุปกรณ์เสริม</td>
+										<td class="px-6 py-4 text-brand-800">ตรวจสอบอุปกรณ์ศูนย์ดั้งเดิม ความแท้ของสายชาร์จ และ Serial Number</td>
+										<td class="px-6 py-4 text-text-muted">วางเครื่องพร้อมอุปกรณ์ชาร์จและกล่องบรรจุภัณฑ์ถ่ายในช็อตเดียวกัน ถ่ายเน้นฉลากสติกเกอร์ที่ระบุ Serial Number หรือเลข IMEI หลังกล่องเพื่อการยืนยันตัวตนเครื่องที่รวดเร็ว</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- หัวข้อหลักที่ 3 -->
+					<div>
+						<h3 class="text-2xl font-bold text-text">3. ตารางข้อมูลขั้นต่ำในการประเมินราคา (Data Checklist Matrix)</h3>
+						<p class="mt-3 text-base text-text-muted leading-relaxed">
+							เพื่อไม่ให้ตกหล่นข้อมูลสำคัญที่ทีมงานใช้ประเมินราคา ตารางสรุปนี้จะช่วยให้คุณเตรียมสิ่งจำเป็นได้ครบในรอบเดียว:
+						</p>
+
+						<div class="mt-6 overflow-x-auto rounded-xl border border-gray-200">
+							<table class="w-full text-left text-sm text-text">
+								<thead class="bg-gray-50 text-xs uppercase text-text-muted">
+									<tr>
+										<th class="px-6 py-4 font-bold">ประเภทอุปกรณ์</th>
+										<th class="px-6 py-4 font-bold">ข้อมูลที่ต้องการบังคับ</th>
+										<th class="px-6 py-4 font-bold">ข้อมูลเสริมช่วยอัปราคา</th>
+										<th class="px-6 py-4 font-bold">ข้อกังวลที่ต้องแจ้งล่วงหน้า</th>
+									</tr>
+								</thead>
+								<tbody class="divide-y divide-gray-200 bg-white">
+									<tr>
+										<td class="px-6 py-4 font-semibold text-brand-800">iPhone / iPad</td>
+										<td class="px-6 py-4">รุ่น/ความจุ, สุขภาพแบต (%), ประวัติเคลมชิ้นส่วน</td>
+										<td class="px-6 py-4">กล่องเดิม, สายชาร์จแท้, ปากกา Apple Pencil, ประกัน AppleCare+ ที่ยังไม่หมดอายุ</td>
+										<td class="px-6 py-4 text-red-600">รอยร้าวบนกล้องหลัง, อาการทัชรวน, การติดรหัส Apple ID เจ้าของเดิม</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold text-brand-800">โน้ตบุ๊ค / คอมพิวเตอร์</td>
+										<td class="px-6 py-4">สเปกหลัก (CPU, RAM, GPU, SSD), สถานะคีย์บอร์ดทุกปุ่ม, อาการจอเบิร์น/เดธพิกเซล</td>
+										<td class="px-6 py-4">อแดปเตอร์ชาร์จแท้, กระเป๋าแบรนด์ดั้งเดิม, กล่องบรรจุภัณฑ์, ใบเสร็จซื้อขายจริง</td>
+										<td class="px-6 py-4 text-red-600">แบตเตอรี่เสื่อมต้องเสียบชาร์จตลอดเวลา, บานพับหน้าจอหลวม, พัดลมระบายความร้อนเสียงดังผิดปกติ</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold text-brand-800">MacBook / Mac Studio</td>
+										<td class="px-6 py-4">รุ่นปีผลิต, โมเดลชิป (M1/M2/Intel), ขนาด RAM/SSD, สุขภาพแบต (%) และรอบชาร์จ (Cycle)</td>
+										<td class="px-6 py-4">สายชาร์จแท้แบบถัก Type-C, กล่องและแผ่นพับในกล่อง, ประกัน AppleCare+</td>
+										<td class="px-6 py-4 text-red-600">รอยลอกของสารเคลือบหน้าจอ (Staingate), เครื่องมีปัญหาคีย์บอร์ดปุ่มกดเบิ้ล (รุ่นปีเก่า), การติด Activation Lock</td>
+									</tr>
+									<tr>
+										<td class="px-6 py-4 font-semibold text-brand-800">กล้องถ่ายภาพดิจิตอล</td>
+										<td class="px-6 py-4">ยี่ห้อ/รุ่นตัวกล้อง, จำนวนชัตเตอร์จริง (Shutter Count), สภาพหน้าเซ็นเซอร์ภาพ, รุ่นเลนส์ที่ให้มาด้วย</td>
+										<td class="px-6 py-4">แบตเตอรี่แท้เพิ่ม, แท่นชาร์จแยกภายนอก, เลนส์ฟิลเตอร์ป้องกันหน้าเลนส์, ฝาปิดหน้า-หลังเลนส์ดั้งเดิม</td>
+										<td class="px-6 py-4 text-red-600">คราบราหรือฝ้าสะสมในเลนส์, ยางจับกล้องบวมเหนียว, ม่านชัตเตอร์มีรอยฉีกขาด</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!-- หัวข้อหลักที่ 4 -->
+					<div>
+						<h3 class="text-2xl font-bold text-text">4. ประเมินราคาผ่านช่องทางเป็นทางการ ปลอดภัย มั่นใจสูงสุด 100%</h3>
+						<p class="mt-3 text-base text-text-muted leading-relaxed">
+							เพื่อความปลอดภัยของสิทธิ์ในการรับเงิน และความโปร่งใสในข้อมูลส่วนบุคคลของคุณ WE BUY แนะนำให้ส่งประเมินราคาผ่านช่องทางหลักสองช่องทางนี้เท่านั้น:
+						</p>
+						<ul class="mt-4 space-y-3 list-disc pl-6 text-text">
+							<li><strong>ช่องทาง LINE Official Account (แนะนำ):</strong> แอดไลน์ไอดี <a class="font-bold text-brand-700 hover:underline" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a> (มีเครื่องหมาย @ นำหน้า) เป็นช่องทางที่สะดวกรวดเร็วที่สุดในการส่งรูปภาพและหลักฐานสเปก มีประวัติการพิมพ์คุยเงื่อนไขราคากลางที่โปร่งใส ตรวจเช็กย้อนหลังได้สบายใจ</li>
+							<li><strong>ช่องทางติดต่อทางโทรศัพท์สายตรง:</strong> เบอร์โทรศัพท์เคลื่อนที่อย่างเป็นทางการ <a class="font-bold text-brand-700 hover:underline" href="tel:0642579353">064-257-9353</a> สำหรับพูดคุยปรึกษา อาการเสียทางเทคนิคเบื้องต้น หรือขอนัดวันเวลาตรวจสภาพหน้างานสำหรับกรณีด่วนพิเศษ</li>
+							<li><strong>คำเตือนความปลอดภัย:</strong> WE BUY **ไม่มีนโยบายสอบถามข้อมูลบัตรเครดิต หรือรหัสผ่านบัญชีธนาคาร** ของลูกค้าผ่านทางแชทแอย่างใด กระบวนการชำระเงินจะเกิดขึ้นโดยการโอนเงินเข้าบัญชีของผู้ขายโดยตรงหลังจากที่ตรวจเครื่องเสร็จสิ้นเรียบร้อยแล้วเท่านั้น</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="border-t border-gray-200 bg-white py-12 sm:py-16">
 			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 				<h2 class="text-2xl font-bold">เช็กลิสต์ตามประเภทสินค้า</h2>
