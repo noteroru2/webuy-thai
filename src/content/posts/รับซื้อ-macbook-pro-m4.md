@@ -1,6 +1,6 @@
 ---
 title: "รับซื้อ MacBook Pro M4 มือสอง"
-description: "WE BUY รับซื้อ MacBook Pro M4 มือสอง ทั้ง 14" และ 16" ชิป M4, M4 Pro, M4 Max ประเมินราคาตามสเปกและรอบชาร์จ จ่ายเงินทันที"
+description: "WE BUY รับซื้อ MacBook Pro M4 มือสอง ทั้ง 14 นิ้ว และ 16 นิ้ว ชิป M4, M4 Pro, M4 Max ประเมินราคาตามสเปกและรอบชาร์จ จ่ายเงินทันที"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-pro-m4"

@@ -1,6 +1,6 @@
 ---
 title: "รับซื้อ MacBook Air M3 มือสอง"
-description: "WE BUY รับซื้อ MacBook Air M3 มือสอง ทั้ง 13" และ 15" ประเมินราคาตามรอบชาร์จและสเปก RAM/SSD จ่ายเงินทันที"
+description: "WE BUY รับซื้อ MacBook Air M3 มือสอง ทั้ง 13 นิ้ว และ 15 นิ้ว ประเมินราคาตามรอบชาร์จและสเปก RAM/SSD จ่ายเงินทันที"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-air-m3"
