@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import ContactBox from '../components/ContactBox.astro';
+import TrustBar from '../components/TrustBar.astro';
 import LegacyRedirect from '../components/LegacyRedirect.astro';
 import ImportantLocalServiceSection from '../components/local/ImportantLocalServiceSection.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
@@ -217,6 +218,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 						</nav>
 						<h1 class="title" set:html={titleHtml} />
 						<p class="sell-urgency">
+							<span class="urgency-dot" aria-hidden="true"></span>
 							<span>ประเมินฟรี 15 นาที</span>
 							<span aria-hidden="true">·</span>
 							<span>จ่ายเงินสดทันที</span>
@@ -224,6 +226,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 							<span>ไม่มีวันหยุด</span>
 						</p>
 					</header>
+
+					<TrustBar variant="orange" compact />
 
 					{
 						featuredUrl && (
@@ -254,8 +258,10 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 						text="ส่งรูป รุ่น และสภาพเครื่องมาได้เลย ทีมงานประเมินราคาให้ฟรีใน 15 นาที จ่ายสดทันที"
 					/>
 
-					<div class="article-prose content">
-						{Content && <Content />}
+					<div class="sell-content-wrap">
+						<div class="article-prose content">
+							{Content && <Content />}
+						</div>
 					</div>
 
 					{localServiceContext && <ImportantLocalServiceSection context={localServiceContext} />}
@@ -266,11 +272,9 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 						variant="secondary"
 					/>
 
-					<NaturalSeoSections {...articleLongform} />
-
 					{
 						faqItemsData && faqItemsData.length > 0 && (
-							<section class="article-faq" aria-labelledby="article-faq-heading">
+							<section class="article-faq sell-faq" aria-labelledby="article-faq-heading">
 								<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
 								{faqItemsData.map((item) => (
 									<details>
@@ -281,6 +285,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 							</section>
 						)
 					}
+
+					<NaturalSeoSections {...articleLongform} />
 
 					<div class="post-footer">
 						<ContactBox
@@ -597,20 +603,53 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		text-decoration: underline;
 	}
 	.sell-urgency {
-		display: flex;
+		display: inline-flex;
 		flex-wrap: wrap;
 		align-items: center;
 		gap: 0.35rem 0.55rem;
-		margin-top: 0.55rem;
+		margin-top: 0.6rem;
 		margin-bottom: 0;
-		font-size: 0.84rem;
-		font-weight: 600;
+		font-size: 0.86rem;
+		font-weight: 700;
 		color: #92400e;
-		background: #fef3c7;
-		border: 1px solid #fcd34d;
-		border-radius: 6px;
-		padding: 0.4rem 0.75rem;
-		width: fit-content;
+		background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+		border: 1.5px solid #fbbf24;
+		border-radius: 8px;
+		padding: 0.45rem 0.85rem;
+	}
+	.urgency-dot {
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #d97706;
+		animation: urgency-blink 1.8s ease-in-out infinite;
+	}
+	@keyframes urgency-blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.4; }
+	}
+	/* Content section wrapper */
+	.sell-content-wrap {
+		background: #fafafa;
+		border: 1px solid rgba(15, 23, 42, 0.06);
+		border-radius: 12px;
+		padding: 1.25rem 1.35rem;
+		margin-block: 0.25rem;
+	}
+	/* FAQ in sell layout */
+	.sell-faq {
+		background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+		border-color: rgba(6, 199, 85, 0.2) !important;
+	}
+	.sell-faq h2 {
+		color: #14532d !important;
+	}
+	.sell-faq summary {
+		color: #166534 !important;
+	}
+	.sell-faq summary::before {
+		color: #16a34a !important;
 	}
 
 	/* --- Intent/guide CTA block --- */

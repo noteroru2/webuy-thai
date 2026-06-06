@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactBox from '../components/ContactBox.astro';
+import TrustBar from '../components/TrustBar.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
@@ -224,6 +225,26 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</header>
 
+		<TrustBar variant="orange" />
+
+		<ContactBox
+			heading="ต้องการขาย iPhone มือสอง?"
+			text="ส่งรุ่น ความจุ สุขภาพแบต รูปเครื่องมาทาง Line @webuy — ประเมินฟรีภายใน 15 นาที จ่ายสดทันที"
+		/>
+
+		<section class="hub-showcase">
+			<h2>ตัวอย่างเครื่องจริงที่เราประเมิน</h2>
+			<p>รูปเหล่านี้เป็นตัวอย่างมุมถ่ายที่ช่วยให้ประเมินได้แม่นขึ้น — ราคาไม่ได้ดูแค่รุ่น แต่ดูสภาพบอดี้ จอ กล้อง และอุปกรณ์เสริมด้วย</p>
+			<div class="hub-showcase-grid">
+				{iphoneShowcase.map((item) => (
+					<figure class="hub-showcase-item">
+						<img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+						<figcaption>{item.caption}</figcaption>
+					</figure>
+				))}
+			</div>
+		</section>
+
 		<section class="eeat-note">
 			<h2>สิ่งที่ทีมประเมินราคา iPhone เจอบ่อย (จากงานจริง)</h2>
 			<p>
@@ -239,21 +260,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 			<PriceGuide title="ราคารับซื้อ iPhone อ้างอิง (อัปเดต 2026)" items={priceItems} />
 
-			<section class="highlight-box" style="margin-top: 1.5rem;">
-				<h2>ตัวอย่างเครื่องจริงในหมวด iPhone</h2>
-				<p>
-					ภาพชุดนี้เป็นตัวอย่างเครื่องที่ใช้ประกอบการประเมินจริงในหมวด iPhone เพื่อให้เห็นว่าการตีราคาไม่ได้ดูแค่ชื่อรุ่น
-					แต่ดูสภาพบอดี้ จอ กล้อง ขอบเครื่อง และความครบของอุปกรณ์ไปพร้อมกัน
-				</p>
-				<div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-					{iphoneShowcase.map((item) => (
-						<figure class="rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
-							<img src={item.src} alt={item.alt} loading="lazy" decoding="async" class="w-full rounded-xl object-cover" />
-							<figcaption class="mt-2 text-sm text-gray-600">{item.caption}</figcaption>
-						</figure>
-					))}
-				</div>
-			</section>
 
 			<!-- ==================== Section 1 ==================== -->
 			<section>
@@ -912,3 +918,53 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		)}
 	</article>
 </BaseLayout>
+
+<style>
+	.hub-showcase {
+		margin-top: 0.5rem !important;
+		padding: 1.1rem 1.15rem !important;
+		background: linear-gradient(165deg, #fff8ed 0%, #ffecd4 100%) !important;
+		border: 1px solid rgba(234, 88, 12, 0.15) !important;
+		border-left: 3px solid #f97316 !important;
+	}
+	.hub-showcase h2 {
+		color: #7c2d12;
+	}
+	.hub-showcase p {
+		color: #78350f;
+		font-size: 0.95rem;
+	}
+	.hub-showcase-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0.75rem;
+		margin-top: 0.85rem;
+	}
+	.hub-showcase-item {
+		margin: 0;
+		padding: 0;
+		border-radius: 10px;
+		overflow: hidden;
+		border: 1px solid rgba(234, 88, 12, 0.12);
+		background: #fff;
+		box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+	}
+	.hub-showcase-item img {
+		width: 100%;
+		aspect-ratio: 4/3;
+		object-fit: cover;
+		display: block;
+	}
+	.hub-showcase-item figcaption {
+		padding: 0.5rem 0.65rem;
+		font-size: 0.72rem;
+		line-height: 1.45;
+		color: #6b7280;
+		border-top: 1px solid rgba(15, 23, 42, 0.06);
+	}
+	@media (max-width: 640px) {
+		.hub-showcase-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>
