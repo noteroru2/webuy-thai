@@ -38,5 +38,5 @@ faqItems:
 
 เชื่อมต่อกับ iPhone แล้วไปที่ Settings → Bluetooth → ชื่อ AirPods → กด (i) → ดู Battery Health ของแต่ละข้างและ Case
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

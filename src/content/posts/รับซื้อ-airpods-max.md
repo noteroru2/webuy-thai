@@ -21,5 +21,5 @@ faqItems:
 | AirPods Max (Lightning รุ่นแรก) สภาพดี | 6,000–9,000 บาท |
 | มีรอยหรือแบตเสื่อม | 4,000–7,000 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

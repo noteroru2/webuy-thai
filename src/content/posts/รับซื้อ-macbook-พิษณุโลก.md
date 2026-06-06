@@ -39,7 +39,7 @@ faqItems:
 1. เช็กรอบชาร์จ: Apple Menu → About This Mac → More Info → System Report → Power
 2. ออกจาก Apple ID และปิด Find My Mac
 3. สำรองข้อมูลสำคัญก่อน
-4. ส่งรูป About This Mac และสภาพเครื่องมาทาง Line @webuy
+4. ส่งรูป About This Mac และสภาพเครื่องมาทาง [Line @webuy](https://line.me/R/ti/p/@webuy)
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

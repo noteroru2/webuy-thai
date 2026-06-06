@@ -30,5 +30,5 @@ faqItems:
 - **Apple ID** ต้องปลดออกก่อนส่งมอบ
 - **ความจุ** ยิ่งมากยิ่งราคาดี
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

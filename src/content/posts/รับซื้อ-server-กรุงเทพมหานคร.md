@@ -41,5 +41,5 @@ Dell PowerEdge, HP ProLiant, Lenovo ThinkSystem, IBM Power, Supermicro, Fujitsu,
 
 หากองค์กรในพื้นที่กรุงเทพมหานครมีการปลดระวาง Server หลายเครื่อง หรืออุปกรณ์ Rack ทั้งชุด WE BUY รับประเมินรวมเป็นล็อต พร้อมออกเอกสารรับซื้ออย่างเป็นทางการ
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

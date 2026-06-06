@@ -15,5 +15,5 @@ faqItems:
 
 รับซื้อ iPad Pro, iPad Air, iPad mini และ iPad Gen ทุกรุ่น ทั้งแบบ Wi-Fi Only และ Cellular ที่ใส่ซิมได้
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

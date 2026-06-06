@@ -20,5 +20,5 @@ faqItems:
 | HomePod (2nd Gen) | 4,500–7,000 บาท |
 | HomePod mini | 1,500–2,800 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

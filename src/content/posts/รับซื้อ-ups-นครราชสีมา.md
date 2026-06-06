@@ -35,5 +35,5 @@ APC, Eaton (MGE/Powerware), CyberPower, Syndome, True Online (Socomec), Cleanlin
 | UPS 6-10 kVA | 8,000–30,000 บาท |
 | UPS Industrial 20 kVA+ | 20,000–100,000+ บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

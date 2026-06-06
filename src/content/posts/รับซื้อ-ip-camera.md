@@ -21,5 +21,5 @@ faqItems:
 - **Fisheye Camera** ถ่ายมุมกว้าง 360°
 - **Turret Camera** ดีไซน์ทันสมัย
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

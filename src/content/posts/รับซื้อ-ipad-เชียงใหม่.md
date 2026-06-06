@@ -32,5 +32,5 @@ faqItems:
 | iPad Gen 10 | 6,000–12,000 บาท |
 | iPad รุ่นเก่า | 2,000–8,000 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

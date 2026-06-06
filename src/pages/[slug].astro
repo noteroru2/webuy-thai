@@ -1,5 +1,6 @@
 ---
 import { getEntry, render } from 'astro:content';
+import ContactBox from '../components/ContactBox.astro';
 import LegacyRedirect from '../components/LegacyRedirect.astro';
 import ImportantLocalServiceSection from '../components/local/ImportantLocalServiceSection.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
@@ -58,6 +59,23 @@ const articleLongform = buildArticleLongform(plainTitle, post.data.slug, canonic
 const localServiceContext = getImportantLocalServiceContext(plainTitle, post.data.slug);
 const showIntentHubLinks = isIntentArticle(post.data.slug);
 
+// --- Phase 2: detect page intent type ---
+const slug = post.data.slug;
+const isTransactional = slug.startsWith('รับซื้อ') || slug.startsWith('รับประมูล');
+
+function getHubInfo(s: string): { path: string; label: string } {
+	if (/iphone|ไอโฟน/i.test(s)) return { path: '/รับซื้อไอโฟน/', label: 'รับซื้อไอโฟน' };
+	if (/macbook|แมคบุ๊ค|imac|ไอแมค/i.test(s)) return { path: '/รับซื้อแมคบุ๊ค/', label: 'รับซื้อแมคบุ๊ค' };
+	if (/ipad|ไอแพด/i.test(s)) return { path: '/รับซื้อไอแพด/', label: 'รับซื้อไอแพด' };
+	if (/โน๊ตบุ๊ค|notebook/i.test(s)) return { path: '/รับซื้อโน๊ตบุ๊ค/', label: 'รับซื้อโน๊ตบุ๊ค' };
+	if (/คอม|computer|desktop|pc\b/i.test(s)) return { path: '/รับซื้อคอม/', label: 'รับซื้อคอม' };
+	if (/กล้อง|camera|cctv|projector/i.test(s)) return { path: '/รับซื้อกล้อง/', label: 'รับซื้อกล้อง' };
+	if (/server|ups|network|switch|router|storage/i.test(s)) return { path: '/รับซื้อ-server/', label: 'รับซื้อ Server & IT' };
+	if (/ลำโพง|speaker|airpods|homepod|apple.tv/i.test(s)) return { path: '/รับซื้อลำโพง/', label: 'รับซื้อลำโพง' };
+	return { path: '/รับซื้อ/', label: 'รับซื้อทุกหมวด' };
+}
+const hub = getHubInfo(slug);
+
 const renderedEntry = shouldRedirectAlias ? null : await render(post);
 const Content = renderedEntry?.Content;
 
@@ -93,13 +111,18 @@ const localServiceJsonLd = localServiceContext
 		})
 	: [];
 
+// Phase 1: breadcrumb — transactional pages point to hub, not /blog/
+const breadcrumbMiddle = isTransactional
+	? { name: hub.label, item: `${site}${hub.path}` }
+	: { name: 'บทความ', item: `${site}/blog/` };
+
 const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Article',
 		'@id': `${articleUrl}#article`,
 		headline: plainTitle,
-		description: plainExcerpt || `บทความ ${plainTitle}`,
+		description: plainExcerpt || `${isTransactional ? 'บริการรับซื้อ' : 'บทความ'} ${plainTitle}`,
 		url: articleUrl,
 		mainEntityOfPage: {
 			'@type': 'WebPage',
@@ -107,7 +130,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		},
 		isAccessibleForFree: true,
 		inLanguage: 'th-TH',
-		articleSection: 'บทความ',
+		articleSection: isTransactional ? 'บริการรับซื้อ' : 'บทความ',
 		speakable: {
 			'@type': 'SpeakableSpecification',
 			cssSelector: ['.article .title', '.article .content'],
@@ -146,7 +169,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		'@type': 'BreadcrumbList',
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
-			{ '@type': 'ListItem', position: 2, name: 'บทความ', item: `${site}/blog/` },
+			{ '@type': 'ListItem', position: 2, name: breadcrumbMiddle.name, item: breadcrumbMiddle.item },
 			{ '@type': 'ListItem', position: 3, name: plainTitle, item: articleUrl },
 		],
 	},
@@ -168,7 +191,9 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			title={formatPageTitle(plainTitle)}
 			description={
 				plainExcerpt ||
-				`เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน๊ตบุ๊คและรับซื้อคอม`
+				(isTransactional
+					? `WE BUY รับซื้อ ${plainTitle} มือสอง ประเมินฟรีใน 15 นาที จ่ายเงินสดทันที ทัก Line @webuy`
+					: `เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน๊ตบุ๊คและรับซื้อคอม`)
 			}
 			pathname={articlePath}
 			canonicalPath={canonicalPath}
@@ -180,155 +205,449 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			jsonLd={articleJsonLd}
 			noindex={post.data.noindex === true}
 		>
-			<article class="container article">
-				<header class="article-head">
-					<p class="back">
-						<a href="/blog/">← กลับไปหน้าบทความ</a>
-					</p>
-					<p class="tech-eyebrow article-kicker">Article</p>
-					<time class="date" datetime={publishedIso}>
-						{post.data.pubDate.toLocaleDateString('th-TH', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</time>
-					<h1 class="title" set:html={titleHtml} />
-				</header>
-
-				{
-					featuredUrl && (
-						<img
-							class="hero-img"
-							src={featuredUrl}
-							alt={heroAlt}
-							width="1200"
-							height="675"
-							loading="eager"
-							decoding="async"
-							fetchpriority="high"
-						/>
-					)
-				}
-
-				{
-					canonicalPath !== articlePath && (
-						<p class="canonical-note">
-							หน้านี้เป็นคู่มือรับซื้อตามพื้นที่ และลิงก์หลักของบริการอยู่ที่{' '}
-							<a href={canonicalPath}>{canonicalPath}</a>
+			{isTransactional ? (
+				<article class="container article is-transactional">
+					<header class="article-head sell-head">
+						<nav class="sell-breadcrumb" aria-label="breadcrumb">
+							<a href="/">หน้าแรก</a>
+							<span aria-hidden="true">›</span>
+							<a href={hub.path}>{hub.label}</a>
+							<span aria-hidden="true">›</span>
+							<span>{plainTitle}</span>
+						</nav>
+						<h1 class="title" set:html={titleHtml} />
+						<p class="sell-urgency">
+							<span>ประเมินฟรี 15 นาที</span>
+							<span aria-hidden="true">·</span>
+							<span>จ่ายเงินสดทันที</span>
+							<span aria-hidden="true">·</span>
+							<span>ไม่มีวันหยุด</span>
 						</p>
-					)
-				}
+					</header>
 
-				<div class="article-prose content">
-					{Content && <Content />}
-				</div>
+					{
+						featuredUrl && (
+							<img
+								class="hero-img"
+								src={featuredUrl}
+								alt={heroAlt}
+								width="1200"
+								height="675"
+								loading="eager"
+								decoding="async"
+								fetchpriority="high"
+							/>
+						)
+					}
 
-				{localServiceContext && <ImportantLocalServiceSection context={localServiceContext} />}
-
-				<NaturalSeoSections {...articleLongform} />
-
-				{
-					faqItemsData && faqItemsData.length > 0 && (
-						<section class="article-faq" aria-labelledby="article-faq-heading">
-							<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
-							{faqItemsData.map((item) => (
-								<details>
-									<summary>{item.question}</summary>
-									<p>{item.answer}</p>
-								</details>
-							))}
-						</section>
-					)
-				}
-
-				{
-					showIntentHubLinks && (
-						<section class="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5">
-							<h2 class="text-lg font-bold text-gray-900">คู่มือและเช็กราคาก่อนขาย</h2>
-							<p class="mt-2 text-sm leading-relaxed text-gray-600">
-								อ่านบทความที่เกี่ยวข้องเพิ่ม หรือกลับไปดู hub รวมทุกหัวข้อก่อนทัก Line @webuy
+					{
+						canonicalPath !== articlePath && (
+							<p class="canonical-note">
+								หน้านี้เป็นคู่มือรับซื้อตามพื้นที่ และลิงก์หลักของบริการอยู่ที่{' '}
+								<a href={canonicalPath}>{canonicalPath}</a>
 							</p>
-							<ul class="mt-3 flex flex-wrap gap-2 list-none p-0 m-0 text-sm">
+						)
+					}
+
+					<ContactBox
+						heading={`ต้องการขาย ${plainTitle}?`}
+						text="ส่งรูป รุ่น และสภาพเครื่องมาได้เลย ทีมงานประเมินราคาให้ฟรีใน 15 นาที จ่ายสดทันที"
+					/>
+
+					<div class="article-prose content">
+						{Content && <Content />}
+					</div>
+
+					{localServiceContext && <ImportantLocalServiceSection context={localServiceContext} />}
+
+					<ContactBox
+						heading="พร้อมขายแล้ว? ทัก Line @webuy ได้เลย"
+						text="แจ้งรุ่น สเปก สภาพเครื่อง และรูปถ่ายจริง — ได้ราคาทันที ไม่ต้องเดินทางก่อน"
+						variant="secondary"
+					/>
+
+					<NaturalSeoSections {...articleLongform} />
+
+					{
+						faqItemsData && faqItemsData.length > 0 && (
+							<section class="article-faq" aria-labelledby="article-faq-heading">
+								<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
+								{faqItemsData.map((item) => (
+									<details>
+										<summary>{item.question}</summary>
+										<p>{item.answer}</p>
+									</details>
+								))}
+							</section>
+						)
+					}
+
+					<div class="post-footer">
+						<ContactBox
+							heading="ขายด่วน ได้เงินทันที — ทัก Line @webuy"
+							text="ส่งรูปมาเลย ไม่ต้องโทรก่อน ประเมินไว จ่ายสดทันที ทุกวัน 24 ชม."
+						/>
+
+						<section class="mb-10">
+							<h2 class="text-xl font-bold mb-4">บริการรับซื้ออื่น ๆ</h2>
+							<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
 								<li>
 									<a
-										href="/คู่มือก่อนขาย/"
-										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										href="/รับซื้อโน๊ตบุ๊ค/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อโน๊ตบุ๊ค</a
 									>
-										คู่มือก่อนขาย
-									</a>
 								</li>
 								<li>
 									<a
-										href="/เช็กราคาก่อนขาย/"
-										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										href="/รับซื้อคอม/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อคอม</a
 									>
-										เช็กราคาก่อนขาย
-									</a>
 								</li>
 								<li>
 									<a
-										href="/ราคากลางรับซื้อ/"
-										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										href="/รับซื้อไอโฟน/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อไอโฟน</a
 									>
-										ราคากลางรับซื้อ
-									</a>
 								</li>
 								<li>
 									<a
-										href="/ความน่าเชื่อถือ/"
-										class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										href="/รับซื้อกล้อง/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อกล้อง</a
 									>
-										ความน่าเชื่อถือ
-									</a>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อแมคบุ๊ค/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อแมคบุ๊ค</a
+									>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อไอแพด/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อไอแพด</a
+									>
 								</li>
 							</ul>
 						</section>
-					)
-				}
 
-				<div class="post-footer">
-					<section class="mb-10">
-						<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
-						<p class="text-gray-600 mb-4 text-sm">
-							หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี จ่ายเงินทันที:
+						<section>
+							<h2 class="text-xl font-bold mb-6">หน้าบริการที่เกี่ยวข้อง</h2>
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+								{
+									recentPosts &&
+										recentPosts.map((rp: { slug: string; title: string }) => (
+											<a
+												href={`/${rp.slug}/`}
+												class="group block border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow bg-white"
+											>
+												<h3 class="font-bold text-gray-900 group-hover:text-brand-600 text-sm line-clamp-2 leading-snug">
+													{rp.title}
+												</h3>
+											</a>
+										))
+								}
+							</div>
+							<div class="mt-4 text-center">
+								<a
+									href={hub.path}
+									class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200"
+								>
+									ดูบริการทั้งหมดใน {hub.label} →
+								</a>
+							</div>
+						</section>
+					</div>
+				</article>
+			) : (
+				<article class="container article">
+					<header class="article-head">
+						<p class="back">
+							<a href="/blog/">← กลับไปหน้าบทความ</a>
 						</p>
-						<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
-							<li><a href="/รับซื้อโน๊ตบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อโน๊ตบุ๊ค</a></li>
-							<li><a href="/รับซื้อคอม/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อคอม</a></li>
-							<li><a href="/รับซื้อไอโฟน/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอโฟน</a></li>
-							<li><a href="/รับซื้อกล้อง/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อกล้อง</a></li>
-							<li><a href="/รับซื้อแมคบุ๊ค/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อแมคบุ๊ค</a></li>
-							<li><a href="/รับซื้อไอแพด/" class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100">รับซื้อไอแพด</a></li>
-						</ul>
-					</section>
+						<p class="tech-eyebrow article-kicker">Article</p>
+						<time class="date" datetime={publishedIso}>
+							{
+								post.data.pubDate.toLocaleDateString('th-TH', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+								})
+							}
+						</time>
+						<h1 class="title" set:html={titleHtml} />
+					</header>
 
-					<section>
-						<h2 class="text-xl font-bold mb-6">บทความที่น่าสนใจ</h2>
-						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-							{recentPosts &&
-								recentPosts.map((rp: { slug: string; title: string }) => (
-									<a
-										href={`/${rp.slug}/`}
-										class="group block border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow bg-white"
-									>
-										<h3 class="font-bold text-gray-900 group-hover:text-brand-600 text-sm line-clamp-2 leading-snug">
-											{rp.title}
-										</h3>
-									</a>
+					{
+						featuredUrl && (
+							<img
+								class="hero-img"
+								src={featuredUrl}
+								alt={heroAlt}
+								width="1200"
+								height="675"
+								loading="eager"
+								decoding="async"
+								fetchpriority="high"
+							/>
+						)
+					}
+
+					{
+						canonicalPath !== articlePath && (
+							<p class="canonical-note">
+								หน้านี้เป็นคู่มือรับซื้อตามพื้นที่ และลิงก์หลักของบริการอยู่ที่{' '}
+								<a href={canonicalPath}>{canonicalPath}</a>
+							</p>
+						)
+					}
+
+					<div class="article-prose content">
+						{Content && <Content />}
+					</div>
+
+					{localServiceContext && <ImportantLocalServiceSection context={localServiceContext} />}
+
+					{
+						showIntentHubLinks && (
+							<section class="sell-intent-cta" aria-label="ต้องการขายเลย?">
+								<p class="sell-intent-cta__heading">อยากขายจริง? ทัก Line @webuy ได้เลย</p>
+								<p class="sell-intent-cta__sub">
+									อ่านข้อมูลครบแล้ว — ทีมงานพร้อมประเมินราคาให้ฟรีใน 15 นาที ไม่ต้องเดินทาง
+								</p>
+								<a
+									href="https://line.me/R/ti/p/@webuy"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="sell-intent-cta__btn"
+								>
+									<span aria-hidden="true">●</span> ทัก Line @webuy
+								</a>
+							</section>
+						)
+					}
+
+					<NaturalSeoSections {...articleLongform} />
+
+					{
+						faqItemsData && faqItemsData.length > 0 && (
+							<section class="article-faq" aria-labelledby="article-faq-heading">
+								<h2 id="article-faq-heading">คำถามที่พบบ่อย</h2>
+								{faqItemsData.map((item) => (
+									<details>
+										<summary>{item.question}</summary>
+										<p>{item.answer}</p>
+									</details>
 								))}
-						</div>
-						<div class="mt-4 text-center">
-							<a
-								href="/blog/"
-								class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200"
-							>
-								ดูบทความทั้งหมด →
-							</a>
-						</div>
-					</section>
-				</div>
-			</article>
+							</section>
+						)
+					}
+
+					{
+						showIntentHubLinks && (
+							<section class="mb-8 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5">
+								<h2 class="text-lg font-bold text-gray-900">คู่มือและเช็กราคาก่อนขาย</h2>
+								<p class="mt-2 text-sm leading-relaxed text-gray-600">
+									อ่านบทความที่เกี่ยวข้องเพิ่ม หรือกลับไปดู hub รวมทุกหัวข้อก่อนทัก Line @webuy
+								</p>
+								<ul class="mt-3 flex flex-wrap gap-2 list-none p-0 m-0 text-sm">
+									<li>
+										<a
+											href="/คู่มือก่อนขาย/"
+											class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										>
+											คู่มือก่อนขาย
+										</a>
+									</li>
+									<li>
+										<a
+											href="/เช็กราคาก่อนขาย/"
+											class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										>
+											เช็กราคาก่อนขาย
+										</a>
+									</li>
+									<li>
+										<a
+											href="/ราคากลางรับซื้อ/"
+											class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										>
+											ราคากลางรับซื้อ
+										</a>
+									</li>
+									<li>
+										<a
+											href="/ความน่าเชื่อถือ/"
+											class="inline-block rounded-md border border-amber-200 bg-white px-3 py-1.5 font-medium text-gray-800 transition hover:border-brand-400 hover:text-brand-700"
+										>
+											ความน่าเชื่อถือ
+										</a>
+									</li>
+								</ul>
+							</section>
+						)
+					}
+
+					<div class="post-footer">
+						<section class="mb-10">
+							<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
+							<p class="text-gray-600 mb-4 text-sm">
+								หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี จ่ายเงินทันที:
+							</p>
+							<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
+								<li>
+									<a
+										href="/รับซื้อโน๊ตบุ๊ค/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อโน๊ตบุ๊ค</a
+									>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อคอม/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อคอม</a
+									>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อไอโฟน/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อไอโฟน</a
+									>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อกล้อง/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อกล้อง</a
+									>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อแมคบุ๊ค/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อแมคบุ๊ค</a
+									>
+								</li>
+								<li>
+									<a
+										href="/รับซื้อไอแพด/"
+										class="inline-block bg-gray-50 hover:bg-brand-50 hover:text-brand-600 px-3 py-1.5 rounded-md text-sm font-medium transition-colors border border-gray-100"
+										>รับซื้อไอแพด</a
+									>
+								</li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-xl font-bold mb-6">บทความที่น่าสนใจ</h2>
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+								{
+									recentPosts &&
+										recentPosts.map((rp: { slug: string; title: string }) => (
+											<a
+												href={`/${rp.slug}/`}
+												class="group block border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow bg-white"
+											>
+												<h3 class="font-bold text-gray-900 group-hover:text-brand-600 text-sm line-clamp-2 leading-snug">
+													{rp.title}
+												</h3>
+											</a>
+										))
+								}
+							</div>
+							<div class="mt-4 text-center">
+								<a
+									href="/blog/"
+									class="text-brand-600 hover:text-brand-700 text-sm font-medium underline underline-offset-4 decoration-brand-200"
+								>
+									ดูบทความทั้งหมด →
+								</a>
+							</div>
+						</section>
+					</div>
+				</article>
+			)}
 		</BaseLayout>
 	)
 }
+
+<style>
+	/* --- Transactional sell-fast layout --- */
+	.sell-breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.25rem 0.4rem;
+		font-size: 0.82rem;
+		color: var(--muted, #6b7280);
+		margin-bottom: 0.65rem;
+	}
+	.sell-breadcrumb a {
+		color: var(--brand-600, #ea580c);
+		text-decoration: none;
+	}
+	.sell-breadcrumb a:hover {
+		text-decoration: underline;
+	}
+	.sell-urgency {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.35rem 0.55rem;
+		margin-top: 0.55rem;
+		margin-bottom: 0;
+		font-size: 0.84rem;
+		font-weight: 600;
+		color: #92400e;
+		background: #fef3c7;
+		border: 1px solid #fcd34d;
+		border-radius: 6px;
+		padding: 0.4rem 0.75rem;
+		width: fit-content;
+	}
+
+	/* --- Intent/guide CTA block --- */
+	.sell-intent-cta {
+		margin-block: 1.5rem;
+		padding: 1.25rem 1.1rem;
+		background: linear-gradient(145deg, #f0fdf4 0%, #dcfce7 100%);
+		border: 1px solid #86efac;
+		border-radius: var(--radius, 10px);
+		text-align: center;
+	}
+	.sell-intent-cta__heading {
+		margin: 0 0 0.3rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: #14532d;
+	}
+	.sell-intent-cta__sub {
+		margin: 0 0 0.8rem;
+		font-size: 0.9rem;
+		color: #166534;
+	}
+	.sell-intent-cta__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		background: #06c755;
+		color: #fff;
+		font-weight: 700;
+		font-size: 0.95rem;
+		padding: 0.6rem 1.4rem;
+		border-radius: 8px;
+		text-decoration: none;
+		transition: background 0.15s;
+	}
+	.sell-intent-cta__btn:hover {
+		background: #05b04c;
+		text-decoration: none;
+	}
+</style>

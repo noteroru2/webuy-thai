@@ -31,6 +31,6 @@ faqItems:
 
 ## สรุป
 
-ส่งรุ่น ความจุ และ SMART data มาทาง Line @webuy เพื่อรับช่วงราคาก่อนนัดครับ
+ส่งรุ่น ความจุ และ SMART data มาทาง [Line @webuy](https://line.me/R/ti/p/@webuy) เพื่อรับช่วงราคาก่อนนัดครับ
 
 ดูเพิ่มที่ [รับซื้อ Harddisk](/รับซื้อ-harddisk/) และ [รับซื้อ SSD](/รับซื้อ-ssd/)

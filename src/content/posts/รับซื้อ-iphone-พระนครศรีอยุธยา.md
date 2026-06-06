@@ -24,5 +24,5 @@ faqItems:
 | iPhone 14 Series | 10,000–18,000 บาท |
 | iPhone 13 Series | 7,000–14,000 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

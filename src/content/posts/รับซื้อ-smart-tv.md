@@ -31,5 +31,5 @@ faqItems:
 | LED 55"+ Smart TV | 3,000–10,000 บาท |
 | LED 43" Smart TV | 1,500–5,000 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

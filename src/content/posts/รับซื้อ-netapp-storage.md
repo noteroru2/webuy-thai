@@ -31,4 +31,4 @@ faqItems:
 
 ## สรุป
 
-NetApp Storage มูลค่าสูงในตลาดมือสอง ส่งรุ่นมาทาง Line @webuy เพื่อรับช่วงราคาก่อนครับ
+NetApp Storage มูลค่าสูงในตลาดมือสอง ส่งรุ่นมาทาง [Line @webuy](https://line.me/R/ti/p/@webuy) เพื่อรับช่วงราคาก่อนครับ

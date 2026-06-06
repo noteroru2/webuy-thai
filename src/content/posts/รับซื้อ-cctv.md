@@ -36,5 +36,5 @@ Hikvision, Dahua, Uniview (UNV), Axis, Bosch, Hanwha, Reolink, TP-Link Tapo แ�
 | DVR 8CH AHD | 1,000–3,000 บาท |
 | IP Camera แยกตัว | 300–1,500 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

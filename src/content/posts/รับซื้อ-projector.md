@@ -34,5 +34,5 @@ Epson, BenQ, Sony, Optoma, NEC, Panasonic, ViewSonic, Barco, Christie
 | Full HD Business Projector | 3,000–12,000 บาท |
 | Education Projector SVGA/XGA | 1,000–5,000 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

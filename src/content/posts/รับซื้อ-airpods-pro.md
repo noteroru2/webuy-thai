@@ -27,5 +27,5 @@ faqItems:
 2. รูปสภาพภายนอก (มีรอยหรือเปล่า)
 3. บอกว่ามีกล่องเดิมและสายชาร์จหรือไม่
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

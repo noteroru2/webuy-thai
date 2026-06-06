@@ -22,5 +22,5 @@ faqItems:
 | Apple TV 4K (1st Gen) | 1,000–1,800 บาท |
 | Apple TV HD | 800–1,500 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

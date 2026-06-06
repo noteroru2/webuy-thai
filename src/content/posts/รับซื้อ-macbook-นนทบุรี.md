@@ -22,5 +22,5 @@ faqItems:
 | MacBook Air M1 | 10,000–16,000 บาท |
 | MacBook Intel | 4,000–11,000 บาท |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 

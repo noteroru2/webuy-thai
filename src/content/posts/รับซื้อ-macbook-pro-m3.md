@@ -32,5 +32,5 @@ faqItems:
 
 Apple Menu → About This Mac → More Info แล้วถ่ายรูปส่งมาได้เลย
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/@webuy) หรือโทร 064-257-9353
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
 
