@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-pro-m4"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "MacBook Pro M4 มือสอง รับทุกสเปกไหม?"
     answer: "รับครับ ทุกสเปก ทั้ง base model จนถึง Max configuration ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย รู้ราคาภายใน 15-30 นาที"

@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-ลาดพร้าว"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตลาดพร้าวไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตลาดพร้าวได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"

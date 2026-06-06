@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-พระนครศรีอยุธยา"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "รับซื้อ MacBook ในพระนครศรีอยุธยาไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย"

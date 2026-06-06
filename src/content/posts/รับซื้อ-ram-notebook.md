@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-ram-notebook"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/asus-tuf-gaming-f15.webp"
 faqItems:
   - question: "RAM Notebook ที่ไม่มีกล่องขายได้ไหม"
     answer: "ได้ครับ RAM ส่วนใหญ่ขายได้แม้ไม่มีกล่อง"

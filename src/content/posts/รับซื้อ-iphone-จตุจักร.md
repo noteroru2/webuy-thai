@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-จตุจักร"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 faqItems:
   - question: "รับซื้อ iPhone เขตจตุจักรไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตจตุจักรได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนก็ได้"

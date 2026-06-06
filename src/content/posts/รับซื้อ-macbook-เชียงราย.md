@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-เชียงราย"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "รับซื้อ MacBook ในเชียงรายทุกรุ่นไหม?"
     answer: "รับครับ ทั้ง MacBook Air และ MacBook Pro ทุกรุ่น ตั้งแต่ชิป Intel ไปจนถึง Apple Silicon M1–M4 สามารถส่งรูป About This Mac มาประเมินราคาได้ทาง Line @webuy ได้เลย"

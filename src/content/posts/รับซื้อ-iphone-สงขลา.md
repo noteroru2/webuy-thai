@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-สงขลา"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone-orange-back.webp"
 faqItems:
   - question: "รับซื้อ iPhone ในสงขลาทุกรุ่นไหม?"
     answer: "รับครับ ตั้งแต่ iPhone 11 จนถึงรุ่นล่าสุด iPhone 16 Series ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"

@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-ลำปาง"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone-dark-front.webp"
 faqItems:
   - question: "รับซื้อ iPhone ในลำปางทุกรุ่นไหม?"
     answer: "รับซื้อครับ ตั้งแต่ iPhone 11 จนถึงรุ่นล่าสุด iPhone 16 Series รวมถึง iPhone SE ทุกรุ่น สามารถส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลยโดยไม่ต้องเดินทาง"

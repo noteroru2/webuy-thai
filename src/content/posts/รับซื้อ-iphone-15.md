@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-15"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone-dark-front.webp"
 faqItems:
   - question: "iPhone 15 มือสอง ทุกความจุไหม?"
     answer: "รับครับ ทุกความจุ ทุกสี และทุกสภาพ แจ้งเปอร์เซ็นต์สุขภาพแบตมาด้วยจะได้ราคาที่แม่นยำขึ้น ส่งรูปมาประเมินผ่าน Line @webuy ได้เลย"

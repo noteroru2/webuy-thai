@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-ipad-เชียงใหม่"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/ipad-mini-silver-back.webp"
 faqItems:
   - question: "รับซื้อ iPad เชียงใหม่ทุกรุ่นไหม?"
     answer: "รับครับ ทั้ง iPad Pro, Air, mini และ iPad Gen ทุกรุ่น ทั้งแบบ Wi-Fi Only และใส่ซิม ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"

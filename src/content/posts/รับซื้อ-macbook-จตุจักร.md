@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-จตุจักร"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตจตุจักรไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตจตุจักรได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"

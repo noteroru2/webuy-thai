@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อโต๊ะ-gaming"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/rog-strix-open-front.webp"
 faqItems:
   - question: "โต๊ะ Gaming สภาพผ่านการใช้งานมาแล้วยังขายได้ไหม"
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"

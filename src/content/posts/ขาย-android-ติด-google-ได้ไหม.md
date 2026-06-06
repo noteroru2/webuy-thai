@@ -17,6 +17,7 @@ faqItems:
   - question: "ก่อนขาย Android ต้องทำอะไรบ้าง"
     answer: "ลบบัญชี Google ออกจากเครื่อง ออกจากบัญชีแบรนด์ถ้ามี ปิดระบบที่เกี่ยวข้อง แล้วค่อยรีเซ็ตเครื่องก่อนส่งมอบ"
 qualityScore: 0
+noindex: true
 qualityFlags: []
 ---
 

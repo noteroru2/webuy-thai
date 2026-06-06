@@ -6,6 +6,7 @@ updatedDate: "2026-05-20"
 slug: "รับซื้อ-lenovo-notebook"
 qualityScore: 9
 qualityFlags: []
+heroImage: "/media/notebook-showcase/asus-vivobook-reddesk.webp"
 faqItems:
   - question: "Lenovo ThinkPad ยังมีราคามือสองดีไหม"
     answer: "ThinkPad ยังมีความต้องการในตลาดธุรกิจและคนทำงานสูง โดยเฉพาะรุ่นที่คีย์บอร์ดยังดี จอไม่เสีย และสเปกยังทันใช้งาน"

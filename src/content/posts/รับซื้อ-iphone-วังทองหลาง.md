@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-วังทองหลาง"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone15-black-front.webp"
 faqItems:
   - question: "รับซื้อ iPhone เขตวังทองหลางไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตวังทองหลางได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนก็ได้"

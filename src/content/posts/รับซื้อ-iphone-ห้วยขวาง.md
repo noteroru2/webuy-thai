@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-ห้วยขวาง"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 faqItems:
   - question: "รับซื้อ iPhone เขตห้วยขวางไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตห้วยขวางได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนก็ได้"

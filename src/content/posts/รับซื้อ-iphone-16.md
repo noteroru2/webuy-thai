@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-iphone-16"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/apple-local/iphone-orange-back.webp"
 faqItems:
   - question: "iPhone 16 มือสอง ทุกความจุไหม?"
     answer: "รับครับ ทุกความจุ ทุกสี และทุกสภาพ แจ้งเปอร์เซ็นต์สุขภาพแบตมาด้วยจะได้ราคาที่แม่นยำขึ้น ส่งรูปมาประเมินผ่าน Line @webuy ได้เลย"

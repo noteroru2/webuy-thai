@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-imac"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "iMac รุ่น Intel ยังขายได้ไหม"
     answer: "ได้ครับ แม้รุ่น Intel ยังมีมูลค่าตลาดอยู่ โดยเฉพาะถ้าสเปกสูง"

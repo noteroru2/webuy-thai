@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-สงขลา"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "รับซื้อ MacBook ในสงขลาไหม?"
     answer: "รับครับ ทั้ง MacBook Air และ MacBook Pro ทุกรุ่น ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย"

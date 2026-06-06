@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-ห้วยขวาง"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตห้วยขวางไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตห้วยขวางได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"

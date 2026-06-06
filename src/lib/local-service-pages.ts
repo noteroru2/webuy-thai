@@ -1,8 +1,18 @@
 import { getSocialLinks } from './site';
 import { LINE_OA_URL } from './site-line';
 
-type ProvinceKey = 'ubon' | 'khonkaen' | 'udonthani' | 'korat';
-type ServiceKey = 'notebook' | 'iphone' | 'ipad' | 'macbook';
+export type ProvinceKey =
+	| 'ubon'
+	| 'khonkaen'
+	| 'udonthani'
+	| 'korat'
+	| 'bangkok'
+	| 'chiangmai'
+	| 'phuket'
+	| 'hatyai'
+	| 'chonburi';
+
+export type ServiceKey = 'notebook' | 'iphone' | 'ipad' | 'macbook' | 'server' | 'cctv';
 
 type ProvinceConfig = {
 	key: ProvinceKey;
@@ -12,12 +22,7 @@ type ProvinceConfig = {
 	localAngle: string;
 	meetupNote: string;
 	sellerPatterns: string[];
-	crossLinks: {
-		notebook: { href: string; label: string };
-		iphone: { href: string; label: string };
-		ipad: { href: string; label: string };
-		macbook: { href: string; label: string };
-	};
+	crossLinks: Partial<Record<ServiceKey, { href: string; label: string }>>;
 };
 
 type ServiceConfig = {
@@ -126,6 +131,108 @@ const PROVINCES: Record<ProvinceKey, ProvinceConfig> = {
 			macbook: { href: '/รับซื้อแมคบุ๊ค-โคราช/', label: 'รับซื้อแมคบุ๊คโคราช' },
 		},
 	},
+	bangkok: {
+		key: 'bangkok',
+		label: 'กรุงเทพมหานคร',
+		shortLabel: 'กรุงเทพ',
+		focusAreas: ['ลาดพร้าว', 'สาทร', 'จตุจักร', 'ห้วยขวาง', 'สุขุมวิท', 'อ่อนนุช', 'พระโขนง'],
+		localAngle:
+			'กรุงเทพมีคนขายหลากหลายโซน ทั้ง office worker ในสีลม สาทร นักศึกษารอบจตุจักร และคนทำงานแถว BTS/MRT ที่อยากขายเร็วตอนเย็น',
+		meetupNote:
+			'นัดรับได้ทุกโซน BTS-MRT ไม่ต้องเดินทางมาที่ร้าน ส่งรูปมาประเมินทาง Line ก่อนแล้วค่อยนัดจุดสะดวกในกรุงเทพ',
+		sellerPatterns: [
+			'พนักงานออฟฟิศย่านสีลม-สาทร อยากขายช่วงเย็นหลังเลิกงาน ต้องการนัดแถว BTS',
+			'นักศึกษาและคนอาศัยแถวลาดพร้าว-จตุจักร ขายเครื่องเพื่ออัปเกรด',
+			'คนอาศัยแถวสุขุมวิท-อ่อนนุช ต้องการขายไว ราคาดี ไม่อยากรอนาน',
+		],
+		crossLinks: {
+			iphone: { href: '/รับซื้อไอโฟน/', label: 'รับซื้อไอโฟน' },
+			macbook: { href: '/รับซื้อแมคบุ๊ค/', label: 'รับซื้อแมคบุ๊ค' },
+			notebook: { href: '/รับซื้อโน๊ตบุ๊ค/', label: 'รับซื้อโน๊ตบุ๊ค' },
+			server: { href: '/รับซื้อ-server/', label: 'รับซื้อ Server' },
+		},
+	},
+	chiangmai: {
+		key: 'chiangmai',
+		label: 'เชียงใหม่',
+		shortLabel: 'เชียงใหม่',
+		focusAreas: ['เมืองเชียงใหม่', 'นิมมานเหมินท์', 'ช้างคลาน', 'แม่ริม', 'สันกำแพง'],
+		localAngle:
+			'เชียงใหม่มีทั้งกลุ่มนักศึกษา ม.เชียงใหม่ ม.แม่โจ้ คนทำงานย่านนิมมาน และองค์กร/ร้านค้าในตัวเมืองที่ต้องการขายอุปกรณ์ไอทีเก่า',
+		meetupNote:
+			'นัดได้ทุกย่านในเมืองเชียงใหม่ ส่งรูปมา Line ก่อนนัด ประเมินไวภายใน 15 นาที ไม่ต้องนำเครื่องมาก่อน',
+		sellerPatterns: [
+			'นักศึกษา ม.เชียงใหม่ และ ม.แม่โจ้ ขายเครื่องเก่าเพื่ออัปเกรดรุ่นใหม่',
+			'คนทำงานย่านนิมมานเหมินท์และ One Nimman ต้องการขายไว ราคาดี',
+			'ร้านค้า องค์กร โรงแรมในเชียงใหม่ที่มีอุปกรณ์ไอทียกชุดต้องการขาย',
+		],
+		crossLinks: {
+			iphone: { href: '/รับซื้อ-iphone-เชียงใหม่/', label: 'รับซื้อ iPhone เชียงใหม่' },
+			macbook: { href: '/รับซื้อ-macbook-เชียงใหม่/', label: 'รับซื้อ MacBook เชียงใหม่' },
+			notebook: { href: '/รับซื้อโน๊ตบุ๊ค-เชียงใหม่/', label: 'รับซื้อโน๊ตบุ๊คเชียงใหม่' },
+			server: { href: '/รับซื้อ-server-เชียงใหม่/', label: 'รับซื้อ Server เชียงใหม่' },
+		},
+	},
+	phuket: {
+		key: 'phuket',
+		label: 'ภูเก็ต',
+		shortLabel: 'ภูเก็ต',
+		focusAreas: ['เมืองภูเก็ต', 'ป่าตอง', 'กะรน', 'กะทู้', 'ถลาง'],
+		localAngle:
+			'ภูเก็ตมีทั้งคนไทยและผู้อาศัยต่างชาติที่ต้องการขายอุปกรณ์ไอทีก่อนย้ายออก รวมถึงธุรกิจโรงแรมและร้านค้าที่ต้องการขายอุปกรณ์ยกชุด',
+		meetupNote:
+			'รับซื้อทุกโซนในภูเก็ต ส่งรูปมา Line ก่อนนัด ประเมินราคาทางออนไลน์ได้ก่อนตัดสินใจ',
+		sellerPatterns: [
+			'คนทำงานในโรงแรมและธุรกิจท่องเที่ยวภูเก็ตที่มีอุปกรณ์ไอทียกชุด',
+			'ชาวต่างชาติที่พำนักในภูเก็ตต้องการขายก่อนย้ายออก',
+			'คนพื้นที่และนักศึกษาในเมืองภูเก็ตที่ต้องการขายเครื่องเก่าเพื่ออัปเกรด',
+		],
+		crossLinks: {
+			iphone: { href: '/รับซื้อ-iphone-ภูเก็ต/', label: 'รับซื้อ iPhone ภูเก็ต' },
+			macbook: { href: '/รับซื้อ-macbook-ภูเก็ต/', label: 'รับซื้อ MacBook ภูเก็ต' },
+			notebook: { href: '/รับซื้อโน๊ตบุ๊ค-ภูเก็ต/', label: 'รับซื้อโน๊ตบุ๊คภูเก็ต' },
+		},
+	},
+	hatyai: {
+		key: 'hatyai',
+		label: 'สงขลา',
+		shortLabel: 'หาดใหญ่',
+		focusAreas: ['หาดใหญ่', 'เมืองสงขลา', 'คลองแห', 'บ้านพรุ', 'คอหงส์'],
+		localAngle:
+			'หาดใหญ่เป็นศูนย์กลางการค้าภาคใต้ มีทั้งนักศึกษา ม.อ. คนทำงานและพ่อค้าแม่ค้าที่อยากขายอุปกรณ์ไอทีแลกเงินสดไว',
+		meetupNote:
+			'รับซื้อทุกโซนในหาดใหญ่และสงขลา ส่งรูปมา Line ก่อน ได้ราคาเร็ว นัดรับได้ทั้งตลาดเกษตรและ Central Festival',
+		sellerPatterns: [
+			'นักศึกษา ม.อ. หาดใหญ่ ต้องการขายเครื่องเก่าเพื่ออัปเกรดหรือใช้เงินเร่งด่วน',
+			'พ่อค้าแม่ค้าและร้านค้าในตลาดหาดใหญ่ที่มีอุปกรณ์ไอทียกชุด',
+			'คนทำงานในเขตอุตสาหกรรมและออฟฟิศหาดใหญ่ที่ต้องการขายเร็วได้เงินทันที',
+		],
+		crossLinks: {
+			iphone: { href: '/รับซื้อ-iphone-หาดใหญ่/', label: 'รับซื้อ iPhone หาดใหญ่' },
+			macbook: { href: '/รับซื้อ-macbook-หาดใหญ่/', label: 'รับซื้อ MacBook หาดใหญ่' },
+			notebook: { href: '/รับซื้อโน๊ตบุ๊ค-หาดใหญ่/', label: 'รับซื้อโน๊ตบุ๊คหาดใหญ่' },
+		},
+	},
+	chonburi: {
+		key: 'chonburi',
+		label: 'ชลบุรี',
+		shortLabel: 'ชลบุรี',
+		focusAreas: ['เมืองชลบุรี', 'ศรีราชา', 'พัทยา', 'แหลมฉบัง', 'บ้านบึง'],
+		localAngle:
+			'ชลบุรีมีทั้งแรงงานและผู้บริหารในนิคมอุตสาหกรรม คนทำงานในพัทยา-ศรีราชา และครอบครัวที่ต้องการขายอุปกรณ์เก่าแลกเงิน',
+		meetupNote:
+			'รับซื้อทุกโซนในชลบุรี ทั้งพัทยา ศรีราชา และตัวเมืองชลบุรี ส่งรูปมา Line ประเมินก่อนนัด',
+		sellerPatterns: [
+			'พนักงานนิคมอุตสาหกรรมแหลมฉบัง-ศรีราชา ต้องการขายอุปกรณ์ไอทียกชุดหรือของใช้ส่วนตัว',
+			'คนทำงานในพัทยาและโรงแรมที่ต้องการขายอุปกรณ์ก่อนย้ายงาน',
+			'ครอบครัวและนักศึกษาในเมืองชลบุรีที่อยากขายเครื่องเก่าแลกเงินสด',
+		],
+		crossLinks: {
+			iphone: { href: '/รับซื้อ-iphone-ชลบุรี/', label: 'รับซื้อ iPhone ชลบุรี' },
+			macbook: { href: '/รับซื้อ-macbook-ชลบุรี/', label: 'รับซื้อ MacBook ชลบุรี' },
+			notebook: { href: '/รับซื้อโน๊ตบุ๊ค/', label: 'รับซื้อโน๊ตบุ๊ค' },
+		},
+	},
 };
 
 const SERVICES: Record<ServiceKey, ServiceConfig> = {
@@ -173,6 +280,28 @@ const SERVICES: Record<ServiceKey, ServiceConfig> = {
 		decisionFactors: ['รุ่น ปี และชิป', 'RAM / SSD', 'รอบชาร์จและสุขภาพแบต', 'สถานะ iCloud และสภาพจอ / บอดี้'],
 		prepareItems: ['ชื่อรุ่นและปีโดยประมาณ', 'ชิป RAM SSD', 'จำนวนรอบชาร์จหรือสภาพแบต', 'รูปหน้าจอ ตัวเครื่อง และอะแดปเตอร์'],
 	},
+	server: {
+		key: 'server',
+		label: 'รับซื้อ Server',
+		shortLabel: 'Server',
+		hubPath: '/รับซื้อ-server/',
+		serviceType: 'บริการรับซื้อ Server มือสอง',
+		valueAngle:
+			'Server ราคาขึ้นอยู่กับ Brand/Model Generation จำนวน CPU/RAM/HDD และสภาพ Rails/Cage ประเมินแบบ B2B ได้ราคาดีกว่าขายทิ้ง',
+		decisionFactors: ['Brand และ Model/Generation', 'จำนวน CPU Socket และ RAM slots', 'HDD/SSD ที่มีและ Capacity', 'สภาพ Power Supply และ Rails'],
+		prepareItems: ['รุ่น Server และ SKU เต็ม', 'สเปก CPU, RAM, HDD/SSD ที่ติดตั้งอยู่', 'รูปด้านหน้า ด้านหลัง และ Label', 'แจ้งว่ามี Rails, Bezel, Cage หรือไม่'],
+	},
+	cctv: {
+		key: 'cctv',
+		label: 'รับซื้อกล้องวงจรปิด',
+		shortLabel: 'CCTV',
+		hubPath: '/รับซื้อกล้อง/',
+		serviceType: 'บริการรับซื้อกล้องวงจรปิด/CCTV มือสอง',
+		valueAngle:
+			'CCTV ราคาขึ้นอยู่กับ Brand (Hikvision/Dahua/Axis) ประเภท IP หรือ Analog ความละเอียด และสภาพอุปกรณ์ — รับซื้อทั้งชุดและแยกชิ้น',
+		decisionFactors: ['Brand และรุ่น', 'ประเภท IP Camera หรือ Analog', 'ความละเอียดและ Feature พิเศษ', 'จำนวน DVR/NVR และกล้อง'],
+		prepareItems: ['Brand และรุ่นกล้องและ DVR/NVR', 'จำนวนกล้องและความละเอียด', 'รูปสภาพอุปกรณ์จริง', 'แจ้งว่ามีสายไฟ อุปกรณ์ติดตั้ง หรือ accessories'],
+	},
 };
 
 function includesAny(source: string, keywords: string[]): boolean {
@@ -180,6 +309,12 @@ function includesAny(source: string, keywords: string[]): boolean {
 }
 
 function detectProvinceKey(source: string): ProvinceKey | null {
+	if (includesAny(source, ['กรุงเทพมหานคร', 'กรุงเทพ', 'กทม', 'ลาดพร้าว', 'จตุจักร', 'ห้วยขวาง', 'พระโขนง', 'วังทองหลาง', 'สาทร', 'บางกอก']))
+		return 'bangkok';
+	if (includesAny(source, ['เชียงใหม่'])) return 'chiangmai';
+	if (includesAny(source, ['ภูเก็ต'])) return 'phuket';
+	if (includesAny(source, ['หาดใหญ่', 'สงขลา'])) return 'hatyai';
+	if (includesAny(source, ['ชลบุรี', 'พัทยา', 'ศรีราชา'])) return 'chonburi';
 	if (includesAny(source, ['อุบล'])) return 'ubon';
 	if (includesAny(source, ['ขอนแก่น'])) return 'khonkaen';
 	if (includesAny(source, ['อุดร'])) return 'udonthani';
@@ -188,6 +323,8 @@ function detectProvinceKey(source: string): ProvinceKey | null {
 }
 
 function detectServiceKey(source: string): ServiceKey | null {
+	if (includesAny(source, ['server', 'เซิร์ฟเวอร์'])) return 'server';
+	if (includesAny(source, ['cctv', 'กล้องวงจรปิด', 'ip camera', 'ip-camera'])) return 'cctv';
 	if (includesAny(source, ['โน๊ตบุ๊ค', 'notebook', 'laptop'])) return 'notebook';
 	if (includesAny(source, ['ไอโฟน', 'iphone'])) return 'iphone';
 	if (includesAny(source, ['ไอแพด', 'ipad'])) return 'ipad';
@@ -199,16 +336,11 @@ function buildCrossLinks(
 	province: ProvinceConfig,
 	service: ServiceConfig,
 ): Array<{ href: string; label: string }> {
-	const entries = Object.entries(province.crossLinks) as Array<
-		[ServiceKey, { href: string; label: string }]
-	>;
-
-	return [
-		{ href: service.hubPath, label: service.label },
-		...entries
-			.filter(([key]) => key !== service.key)
-			.map(([, link]) => link),
-	];
+	const hubLink = { href: service.hubPath, label: service.label };
+	const others = (Object.entries(province.crossLinks) as Array<[ServiceKey, { href: string; label: string }]>)
+		.filter(([key]) => key !== service.key)
+		.map(([, link]) => link);
+	return [hubLink, ...others];
 }
 
 export function getImportantLocalServiceContext(

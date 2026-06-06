@@ -6,6 +6,7 @@ updatedDate: "2026-05-20"
 slug: "รับซื้อ-hp-notebook"
 qualityScore: 9
 qualityFlags: []
+heroImage: "/media/notebook-showcase/notebook-lineup-showroom.webp"
 faqItems:
   - question: "HP รุ่นไหนราคาดีกว่ากัน"
     answer: "EliteBook และ Spectre มักได้ราคาดีกว่าในกลุ่มทำงาน ส่วน Victus และ Omen จะดูเพิ่มที่การ์ดจอ ความร้อน และสภาพเครื่อง เพราะเป็นกลุ่มเกมมิง"

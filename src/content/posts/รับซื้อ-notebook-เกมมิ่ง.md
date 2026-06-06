@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-notebook-เกมมิ่ง"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/acer-aspire-3-silver.webp"
 faqItems:
   - question: "Notebook เกมมิ่ง สภาพผ่านการใช้งานมาแล้วยังขายได้ไหม"
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"

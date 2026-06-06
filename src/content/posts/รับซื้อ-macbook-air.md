@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-air"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "MacBook Air รุ่น Intel ยังขายได้ไหม"
     answer: "ได้ครับ แม้รุ่น Intel ยังมีมูลค่าตลาดอยู่ โดยเฉพาะถ้าสเปกสูง"

@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อซาก-notebook"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/huawei-matebook-dark.webp"
 faqItems:
   - question: "ซาก Notebook สภาพไม่ดียังขายได้ไหม"
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"

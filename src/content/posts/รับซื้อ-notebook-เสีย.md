@@ -6,6 +6,7 @@ updatedDate: "2026-06-05"
 slug: "รับซื้อ-notebook-เสีย"
 qualityScore: 8
 qualityFlags: []
+heroImage: "/media/notebook-showcase/asus-vivobook-reddesk.webp"
 faqItems:
   - question: "Notebook เสีย สภาพไม่ดียังขายได้ไหม"
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"
