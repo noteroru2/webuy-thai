@@ -11,7 +11,7 @@ export function getSiteOrigin(): string {
   const coolifyUrl = typeof env.COOLIFY_URL === 'string' ? env.COOLIFY_URL : undefined;
   if (coolifyUrl) return coolifyUrl.replace(/\/+$/, '');
 
-  return 'https://example.com';
+  return 'https://xn--c3c3a0aa6cvaf8b9dze.com';
 }
 
 export function getSiteUrl(pathname: string): string {
