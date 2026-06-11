@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
   - question: "รับล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
+
 ---
+
 
 **รับซื้อ Power Supply** ครอบคลุม PSU สำหรับ Desktop PC ทุกยี่ห้อ Corsair, Seasonic, EVGA, be quiet!, Thermaltake
 

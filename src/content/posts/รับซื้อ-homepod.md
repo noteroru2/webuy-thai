@@ -9,7 +9,9 @@ qualityFlags: []
 faqItems:
   - question: "รับซื้อ HomePod ทุกรุ่นไหม?"
     answer: "รับครับ ทั้ง HomePod Gen 2 และ HomePod mini ทุกสี ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
+
 ---
+
 
 **รับซื้อ HomePod มือสอง** — WE BUY รับซื้อ HomePod และ HomePod mini ทุกรุ่น ทุกสี
 
@@ -21,4 +23,3 @@ faqItems:
 | HomePod mini | 1,500–2,800 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

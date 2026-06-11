@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ถ้า SMART ยังดีก็ยังมีมูลค่า"
   - question: "ต้องมีกล่องหรือสติกเกอร์ไหม"
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
+
 ---
+
 
 **รับซื้อ SSD WD Western Digital** ทุกรุ่น ได้แก่ WD Blue SATA, WD Black NVMe ทุกรุ่น
 

@@ -10,7 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "MacBook Air M3 มือสอง รับทุกสเปกไหม?"
     answer: "รับครับ ทุกสเปก ทั้ง base model จนถึง Max configuration ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย รู้ราคาภายใน 15-30 นาที"
+
 ---
+
 
 **รับซื้อ MacBook Air M3 มือสอง** — WE BUY รับซื้อ MacBook รุ่นนี้ด้วยราคาที่ตรงกับตลาดมือสองจริง ประเมินตามชิป M3 RAM SSD และรอบชาร์จ
 
@@ -34,4 +36,3 @@ faqItems:
 Apple Menu → About This Mac → More Info แล้วถ่ายรูปส่งมาได้เลย
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

@@ -12,7 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"
   - question: "รับยกล็อตได้ไหม"
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
+
 ---
+
 
 **รับซื้อNotebook MSI** ครอบคลุม Notebook MSI Gaming, Creator, Prestige ทุกรุ่น
 

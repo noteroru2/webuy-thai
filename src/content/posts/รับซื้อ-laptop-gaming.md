@@ -12,7 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"
   - question: "ไม่มีกล่องหรืออุปกรณ์ครบขายได้ไหม"
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
+
 ---
+
 
 **รับซื้อLaptop Gaming** ครอบคลุม Laptop Gaming ทุกยี่ห้อ ROG, Raider, Helios, Legion, Blade ทุกรุ่น
 

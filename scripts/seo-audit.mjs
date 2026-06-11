@@ -367,7 +367,7 @@ function auditHtmlPage(filePath, distRoot, siteOrigin, whitelist) {
 
 function loadSitemapUrls(distRoot) {
 	const urls = new Set();
-	const files = readdirSync(distRoot).filter((f) => /^sitemap-\d+\.xml$/i.test(f));
+	const files = readdirSync(distRoot).filter((f) => /^sitemap-[a-z0-9-]+\.xml$/i.test(f) && f !== 'sitemap-index.xml');
 	for (const file of files) {
 		const xml = readFileSync(join(distRoot, file), 'utf8');
 		if (!/<urlset\b/i.test(xml)) continue;

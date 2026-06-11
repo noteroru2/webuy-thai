@@ -10,7 +10,9 @@ heroImage: "/media/apple-local/iphone-orange-duo.webp"
 faqItems:
   - question: "iPhone 15 Pro Max มือสอง ทุกความจุไหม?"
     answer: "รับครับ ทุกความจุ ทุกสี และทุกสภาพ แจ้งเปอร์เซ็นต์สุขภาพแบตมาด้วยจะได้ราคาที่แม่นยำขึ้น ส่งรูปมาประเมินผ่าน Line @webuy ได้เลย"
+
 ---
+
 
 **รับซื้อ iPhone 15 Pro Max มือสอง** — WE BUY ประเมินราคา iPhone มือสองด้วยสเปกและสุขภาพแบตที่แม่นยำ
 
@@ -32,4 +34,3 @@ faqItems:
 - **ความจุ** ยิ่งมากยิ่งราคาดี
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

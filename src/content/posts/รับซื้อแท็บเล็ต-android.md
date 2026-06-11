@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามความรุนแรง ส่งรูปมาก่อน"
   - question: "ไม่มี Apple Pencil หรือ Cover ขายได้ไหม"
     answer: "ได้ครับ อุปกรณ์เสริมไม่จำเป็น แต่ถ้ามีช่วยได้"
+
 ---
+
 
 **รับซื้อแท็บเล็ต Android** ครอบคลุม Android Tablet ทุกยี่ห้อ Samsung, Xiaomi, Lenovo, Huawei
 

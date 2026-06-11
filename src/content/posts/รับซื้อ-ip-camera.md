@@ -9,7 +9,9 @@ qualityFlags: []
 faqItems:
   - question: "รับซื้อ IP Camera ทุกยี่ห้อไหม?"
     answer: "รับครับ ทุกยี่ห้อและทุกประเภท ส่งรูปและระบุยี่ห้อรุ่นมาประเมินราคาผ่าน Line @webuy ได้เลย"
+
 ---
+
 
 **รับซื้อ IP Camera มือสอง** — WE BUY รับซื้อ IP Camera ทุกประเภทและทุกยี่ห้อ รับทั้งแยกชิ้นและยกชุดพร้อม NVR
 
@@ -22,4 +24,3 @@ faqItems:
 - **Turret Camera** ดีไซน์ทันสมัย
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

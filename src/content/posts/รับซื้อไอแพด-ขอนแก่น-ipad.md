@@ -4,10 +4,10 @@ description: "URL เดิมสำหรับคนที่ค้นหา�
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อไอแพด-ขอนแก่น-ipad"
-noindex: true
-canonical: "/รับซื้อไอแพด-ขอนแก่น/"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
+
 ---
+
 
 หน้านี้ถูกเก็บไว้เพื่อพาผู้ใช้ไปยังหน้ารับซื้อไอแพด ขอนแก่นที่อัปเดตล่าสุด

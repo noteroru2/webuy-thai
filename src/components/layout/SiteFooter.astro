@@ -1,4 +1,4 @@
-﻿---
+---
 import BrandLogo from '../BrandLogo.astro';
 
 const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
@@ -82,17 +82,14 @@ const year = new Date().getFullYear();
 					</ul>
 				</div>
 				<div class="col-span-1 sm:col-span-2 md:col-span-1">
-					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">ที่อยู่ (NAP)</p>
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">พื้นที่ให้บริการหลัก</p>
 					<p class="mt-4 text-sm leading-[1.75] text-gray-400 break-words">
 						<strong class="font-semibold text-gray-200">{siteName}</strong><br />
-						{addressLine1 && (
-							<>
-								{addressLine1}
-								<br />
-							</>
-						)}
-						{addressLocality} {postalCode}<br />
-						{addressRegion}
+						ประเมินราคาออนไลน์และรับ-ส่งทั่วประเทศ<br />
+						<span class="block mt-2 font-medium text-gray-300">จุดนัดรับและประเมินหลัก:</span>
+						- กรุงเทพมหานครและปริมณฑล<br />
+						- อุบลราชธานี (ศูนย์หลักอีสาน)<br />
+						- ขอนแก่น, นครราชสีมา, อุดรธานี
 					</p>
 				</div>
 			</div>

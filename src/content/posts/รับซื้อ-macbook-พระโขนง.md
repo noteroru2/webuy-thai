@@ -10,7 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตพระโขนงไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตพระโขนงได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"
+
 ---
+
 
 **รับซื้อ MacBook พระโขนง** — WE BUY รับซื้อ MacBook มือสองในเขตพระโขนง กรุงเทพฯ — แหล่งชุมชนและออฟฟิศฝั่งสุขุมวิทตอนปลาย
 
@@ -31,4 +33,3 @@ faqItems:
 | MacBook Intel | 4,000–11,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

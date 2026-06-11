@@ -11,7 +11,9 @@ faqItems:
     answer: "รับครับ ทุกยี่ห้อ ทั้ง APC Eaton CyberPower Syndome True Online Cleanline และยี่ห้ออื่น ๆ รับทุกขนาดตั้งแต่ 600VA จนถึงระดับ 100 kVA ส่งรูปและสเปกมาประเมินราคาผ่าน Line @webuy ได้เลย"
   - question: "UPS ที่แบตเสื่อมแล้วรับไหม?"
     answer: "รับครับ ประเมินราคาตามสภาพของ Inverter และ Body รวมถึง Circuit ภายใน แม้แบตเตอรี่จะหมดสภาพแล้วก็ตาม"
+
 ---
+
 
 **รับซื้อ UPS นครราชสีมา** — WE BUY รับซื้อ UPS (เครื่องสำรองไฟ) มือสองในนครราชสีมาและภาคอีสาน
 
@@ -36,4 +38,3 @@ APC, Eaton (MGE/Powerware), CyberPower, Syndome, True Online (Socomec), Cleanlin
 | UPS Industrial 20 kVA+ | 20,000–100,000+ บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

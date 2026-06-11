@@ -11,7 +11,9 @@ faqItems:
     answer: "รับครับ ทั้ง Samsung, LG, Sony, TCL, Hisense, Xiaomi, Panasonic และยี่ห้ออื่น ๆ เน้นรุ่น OLED และ QLED ที่ยังมีมูลค่าในตลาดสูง ส่งรูปและระบุรุ่นมาประเมินราคาผ่าน Line @webuy ได้เลย"
   - question: "TV ขนาดไหนที่รับซื้อ?"
     answer: "รับตั้งแต่ 43' ขึ้นไปครับ โดยเฉพาะ 55' และ 65' ซึ่งเป็นขนาดที่ตลาดมือสองต้องการสูงสุด"
+
 ---
+
 
 **รับซื้อ Smart TV มือสอง** — WE BUY รับซื้อ Smart TV มือสองที่ยังมีตลาดรองรับ โดยเฉพาะ OLED และ QLED ระดับพรีเมียม
 
@@ -32,4 +34,3 @@ faqItems:
 | LED 43" Smart TV | 1,500–5,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

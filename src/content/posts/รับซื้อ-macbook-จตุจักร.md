@@ -10,7 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตจตุจักรไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตจตุจักรได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"
+
 ---
+
 
 **รับซื้อ MacBook จตุจักร** — WE BUY รับซื้อ MacBook มือสองในเขตจตุจักร กรุงเทพฯ — พื้นที่ธุรกิจและนักศึกษา ใกล้เขต Vibhavadi
 
@@ -31,4 +33,3 @@ faqItems:
 | MacBook Intel | 4,000–11,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

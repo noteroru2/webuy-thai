@@ -11,7 +11,9 @@ faqItems:
     answer: "รับได้ครับ ยิ่งใหม่ยิ่งได้ราคาดี"
   - question: "รับเป็นล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
+
 ---
+
 
 **รับซื้อ Harddisk Server** ครอบคลุม HDD SAS, SATA Enterprise 10K, 15K RPM ที่ใช้ใน Server และ Storage
 

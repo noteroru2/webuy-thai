@@ -11,7 +11,9 @@ faqItems:
     answer: "รับครับ ทุกยี่ห้อ ทั้ง Epson, BenQ, Sony, Optoma, NEC และยี่ห้ออื่น ๆ แนะนำระบุจำนวนชั่วโมงการใช้งาน (Lamp Hours) มาด้วยเพื่อประเมินราคาได้แม่นยำขึ้น"
   - question: "Projector ที่หลอดไฟหมดอายุรับไหม?"
     answer: "รับครับ แต่ราคาจะปรับตามต้นทุนหลอดไฟ โปรเจกเตอร์ Laser ที่ไม่มีหลอดไฟมีมูลค่าสูงกว่ารุ่นหลอด LED/UHP แจ้งชั่วโมงการใช้งานมาตั้งแต่ต้น"
+
 ---
+
 
 **รับซื้อ Projector โปรเจกเตอร์มือสอง** — WE BUY รับซื้อ Projector มือสองทุกประเภทที่ยังมีตลาดรองรับ เหมาะสำหรับองค์กรที่อัปเกรดระบบนำเสนอหรือห้องประชุม
 
@@ -35,4 +37,3 @@ Epson, BenQ, Sony, Optoma, NEC, Panasonic, ViewSonic, Barco, Christie
 | Education Projector SVGA/XGA | 1,000–5,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

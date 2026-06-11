@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามความรุนแรง ส่งรูปมาก่อน"
   - question: "ไม่มี Apple Pencil หรือ Cover ขายได้ไหม"
     answer: "ได้ครับ อุปกรณ์เสริมไม่จำเป็น แต่ถ้ามีช่วยได้"
+
 ---
+
 
 **รับซื้อMicrosoft Surface** ครอบคลุม Microsoft Surface Pro, Go, Laptop ทุกรุ่น
 

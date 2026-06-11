@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ถ้ายังทำงานได้และมีอุปกรณ์ครบก็ยังมีมูลค่า"
   - question: "รับเป็นล็อตหลายตัวได้ไหม"
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
+
 ---
+
 
 **รับซื้อ Router** ครอบคลุม Router ทุกยี่ห้อ Cisco, Mikrotik, Ubiquiti, ASUS, TP-Link ระดับ Enterprise
 

@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ราคาจะปรับตามความรุนแรงของตำหนิ ส่งรูปมาก่อนได้เลย"
   - question: "ไม่มีสายหรืออะแดปเตอร์ขายได้ไหม"
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
+
 ---
+
 
 **รับซื้อ Mini PC** ครอบคลุม Mini PC ทุกยี่ห้อ Intel NUC, ASUS NUC, Beelink, MinisForum, Mac Mini
 

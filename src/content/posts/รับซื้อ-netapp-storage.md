@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ประเมินจาก Controller และสภาพโครงเครื่อง"
   - question: "ต้องมี License ด้วยไหม"
     answer: "ไม่จำเป็น แต่มีช่วยให้ประเมินราคาได้ครบกว่า"
+
 ---
+
 
 **รับซื้อ NetApp Storage** ครอบคลุม FAS, AFF (All Flash), E-Series และ StorageGRID ที่พบในองค์กรขนาดกลาง-ใหญ่และ Data Center
 

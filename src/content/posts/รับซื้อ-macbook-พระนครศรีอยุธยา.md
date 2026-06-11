@@ -10,7 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "รับซื้อ MacBook ในพระนครศรีอยุธยาไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย"
+
 ---
+
 
 **รับซื้อ MacBook พระนครศรีอยุธยา** — WE BUY รับซื้อ MacBook มือสองในพระนครศรีอยุธยาและพระนครศรีอยุธยาและจังหวัดใกล้เคียงในภาคกลาง
 
@@ -24,4 +26,3 @@ faqItems:
 | MacBook Intel | 4,000–11,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

@@ -12,7 +12,9 @@ faqItems:
     answer: "ได้ครับ แม้รุ่น Intel ยังมีมูลค่าตลาดอยู่ โดยเฉพาะถ้าสเปกสูง"
   - question: "MacBook Pro ที่ลืม Password ขายได้ไหม"
     answer: "ได้บางกรณีครับ แต่ควรรีเซ็ตหรือปลด iCloud ก่อนส่งมอบ"
+
 ---
+
 
 **รับซื้อ MacBook Pro** ครอบคลุม MacBook Pro 13, 14, 16 นิ้ว ชิป M1-M4 และ Intel ทุกรุ่น
 

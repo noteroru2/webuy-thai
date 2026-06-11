@@ -12,7 +12,9 @@ faqItems:
     answer: "รับครับ ทั้ง MacBook Air และ MacBook Pro ทุกรุ่น ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย"
   - question: "ส่งพัสดุจากสุราษฎร์ธานีได้ไหม?"
     answer: "ได้ครับ ประเมินราคาก่อนผ่าน Line แล้วส่งพัสดุมาได้เลย โอนเงินให้ทันทีเมื่อตรวจสภาพเสร็จ"
+
 ---
+
 
 **รับซื้อ MacBook สุราษฎร์ธานี** — WE BUY รับซื้อ MacBook มือสองในสุราษฎร์ธานีและสุราษฎร์ธานีและจังหวัดใกล้เคียงในภาคใต้
 
@@ -33,4 +35,3 @@ faqItems:
 | MacBook Intel (2017-2020) | 4,000–11,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

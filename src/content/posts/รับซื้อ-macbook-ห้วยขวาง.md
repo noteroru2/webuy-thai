@@ -10,7 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตห้วยขวางไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตห้วยขวางได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"
+
 ---
+
 
 **รับซื้อ MacBook ห้วยขวาง** — WE BUY รับซื้อ MacBook มือสองในเขตห้วยขวาง กรุงเทพฯ — ย่านธุรกิจกลางกรุงเทพฯ ติดรัชดาและMRT
 
@@ -31,4 +33,3 @@ faqItems:
 | MacBook Intel | 4,000–11,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

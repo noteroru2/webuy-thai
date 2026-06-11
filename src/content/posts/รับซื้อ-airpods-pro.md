@@ -9,7 +9,9 @@ qualityFlags: []
 faqItems:
   - question: "รับซื้อ AirPods Pro ทุก Gen ไหม?"
     answer: "รับครับ ทั้ง Gen 1, Gen 2 และ Gen 3 ส่งรูปแบตเตอรี่และสภาพมาประเมินราคาผ่าน Line @webuy ได้เลย"
+
 ---
+
 
 **รับซื้อ AirPods Pro มือสอง** — AirPods Pro คือ True Wireless ที่มีมูลค่าในตลาดมือสองสูงที่สุดในกลุ่ม AirPods เนื่องจากระบบตัดเสียง ANC และ Transparency Mode
 
@@ -28,4 +30,3 @@ faqItems:
 3. บอกว่ามีกล่องเดิมและสายชาร์จหรือไม่
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

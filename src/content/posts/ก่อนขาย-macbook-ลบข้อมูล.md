@@ -20,7 +20,9 @@ faqItems:
     answer: "ภาพ About สเปก รูปสภาพ ยืนยันไม่ติด Activation Lock — หน้าเช็กราคาก่อนขาย"
 qualityScore: 0
 qualityFlags: []
+
 ---
+
 
 
 **คำตอบสั้น:** ก่อนขาย MacBook ควร**สำรองข้อมูล → ออกจาก Apple ID → ปิด Find My → Erase Mac** (หรือลบผู้ใช้ตามเวอร์ชัน macOS) เมื่อคุณเป็นเจ้าของและรู้รหัสบัญชี

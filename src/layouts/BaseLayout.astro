@@ -59,6 +59,27 @@ const phoneHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
 const robotsContent = noindex
 	? 'noindex, nofollow, noarchive'
 	: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": orgName,
+	"image": imageUrl,
+	"url": site.toString(),
+	"telephone": businessPhone,
+	"priceRange": "$$",
+	"address": {
+		"@type": "PostalAddress",
+		"addressCountry": "TH"
+	},
+	"areaServed": [
+		{ "@type": "State", "name": "กรุงเทพมหานคร" },
+		{ "@type": "State", "name": "อุบลราชธานี" },
+		{ "@type": "State", "name": "ขอนแก่น" },
+		{ "@type": "State", "name": "นครราชสีมา" },
+		{ "@type": "State", "name": "อุดรธานี" }
+	]
+};
 ---
 
 <!doctype html>
@@ -103,6 +124,7 @@ const robotsContent = noindex
 			(Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((item) => (
 				<script type="application/ld+json" set:html={JSON.stringify(item)} />
 			))}
+		<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 		<style is:global>
 			:root {
 				--bg: #fafbfd;

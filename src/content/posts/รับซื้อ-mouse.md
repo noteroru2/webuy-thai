@@ -11,7 +11,9 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
   - question: "รับล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
+
 ---
+
 
 **รับซื้อ Mouse** ครอบคลุม เมาส์ Gaming และ Office ทุกยี่ห้อ Logitech, Razer, SteelSeries, Zowie
 

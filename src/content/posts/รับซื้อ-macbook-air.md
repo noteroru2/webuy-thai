@@ -12,7 +12,9 @@ faqItems:
     answer: "ได้ครับ แม้รุ่น Intel ยังมีมูลค่าตลาดอยู่ โดยเฉพาะถ้าสเปกสูง"
   - question: "MacBook Air ที่ลืม Password ขายได้ไหม"
     answer: "ได้บางกรณีครับ แต่ควรรีเซ็ตหรือปลด iCloud ก่อนส่งมอบ"
+
 ---
+
 
 **รับซื้อ MacBook Air** ครอบคลุม MacBook Air 13, 15 นิ้ว ชิป M1-M4 และ Intel ทุกรุ่น
 

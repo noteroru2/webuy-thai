@@ -10,7 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "รับซื้อ MacBook เขตลาดพร้าวไหม?"
     answer: "รับครับ ทุกรุ่น ทุกสภาพ นัดรับในเขตลาดพร้าวได้เลย หรือส่งรูปมาประเมินราคาผ่าน Line @webuy ก่อนได้"
+
 ---
+
 
 **รับซื้อ MacBook ลาดพร้าว** — WE BUY รับซื้อ MacBook มือสองในเขตลาดพร้าว กรุงเทพฯ — แหล่งชุมชนหนาแน่นและตลาดไอทีใกล้รังสิต
 
@@ -31,4 +33,3 @@ faqItems:
 | MacBook Intel | 4,000–11,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

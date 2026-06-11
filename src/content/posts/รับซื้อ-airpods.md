@@ -13,7 +13,9 @@ faqItems:
     answer: "รับครับ แต่ราคาจะปรับตามสุขภาพแบตจริง แนะนำเช็กและแจ้งเปอร์เซ็นต์แบตตั้งแต่ต้น"
   - question: "AirPods ไม่มีกล่องรับไหม?"
     answer: "รับครับ แต่มีกล่องและอุปกรณ์ครบจะได้ราคาดีกว่า แจ้งรายการอุปกรณ์ที่มีมาตั้งแต่ต้น"
+
 ---
+
 
 **รับซื้อ AirPods มือสอง** — WE BUY รับซื้อ AirPods ทุกรุ่นที่ยังมีตลาดรองรับ ปิด Apple ecosystem ของคุณให้ครบ ไม่ว่าจะเป็น AirPods รุ่นธรรมดา, AirPods Pro หรือ AirPods Max ราคาสูงสุด
 
@@ -39,4 +41,3 @@ faqItems:
 เชื่อมต่อกับ iPhone แล้วไปที่ Settings → Bluetooth → ชื่อ AirPods → กด (i) → ดู Battery Health ของแต่ละข้างและ Case
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

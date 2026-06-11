@@ -9,7 +9,9 @@ qualityFlags: []
 faqItems:
   - question: "รับซื้อ AirPods Max ทุกสีไหม?"
     answer: "รับครับ ทุกสี ทั้ง Space Gray, Silver, Sky Blue, Pink, Green, Midnight, Starlight และสีอื่น ๆ ที่ Apple วางจำหน่าย ส่งรูปมาประเมินราคาผ่าน Line @webuy"
+
 ---
+
 
 **รับซื้อ AirPods Max มือสอง** — AirPods Max เป็น Over-ear Headphone ระดับ Premium ของ Apple ที่ยังคงมูลค่าในตลาดมือสองสูงมาก
 
@@ -22,4 +24,3 @@ faqItems:
 | มีรอยหรือแบตเสื่อม | 4,000–7,000 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-

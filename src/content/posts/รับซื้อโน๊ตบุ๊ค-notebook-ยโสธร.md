@@ -4,10 +4,10 @@ description: "URL เดิมสำหรับคนที่ค้นหา�
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อโน๊ตบุ๊ค-notebook-ยโสธร"
-noindex: true
-canonical: "/รับซื้อโน๊ตบุ๊ค/"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
+
 ---
+
 
 หน้านี้ถูกเก็บไว้เพื่อพาผู้ใช้ไปยังหน้ารับซื้อโน๊ตบุ๊คที่อัปเดตล่าสุด

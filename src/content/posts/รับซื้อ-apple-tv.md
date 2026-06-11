@@ -9,7 +9,9 @@ qualityFlags: []
 faqItems:
   - question: "รับซื้อ Apple TV ทุกรุ่นไหม?"
     answer: "รับครับ ทั้ง Apple TV 4K Gen 1, 2, 3 และ Apple TV HD ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
+
 ---
+
 
 **รับซื้อ Apple TV มือสอง** — WE BUY ปิด Apple ecosystem ครบ รับซื้อ Apple TV ทุกรุ่นที่ยังมีตลาดรองรับ
 
@@ -23,4 +25,3 @@ faqItems:
 | Apple TV HD | 800–1,500 บาท |
 
 ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
-
