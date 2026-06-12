@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 interface Props {
 	src: string;
 	alt: string;
@@ -12,6 +13,6 @@ const figureClass =
 ---
 
 <figure class={figureClass}>
-	<img src={src} alt={alt} loading="lazy" decoding="async" />
+	<Image src={src} alt={alt} loading="lazy" decoding="async" inferSize={true} />
 	{caption && <figcaption set:html={caption} />}
 </figure>

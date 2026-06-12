@@ -201,11 +201,13 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	},
 ];
 
+import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
 import TrustBadges from '../components/money-pages/TrustBadges.astro';
 import StepCards from '../components/money-pages/StepCards.astro';
 import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout
@@ -227,6 +229,7 @@ import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 		<section>
 			
 			<TrustBadges className="mb-12 mt-8" />
+			<RecentTradesSlider />
 			<h2>บริการรับซื้อไอโฟนมือสอง ให้ราคาสูง จ่ายเงินสดทันที</h2>
 			<p>
 				บริการของเรารูปแบบใหม่ที่ตอบโจทย์ไลฟ์สไตล์ของคนยุคดิจิทัลอย่างแท้จริง เราออกแบบขั้นตอนการรับซื้อไอโฟนมือสองให้มีความคล่องตัว รวดเร็ว และลดความซับซ้อนที่ไม่จำเป็นออกไปทั้งหมด คุณไม่ต้องเสียเวลาเดินทางตระเวนหาร้านตู้ตามห้างสรรพสินค้าเพื่อสอบถามราคาทีละร้านให้เหนื่อยเปล่า และไม่ต้องเสี่ยงกับการโพสต์ขายเองบนอินเทอร์เน็ตที่ต้องคอยตอบคำถามจุกจิก นัดเจอกับคนแปลกหน้า หรือลุ้นว่าจะถูกเบี้ยวหรือไม่ บริการของเราครอบคลุมตั้งแต่การประเมินราคาออนไลน์ผ่านช่องทาง LINE ที่ทำได้ตลอด 24 ชั่วโมง ไปจนถึงการนัดหมายรับเครื่องในสถานที่ที่คุณสะดวกที่สุด หรือบริการส่งเครื่องผ่านระบบขนส่งเอกชนสำหรับลูกค้าต่างจังหวัด เราการันตีว่าทันทีที่เครื่องของคุณผ่านการตรวจสอบสภาพตรงตามที่ตกลงกันไว้ คุณจะได้รับเงินสดหรือการโอนเงินเข้าบัญชีธนาคารในทันที ไม่มีการผัดผ่อน ไม่มีการรอรอบโอน และไม่มีการหักค่าธรรมเนียมแอบแฝงใดๆ ทั้งสิ้น
@@ -259,7 +262,7 @@ import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 			<div class="hub-showcase-grid">
 				{iphoneShowcase.map((item) => (
 					<figure class="hub-showcase-item">
-						<img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+						<Image src={item.src} alt={item.alt} loading="lazy" decoding="async" inferSize={true} />
 						<figcaption>{item.caption}</figcaption>
 					</figure>
 				))}

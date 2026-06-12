@@ -6,6 +6,7 @@ import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
+import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
 import TrustBadges from '../components/money-pages/TrustBadges.astro';
 import StepCards from '../components/money-pages/StepCards.astro';
 import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
@@ -181,6 +182,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		</header>
         <section class="content">
 			<TrustBadges className="mb-12 mt-8" />
+			<RecentTradesSlider />
 			<h2>รับซื้อKWใกล้ฉัน ด่วนที่สุด ประเมินราคาไว จ่ายเงินสดหน้างาน</h2>
 			<p>เบื่อไหมกับการต้องขับรถตระเวนหาร้านรับซื้อKWใกล้บ้าน แล้วยังโดนกดราคาหน้างาน? ปัญหาเหล่านั้นจะหมดไป เมื่อเรียกใช้บริการจากเรา เพียงแค่นัดหมาย เราก็พร้อมไปหาคุณถึงที่ ทั่วทุกมุมเมือง</p>
 			<p>ไม่ว่าคุณจะอยู่ที่ไหน เรามีเครือข่ายทีมงานประเมินราคาที่ครอบคลุมพื้นที่ ทำให้คุณได้รับบริการที่รวดเร็วเสมือนมีร้านรับซื้อตั้งอยู่หน้าปากซอยบ้านคุณ ความปลอดภัยและความโปร่งใสคือสิ่งที่เราให้ความสำคัญเป็นอันดับหนึ่ง</p>

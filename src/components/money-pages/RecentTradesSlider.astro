@@ -1,0 +1,180 @@
+---
+const trades = [
+  { item: "MacBook Pro M2 13-inch", location: "ลาดพร้าว", price: "32,000", time: "15 นาทีที่แล้ว" },
+  { item: "iPhone 14 Pro Max 256GB", location: "เชียงใหม่", price: "28,500", time: "42 นาทีที่แล้ว" },
+  { item: "iPad Pro 11 M1", location: "ภูเก็ต", price: "18,000", time: "1 ชั่วโมงที่แล้ว" },
+  { item: "โน๊ตบุ๊ค ASUS ROG Strix", location: "ขอนแก่น", price: "22,000", time: "2 ชั่วโมงที่แล้ว" },
+  { item: "คอมประกอบ i5-12400F RTX3060", location: "บางนา", price: "15,500", time: "2 ชั่วโมงที่แล้ว" },
+  { item: "Sony A7 III + Lens 28-70", location: "ชลบุรี", price: "35,000", time: "3 ชั่วโมงที่แล้ว" },
+  { item: "PS5 รุ่นใส่แผ่น", location: "นนทบุรี", price: "12,500", time: "3 ชั่วโมงที่แล้ว" },
+  { item: "Apple Watch Series 8", location: "ระยอง", price: "8,500", time: "4 ชั่วโมงที่แล้ว" },
+];
+
+// Duplicate trades to create a seamless infinite marquee effect
+const marqueeItems = [...trades, ...trades];
+---
+
+<section class="recent-trades-wrapper">
+  <div class="trades-header">
+    <span class="live-dot"></span>
+    <h3>อัปเดตผลงานรับซื้อล่าสุด (Live)</h3>
+  </div>
+  
+  <div class="marquee-container">
+    <div class="marquee-content">
+      {marqueeItems.map((trade, index) => (
+        <div class="trade-card">
+          <div class="trade-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="trade-details">
+            <p class="trade-title">รับซื้อ {trade.item}</p>
+            <p class="trade-meta">
+              <span class="trade-price">จ่ายสด {trade.price}฿</span>
+              <span class="trade-loc">📍 {trade.location}</span>
+              <span class="trade-time">{trade.time}</span>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .recent-trades-wrapper {
+    margin: 2.5rem 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(248, 250, 252, 0.8) 100%);
+    border-radius: 16px;
+    padding: 1.5rem 0;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+  }
+  
+  .trades-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .trades-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #334155;
+  }
+  
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  }
+
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+
+  /* Fade edges for smooth entry/exit */
+  .marquee-container::before,
+  .marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+  }
+  .marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+  }
+  .marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+  }
+
+  .marquee-content {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .marquee-content:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .trade-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    min-width: max-content;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .trade-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #f97316;
+  }
+
+  .trade-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #fffedd;
+    color: #d97706;
+    border-radius: 50%;
+  }
+
+  .trade-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .trade-title {
+    margin: 0 0 0.2rem 0;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.95rem;
+  }
+
+  .trade-meta {
+    margin: 0;
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  .trade-price {
+    color: #16a34a;
+    font-weight: 700;
+  }
+</style>

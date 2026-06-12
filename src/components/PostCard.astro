@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
 	post: CollectionEntry<'posts'>;
@@ -17,7 +18,7 @@ const HeadingTag = headingLevel;
 <article class="card">
 	{img && (
 		<a href={`/${post.data.slug}/`} class="thumb-wrap">
-			<img src={img} alt={imgAlt} class="thumb" loading="lazy" width="400" height="225" />
+			<Image src={img} alt={imgAlt} class="thumb" loading="lazy" width={400} height={225} inferSize={true} />
 		</a>
 	)}
 	<div class="body">

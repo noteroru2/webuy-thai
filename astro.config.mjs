@@ -5,21 +5,23 @@ import { loadEnv } from 'vite';
 import { join } from 'node:path';
 import { isPlaceholderSiteUrl, resolveSiteUrl } from './scripts/resolve-site-url.mjs';
 
+import sitemap from '@astrojs/sitemap';
+
 const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
 const siteUrl = resolveSiteUrl(env);
 
 if (isPlaceholderSiteUrl(siteUrl)) {
-	throw new Error('Refusing to build sitemap with placeholder site URL https://example.com');
+    throw new Error('Refusing to build sitemap with placeholder site URL https://example.com');
 }
 
 export default defineConfig({
-	site: siteUrl,
-	trailingSlash: 'always',
-	build: {
-		inlineStylesheets: 'always',
-	},
-	vite: {
-		plugins: [tailwindcss()],
-	},
-	integrations: [],
+    site: siteUrl,
+    trailingSlash: 'always',
+    build: {
+        inlineStylesheets: 'always',
+    },
+    vite: {
+        plugins: [tailwindcss()],
+    },
+    integrations: [sitemap()],
 });

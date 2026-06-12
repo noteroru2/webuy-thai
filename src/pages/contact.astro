@@ -10,10 +10,10 @@ const addressRegion = import.meta.env.PUBLIC_ADDRESS_REGION ?? 'ประเท�
 const postalCode = import.meta.env.PUBLIC_POSTAL_CODE ?? '10200';
 const mapEmbedSrc =
 	import.meta.env.PUBLIC_GOOGLE_MAP_EMBED ??
-	'https://www.google.com/maps?q=13.7563,100.5018&z=12&output=embed';
+	'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.025105990686!2d104.8417777109199!3d15.266426660367209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311687b7ef0583c9%3A0x90ad9a37b84af3a!2z4Lit4Liz4Lie4LilIOC5gOC4l-C4o-C4lOC4lOC4tOC5ieC4hyAtIOC4o-C4seC4muC4i-C4t-C5ieC4rSDguILguLLguKIg4LiL4LmI4Lit4LihIOC4hOC4reC4oeC4nuC4tOC4p-C5gOC4leC4reC4o-C5jCDguKHguLfguK3guJbguLfguK0g4LiB4Lil4LmJ4Lit4LiHIOC4peC4s-C5guC4nuC4hyDguKrguLTguJnguITguYnguLLguYTguK3guJfguLXguJfguLjguIHguIrguJnguLTguJQ!5e0!3m2!1sth!2sth!4v1781278592755!5m2!1sth!2sth';
 const mapUrl =
 	import.meta.env.PUBLIC_GOOGLE_MAP_URL ??
-	'https://maps.google.com/?q=13.7563,100.5018';
+	'https://maps.app.goo.gl/HVvd9AcX7cC7xPpS6';
 const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
 const openingHours = import.meta.env.PUBLIC_OPENING_HOURS ?? 'เปิดบริการทุกวัน 24 ชั่วโมง';
 const serviceAreasRaw =
@@ -24,8 +24,8 @@ const serviceAreas = serviceAreasRaw
 	.map((item) => item.trim())
 	.filter(Boolean);
 
-const geoLat = Number(import.meta.env.PUBLIC_GEO_LAT ?? '13.7563');
-const geoLon = Number(import.meta.env.PUBLIC_GEO_LON ?? '100.5018');
+const geoLat = Number(import.meta.env.PUBLIC_GEO_LAT ?? '15.266426660367209');
+const geoLon = Number(import.meta.env.PUBLIC_GEO_LON ?? '104.8417777109199');
 const orgId = `${site}/#organization`;
 const localId = `${site}/#localbusiness`;
 
@@ -136,15 +136,18 @@ const contactKeywords =
 			</article>
 		</div>
 
-		<section class="map-wrap" aria-label="แผนที่">
-			<h2 class="tech-h2">แผนที่</h2>
+		<section class="map-wrap" aria-label="แผนที่ร้านรับซื้อ">
+			<h2 class="tech-h2">แผนที่ร้าน (อำพล เทรดดิ้ง)</h2>
+            <p style="margin-bottom: 1rem; color: var(--muted);">สามารถเดินทางมาขายได้ที่หน้าร้านโดยตรง ตามพิกัดด้านล่างนี้เลยครับ</p>
 		<iframe
-			title="แผนที่ตำแหน่งบริการ"
+			title="แผนที่ตำแหน่งร้าน อำพล เทรดดิ้ง"
 			src={mapEmbedSrc}
-			width="960"
-			height="400"
+			width="100%"
+			height="450"
+			style="border:0;"
 			loading="lazy"
 			referrerpolicy="no-referrer-when-downgrade"
+			allowfullscreen=""
 		></iframe>
 		</section>
 

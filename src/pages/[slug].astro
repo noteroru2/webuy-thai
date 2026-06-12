@@ -1,5 +1,6 @@
 ---
 import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import ContactBox from '../components/ContactBox.astro';
 import TrustBar from '../components/TrustBar.astro';
 import LegacyRedirect from '../components/LegacyRedirect.astro';
@@ -235,7 +236,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 					</div>
 					{featuredUrl && (
 						<div class="sell-hero-img-wrap">
-							<img class="hero-img" src={featuredUrl} alt={heroAlt} width="900" height="450" loading="eager" decoding="async" fetchpriority="high" />
+							<Image class="hero-img" src={featuredUrl} alt={heroAlt} width={900} height={450} loading="eager" decoding="async" fetchpriority="high" inferSize={true} />
 						</div>
 					)}
 					<div class="sell-cta-top">
@@ -343,15 +344,16 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 					{
 						featuredUrl && (
-							<img
+							<Image
 								class="hero-img"
 								src={featuredUrl}
 								alt={heroAlt}
-								width="1200"
-								height="675"
+								width={1200}
+								height={675}
 								loading="eager"
 								decoding="async"
 								fetchpriority="high"
+                                inferSize={true}
 							/>
 						)
 					}
