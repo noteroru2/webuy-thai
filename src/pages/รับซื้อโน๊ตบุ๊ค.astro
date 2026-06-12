@@ -12,7 +12,6 @@ import StepCards from '../components/money-pages/StepCards.astro';
 import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
-
 const site = getSiteOrigin();
 const socialLinks = getSocialLinks();
 const allPosts = await getPublishedPosts();
@@ -28,7 +27,6 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
-
 const priceItems = [
 	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 80,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับจำนวน Core CPU/GPU และ RAM' },
 	{ model: 'Gaming Notebook (RTX 5060 / 5070)', price: '20,000 - 45,000 บาท', note: 'ดูแบรนด์ สเปกจอภาพ และตำหนิตัวเครื่อง' },
@@ -36,7 +34,6 @@ const priceItems = [
 	{ model: 'Notebook ทั่วไป (Core i5 / Ryzen 5)', price: '5,000 - 15,000 บาท', note: 'ประเมินตามการ์ดจอแยกและสภาพการใช้งานจริง' },
 	{ model: 'Notebook สเปกเก่า หรือ มีตำหนิ', price: '1,000 - 5,000 บาท', note: 'รับประเมินทุกอาการ จอแตก แบตเสื่อม ทักมาได้เลย' },
 ];
-
 const faqItems = [
 	{
 		q: 'รับซื้อโน๊ตบุ๊คยี่ห้ออะไรบ้าง?',
@@ -87,7 +84,6 @@ const faqItems = [
 		a: 'หน้าเช็กราคาก่อนขายมีรายการข้อมูลและรูปที่แนะนำสำหรับโน๊ตบุ๊ค ส่งผ่าน Line @webuy เพื่อรับช่วงราคาก่อนนัดตรวจเครื่องจริง',
 	},
 ];
-
 const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',

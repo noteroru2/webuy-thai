@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
+import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import StepCards from '../components/money-pages/StepCards.astro';
+import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
+import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const websiteId = `${site}/#website`;
@@ -76,13 +82,6 @@ const categories = [
 	{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless, เลนส์ และอุปกรณ์ถ่ายภาพทุกประเภท' },
 	{ href: '/รับซื้อลำโพง/', title: 'รับซื้อลำโพง', desc: 'Marshall, JBL และลำโพงบลูทูธแบรนด์เนมของแท้เท่านั้น' },
 ];
-
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
-import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
-import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 ---
 
 <BaseLayout

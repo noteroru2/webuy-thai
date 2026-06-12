@@ -7,6 +7,12 @@ import '../styles/longform.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
+import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import StepCards from '../components/money-pages/StepCards.astro';
+import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
+import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
 const socialLinks = getSocialLinks();
 const allPosts = await getPublishedPosts();
@@ -141,13 +147,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		],
 	},
 ];
-
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
-import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
-import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 ---
 
 <BaseLayout

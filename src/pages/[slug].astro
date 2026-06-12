@@ -236,7 +236,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 					</div>
 					{featuredUrl && (
 						<div class="sell-hero-img-wrap">
-							<Image class="hero-img" src={featuredUrl} alt={heroAlt} width={900} height={450} loading="eager" decoding="async" fetchpriority="high" inferSize={true} />
+							<Image class="hero-img" src={featuredUrl} alt={heroAlt} width={900} height={450} loading="eager" decoding="async" fetchpriority="high" />
 						</div>
 					)}
 					<div class="sell-cta-top">
@@ -353,7 +353,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 								loading="eager"
 								decoding="async"
 								fetchpriority="high"
-                                inferSize={true}
 							/>
 						)
 					}
