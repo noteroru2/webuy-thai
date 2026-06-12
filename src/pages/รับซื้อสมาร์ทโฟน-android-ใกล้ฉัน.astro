@@ -1,0 +1,297 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อสมาร์ทโฟน-android-ใกล้ฉัน/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Samsung Galaxy S24 Ultra', price: '25,000 - 32,000 บาท', note: 'รับซื้อราคาสูงพิเศษสำหรับเครื่องศูนย์ไทย ประกันเหลือ' },
+	{ model: 'Samsung Galaxy Z Fold / Z Flip Series', price: '12,000 - 28,000 บาท', note: 'ประเมินราคาตามสภาพบานพับและรอยพับหน้าจอ' },
+	{ model: 'Samsung Galaxy S23 / S22 Series', price: '8,000 - 20,000 บาท', note: 'ราคาขึ้นอยู่กับความจุ 256GB/512GB และสภาพรอบเครื่อง' },
+	{ model: 'สมาร์ทโฟนเกมมิ่ง (ROG Phone, RedMagic)', price: '10,000 - 25,000 บาท', note: 'หากมีอุปกรณ์เสริม เช่น พัดลมระบายความร้อน จะได้ราคาดีขึ้น' },
+	{ model: 'Oppo, Vivo, Xiaomi (รุ่น Flagship)', price: '5,000 - 18,000 บาท', note: 'เน้นรับซื้อรุ่นท็อปและรุ่นกลาง สภาพสวย' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อสมาร์ทโฟนยี่ห้อไหนบ้าง?',
+		a: 'เรารับซื้อสมาร์ทโฟน Android แบรนด์ชั้นนำเกือบทุกยี่ห้อ โดยเน้นที่ Samsung Galaxy S Series, Z Series, สมาร์ทโฟนเกมมิ่ง (ASUS ROG, RedMagic) รวมถึงรุ่นเรือธง (Flagship) จาก Oppo, Vivo, และ Xiaomi ครับ',
+	},
+	{
+		q: 'เครื่องติดสัญญาเครือข่าย (ติดโปร) รับซื้อไหม?',
+		a: 'ทางเรา "ไม่รับซื้อ" เครื่องที่ยังติดสัญญาเครือข่าย หรือเครื่องที่ถูกล็อก (Lock) ทุกกรณีครับ เพื่อความโปร่งใสและป้องกันปัญหาการบล็อกเครื่องในภายหลัง รบกวนลูกค้าตรวจสอบสถานะเครื่องก่อนนำมาขายครับ',
+	},
+	{
+		q: 'หน้าจอแตก มีรอยไหม้ (Burn-in) หรือเป็นเส้น รับซื้อไหม?',
+		a: 'รับซื้อครับ แต่ราคาจะถูกปรับลดลงตามต้นทุนค่าซ่อมหน้าจอ โดยเฉพาะจอ OLED ของ Samsung ที่มีค่าซ่อมค่อนข้างสูง แนะนำให้แจ้งตำหนิและถ่ายรูปให้ชัดเจน เพื่อการประเมินราคาที่แม่นยำครับ',
+	},
+	{
+		q: 'Samsung ซีรีส์จอพับ (Z Fold / Z Flip) ดูราคาจากอะไร?',
+		a: 'สำหรับรุ่นจอพับ เราจะให้ความสำคัญกับ "บานพับ (Hinge)" ว่ายังกางได้สุด 180 องศาหรือไม่ มีเสียงดังผิดปกติไหม และตรวจดูรอยพับ (Crease) บนหน้าจอด้านในว่ามีรอยแตกร้าวหรือจุดเดดพิกเซลหรือไม่',
+	},
+	{
+		q: 'ก่อนขายต้องเตรียมเครื่องอย่างไรบ้าง?',
+		a: 'ลูกค้าควรสำรองข้อมูล (Backup) ให้เรียบร้อย จากนั้นให้ลบบัญชี Google Account และ Samsung Account ออกจากเครื่อง แล้วทำการ Factory Reset เพื่อความปลอดภัยของข้อมูลส่วนตัวครับ ทีมงานยินดีให้คำแนะนำหรือช่วยทำต่อหน้าตอนนัดรับได้ครับ',
+	},
+	{
+		q: 'มีแต่ตัวเครื่อง ไม่มีกล่อง ไม่มีสายชาร์จ ขายได้ไหม?',
+		a: 'ขายได้แน่นอนครับ เครื่องเปล่าก็รับซื้อ แต่หากลูกค้ามีกล่องที่อีมี่ (IMEI) ตรงกัน และมีอุปกรณ์ชาร์จแท้ จะช่วยเพิ่มราคารับซื้อได้อีกครับ',
+	},
+	{
+		q: 'ใช้เวลาประเมินราคาและจ่ายเงินนานแค่ไหน?',
+		a: 'ประเมินราคาออนไลน์ผ่าน Line ใช้เวลาเพียง 10-15 นาที และเมื่อนัดรับตรวจเครื่องจริงเสร็จสิ้น จะทำการโอนเงินเข้าบัญชีทันที ไม่ต้องรอนานครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อสมาร์ทโฟน Android มือสอง Samsung, ROG, Oppo, Vivo ใกล้ฉัน บริการรับถึงที่',
+		description:
+			'WE BUY รับซื้อสมาร์ทโฟน Android มือสองทุกรุ่น เน้น Samsung Galaxy S / Z Series และมือถือเกมมิ่ง ประเมินราคาโปร่งใส จ่ายเงินสดทันที บริการนัดรับ 24 ชม.',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อสมาร์ทโฟน Android ทุกรุ่น ให้ราคาสูง | Samsung, ROG Phone, Vivo ใกล้ฉัน ให้ราคาสูง จ่ายเงินสดทันที',
+		description:
+			'บริการรับซื้อโทรศัพท์มือถือ Android มือสอง ให้ราคายุติธรรมตามสเปกและสภาพเครื่อง ครอบคลุมสมาร์ทโฟนเรือธงและมือถือเกมมิ่ง นัดรับรวดเร็วในพื้นที่',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-05-11',
+		dateModified: '2026-05-11',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords: 'รับซื้อมือถือ, รับซื้อสมาร์ทโฟน, รับซื้อ samsung, รับซื้อ s24 ultra, รับซื้อ z fold, รับซื้อ z flip, รับซื้อมือถือเกมมิ่ง, รับซื้อ rog phone, ขายมือถือแอนดรอยด์, ประเมินราคามือถือ, รับซื้อมือถือใกล้ฉัน, ร้านรับซื้อมือถือใกล้บ้าน, รับซื้อถึงที่',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ ใกล้ฉัน บริการรับถึงที่', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อสมาร์ทโฟน Android ใกล้ฉัน บริการรับถึงที่', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อสมาร์ทโฟน Android มือสอง ใกล้ฉัน บริการรับถึงที่',
+		description:
+			'บริการรับซื้อโทรศัพท์มือถือ Android มือสองแบรนด์ชั้นนำ Samsung Galaxy, ASUS ROG, Oppo, Vivo, Xiaomi ประเมินราคาโปร่งใส จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อสมาร์ทโฟนมือสอง',
+		url: pageUrl,
+	},
+];
+
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import StepCards from '../components/money-pages/StepCards.astro';
+import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
+import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
+---
+
+<BaseLayout
+	title={formatPageTitle('หาร้านรับซื้อ Android มือสอง ใกล้ฉัน ประเมินฟรี รับถึงที่')}
+	description="หาร้านWE BUY รับซื้อสมาร์ทโฟน Android มือสองทุกรุ่น เน้น Samsung Galaxy S / Z Series และมือถือเกมมิ่ง ประเมินราคาโปร่งใส จ่ายเงินสดทันที ติดต่อ Line @webuy ใกล้ฉัน? WE BUY บริการรับซื้อถึงบ้าน จ่ายเงินสดทันที ตีราคาไวใน 15 นาที"
+	pathname="/รับซื้อสมาร์ทโฟน-android-ใกล้ฉัน/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<div class="page">
+		<header class="header">
+			<h1>หาร้านรับซื้อสมาร์ทโฟน Android มือสอง ทุกแบรนด์ ประเมินราคาฟรี รับเงินสดทันที ใกล้ฉัน? เรารับซื้อถึงที่ จ่ายเงินสดทันที</h1>
+			<p class="subtitle">
+				หากคุณมีสมาร์ทโฟนแอนดรอยด์ที่ไม่ได้ใช้งาน หรือเพิ่งถอยรุ่นใหม่ล่าสุดมาแล้วอยากเปลี่ยนเครื่องเก่าเป็นเงินสด เรารับซื้อครอบคลุมทุกแบรนด์ชั้นนำ ไม่ว่าจะเป็น Samsung Galaxy ทั้งซีรีส์ S ตัวท็อปและซีรีส์จอพับ Z Fold, Z Flip เครื่องสายเกมมิ่งสุดโหดอย่าง ROG Phone หรือ RedMagic รวมไปถึงรุ่นเรือธงจากค่าย Oppo, Vivo และ Xiaomi ประเมินราคายุติธรรมตามกลไกตลาด สภาพเครื่องจริง และอุปกรณ์ที่มี จ่ายเงินสดโอนเข้าบัญชีทันที ไม่ต้องรอนาน ไม่ต้องหงุดหงิดกับการโดนกดราคาหน้างาน หมดกังวลเรื่องข้อมูลส่วนตัวรั่วไหลด้วยบริการช่วยรีเซ็ตเครื่องอย่างปลอดภัย
+			</p>
+		</header>
+        <section class="content">
+			<TrustBadges className="mb-12 mt-8" />
+			<h2>รับซื้อKWใกล้ฉัน ด่วนที่สุด ประเมินราคาไว จ่ายเงินสดหน้างาน</h2>
+			<p>หากคุณกำลังค้นหาว่าจะขายKWที่ไหนดีใกล้ๆ บ้าน หมดปัญหาต้องฝ่ารถติดเพื่อนำเครื่องไปตีราคาที่ห้างสรรพสินค้าหรือร้านตู้ไกลๆ อีกต่อไป เพราะ WE BUY มีบริการรับซื้อถึงที่ (On-Site Service) ในพื้นที่ใกล้บ้านคุณ</p>
+			<p>ไม่ว่าคุณจะอยู่ที่ไหน เรามีเครือข่ายทีมงานประเมินราคาที่ครอบคลุมพื้นที่ ทำให้คุณได้รับบริการที่รวดเร็วเสมือนมีร้านรับซื้อตั้งอยู่หน้าปากซอยบ้านคุณ ความปลอดภัยและความโปร่งใสคือสิ่งที่เราให้ความสำคัญเป็นอันดับหนึ่ง</p>
+
+			<ComparisonTable />
+			<StepCards />
+			
+			<h2>ทำไมลูกค้าถึงเลือกบริการรับซื้อKWใกล้บ้านกับเรา?</h2>
+			<p>ความน่าเชื่อถือคือสิ่งที่เราสั่งสมมาอย่างยาวนาน บริการรับซื้อKWใกล้ฉันของเรา ไม่ได้มีดีแค่ความรวดเร็ว แต่ทีมงานทุกคนได้รับการฝึกอบรมมาอย่างมืออาชีพ พูดจาสุภาพ ให้เกียรติลูกค้า และพร้อมให้คำปรึกษาอย่างจริงใจ</p>
+			<p>ด้วยฐานลูกค้านับหมื่นรายที่เคยใช้บริการรับซื้อใกล้บ้านจากเรา เป็นเครื่องการันตีได้ว่าเราคือตัวจริงในวงการนี้ ได้เงินไว ได้เงินชัวร์ และปลอดภัยขั้นสุด</p>
+
+			<DataPrivacyBlock />
+
+			<h2>ขั้นตอนง่ายๆ เมื่อต้องการขายKWให้ร้านใกล้ฉัน</h2>
+			<p>เริ่มต้นง่ายๆ เพียงแค่คุณทัก LINE ออฟฟิเชียลของเรา (@webuy) แล้วส่งรูปถ่ายเครื่อง KW พร้อมแจ้งสเปก รุ่น และตำหนิ (ถ้ามี) ให้ครบถ้วน ทีมงานจะใช้เวลาตรวจสอบเพียงไม่กี่นาที และแจ้งราคาประเมินเบื้องต้นกลับไปหาคุณทันที</p>
+			<p>นัดจุดรับเครื่องใกล้บ้านคุณได้เลย เราพร้อมเสิร์ฟบริการถึงที่ ตรวจสอบสภาพเครื่องอย่างโปร่งใส พร้อมทั้งสอนวิธีล้างข้อมูลให้สะอาดหมดจดก่อนรับเครื่องกลับ และแน่นอน... คุณจะได้รับเงินก้อนโอนเข้าบัญชีทันที ณ จุดนัดพบ!</p>
+			
+			<div class="cta-row" style="margin-top: 3rem; justify-content: center; padding-bottom: 3rem;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">คลิกทัก LINE ประเมินราคาใกล้คุณ!</a>
+			</div>
+		</section>
+		<ProvincialGrid keyword="รับซื้อมือถือ" slugPrefix="รับซื้อมือถือ" />
+		</section>
+	</div>
+</BaseLayout>
+
+<style>
+	.page {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		font-family: 'Inter', 'Sarabun', sans-serif;
+		color: #333;
+		line-height: 1.8;
+	}
+
+	.header {
+		text-align: center;
+		margin-bottom: 4rem;
+		padding: 3rem 1rem;
+		background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+		color: white;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+	}
+
+	.header h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1.5rem;
+		line-height: 1.3;
+		text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.subtitle {
+		font-size: 1.15rem;
+		max-width: 800px;
+		margin: 0 auto;
+		opacity: 0.95;
+		font-weight: 300;
+	}
+
+	.content {
+		background: #ffffff;
+		padding: 3rem;
+		border-radius: 1rem;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+		border: 1px solid #f3f4f6;
+	}
+
+	h2 {
+		font-size: 2rem;
+		color: #111827;
+		margin-top: 3.5rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		position: relative;
+		padding-bottom: 0.5rem;
+		line-height: 1.4;
+	}
+
+	h2::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 60px;
+		height: 4px;
+		background: #10b981;
+		border-radius: 2px;
+	}
+
+	h2:first-child {
+		margin-top: 0;
+	}
+
+	p {
+		font-size: 1.1rem;
+		margin-bottom: 1.5rem;
+		color: #4b5563;
+	}
+
+	.btn-line {
+		display: inline-flex;
+		align-items: center;
+		background: #00B900;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 50px;
+		font-weight: bold;
+		box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.btn-line:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+		background: #009900;
+	}
+
+	.cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.header {
+			padding: 2rem 1rem;
+		}
+		
+		.header h1 {
+			font-size: 2rem;
+		}
+
+		.content {
+			padding: 1.5rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
+</style>

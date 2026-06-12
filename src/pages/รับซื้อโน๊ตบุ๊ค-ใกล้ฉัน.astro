@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import StepCards from '../components/money-pages/StepCards.astro';
+import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
+import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อโน๊ตบุ๊ค-ใกล้ฉัน/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 80,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับจำนวน Core CPU/GPU และ RAM' },
+	{ model: 'Gaming Notebook (RTX 5060 / 5070)', price: '20,000 - 45,000 บาท', note: 'ดูแบรนด์ สเปกจอภาพ และตำหนิตัวเครื่อง' },
+	{ model: 'Ultrabook (Core Ultra / i7 Gen 14-15)', price: '15,000 - 30,000 บาท', note: 'เน้นสภาพสวย น้ำหนักเบา แบตเตอรี่เสื่อมน้อย' },
+	{ model: 'Notebook ทั่วไป (Core i5 / Ryzen 5)', price: '5,000 - 15,000 บาท', note: 'ประเมินตามการ์ดจอแยกและสภาพการใช้งานจริง' },
+	{ model: 'Notebook สเปกเก่า หรือ มีตำหนิ', price: '1,000 - 5,000 บาท', note: 'รับประเมินทุกอาการ จอแตก แบตเสื่อม ทักมาได้เลย' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อโน๊ตบุ๊คยี่ห้ออะไรบ้าง?',
+		a: 'รับซื้อหลากหลายแบรนด์ ได้แก่ Apple MacBook, Dell, HP, Lenovo, ASUS, Acer, MSI, Razer, Samsung, Microsoft Surface, Huawei MateBook และอื่น ๆ ทั้งรุ่นสายทำงาน สายเรียน และสายเกมมิง โดยพิจารณาจากสเปกและสภาพเครื่องเป็นหลัก',
+	},
+	{
+		q: 'โน๊ตบุ๊คมีตำหนิหรือแบตเสื่อมยังขายได้ไหม?',
+		a: 'ขายได้ครับ ทีมงานจะประเมินตามสภาพจริง โดยดูผลกระทบต่อการใช้งานและต้นทุนซ่อมอย่างโปร่งใส แจ้งตำหนิตรง ๆ ตั้งแต่แรกจะช่วยให้ประเมินได้แม่นยำและปิดดีลเร็วขึ้น',
+	},
+	{
+		q: 'ต้องล้างข้อมูลก่อนขายไหม?',
+		a: 'ควรล้างข้อมูลและออกจากระบบบัญชีต่าง ๆ ก่อนส่งมอบ โดยเฉพาะ Apple ID, Microsoft Account, Google Account และระบบ cloud sync หากไม่สะดวก ทีมงานสามารถแนะนำขั้นตอนสำรองข้อมูลและรีเซ็ตระบบอย่างปลอดภัยได้',
+	},
+	{
+		q: 'ติดต่อช่องทางไหนเร็วที่สุด?',
+		a: 'แนะนำติดต่อผ่าน Line @webuy เพราะสามารถส่งรูป สเปก และวิดีโอเครื่องได้ทันที ทำให้ประเมินได้รวดเร็วและครบข้อมูล หรือโทร 064-257-9353 ก็ได้เช่นกัน',
+	},
+	{
+		q: 'ประเมินราคาใช้เวลานานไหม?',
+		a: 'หากส่งข้อมูลสเปก รูปเครื่อง และตำหนิมาครบตั้งแต่ครั้งแรก ทีมงานสามารถประเมินราคาเบื้องต้นได้ภายใน 15-30 นาทีในช่วงเวลาทำการ และตอบกลับภายในไม่เกิน 2 ชั่วโมงสำหรับช่วงนอกเวลา',
+	},
+	{
+		q: 'จ่ายเงินอย่างไรหลังตกลงราคา?',
+		a: 'จ่ายเงินสดทันทีหน้างาน หรือโอนเงินผ่านบัญชีธนาคารทันทีเมื่อตรวจรับเครื่องเสร็จ ทั้งนี้ขึ้นอยู่กับความสะดวกของลูกค้า โดยทุกธุรกรรมมีหลักฐานการชำระเงินชัดเจน',
+	},
+	{
+		q: 'อยู่ต่างจังหวัดขายได้ไหม?',
+		a: 'ขายได้ครับ สามารถส่งข้อมูลผ่าน Line @webuy แล้วจัดส่งเครื่องทางพัสดุ เมื่อตรวจรับเรียบร้อยจะโอนเงินให้ทันที โดยแนะนำให้ถ่ายวิดีโอตอนแพ็กเครื่องและบันทึกเลขพัสดุไว้เป็นหลักฐาน',
+	},
+	{
+		q: 'MacBook ที่ยังผูก Apple ID อยู่ขายได้ไหม?',
+		a: 'แนะนำให้ปลด Apple ID และปิด Find My Mac ก่อนขาย เพราะหากยังล็อกอยู่จะกระทบราคาอย่างมากและอาจไม่สามารถรับซื้อได้ หากไม่แน่ใจวิธีปลด สามารถสอบถามทีมงานได้เลย',
+	},
+	{
+		q: 'โน๊ตบุ๊คเกมมิงกับโน๊ตบุ๊คทำงานราคาต่างกันอย่างไร?',
+		a: 'โน๊ตบุ๊คเกมมิงที่มี GPU แยกมักได้ราคาสูงกว่าเพราะ demand ในตลาดมือสองสูง ส่วนโน๊ตบุ๊คทำงาน (business-class) อย่าง ThinkPad หรือ EliteBook ก็มีมูลค่าดีเพราะความทนทานและความน่าเชื่อถือ ราคาจริงขึ้นอยู่กับสเปก สภาพ และความต้องการของตลาดในช่วงนั้น',
+	},
+	{
+		q: 'ให้บริการวันไหนบ้าง?',
+		a: 'ให้บริการประเมินราคาทุกวัน ตลอด 24 ชั่วโมง ไม่มีวันหยุด สามารถส่งข้อมูลเข้ามาได้ทุกเวลาผ่าน Line @webuy หรือโทร 064-257-9353',
+	},
+	{
+		q: 'วิธีประเมินราคาโน๊ตบุ๊คมือสองทำอย่างไร?',
+		a: 'WE BUY ดูจาก CPU RAM SSD สภาพจอ แบต และแบรนด์รุ่น อ้างอิงแนวตลาดมือสอง — อ่านปัจจัยละเอียดที่หน้าราคากลางรับซื้อ แล้วส่งสเปกและรูปมาประเมินเบื้องต้น',
+	},
+	{
+		q: 'เช็กราคาโน๊ตบุ๊คก่อนขายต้องเตรียมอะไร?',
+		a: 'หน้าเช็กราคาก่อนขายมีรายการข้อมูลและรูปที่แนะนำสำหรับโน๊ตบุ๊ค ส่งผ่าน Line @webuy เพื่อรับช่วงราคาก่อนนัดตรวจเครื่องจริง',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อโน๊ตบุ๊ค มือสอง ทุกยี่ห้อ ประเมินราคาฟรี ใกล้ฉัน บริการรับถึงที่',
+		description:
+			'WE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ MacBook Dell HP Lenovo ASUS Acer MSI ประเมินราคาฟรี จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อโน๊ตบุ๊ค มือสอง ทุกยี่ห้อ ประเมินราคาฟรี จ่ายเงินทันที ใกล้ฉัน ให้ราคาสูง จ่ายเงินสดทันที',
+		description:
+			'บทความเชิงลึกสำหรับผู้ที่ต้องการขายโน๊ตบุ๊คมือสอง ครอบคลุมการประเมินราคาตาม CPU RAM SSD GPU หน้าจอ แบต แบรนด์ การเตรียมเครื่อง และขั้นตอนขายอย่างปลอดภัย รับซื้อ MacBook Dell HP Lenovo ASUS Acer MSI ทั่วประเทศ',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-03-24',
+		dateModified: '2026-03-24',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords: 'รับซื้อโน๊ตบุ๊ค, ขายโน๊ตบุ๊คมือสอง, ประเมินราคาโน๊ตบุ๊ค, รับซื้อ laptop, รับซื้อ notebook, รับซื้อ MacBook, รับซื้อโน๊ตบุ๊คเกมมิง, ขายโน๊ตบุ๊คได้ราคาดี, รับซื้อโน๊ตบุ๊คถึงที่, รับซื้อโน๊ตบุ๊คใกล้ฉัน, ร้านรับซื้อโน๊ตบุ๊คใกล้บ้าน, รับซื้อถึงที่',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ ใกล้ฉัน บริการรับถึงที่', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อโน๊ตบุ๊ค ใกล้ฉัน บริการรับถึงที่', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อโน๊ตบุ๊คมือสอง ใกล้ฉัน บริการรับถึงที่',
+		description:
+			'บริการรับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ ทุกรุ่น ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy ตลอด 24 ชั่วโมง',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อโน๊ตบุ๊คมือสอง',
+		url: pageUrl,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'HowTo',
+		name: 'วิธีขายโน๊ตบุ๊คมือสองกับ WE BUY',
+		description: 'ขั้นตอนง่าย ๆ ในการขายโน๊ตบุ๊คมือสองให้ได้ราคาดีกับ WE BUY',
+		step: [
+			{ '@type': 'HowToStep', name: 'ส่งข้อมูลเครื่อง', text: 'แอดไลน์ @webuy แล้วส่งรูปเครื่อง รุ่น สเปก และสภาพการใช้งาน' },
+			{ '@type': 'HowToStep', name: 'รับราคาประเมิน', text: 'ทีมงานตรวจสอบและแจ้งราคาประเมินเบื้องต้นให้ภายในเวลาอันรวดเร็ว' },
+			{ '@type': 'HowToStep', name: 'ยืนยันและนัดรับ', text: 'ตกลงราคา นัดหมายจุดรับ-ส่ง หรือจัดส่งทางขนส่ง' },
+			{ '@type': 'HowToStep', name: 'รับเงินทันที', text: 'ตรวจสอบเครื่องจริงและรับเงินโอนหรือเงินสดทันที' },
+		],
+	},
+];
+---
+
+<BaseLayout
+	title={formatPageTitle('หาร้านรับซื้อโน๊ตบุ๊ค มือสอง ทุกยี่ห้อ ใกล้ฉัน ประเมินฟรี รับถึงที่')}
+	description="หาร้านWE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ MacBook Dell HP Lenovo ASUS Acer MSI ประเมินราคาฟรี จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy ใกล้ฉัน? WE BUY บริการรับซื้อถึงบ้าน จ่ายเงินสดทันที ตีราคาไวใน 15 นาที"
+	pathname="/รับซื้อโน๊ตบุ๊ค-ใกล้ฉัน/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<div class="page">
+		<header class="header">
+			<h1>หาร้านรับซื้อโน๊ตบุ๊คมือสอง ประเมินราคาฟรี จ่ายเงินสดทันที ใกล้ฉัน? เรารับซื้อถึงที่ จ่ายเงินสดทันที</h1>
+			<p class="subtitle">
+				ศูนย์รวมบริการรับซื้อโน๊ตบุ๊คมือสองที่ให้ราคาสูงที่สุดในตลาด ไม่ว่าคุณจะใช้ MacBook, Dell, HP, Lenovo, ASUS, Acer หรือแบรนด์อื่นๆ เราพร้อมรับซื้อในราคาที่คุณพึงพอใจ บริการประเมินราคาฟรีด้วยความรวดเร็วและโปร่งใส พร้อมรับเงินสดทันทีเมื่อตกลงซื้อขาย หมดกังวลเรื่องการโดนกดราคา หรือความยุ่งยากในการนัดหมาย เพราะเรามีทีมงานมืออาชีพคอยดูแลคุณตั้งแต่ต้นจนจบ บริการของเราครอบคลุมทั่วประเทศ ไม่ว่าคุณจะอยู่ที่ไหนก็สามารถส่งข้อมูลมาให้เราประเมินได้ตลอด 24 ชั่วโมง เรามุ่งมั่นที่จะมอบประสบการณ์การขายโน๊ตบุ๊คที่สะดวก ปลอดภัย และคุ้มค่าที่สุดให้กับคุณ
+			</p>
+		</header>
+        <section class="content">
+			<TrustBadges className="mb-12 mt-8" />
+			<h2>รับซื้อKWใกล้ฉัน ด่วนที่สุด ประเมินราคาไว จ่ายเงินสดหน้างาน</h2>
+			<p>เบื่อไหมกับการต้องขับรถตระเวนหาร้านรับซื้อKWใกล้บ้าน แล้วยังโดนกดราคาหน้างาน? ปัญหาเหล่านั้นจะหมดไป เมื่อเรียกใช้บริการจากเรา เพียงแค่นัดหมาย เราก็พร้อมไปหาคุณถึงที่ ทั่วทุกมุมเมือง</p>
+			<p>ไม่ว่าคุณจะอยู่ที่ไหน เรามีเครือข่ายทีมงานประเมินราคาที่ครอบคลุมพื้นที่ ทำให้คุณได้รับบริการที่รวดเร็วเสมือนมีร้านรับซื้อตั้งอยู่หน้าปากซอยบ้านคุณ ความปลอดภัยและความโปร่งใสคือสิ่งที่เราให้ความสำคัญเป็นอันดับหนึ่ง</p>
+
+			<ComparisonTable />
+			<StepCards />
+			
+			<h2>ข้อดีของการขายKWใกล้ฉัน กับ WE BUY</h2>
+			<p>นอกจากเรื่องความสะดวกสบายแล้ว การขายKWให้กับทีมงานที่วิ่งไปรับถึงที่ยังช่วยให้คุณประหยัดค่าใช้จ่ายในการเดินทาง ทั้งค่าน้ำมัน ค่าทางด่วน หรือค่าที่จอดรถ ทุกอย่างเราเป็นคนจัดการให้ คุณเพียงแค่นั่งรอรับเงินโอนเข้าบัญชีแบบสบายๆ ในห้องแอร์</p>
+			<p>เรายังมีบริการจัดการข้อมูล (Data Wipe) แบบต่อหน้าคุณ 100% ทำให้คุณมั่นใจได้ว่าข้อมูลส่วนตัว รูปภาพ หรือบัญชีต่างๆ ในKW จะไม่รั่วไหลไปไหน นี่คือบริการพรีเมียมที่ร้านทั่วไปอาจไม่มีให้</p>
+
+			<DataPrivacyBlock />
+
+			<h2>ขั้นตอนง่ายๆ เมื่อต้องการขายKWให้ร้านใกล้ฉัน</h2>
+			<p>กระบวนการของเราเน้นความรวดเร็วและไม่ซับซ้อน ทักแชท ส่งรูป เช็คราคา หากคุณพอใจในราคาประเมินเบื้องต้น เราก็พร้อมลุยต่อทันที ไม่ต้องกรอกเอกสารวุ่นวาย</p>
+			<p>นัดจุดรับเครื่องใกล้บ้านคุณได้เลย เราพร้อมเสิร์ฟบริการถึงที่ ตรวจสอบสภาพเครื่องอย่างโปร่งใส พร้อมทั้งสอนวิธีล้างข้อมูลให้สะอาดหมดจดก่อนรับเครื่องกลับ และแน่นอน... คุณจะได้รับเงินก้อนโอนเข้าบัญชีทันที ณ จุดนัดพบ!</p>
+			
+			<div class="cta-row" style="margin-top: 3rem; justify-content: center; padding-bottom: 3rem;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">คลิกทัก LINE ประเมินราคาใกล้คุณ!</a>
+			</div>
+		</section>
+		<ProvincialGrid keyword="รับซื้อโน๊ตบุ๊ค" slugPrefix="รับซื้อโน๊ตบุ๊ค" />
+		</section>
+	</div>
+</BaseLayout>
+
+<style>
+	.page {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		font-family: 'Inter', 'Sarabun', sans-serif;
+		color: #333;
+		line-height: 1.8;
+	}
+
+	.header {
+		text-align: center;
+		margin-bottom: 4rem;
+		padding: 3rem 1rem;
+		background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+		color: white;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(234, 88, 12, 0.2);
+	}
+
+	.header h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1.5rem;
+		line-height: 1.3;
+		text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.subtitle {
+		font-size: 1.15rem;
+		max-width: 800px;
+		margin: 0 auto;
+		opacity: 0.95;
+		font-weight: 300;
+	}
+
+	.content {
+		background: #ffffff;
+		padding: 3rem;
+		border-radius: 1rem;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+		border: 1px solid #f3f4f6;
+	}
+
+	h2 {
+		font-size: 2rem;
+		color: #111827;
+		margin-top: 3.5rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		position: relative;
+		padding-bottom: 0.5rem;
+		line-height: 1.4;
+	}
+
+	h2::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 60px;
+		height: 4px;
+		background: #f97316;
+		border-radius: 2px;
+	}
+
+	h2:first-child {
+		margin-top: 0;
+	}
+
+	p {
+		font-size: 1.1rem;
+		margin-bottom: 1.5rem;
+		color: #4b5563;
+	}
+
+	.btn-line {
+		display: inline-flex;
+		align-items: center;
+		background: #00B900;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 50px;
+		font-weight: bold;
+		box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.btn-line:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+		background: #009900;
+	}
+
+	.cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.header {
+			padding: 2rem 1rem;
+		}
+		
+		.header h1 {
+			font-size: 2rem;
+		}
+
+		.content {
+			padding: 1.5rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
+</style>

@@ -76,6 +76,12 @@ const categories = [
 	{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless, เลนส์ และอุปกรณ์ถ่ายภาพทุกประเภท' },
 	{ href: '/รับซื้อลำโพง/', title: 'รับซื้อลำโพง', desc: 'Marshall, JBL และลำโพงบลูทูธแบรนด์เนมของแท้เท่านั้น' },
 ];
+
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import StepCards from '../components/money-pages/StepCards.astro';
+import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
+import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 ---
 
 <BaseLayout
@@ -96,6 +102,8 @@ const categories = [
 		</header>
 
 		<section class="sales-content prose" style="max-width: 100%;">
+			
+			<TrustBadges className="mb-12 mt-8" />
 			<h2>ทำไมถึงควรขายสินค้าไอทีมือสองกับเรา</h2>
 			<p>เมื่อคุณมีความคิดที่จะขายอุปกรณ์ไอทีมือสอง ไม่ว่าจะเป็นโน้ตบุ๊ค คอมพิวเตอร์ สมาร์ทโฟน หรือกล้องถ่ายรูป การมองหาศูนย์รับซื้อที่ไว้ใจได้คือสิ่งสำคัญที่สุด เราเข้าใจดีว่าอุปกรณ์ทุกชิ้นมีมูลค่าและมีความทรงจำของคุณอยู่ ดังนั้นเราจึงออกแบบบริการรับซื้อสินค้าไอทีมือสองให้ตอบโจทย์ผู้ขายมากที่สุด โดยเน้นไปที่ความรวดเร็ว ความปลอดภัย และราคาที่ยุติธรรมที่สุดในตลาด</p>
 			
@@ -143,6 +151,9 @@ const categories = [
 			<p>หากเครื่องของคุณยังมีประกันศูนย์เหลืออยู่ (Warranty) หรือมีประกันพิเศษอย่าง AppleCare+ จะช่วยเพิ่มมูลค่าการรับซื้อได้มาก เพราะเป็นการการันตีความอุ่นใจให้กับผู้ใช้งานคนต่อไป</p>
 
 
+			
+			<ComparisonTable />
+			<StepCards />
 			<h2>เช็คสภาพเครื่องของคุณก่อนขายเพื่อราคาที่สูงที่สุด</h2>
 			<p>ก่อนที่คุณจะตัดสินใจทักมาเพื่อประเมินราคา การเตรียมตัวและเช็คสภาพเครื่องด้วยตัวเองเบื้องต้น จะช่วยให้คุณสามารถนำเสนอข้อมูลได้อย่างครบถ้วน และมีโอกาสได้รับข้อเสนอราคาที่สูงที่สุดเท่าที่จะเป็นไปได้</p>
 
@@ -163,6 +174,8 @@ const categories = [
 			<p>รูปถ่ายที่ดีคือหัวใจของการประเมินราคาออนไลน์ กรุณาถ่ายรูปในที่ที่มีแสงสว่างเพียงพอ ถ่ายให้เห็นหน้าจอขณะเปิดใช้งาน ถ่ายด้านหลัง ด้านข้าง และมุมทั้งสี่ด้าน รวมถึงถ่ายเน้นบริเวณที่มีรอยตำหนิ (ถ้ามี) อย่างตรงไปตรงมา การซ่อนรอยตำหนิในรูปถ่ายจะไม่เกิดประโยชน์ใดๆ เพราะสุดท้ายเมื่อตรวจเครื่องจริงก็จะพบรอยนั้นอยู่ดี</p>
 
 
+			
+			<DataPrivacyBlock />
 			<h2>พื้นที่ให้บริการรับซื้อสินค้าไอทีและช่องทางการส่งมอบ</h2>
 			<p>เราต้องการให้การขายอุปกรณ์ไอทีของคุณเป็นเรื่องง่ายที่สุด เราจึงจัดเตรียมพื้นที่ให้บริการและช่องทางการส่งมอบที่ครอบคลุมและยืดหยุ่น เพื่อตอบสนองความต้องการของลูกค้าในทุกพื้นที่ทั่วประเทศไทย</p>
 
@@ -264,6 +277,8 @@ const categories = [
 			<div class="cta-row" style="margin-top: 2rem; justify-content: center;">
 				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">คลิกทัก LINE ประเมินราคาด่วน!</a>
 			</div>
+		
+			<ProvincialGrid keyword="รับซื้อสินค้าไอที" slugPrefix="รับซื้อคอม" />
 		</section>
 	</div>
 </BaseLayout>

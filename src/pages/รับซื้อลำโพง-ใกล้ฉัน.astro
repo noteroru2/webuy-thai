@@ -1,0 +1,320 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactBox from '../components/ContactBox.astro';
+import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import PriceGuide from '../components/services/PriceGuide.astro';
+import '../styles/longform.css';
+import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
+import { getPublishedPosts } from '../lib/posts';
+
+const site = getSiteOrigin();
+const socialLinks = getSocialLinks();
+const allPosts = await getPublishedPosts();
+const recent = allPosts.slice(0, 4);
+const orgId = `${site}/#organization`;
+const websiteId = `${site}/#website`;
+const pageUrl = `${site}/รับซื้อลำโพง-ใกล้ฉัน/`;
+const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
+const serviceAreasRaw =
+	import.meta.env.PUBLIC_SERVICE_AREAS ??
+	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี,มหาสารคาม,สุรินทร์';
+const serviceAreas = serviceAreasRaw
+	.split(',')
+	.map((item) => item.trim())
+	.filter(Boolean);
+
+const priceItems = [
+	{ model: 'Marshall Woburn III / II', price: '12,000 - 18,000 บาท', note: 'ราคาสูงขึ้นหากมีกล่องครบและสภาพบอดี้ไร้รอย' },
+	{ model: 'Marshall Stanmore III / II', price: '7,000 - 11,500 บาท', note: 'รุ่นยอดนิยม ราคาค่อนข้างนิ่งในตลาดมือสอง' },
+	{ model: 'Marshall Emberton II / Willen', price: '2,500 - 4,500 บาท', note: 'เน้นแบตเตอรี่ที่ยังเก็บไฟได้ดีและของแท้ 100%' },
+	{ model: 'JBL Boombox 3 / PartyBox 110-310', price: '8,000 - 16,000+ บาท', note: 'ประเมินจากกำลังขับและสภาพดอกลำโพง' },
+	{ model: 'JBL Charge 5 / Flip 6', price: '1,500 - 3,500 บาท', note: 'รับซื้อทุกสี อุปกรณ์ครบช่วยเพิ่มราคาได้' },
+];
+
+const faqItems = [
+	{
+		q: 'รับซื้อลำโพงยี่ห้ออะไรบ้าง?',
+		a: 'เน้นรับซื้อลำโพงแบรนด์เนมยอดนิยมอย่าง Marshall, JBL, Bose, Harman Kardon, B&O (Bang & Olufsen), Sony, และ Apple HomePod โดยพิจารณาจากความเป็นของแท้ สภาพเสียง และสภาพภายนอกเป็นหลัก',
+	},
+	{
+		q: 'ลำโพงแบตเสื่อมหรือชาร์จไม่เข้า รับซื้อไหม?',
+		a: 'รับซื้อครับ ทีมงานจะประเมินราคาโดยหักลบค่าเปลี่ยนแบตเตอรี่หรือค่าซ่อมระบบชาร์จตามจริง แนะนำแจ้งอาการชัดเจนตั้งแต่แรกเพื่อการประเมินที่แม่นยำ',
+	},
+	{
+		q: 'จะรู้ได้อย่างไรว่าลำโพงเป็นของแท้หรือของปลอม?',
+		a: 'ทีมงานมีวิธีตรวจสอบเฉพาะทาง ทั้งการดู Serial Number, สัมผัสวัสดุ, คุณภาพเสียง, และการเชื่อมต่อกับแอปพลิเคชัน (เช่น Marshall Bluetooth App หรือ JBL Portable) หากคุณมีหลักฐานการซื้อหรือใบรับประกันจะช่วยยืนยันได้รวดเร็วขึ้น',
+	},
+	{
+		q: 'ลำโพงเสียงแตกหรือเบสหาย รับซื้อไหม?',
+		a: 'รับซื้อครับ แม้ดอกลำโพงจะมีปัญหา ทีมงานยังสามารถประเมินราคาในฐานะเครื่องมีตำหนิหรือเพื่อนำไปเป็นอะไหล่ได้ ทักมาสอบถามราคาก่อนได้เลย',
+	},
+	{
+		q: 'ต้องเตรียมอะไรบ้างก่อนขายลำโพง?',
+		a: 'เตรียมตัวลำโพง, สายชาร์จ/อะแดปเตอร์แท้, กล่องเดิม (ถ้ามี), และใบเสร็จ แจ้งรุ่นที่แน่นอนและสภาพการใช้งาน พร้อมถ่ายวิดีโอทดสอบเสียงสั้น ๆ ส่งมาให้ทีมงานดู',
+	},
+	{
+		q: 'ให้ราคาประเมินนานไหม?',
+		a: 'หากข้อมูลครบถ้วน ทีมงานสามารถแจ้งราคาเบื้องต้นได้ภายใน 15-30 นาที ตลอด 24 ชั่วโมง',
+	},
+	{
+		q: 'จ่ายเงินอย่างไร?',
+		a: 'โอนเงินเข้าบัญชีธนาคารทันทีหลังตรวจสอบเครื่องเสร็จ หรือจ่ายเงินสดหน้างานตามที่ลูกค้าสะดวก',
+	},
+	{
+		q: 'อยู่ต่างจังหวัดขายได้อย่างไร?',
+		a: 'ส่งรูปประเมินราคาทาง Line @webuy ก่อน เมื่อตกลงราคาแล้วส่งพัสดุมาให้เรา เมื่อได้รับของจะโอนเงินให้ทันทีในวันเดียวกัน พร้อมแนะนำวิธีแพ็กป้องกันกระแทก',
+	},
+	{
+		q: 'ลำโพงมีรอยบุบหรือผ้าหุ้มขาด รับไหม?',
+		a: 'รับครับ ตำหนิภายนอกมีผลต่อราคาเล็กน้อยแต่ไม่ทำให้ขายไม่ได้ ทีมงานจะประเมินตามสภาพความสวยงามจริง',
+	},
+	{
+		q: 'รับซื้อลำโพงคอมพิวเตอร์ด้วยไหม?',
+		a: 'รับซื้อบางรุ่น โดยเฉพาะแบรนด์ดังอย่าง Audioengine, Creative, หรือ Razer ส่งรุ่นมาสอบถามก่อนได้ครับ',
+	},
+];
+
+const articleJsonLd: Array<Record<string, unknown>> = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		'@id': `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: 'รับซื้อลำโพง Marshall JBL มือสอง ราคาดี จ่ายเงินทันที ใกล้ฉัน บริการรับถึงที่',
+		description:
+			'WE BUY รับซื้อลำโพงมือสอง Marshall, JBL, Bose และแบรนด์ชั้นนำ ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy',
+		inLanguage: 'th-TH',
+		isPartOf: { '@id': websiteId },
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: 'รับซื้อลำโพงมือสอง | วิธีการขายลำโพง Marshall และ JBL ให้ได้ราคาดีและไม่โดนหลอก ใกล้ฉัน ให้ราคาสูง จ่ายเงินสดทันที',
+		description:
+			'คู่มือการประเมินราคาลำโพงบลูทูธมือสอง วิธีตรวจสอบของแท้-ของปลอม การเช็คสภาพเสียงและแบตเตอรี่ ครอบคลุม Marshall Acton, Stanmore, Emberton และ JBL ทุกรุ่น',
+		inLanguage: 'th-TH',
+		author: { '@type': 'Organization', '@id': orgId, name: orgName },
+		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+		},
+		datePublished: '2026-03-24',
+		dateModified: '2026-03-24',
+		image: [new URL('/og-default.png', site).toString()],
+		keywords: 'รับซื้อลำโพง, รับซื้อ marshall, รับซื้อ jbl, ขายลำโพงมือสอง, รับซื้อลำโพงบลูทูธ, ประเมินราคาลำโพง, รับซื้อ marshall stanmore, รับซื้อ jbl boombox, ขายลำโพง marshall, ขายลำโพง jbl, รับซื้อลำโพงใกล้ฉัน, ร้านรับซื้อลำโพงใกล้บ้าน, รับซื้อถึงที่',
+		speakable: {
+			'@type': 'SpeakableSpecification',
+			cssSelector: ['h1', '.intro', '.faq'],
+		},
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
+			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ ใกล้ฉัน บริการรับถึงที่', item: `${site}/รับซื้อ/` },
+			{ '@type': 'ListItem', position: 3, name: 'รับซื้อลำโพง ใกล้ฉัน บริการรับถึงที่', item: pageUrl },
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqItems.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: { '@type': 'Answer', text: item.a },
+		})),
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'Service',
+		name: 'บริการรับซื้อลำโพงมือสอง ใกล้ฉัน บริการรับถึงที่',
+		description:
+			'รับซื้อลำโพงบลูทูธ Marshall, JBL และแบรนด์เนมแท้ทุกรุ่น ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy 24 ชั่วโมง',
+		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
+		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		serviceType: 'รับซื้อลำโพงมือสอง',
+		url: pageUrl,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'HowTo',
+		name: 'วิธีขายลำโพงมือสองให้ได้ราคาสูงกับ WE BUY',
+		description: 'ขั้นตอนง่าย ๆ ในการเปลี่ยนลำโพงเก่าเป็นเงินสดอย่างปลอดภัย',
+		step: [
+			{ '@type': 'HowToStep', name: 'ส่งข้อมูลและวิดีโอเสียง', text: 'ทัก Line @webuy ส่งรูปทุกมุมและวิดีโอเปิดเพลงทดสอบเสียง' },
+			{ '@type': 'HowToStep', name: 'รับราคาประเมินด่วน', text: 'ทีมงานตรวจสอบความแท้และสภาพ แจ้งราคาภายใน 15 นาที' },
+			{ '@type': 'HowToStep', name: 'นัดรับหรือส่งพัสดุ', text: 'ตกลงราคา นัดหมายจุดรับหรือส่งของตามช่องทางที่สะดวก' },
+			{ '@type': 'HowToStep', name: 'รับเงินทันที', text: 'ตรวจเช็คอุปกรณ์จริงเสร็จ รับเงินโอนหรือเงินสดทันที' },
+		],
+	},
+];
+
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import StepCards from '../components/money-pages/StepCards.astro';
+import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
+import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
+---
+
+<BaseLayout
+	title={formatPageTitle('หาร้านรับซื้อลำโพง Marshall JBL ใกล้ฉัน ประเมินฟรี รับถึงที่')}
+	description="หาร้านWE BUY รับซื้อลำโพงมือสอง Marshall, JBL, Bose และแบรนด์ชั้นนำ ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy ใกล้ฉัน? WE BUY บริการรับซื้อถึงบ้าน จ่ายเงินสดทันที ตีราคาไวใน 15 นาที"
+	pathname="/รับซื้อลำโพง-ใกล้ฉัน/"
+	type="article"
+	jsonLd={articleJsonLd}
+>
+	<div class="page">
+		<header class="header">
+			<h1>หาร้านรับซื้อลำโพงมือสอง Marshall, Sonos, Bose, JBL ประเมินราคาฟรี ใกล้ฉัน? เรารับซื้อถึงที่ จ่ายเงินสดทันที</h1>
+			<p class="subtitle">
+				เมื่อเสียงเพลงคือความสุข แต่ลำโพงแบรนด์เนมตัวเก่าที่คุณเคยรักอาจไม่ได้ตอบโจทย์ไลฟ์สไตล์ในปัจจุบันอีกต่อไป ไม่ว่าจะอยากอัปเกรดเป็นรุ่นที่เสียงกระหึ่มกว่าเดิม หรือแค่ต้องการเปลี่ยนไอเทมที่วางตั้งโชว์ไว้เฉยๆ ให้กลับกลายเป็นเงินสด WE BUY เข้าใจถึงคุณค่าของอุปกรณ์เครื่องเสียงทุกชิ้น เรารับซื้อลำโพงบลูทูธ ลำโพงไร้สาย ลำโพงอัจฉริยะ และลำโพงซาวด์บาร์แบรนด์เนมแท้ 100% ทุกยี่ห้อดัง ไม่ว่าจะเป็นดีไซน์คลาสสิกสุดเท่อย่าง Marshall, สายปาร์ตี้ตัวจริงอย่าง JBL, เสียงนุ่มลึกระดับพรีเมียมจาก Bose และ Sonos ไปจนถึงความหรูหราระดับไฮเอนด์อย่าง Bang & Olufsen (B&O) ทีมงานของเรามีความเชี่ยวชาญในการตรวจสอบของแท้และวิเคราะห์คุณภาพเสียงอย่างแม่นยำ พร้อมเสนอราคาที่แฟร์ที่สุด ให้คุณขายลำโพงตัวเก่งได้อย่างรวดเร็ว จ่ายเงินสดโอนทันที และมีบริการเข้ารับของถึงบ้านโดยไม่ต้องแบกให้เหนื่อย
+			</p>
+		</header>
+        <section class="content">
+			<TrustBadges className="mb-12 mt-8" />
+			<h2>กำลังหาร้านรับซื้อKW ใกล้ฉันอยู่ใช่ไหม?</h2>
+			<p>หากคุณกำลังค้นหาว่าจะขายKWที่ไหนดีใกล้ๆ บ้าน หมดปัญหาต้องฝ่ารถติดเพื่อนำเครื่องไปตีราคาที่ห้างสรรพสินค้าหรือร้านตู้ไกลๆ อีกต่อไป เพราะ WE BUY มีบริการรับซื้อถึงที่ (On-Site Service) ในพื้นที่ใกล้บ้านคุณ</p>
+			<p>เราเข้าใจดีว่าคุณต้องการขายKWให้ได้ราคาดีที่สุดและเร็วที่สุด ทีมงานผู้เชี่ยวชาญของเราพร้อมที่จะตีราคาออนไลน์ให้คุณทราบก่อนภายใน 15 นาที หากราคาเป็นที่น่าพอใจ เราจะส่งทีมงานที่อยู่ใกล้คุณที่สุดวิ่งไปรับเครื่องทันที</p>
+
+			<ComparisonTable />
+			<StepCards />
+			
+			<h2>ทำไมลูกค้าถึงเลือกบริการรับซื้อKWใกล้บ้านกับเรา?</h2>
+			<p>การไปขายเครื่องที่ร้านตู้ทั่วไป คุณอาจต้องแบกรับความเสี่ยงที่จะถูกกดราคาหลังจากเดินทางไปถึงแล้ว ซึ่งทำให้เสียทั้งเวลาและอารมณ์ แต่บริการรับซื้อKWใกล้บ้านของเรา เราจะตกลงราคากันล่วงหน้าให้จบก่อน ทำให้คุณมั่นใจได้ว่าเมื่อเราไปถึง คุณจะได้รับเงินตามจำนวนที่คุยกันไว้ (หากสภาพเครื่องตรงตามที่คุณแจ้ง)</p>
+			<p>นอกจากนี้ หากเครื่องของคุณมีตำหนิ หรือแบตเตอรี่เสื่อม เราก็ยินดีรับซื้อและประเมินราคาตามจริงอย่างยุติธรรม ไม่มีการนำข้อบกพร่องเล็กๆ น้อยๆ มาเป็นข้ออ้างในการหักราคาอย่างไม่สมเหตุสมผล</p>
+
+			<DataPrivacyBlock />
+
+			<h2>ขายKWด่วนใกล้บ้านคุณ รับเงินก้อนได้ง่ายๆ ใน 3 ขั้นตอน</h2>
+			<p>ไม่ต้องทำอะไรให้ยุ่งยาก หยิบมือถือขึ้นมา ถ่ายรูปเครื่อง KW ของคุณให้ชัดเจน แล้วแอดไลน์มาคุยกับเรา เรามีทีมประเมินราคาที่สแตนด์บายตลอด 24 ชั่วโมง พร้อมตอบทุกคำถามและให้ราคาที่ดีที่สุดในตลาด</p>
+			<p>หลังจากนั้น นัดหมายสถานที่ที่คุณสะดวกที่สุดในพื้นที่ใกล้ฉัน ทีมงานจะเดินทางไปหาตรงเวลาเป๊ะ ตรวจเช็คการทำงานของเครื่องต่อหน้าคุณ ใช้เวลาไม่เกิน 15 นาที และชำระเงินสดหรือโอนผ่านแอปธนาคารทันที ยืนยันว่าคุณจะได้รับเงินชัวร์ 100% ก่อนส่งมอบเครื่อง</p>
+			
+			<div class="cta-row" style="margin-top: 3rem; justify-content: center; padding-bottom: 3rem;">
+				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">คลิกทัก LINE ประเมินราคาใกล้คุณ!</a>
+			</div>
+		</section>
+		<ProvincialGrid keyword="รับซื้อลำโพง" slugPrefix="รับซื้อลำโพง" />
+		</section>
+	</div>
+</BaseLayout>
+
+<style>
+	.page {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+		font-family: 'Inter', 'Sarabun', sans-serif;
+		color: #333;
+		line-height: 1.8;
+	}
+
+	.header {
+		text-align: center;
+		margin-bottom: 4rem;
+		padding: 3rem 1rem;
+		background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+		color: white;
+		border-radius: 1rem;
+		box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+	}
+
+	.header h1 {
+		font-size: 2.5rem;
+		font-weight: 800;
+		margin-bottom: 1.5rem;
+		line-height: 1.3;
+		text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+
+	.subtitle {
+		font-size: 1.15rem;
+		max-width: 800px;
+		margin: 0 auto;
+		opacity: 0.95;
+		font-weight: 300;
+	}
+
+	.content {
+		background: #ffffff;
+		padding: 3rem;
+		border-radius: 1rem;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+		border: 1px solid #f3f4f6;
+	}
+
+	h2 {
+		font-size: 2rem;
+		color: #111827;
+		margin-top: 3.5rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		position: relative;
+		padding-bottom: 0.5rem;
+		line-height: 1.4;
+	}
+
+	h2::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 60px;
+		height: 4px;
+		background: #f59e0b;
+		border-radius: 2px;
+	}
+
+	h2:first-child {
+		margin-top: 0;
+	}
+
+	p {
+		font-size: 1.1rem;
+		margin-bottom: 1.5rem;
+		color: #4b5563;
+	}
+
+	.btn-line {
+		display: inline-flex;
+		align-items: center;
+		background: #00B900;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 50px;
+		font-weight: bold;
+		box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+		transition: all 0.3s ease;
+	}
+
+	.btn-line:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+		background: #009900;
+	}
+
+	.cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.header {
+			padding: 2rem 1rem;
+		}
+		
+		.header h1 {
+			font-size: 2rem;
+		}
+
+		.content {
+			padding: 1.5rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+		}
+	}
+</style>

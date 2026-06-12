@@ -1,0 +1,67 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<div class={`overflow-hidden rounded-2xl border border-white/10 my-10 bg-[#0f172a] shadow-xl ${className}`}>
+  <div class="overflow-x-auto">
+    <table class="w-full text-left text-sm">
+      <thead class="bg-white/5 text-gray-300">
+        <tr>
+          <th class="p-4 font-semibold w-1/3">บริการ / ฟีเจอร์</th>
+          <th class="p-4 font-bold text-brand-400 w-1/3 bg-brand-900/10 border-x border-brand-500/20">WE BUY (เรารับซื้อ)</th>
+          <th class="p-4 font-semibold text-gray-500 w-1/3">ร้านตู้ / โพสต์ขายเอง</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-white/5">
+        <tr class="hover:bg-white/[0.02] transition-colors">
+          <td class="p-4 text-gray-400">การประเมินราคา</td>
+          <td class="p-4 font-medium text-white bg-brand-900/5 border-x border-brand-500/10 flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            ให้ราคาสูง ยุติธรรม ไม่กดหน้างาน
+          </td>
+          <td class="p-4 text-gray-500 flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            มักกดราคาหน้างาน หรือรอนาน
+          </td>
+        </tr>
+        <tr class="hover:bg-white/[0.02] transition-colors">
+          <td class="p-4 text-gray-400">สถานที่รับซื้อ</td>
+          <td class="p-4 font-medium text-white bg-brand-900/5 border-x border-brand-500/10 flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            วิ่งไปรับถึงหน้าบ้าน (On-Site)
+          </td>
+          <td class="p-4 text-gray-500 flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            ต้องเดินทางไปห้าง เสียค่ารถ
+          </td>
+        </tr>
+        <tr class="hover:bg-white/[0.02] transition-colors">
+          <td class="p-4 text-gray-400">การรับเงิน</td>
+          <td class="p-4 font-medium text-white bg-brand-900/5 border-x border-brand-500/10 flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            รับเงินสด/โอนเต็มจำนวนทันที
+          </td>
+          <td class="p-4 text-gray-500 flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            มีความเสี่ยงโดนโกงสลิป (ถ้าขายเอง)
+          </td>
+        </tr>
+        <tr class="hover:bg-white/[0.02] transition-colors">
+          <td class="p-4 text-gray-400">การปกป้องข้อมูล</td>
+          <td class="p-4 font-medium text-white bg-brand-900/5 border-x border-brand-500/10 flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            ล้างข้อมูลลึกระดับบิต ปลอดภัย 100%
+          </td>
+          <td class="p-4 text-gray-500 flex items-center gap-2">
+            <svg class="w-5 h-5 text-red-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            เสี่ยงข้อมูลส่วนตัว/รหัสหลุด
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
