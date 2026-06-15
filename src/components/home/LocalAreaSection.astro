@@ -48,13 +48,18 @@ const {
 
 		<ul class="mt-8 flex flex-wrap gap-2" aria-label="รายชื่อพื้นที่">
 			{
-				areas.slice(0, 16).map((area) => (
+				areas.slice(0, 16).map((area) => {
+					const href = area === 'อุบลราชธานี' 
+						? '/รับซื้อโน๊ตบุ๊คอุบล-notebook-laptop-จ/' 
+						: `/รับซื้อโน๊ตบุ๊ค-${area}/`;
+					return (
 					<li>
-						<span class="inline-flex rounded-full border border-gray-200/90 bg-white px-3.5 py-1.5 text-sm font-medium text-text-muted shadow-sm">
+						<a href={href} class="inline-flex items-center rounded-full border border-gray-200/90 bg-white px-3.5 py-1.5 text-sm font-medium text-text-muted shadow-sm hover:border-primary/50 hover:bg-gray-50 hover:text-primary transition-colors">
 							{area}
-						</span>
+						</a>
 					</li>
-				))
+					);
+				})
 			}
 		</ul>
 
