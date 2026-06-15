@@ -1,26 +1,26 @@
----
-title: "รับซื้อ HomePod มือสอง — HomePod, HomePod mini รับทุกสี ราคาดี"
-description: "WE BUY รับซื้อ HomePod มือสอง ทั้ง HomePod รุ่น 2nd Gen และ HomePod mini ทุกสี รับทั้งที่มีกล่องและไม่มีกล่อง จ่ายเงินทันที"
+﻿---
+title: "à¸£à¸±à¸šà¸‹à¸·à¹‰à¸­ HomePod à¸¡à¸·à¸­à¸ªà¸­à¸‡ â€” HomePod, HomePod mini à¸£à¸±à¸šà¸—à¸¸à¸à¸ªà¸µ à¸£à¸²à¸„à¸²à¸”à¸µ"
+description: "WE BUY à¸£à¸±à¸šà¸‹à¸·à¹‰à¸­ HomePod à¸¡à¸·à¸­à¸ªà¸­à¸‡ à¸—à¸±à¹‰à¸‡ HomePod à¸£à¸¸à¹ˆà¸™ 2nd Gen à¹à¸¥à¸° HomePod mini à¸—à¸¸à¸à¸ªà¸µ à¸£à¸±à¸šà¸—à..."
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
-slug: "รับซื้อ-homepod"
+slug: "à¸£à¸±à¸šà¸‹à¸·à¹‰à¸­-homepod"
 heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:
-  - question: "รับซื้อ HomePod ทุกรุ่นไหม?"
-    answer: "รับครับ ทั้ง HomePod Gen 2 และ HomePod mini ทุกสี ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
+  - question: "à¸£à¸±à¸šà¸‹à¸·à¹‰à¸­ HomePod à¸—à¸¸à¸à¸£à¸¸à¹ˆà¸™à¹„à¸«à¸¡?"
+    answer: "à¸£à¸±à¸šà¸„à¸£à¸±à¸š à¸—à¸±à¹‰à¸‡ HomePod Gen 2 à¹à¸¥à¸° HomePod mini à¸—à¸¸à¸à¸ªà¸µ à¸ªà¹ˆà¸‡à¸£à¸¹à¸›à¸¡à¸²à¸›à¸£à¸°à¹€à¸¡à¸´à¸™à¸£à¸²à¸„à¸²à¸œà¹ˆà¸²à¸™ Line @webuy à¹„à¸”à¹‰à¹€à¸¥à¸¢"
 
 ---
 
 
-**รับซื้อ HomePod มือสอง** — WE BUY รับซื้อ HomePod และ HomePod mini ทุกรุ่น ทุกสี
+**à¸£à¸±à¸šà¸‹à¸·à¹‰à¸­ HomePod à¸¡à¸·à¸­à¸ªà¸­à¸‡** â€” WE BUY à¸£à¸±à¸šà¸‹à¸·à¹‰à¸­ HomePod à¹à¸¥à¸° HomePod mini à¸—à¸¸à¸à¸£à¸¸à¹ˆà¸™ à¸—à¸¸à¸à¸ªà¸µ
 
-## HomePod ที่รับซื้อ
+## HomePod à¸—à¸µà¹ˆà¸£à¸±à¸šà¸‹à¸·à¹‰à¸­
 
-| รุ่น | ช่วงราคา |
+| à¸£à¸¸à¹ˆà¸™ | à¸Šà¹ˆà¸§à¸‡à¸£à¸²à¸„à¸² |
 |------|---------|
-| HomePod (2nd Gen) | 4,500–7,000 บาท |
-| HomePod mini | 1,500–2,800 บาท |
+| HomePod (2nd Gen) | 4,500â€“7,000 à¸šà¸²à¸— |
+| HomePod mini | 1,500â€“2,800 à¸šà¸²à¸— |
 
-ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353
+à¸•à¸´à¸”à¸•à¹ˆà¸­ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) à¸«à¸£à¸·à¸­à¹‚à¸—à¸£ 064-257-9353

@@ -94,7 +94,7 @@ function main() {
 
 	for (const file of htmlFiles) {
 		const html = readFileSync(file, 'utf8');
-		const isNoindex = /<meta\s+name=["']robots["']\s+content=["'][^"']*noindex/i.test(html);
+		const isNoindex = html.includes('noindex') || html.includes('http-equiv="refresh"');
 		if (isNoindex) continue;
 
 		const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
