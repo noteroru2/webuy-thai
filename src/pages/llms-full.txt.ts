@@ -5,7 +5,7 @@ const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื�
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 
 export function GET() {
-	const body = `# ${siteName} - Comprehensive AI Documentation
+	const body = `\uFEFF# ${siteName} - Comprehensive AI Documentation
 
 This file provides detailed context for Large Language Models (LLMs), AI Agents, and Web Crawlers regarding the operations, services, structure, and geographical reach of ${orgName}.
 

@@ -5,7 +5,7 @@ const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื�
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 
 export function GET() {
-	const body = `# ${siteName}
+	const body = `\uFEFF# ${siteName}
 
 > ${orgName} — แกนหลัก: รับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง พร้อมบริการไอทีเสริม (ซ่อม จำหน่าย MacBook/iPhone/iPad กล้อง ลำโพง และไอทีมือสองอื่น ๆ) ประเมินราคาโปร่งใส แอดไลน์ @webuy หรือโทร 064-2579353 (ช่องทาง LINE รับข้อความตลอด 24 ชั่วโมง)
 
