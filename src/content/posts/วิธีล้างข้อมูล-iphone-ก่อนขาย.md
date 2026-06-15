@@ -4,9 +4,9 @@ description: 'ความปลอดภัยต้องมาก่อน! �
 slug: 'วิธีล้างข้อมูล-iphone-ก่อนขาย'
 pubDate: '2026-06-12T15:24:47.612Z'
 updatedDate: '2026-06-12T15:24:47.612Z'
-heroImage: '/uploads/hero-placeholder.jpg'
+heroImage: '/media/category/generic_desktop_pc_1781509169636.png'
 heroImageAlt: 'การล้างข้อมูล iPhone'
-canonical: 'วิธีล้างข้อมูล-iphone-ก่อนขาย'
+canonical: '/วิธีล้างข้อมูล-iphone-ก่อนขาย/'
 noindex: false
 faqItems: []
 ---

@@ -29,4 +29,4 @@ faqItems:
 
 ทัก [Line @webuy](https://line.me/R/ti/p/@webuy) พร้อมรุ่นและสภาพ จะได้ช่วงราคาเบื้องต้นก่อนนัดครับ
 
-ดูเพิ่มที่ [รับซื้อ NAS Storage](/รับซื้อ-nas-storage/) และ [รับซื้อ Harddisk](/รับซื้อ-harddisk/)
+ดูเพิ่มที่ [รับซื้อ NAS Storage](/รับซื้อ-nas-storage/) และ [รับซื้อ Harddisk](/รับซื้อคอม/)

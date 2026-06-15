@@ -12,7 +12,6 @@ import TrustBadges from '../components/money-pages/TrustBadges.astro';
 import StepCards from '../components/money-pages/StepCards.astro';
 import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
-import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
 const socialLinks = getSocialLinks();
 const allPosts = await getPublishedPosts();
@@ -196,7 +195,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">คลิกทัก LINE ประเมินราคาใกล้คุณ!</a>
 			</div>
 		</section>
-		<ProvincialGrid keyword="รับซื้อลำโพง" slugPrefix="รับซื้อลำโพง" />
 		</section>
 	</div>
 </BaseLayout>
