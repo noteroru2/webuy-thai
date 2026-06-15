@@ -4,6 +4,7 @@ description: "คำแนะนำสำหรับคนที่ต้อง
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ขาย-iphone-ขอนแก่น-ที่ไหนดี-เช็กราคาก่อนขาย"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "คู่มือขาย iPhone ขอนแก่น"
 faqItems:
   - question: "ขาย iPhone ในขอนแก่นควรเช็กอะไรเป็นอย่างแรก"

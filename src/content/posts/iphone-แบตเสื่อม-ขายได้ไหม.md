@@ -4,6 +4,7 @@ description: "iPhone แบตเสื่อมขายได้ไหม — 
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "iphone-แบตเสื่อม-ขายได้ไหม"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "iPhone แบตเสื่อมขายได้ไหม"
 faqItems:
   - question: "iPhone แบตต่ำกว่า 80% ยังขายได้ไหม"

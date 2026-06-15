@@ -4,6 +4,7 @@ description: "MacBook เปิดไม่ติดขายได้ไหม 
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "macbook-เปิดไม่ติด-ขายได้ไหม"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 heroImageAlt: "MacBook เปิดไม่ติดขายได้ไหม"
 faqItems:
   - question: "MacBook กดเปิดไม่ติดเลย ยังขายได้ไหม"

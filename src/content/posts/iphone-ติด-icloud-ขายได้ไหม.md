@@ -4,6 +4,7 @@ description: "iPhone ติด iCloud ขายได้ไหม — WE BUY ไ
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "iphone-ติด-icloud-ขายได้ไหม"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "iPhone ติด iCloud ขายได้ไหม"
 faqItems:
   - question: "ลืมรหัส Apple ID ขายได้ไหม"

@@ -4,6 +4,7 @@ description: "MacBook Air M1 มือสองขายได้กี่บา
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "macbook-air-m1-มือสอง-ขายได้กี่บาท"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 heroImageAlt: "MacBook Air M1 มือสองขายได้กี่บาท"
 faqItems:
   - question: "MacBook Air M1 มือสองขายได้กี่บาท"

@@ -4,6 +4,7 @@ description: "WE BUY รับซื้อ Xiaomi มือสอง ทั้�
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อ-xiaomi-มือสอง"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 9
 qualityFlags: []
 faqItems:

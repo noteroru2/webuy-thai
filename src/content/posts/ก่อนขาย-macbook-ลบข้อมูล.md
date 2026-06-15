@@ -4,6 +4,7 @@ description: "ก่อนขาย MacBook ต้องลบข้อมูล
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ก่อนขาย-macbook-ลบข้อมูล"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 heroImageAlt: "ก่อนขาย MacBook ต้องลบข้อมูลยังไง"
 faqItems:
   - question: "ก่อนขาย MacBook ต้องลบข้อมูลยังไง"

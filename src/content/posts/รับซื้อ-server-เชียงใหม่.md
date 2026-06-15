@@ -4,6 +4,7 @@ description: "WE BUY รับซื้อServerมือสองในเช�
 pubDate: "2026-06-06"
 updatedDate: "2026-06-06"
 slug: "รับซื้อ-server-เชียงใหม่"
+heroImage: "/media/category/generic_server_1781509220904.png"
 qualityScore: 9
 qualityFlags: []
 

@@ -4,6 +4,7 @@ description: "💸 เปลี่ยนของเก่าเป็นทุ�
 pubDate: "2026-06-12"
 updatedDate: "2026-06-12"
 slug: "รับซื้อ-imac-ชัยภูมิ"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 qualityScore: 10
 qualityFlags: ["sales-page", "urgent", "ultimate-length", "internal-linked", "unique-spun"]
 faqItems:

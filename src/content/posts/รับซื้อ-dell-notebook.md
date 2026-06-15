@@ -4,6 +4,7 @@ description: "ขาย Dell notebook มือสองได้ที่ WE BU
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อ-dell-notebook"
+heroImage: "/media/notebook-showcase/asus-tuf-gaming-f15.webp"
 qualityScore: 9
 qualityFlags: []
 faqItems:

@@ -4,6 +4,7 @@ description: "iPhone จอแตกขายได้ไหม — ขึ้น
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "iphone-จอแตก-ขายได้ไหม"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "iPhone จอแตกขายได้ไหม"
 faqItems:
   - question: "จอแตกแต่ทัชได้ ขายได้ไหม"

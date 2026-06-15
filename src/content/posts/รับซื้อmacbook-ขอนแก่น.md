@@ -4,6 +4,7 @@ description: "URL เดิมสำหรับคนที่ค้นหา�
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อmacbook-ขอนแก่น"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
 

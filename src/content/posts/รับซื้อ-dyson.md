@@ -4,6 +4,7 @@ description: "รับซื้อDyson มือสอง Dyson V8, V10, V12, 
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-dyson"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

@@ -4,6 +4,7 @@ description: "รับซื้อ PC AIO มือสอง All-in-One PC ท�
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-pc-aio"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

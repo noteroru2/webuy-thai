@@ -4,6 +4,7 @@ description: "รับซื้อ Harddisk SAS มือสอง HDD แบ�
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-sas"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

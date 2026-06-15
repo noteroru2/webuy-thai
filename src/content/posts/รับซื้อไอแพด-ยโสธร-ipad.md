@@ -4,6 +4,7 @@ description: "URL เดิมสำหรับคนที่ค้นหา�
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อไอแพด-ยโสธร-ipad"
+heroImage: "/media/apple-local/ipad-mini-silver-back.webp"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
 

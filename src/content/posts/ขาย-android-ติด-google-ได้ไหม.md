@@ -4,6 +4,7 @@ description: "ขาย Android ติดบัญชี Google ได้ไห�
 pubDate: "2026-05-16"
 updatedDate: "2026-05-21"
 slug: "ขาย-android-ติด-google-ได้ไหม"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 heroImageAlt: "ขาย Android ติดบัญชี Google ได้ไหม"
 faqItems:
   - question: "ขาย Android ติดบัญชี Google ได้ไหม"

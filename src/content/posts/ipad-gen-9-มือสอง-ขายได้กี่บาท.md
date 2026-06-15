@@ -4,6 +4,7 @@ description: "iPad Gen 9 มือสองขายได้กี่บาท 
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ipad-gen-9-มือสอง-ขายได้กี่บาท"
+heroImage: "/media/apple-local/ipad-mini-silver-back.webp"
 heroImageAlt: "iPad Gen 9 มือสองขายได้กี่บาท"
 faqItems:
   - question: "iPad Gen 9 มือสองขายได้กี่บาท"

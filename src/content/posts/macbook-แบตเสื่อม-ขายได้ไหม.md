@@ -4,6 +4,7 @@ description: "MacBook แบตเสื่อมขายได้ไหม —
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "macbook-แบตเสื่อม-ขายได้ไหม"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 heroImageAlt: "MacBook แบตเสื่อมขายได้ไหม"
 faqItems:
   - question: "MacBook ต้องเสียบไฟตลอด ขายได้ไหม"

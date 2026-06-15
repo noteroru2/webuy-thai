@@ -4,6 +4,7 @@ description: "รับซื้อ Eaton มือสอง 5P, 5PX, 9PX, 93PS 
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-eaton"
+heroImage: "/media/category/generic_server_1781509220904.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

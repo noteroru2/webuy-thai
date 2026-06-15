@@ -4,6 +4,7 @@ description: "กล้อง Fujifilm มือสองขายได้ก�
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "กล้อง-fujifilm-มือสอง-ขายได้กี่บาท"
+heroImage: "/media/category/generic_camera_1781509181019.png"
 heroImageAlt: "กล้อง Fujifilm มือสองขายได้กี่บาท"
 faqItems:
   - question: "กล้อง Fujifilm มือสองขายได้กี่บาท"

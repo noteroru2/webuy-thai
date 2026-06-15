@@ -4,6 +4,7 @@ description: "ก่อนขาย iPhone ต้องล้างข้อม�
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ก่อนขาย-iphone-ล้างข้อมูล"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "ก่อนขาย iPhone ต้องล้างข้อมูลยังไง"
 faqItems:
   - question: "ก่อนขาย iPhone ต้องล้างข้อมูลยังไง"

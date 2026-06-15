@@ -4,6 +4,7 @@ description: "รับซื้อ PC Lenovo มือสอง Desktop PC Leno
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-pc-lenovo"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

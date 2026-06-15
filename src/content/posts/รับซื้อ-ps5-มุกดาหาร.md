@@ -4,6 +4,7 @@ description: "🚀 ด่วน! รับซื้อPS5ทุกสภาพ�
 pubDate: "2026-06-12"
 updatedDate: "2026-06-12"
 slug: "รับซื้อ-ps5-มุกดาหาร"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 10
 qualityFlags: ["sales-page", "urgent", "ultimate-length", "internal-linked", "unique-spun"]
 faqItems:

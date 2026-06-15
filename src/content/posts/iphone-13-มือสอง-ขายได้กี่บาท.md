@@ -4,6 +4,7 @@ description: "iPhone 13 มือสองขายได้กี่บาท �
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "iphone-13-มือสอง-ขายได้กี่บาท"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "iPhone 13 มือสองขายได้กี่บาท"
 faqItems:
   - question: "iPhone 13 มือสองขายได้กี่บาทโดยประมาณ"

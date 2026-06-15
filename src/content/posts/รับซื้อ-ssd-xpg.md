@@ -4,6 +4,7 @@ description: "รับซื้อ SSD XPG (ADATA) มือสอง Gammix S7
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-xpg"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

@@ -4,6 +4,7 @@ description: "URL เดิมสำหรับคนที่ค้นหา�
 pubDate: "2026-05-20"
 updatedDate: "2026-05-20"
 slug: "รับซื้อไอโฟน-iphone-ร้อยเอ็ด"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 qualityScore: 1
 qualityFlags: ["legacy_alias"]
 

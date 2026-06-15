@@ -4,6 +4,7 @@ description: "รับซื้อ CyberPower มือสอง CP, PR, OL ser
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-cyberpower"
+heroImage: "/media/category/generic_server_1781509220904.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

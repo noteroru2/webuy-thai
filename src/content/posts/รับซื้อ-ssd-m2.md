@@ -4,6 +4,7 @@ description: "รับซื้อ SSD SSD M.2 มือสอง SSD แบบ
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-m2"
+heroImage: "/media/category/generic_desktop_pc_1781509169636.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

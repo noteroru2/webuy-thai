@@ -4,6 +4,7 @@ description: "WE BUY รับซื้อ IP Camera มือสอง ทุ�
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ip-camera"
+heroImage: "/media/category/generic_camera_1781509181019.png"
 qualityScore: 8
 qualityFlags: []
 faqItems:

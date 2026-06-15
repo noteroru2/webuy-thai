@@ -4,6 +4,7 @@ description: "ขาย iPhone ติดบัญชี Apple ID ได้ไห
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ขาย-iphone-ติด-apple-id-ได้ไหม"
+heroImage: "/media/apple-local/iphone15-black-back.webp"
 heroImageAlt: "ขาย iPhone ติดบัญชี Apple ID ได้ไหม"
 faqItems:
   - question: "ขาย iPhone ติดบัญชี Apple ID ได้ไหม"

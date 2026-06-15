@@ -4,6 +4,7 @@ description: "🔥 ร้อนเงินต้องการขาย MacBoo
 pubDate: "2026-06-12"
 updatedDate: "2026-06-12"
 slug: "รับซื้อ-macbook-ยะลา"
+heroImage: "/media/notebook-showcase/macbook-boot-screen.webp"
 qualityScore: 10
 qualityFlags: ["sales-page", "urgent", "ultimate-length", "internal-linked", "unique-spun"]
 faqItems:
