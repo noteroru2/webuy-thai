@@ -1,0 +1,171 @@
+---
+---
+
+<div id="cookie-banner" class="cookie-banner hidden" aria-label="แบนเนอร์ขอความยินยอมการใช้คุกกี้">
+	<div class="cookie-container">
+		<div class="cookie-content">
+			<div class="cookie-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>
+			</div>
+			<div class="cookie-text">
+				<p class="cookie-title">เราใช้คุกกี้เพื่อประสบการณ์ที่ดีของคุณ 🍪</p>
+				<p class="cookie-desc">
+					เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์การใช้งานของคุณ การคลิก "ยอมรับทั้งหมด" ถือว่าคุณยินยอมให้เราใช้คุกกี้ตาม <a href="/cookie-policy/" class="cookie-link">นโยบายคุกกี้</a> ของเรา
+				</p>
+			</div>
+		</div>
+		<div class="cookie-actions">
+			<button id="btn-accept-cookies" class="btn-cookie btn-cookie-primary">ยอมรับทั้งหมด</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Run on client side
+	document.addEventListener('DOMContentLoaded', () => {
+		const banner = document.getElementById('cookie-banner');
+		const acceptBtn = document.getElementById('btn-accept-cookies');
+		
+		// Check if user already accepted
+		const hasAccepted = localStorage.getItem('webuy_cookie_consent');
+		
+		if (!hasAccepted && banner) {
+			// Show banner with a slight delay for better UX
+			setTimeout(() => {
+				banner.classList.remove('hidden');
+				// Small timeout to allow display:block to apply before animating opacity/transform
+				setTimeout(() => {
+					banner.classList.add('visible');
+				}, 50);
+			}, 1000);
+		}
+		
+		if (acceptBtn && banner) {
+			acceptBtn.addEventListener('click', () => {
+				// Save consent
+				localStorage.setItem('webuy_cookie_consent', 'accepted');
+				// Hide banner
+				banner.classList.remove('visible');
+				setTimeout(() => {
+					banner.classList.add('hidden');
+				}, 400); // Wait for transition to finish
+			});
+		}
+	});
+</script>
+
+<style>
+	.cookie-banner {
+		position: fixed;
+		bottom: max(20px, env(safe-area-inset-bottom));
+		left: 20px;
+		right: 20px;
+		z-index: 9999;
+		display: flex;
+		justify-content: center;
+		pointer-events: none; /* Let clicks pass through the invisible full-width container */
+	}
+	
+	.cookie-banner.hidden {
+		display: none;
+	}
+	
+	.cookie-container {
+		background: rgba(255, 255, 255, 0.98);
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(255,140,0,0.1);
+		border-radius: 16px;
+		padding: 1.25rem;
+		width: 100%;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		pointer-events: auto; /* Re-enable clicks on the actual banner */
+		transform: translateY(20px);
+		opacity: 0;
+		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+	}
+	
+	.cookie-banner.visible .cookie-container {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	@media (min-width: 640px) {
+		.cookie-container {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1.5rem;
+		}
+	}
+
+	.cookie-content {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+	}
+
+	.cookie-icon {
+		background: rgba(255, 140, 0, 0.1);
+		padding: 0.5rem;
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	.cookie-title {
+		margin: 0 0 0.25rem 0;
+		font-weight: 700;
+		color: #0f172a;
+		font-size: 1rem;
+	}
+
+	.cookie-desc {
+		margin: 0;
+		color: #64748b;
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+
+	.cookie-link {
+		color: #f97316;
+		font-weight: 600;
+		text-decoration: none;
+	}
+	
+	.cookie-link:hover {
+		text-decoration: underline;
+	}
+
+	.cookie-actions {
+		display: flex;
+		gap: 0.5rem;
+		flex-shrink: 0;
+	}
+
+	.btn-cookie {
+		appearance: none;
+		border: none;
+		padding: 0.6rem 1.25rem;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 0.9rem;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		white-space: nowrap;
+	}
+
+	.btn-cookie-primary {
+		background: #f97316;
+		color: white;
+		box-shadow: 0 4px 10px rgba(249, 115, 22, 0.25);
+	}
+
+	.btn-cookie-primary:hover {
+		background: #ea580c;
+		transform: translateY(-1px);
+	}
+</style>
