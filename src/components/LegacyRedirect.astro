@@ -1,0 +1,159 @@
+import { formatPageTitle, getSiteUrl } from '../lib/site';
+
+interface Props {
+	to: string;
+	from?: string;
+	title?: string;
+	description?: string;
+}
+
+const { to, from, title, description } = Astro.props;
+const canonical = getSiteUrl(to);
+const pageTitle = formatPageTitle('กำลังเปลี่ยนหน้า... | เรารับซื้อ');
+const pageDescription =
+	description?.trim() ||
+	'กำลังนำคุณไปยังหน้าหลักของบริการที่เกี่ยวข้อง โปรดรอสักครู่... หากเบราว์เซอร์ของคุณไม่เปลี่ยนหน้าอัตโนมัติ กรุณากดลิงก์ด้านล่างเพื่อดำเนินการต่อ';
+const sourceUrl = from ? getSiteUrl(from) : null;
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	'@id': `${canonical}#redirect`,
+	url: sourceUrl ?? canonical,
+	name: pageTitle,
+	description: pageDescription,
+	inLanguage: 'th-TH',
+	isPartOf: {
+		'@type': 'WebSite',
+		'@id': `${new URL(canonical).origin}/#website`,
+	},
+	mainEntity: {
+		'@type': 'Thing',
+		name: title ?? 'หน้าบริการรับซื้อ',
+		url: canonical,
+	},
+};
+---
+<!doctype html>
+<html lang="th">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow, noarchive" />
+		<meta name="description" content={pageDescription} />
+		<meta http-equiv="refresh" content={`0;url=${to}`} />
+		<link rel="canonical" href={canonical} />
+		<title>{pageTitle}</title>
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		<style>
+			:root {
+				color-scheme: light;
+				--ink: #1f2937;
+				--muted: #5b6470;
+				--accent: #f97316;
+				--accent-dim: #ea580c;
+				--surface: #ffffff;
+				--surface-warm: #fff8f3;
+				--border: rgba(249, 115, 22, 0.18);
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: system-ui, sans-serif;
+				background:
+					radial-gradient(circle at top, rgba(249, 115, 22, 0.12), transparent 35%),
+					linear-gradient(180deg, var(--surface-warm) 0%, #fff 100%);
+				color: var(--ink);
+			}
+			main {
+				width: min(720px, calc(100vw - 2rem));
+				margin: 0 auto;
+				padding: 4rem 0 3rem;
+			}
+			.card {
+				padding: 1.4rem 1.45rem;
+				border: 1px solid var(--border);
+				border-radius: 22px;
+				background: rgba(255, 255, 255, 0.96);
+				box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+			}
+			.eyebrow {
+				margin: 0 0 0.45rem;
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: var(--accent-dim);
+			}
+			h1 {
+				margin: 0;
+				font-size: clamp(1.35rem, 3vw, 1.9rem);
+				line-height: 1.25;
+			}
+			p {
+				margin: 0.85rem 0 0;
+				color: var(--muted);
+				line-height: 1.65;
+			}
+			.actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+				margin-top: 1rem;
+			}
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.72rem 1rem;
+				border-radius: 999px;
+				font-weight: 800;
+				text-decoration: none;
+			}
+			.btn-primary {
+				background: linear-gradient(180deg, #fb923c 0%, var(--accent) 100%);
+				color: #fff;
+				box-shadow: 0 10px 24px rgba(249, 115, 22, 0.22);
+			}
+			.btn-secondary {
+				border: 1px solid var(--border);
+				background: #fff;
+				color: var(--accent-dim);
+			}
+			.meta {
+				margin-top: 0.9rem;
+				font-size: 0.92rem;
+				color: var(--muted);
+			}
+			code {
+				padding: 0.12rem 0.38rem;
+				border-radius: 6px;
+				background: rgba(15, 23, 42, 0.05);
+				font-size: 0.92em;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="card" aria-labelledby="legacy-redirect-heading">
+				<p class="eyebrow">Legacy Redirect</p>
+				<h1 id="legacy-redirect-heading">กำลังเปลี่ยนหน้า... | เรารับซื้อ</h1>
+				<p>{pageDescription}</p>
+				<div class="actions">
+					<a class="btn btn-primary" href={to}>ไปยังหน้าบริการ</a>
+					<a class="btn btn-secondary" href="/">กลับหน้าแรก</a>
+				</div>
+				<p class="meta">
+					ปลายทาง: <code>{to}</code>
+				</p>
+				{sourceUrl && (
+					<p class="meta">
+						นำทางจาก: <code>{from}</code>
+					</p>
+				)}
+			</section>
+		</main>
+	</body>
+</html>
