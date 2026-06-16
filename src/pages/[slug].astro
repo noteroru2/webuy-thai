@@ -18,7 +18,7 @@ import { formatPageTitle, getSiteOrigin } from '../lib/site';
 import '../styles/article-prose.css';
 
 export async function getStaticPaths() {
-	const posts = await getPublishedPosts({ includeNoindex: true });
+	const posts = await getPublishedPosts({ includeNoindex: true, includeLegacy: false });
 	return posts.map((post) => {
 		const recentPosts = posts
 			.filter((p) => p.id !== post.id)
