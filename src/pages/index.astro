@@ -8,6 +8,8 @@ import SeoProseSection from '../components/home/SeoProseSection.astro';
 import LocalAreaSection from '../components/home/LocalAreaSection.astro';
 import FaqSectionPremium from '../components/home/FaqSectionPremium.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
+import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
+import TrustBadges from '../components/money-pages/TrustBadges.astro';
 import { getPublishedPosts } from '../lib/posts';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
@@ -519,6 +521,13 @@ const homeJsonLd: Record<string, unknown> = {
 		</section>
 
 		<SeoProseSection />
+
+		<div class="border-t border-gray-200/80 bg-white py-10">
+			<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+				<TrustBadges className="mb-8" />
+			</div>
+			<RecentTradesSlider />
+		</div>
 
 		<section
 			class="border-t border-gray-200/80 bg-gradient-to-b from-[#FAFAFA] to-white py-16 sm:py-20 lg:py-24"
