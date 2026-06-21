@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ HGST มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ HGST มือสอง Ultrastar, Deskstar NAS ทุกรุ่น ประเมินตามความจุและ�..."
+description: "รับซื้อ HGST มือสอง ทุกรุ่น จ่ายสดทันที - Archived copy moved out of the live content set and kept for internal reference only"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-hgst"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ HGST** ทุกรุ่น ได้แก่ Ultrastar, Deskstar NAS ทุกรุ่น
 

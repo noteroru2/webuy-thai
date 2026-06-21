@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Crucial มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Crucial มือสอง BX500, MX500, P5 Plus ทุกรุ่น ประเมินตามความจุแ�..."
+description: "รับซื้อ SSD Crucial ทุกรุ่น ได้แก่ BX500, MX500, P5 Plus ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-crucial"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD Crucial** ทุกรุ่น ได้แก่ BX500, MX500, P5 Plus ทุกรุ่น
 

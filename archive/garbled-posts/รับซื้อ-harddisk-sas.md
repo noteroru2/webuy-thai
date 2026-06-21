@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Harddisk SAS มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Harddisk SAS มือสอง HDD แบบ SAS 10K, 15K RPM ทุกยี่ห้อ ใช้ใน Server ประเ�..."
+description: "รับซื้อ Harddisk SAS ทุกรุ่น ได้แก่ HDD แบบ SAS 10K, 15K RPM ทุกยี่ห้อ ใช้ใน Server"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-sas"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ Harddisk SAS** ทุกรุ่น ได้แก่ HDD แบบ SAS 10K, 15K RPM ทุกยี่ห้อ ใช้ใน Server
 

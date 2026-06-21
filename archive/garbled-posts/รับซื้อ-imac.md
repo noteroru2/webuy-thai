@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ iMac มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ iMac มือสอง iMac ทุกรุ่น ทั้ง M-series และ Intel รับทุกสภาพ ปร�..."
+description: "รับซื้อ iMac ครอบคลุม iMac ทุกรุ่น ทั้ง M-series และ Intel รับทุกสภาพ"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-imac"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้บางกรณีครับ แต่ควรรีเซ็ตหรือปลด iCloud ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ iMac** ครอบคลุม iMac ทุกรุ่น ทั้ง M-series และ Intel รับทุกสภาพ
 

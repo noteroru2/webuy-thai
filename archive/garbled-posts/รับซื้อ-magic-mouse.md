@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Magic Mouse มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Magic Mouse มือสอง Apple Magic Mouse ทุกรุ่น Magic Mouse 2, Magic Mouse 3 ประเมินตา�..."
+description: "รับซื้อ Magic Mouse ครอบคลุม Apple Magic Mouse ทุกรุ่น Magic Mouse 2, Magic Mouse 3"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-magic-mouse"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้บางกรณีครับ แต่ควรรีเซ็ตหรือปลด iCloud ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ Magic Mouse** ครอบคลุม Apple Magic Mouse ทุกรุ่น Magic Mouse 2, Magic Mouse 3
 

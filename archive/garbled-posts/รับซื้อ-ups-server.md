@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ UPS Server มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ UPS Server มือสอง UPS Rack ที่ใช้ใน Server Room และ Data Center ทุกยี่ห้อ �..."
+description: "รับซื้อ UPS Server ทุกรุ่น ได้แก่ UPS Rack ที่ใช้ใน Server Room และ Data Center ทุกยี่ห้อ"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-server"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
 
 ---
-
 
 **รับซื้อ UPS Server** ทุกรุ่น ได้แก่ UPS Rack ที่ใช้ใน Server Room และ Data Center ทุกยี่ห้อ
 

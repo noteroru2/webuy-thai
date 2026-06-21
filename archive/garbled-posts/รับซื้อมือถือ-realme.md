@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อมือถือ Realme มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อมือถือ Realme มือสอง Realme GT Series, Realme ทุกรุ่น ประเมินตามสภ�..."
+description: "รับซื้อมือถือ Realme ครอบคลุม Realme GT Series, Realme ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อมือถือ-realme"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
 
 ---
-
 
 **รับซื้อมือถือ Realme** ครอบคลุม Realme GT Series, Realme ทุกรุ่น
 

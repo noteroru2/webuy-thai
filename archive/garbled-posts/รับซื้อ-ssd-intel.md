@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Intel มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Intel มือสอง Optane, 670p, 760p ทุกรุ่น ประเมินตามความจุและ�..."
+description: "รับซื้อ SSD Intel มือสอง ทุกรุ่น จ่ายสดทันที - Archived copy moved out of the live content set and kept for internal reference only"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-intel"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD Intel** ทุกรุ่น ได้แก่ Optane, 670p, 760p ทุกรุ่น
 

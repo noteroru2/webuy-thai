@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ WD (Western Digital) มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ WD (Western Digital) มือสอง WD Blue, Red, Gold, Purple, Black ทุกรุ่น ประเมินตาม�..."
+description: "รับซื้อ WD (Western Digital) ทุกรุ่น ได้แก่ WD Blue, Red, Gold, Purple, Black ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-wd"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ WD (Western Digital)** ทุกรุ่น ได้แก่ WD Blue, Red, Gold, Purple, Black ทุกรุ่น
 

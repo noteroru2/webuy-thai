@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Dell มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Dell มือสอง HDD ที่ติดมากับ Dell Server, SATA/SAS ทุกขนาด ประเมิน�..."
+description: "รับซื้อ Dell ทุกรุ่น ได้แก่ HDD ที่ติดมากับ Dell Server, SATA/SAS ทุกขนาด"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-dell"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ Dell** ทุกรุ่น ได้แก่ HDD ที่ติดมากับ Dell Server, SATA/SAS ทุกขนาด
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Kingston มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Kingston มือสอง A400, A2000, KC3000, NV2 ทุกรุ่น ประเมินตามความจุ�..."
+description: "รับซื้อ SSD Kingston ทุกรุ่น ได้แก่ A400, A2000, KC3000, NV2 ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-kingston"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD Kingston** ทุกรุ่น ได้แก่ A400, A2000, KC3000, NV2 ทุกรุ่น
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อมือถือ Samsung มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อมือถือ Samsung มือสอง Samsung Galaxy S Series, Z Series, A Series ทุกรุ่น ประเม�..."
+description: "รับซื้อมือถือ Samsung ครอบคลุม Samsung Galaxy S Series, Z Series, A Series ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อมือถือ-samsung"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
 
 ---
-
 
 **รับซื้อมือถือ Samsung** ครอบคลุม Samsung Galaxy S Series, Z Series, A Series ทุกรุ่น
 

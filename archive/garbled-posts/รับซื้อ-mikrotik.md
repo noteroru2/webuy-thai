@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Mikrotik มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Mikrotik มือสอง RouterBoard, CCR, CRS ทุกรุ่น ประเมินตามสภาพจริง �..."
+description: "รับซื้อ Mikrotik ประเภท Router/Switch ทุกรุ่น ได้แก่ RouterBoard, CCR, CRS ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-mikrotik"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่ถ้ามี License ที่ยัง Active ช่วยให้ราคาดีขึ้นได้"
 
 ---
-
 
 **รับซื้อ Mikrotik** ประเภท Router/Switch ทุกรุ่น ได้แก่ RouterBoard, CCR, CRS ทุกรุ่น
 

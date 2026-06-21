@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ PC Lenovo มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ PC Lenovo มือสอง Desktop PC Lenovo ThinkCentre, IdeaCentre ทุกรุ่น ประเมินตามส�..."
+description: "รับซื้อ PC Lenovo ครอบคลุม Desktop PC Lenovo ThinkCentre, IdeaCentre ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-pc-lenovo"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
 
 ---
-
 
 **รับซื้อ PC Lenovo** ครอบคลุม Desktop PC Lenovo ThinkCentre, IdeaCentre ทุกรุ่น
 

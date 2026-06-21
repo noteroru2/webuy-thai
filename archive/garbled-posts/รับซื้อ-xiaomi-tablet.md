@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อXiaomi Tablet มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อXiaomi Tablet มือสอง Xiaomi Pad 6, Pad 6 Pro ทุกรุ่น ประเมินตามสภาพแล�..."
+description: "รับซื้อXiaomi Tablet ครอบคลุม Xiaomi Pad 6, Pad 6 Pro ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-xiaomi-tablet"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ อุปกรณ์เสริมไม่จำเป็น แต่ถ้ามีช่วยได้"
 
 ---
-
 
 **รับซื้อXiaomi Tablet** ครอบคลุม Xiaomi Pad 6, Pad 6 Pro ทุกรุ่น
 

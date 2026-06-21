@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อแท็บเล็ต Android มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อแท็บเล็ต Android มือสอง Android Tablet ทุกยี่ห้อ Samsung, Xiaomi, Lenovo, Huawei �..."
+description: "รับซื้อแท็บเล็ต Android ครอบคลุม Android Tablet ทุกยี่ห้อ Samsung, Xiaomi, Lenovo, Huawei"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อแท็บเล็ต-android"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ อุปกรณ์เสริมไม่จำเป็น แต่ถ้ามีช่วยได้"
 
 ---
-
 
 **รับซื้อแท็บเล็ต Android** ครอบคลุม Android Tablet ทุกยี่ห้อ Samsung, Xiaomi, Lenovo, Huawei
 

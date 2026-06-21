@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD ADATA มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD ADATA มือสอง SU800, SU650, XPG SX8200 ทุกรุ่น ประเมินตามความจุแ�..."
+description: "รับซื้อ SSD ADATA ทุกรุ่น ได้แก่ SU800, SU650, XPG SX8200 ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-adata"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD ADATA** ทุกรุ่น ได้แก่ SU800, SU650, XPG SX8200 ทุกรุ่น
 

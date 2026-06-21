@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Seagate มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Seagate มือสอง Barracuda, IronWolf, Exos ทุกรุ่น ประเมินตามความจุแ�..."
+description: "รับซื้อ Seagate ทุกรุ่น ได้แก่ Barracuda, IronWolf, Exos ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-seagate"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ Seagate** ทุกรุ่น ได้แก่ Barracuda, IronWolf, Exos ทุกรุ่น
 

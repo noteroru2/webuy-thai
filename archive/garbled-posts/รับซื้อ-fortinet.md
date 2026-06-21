@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Fortinet มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Fortinet มือสอง FortiGate Firewall ทุกรุ่น รวม FortiSwitch, FortiAP ประเมินตา�..."
+description: "รับซื้อ Fortinet ประเภท Firewall ทุกรุ่น ได้แก่ FortiGate Firewall ทุกรุ่น รวม FortiSwitch, FortiAP"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-fortinet"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่ถ้ามี License ที่ยัง Active ช่วยให้ราคาดีขึ้นได้"
 
 ---
-
 
 **รับซื้อ Fortinet** ประเภท Firewall ทุกรุ่น ได้แก่ FortiGate Firewall ทุกรุ่น รวม FortiSwitch, FortiAP
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ AirPods Max มือสอง — Over-ear หูฟัง Apple รับทุกสี ราคาดี"
-description: "WE BUY รับซื้อ AirPods Max มือสอง ทุกสี ทุกรุ่น ประเมินราคาตามสภา�..."
+description: "รับซื้อ AirPods Max มือสอง — AirPods Max เป็น Over-ear Headphone ระดับ Premium ของ Apple ที่ยังคงมูลค่าในตลาดมือสองสูงมาก"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-airpods-max"
@@ -12,7 +12,6 @@ faqItems:
     answer: "รับครับ ทุกสี ทั้ง Space Gray, Silver, Sky Blue, Pink, Green, Midnight, Starlight และสีอื่น ๆ ที่ Apple วางจำหน่าย ส่งรูปมาประเมินราคาผ่าน Line @webuy"
 
 ---
-
 
 **รับซื้อ AirPods Max มือสอง** — AirPods Max เป็น Over-ear Headphone ระดับ Premium ของ Apple ที่ยังคงมูลค่าในตลาดมือสองสูงมาก
 

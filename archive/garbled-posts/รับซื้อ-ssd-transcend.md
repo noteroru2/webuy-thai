@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Transcend มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Transcend มือสอง 220S, 500S, 240S ทุกรุ่น ประเมินตามความจุแล�..."
+description: "รับซื้อ SSD Transcend ทุกรุ่น ได้แก่ 220S, 500S, 240S ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-transcend"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD Transcend** ทุกรุ่น ได้แก่ 220S, 500S, 240S ทุกรุ่น
 

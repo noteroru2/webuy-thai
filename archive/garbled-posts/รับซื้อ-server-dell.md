@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Server Dell มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Server Dell มือสอง ประเมินตามสเปก CPU RAM Storage และสภาพเครื่�..."
+description: "รับซื้อ Server Dell ทุกรุ่น ได้แก่ PowerEdge R710, R720, R730, R740, R750 และทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-server-dell"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่ถ้าต้องการรักษาข้อมูลควรถอดออกหรือ Wipe ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ Server Dell** ทุกรุ่น ได้แก่ PowerEdge R710, R720, R730, R740, R750 และทุกรุ่น
 

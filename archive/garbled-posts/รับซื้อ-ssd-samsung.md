@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Samsung มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Samsung มือสอง 870 EVO, 870 QVO, 980 Pro, 990 Pro ทุกรุ่น ประเมินตามควา�..."
+description: "รับซื้อ SSD Samsung ทุกรุ่น ได้แก่ 870 EVO, 870 QVO, 980 Pro, 990 Pro ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-samsung"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD Samsung** ทุกรุ่น ได้แก่ 870 EVO, 870 QVO, 980 Pro, 990 Pro ทุกรุ่น
 

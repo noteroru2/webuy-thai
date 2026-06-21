@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Server อุบลราชธานี มือสอง — Dell HP Lenovo Supermicro รับทุกสภาพ จ่ายทันที"
-description: "WE BUY รับซื้อ Server มือสองในอุบลราชธานี ทั้ง Tower, Rack-mount และ Blade Server �..."
+description: "รับซื้อ Server อุบลราชธานี — WE BUY รับซื้อ Server มือสองในอุบลราชธานีและภาคอีสาน ครอบคลุมทุกประเภทและทุกยี่ห้อ"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-server-อุบลราชธานี"
@@ -16,7 +16,6 @@ faqItems:
     answer: "รับครับ ประเมินราคาตามสภาพจริงของชิ้นส่วนที่ยังมีมูลค่า เช่น CPU RAM HDD/SSD และ Chassis"
 
 ---
-
 
 **รับซื้อ Server อุบลราชธานี** — WE BUY รับซื้อ Server มือสองในอุบลราชธานีและภาคอีสาน ครอบคลุมทุกประเภทและทุกยี่ห้อ
 

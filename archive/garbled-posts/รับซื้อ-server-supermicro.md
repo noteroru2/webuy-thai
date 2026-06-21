@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Server Supermicro มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Server Supermicro มือสอง ประเมินตามสเปก CPU RAM Storage และสภาพเคร�..."
+description: "รับซื้อ Server Supermicro ทุกรุ่น ได้แก่ SuperServer ทุกรุ่น รวม GPU Server"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-server-supermicro"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่ถ้าต้องการรักษาข้อมูลควรถอดออกหรือ Wipe ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ Server Supermicro** ทุกรุ่น ได้แก่ SuperServer ทุกรุ่น รวม GPU Server
 

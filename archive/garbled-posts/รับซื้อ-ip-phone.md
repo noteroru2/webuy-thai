@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ IP Phone มือสอง ทุกยี่ห้อ จ่ายสดทันที"
-description: "รับซื้อ IP Phone มือสอง IP Phone ทุกยี่ห้อ Cisco, Polycom, Yealink, Grandstream ประเมินต�..."
+description: "รับซื้อ IP Phone ครอบคลุม IP Phone ทุกยี่ห้อ Cisco, Polycom, Yealink, Grandstream"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ip-phone"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
 
 ---
-
 
 **รับซื้อ IP Phone** ครอบคลุม IP Phone ทุกยี่ห้อ Cisco, Polycom, Yealink, Grandstream
 

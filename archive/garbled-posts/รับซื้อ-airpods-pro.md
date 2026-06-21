@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ AirPods Pro มือสอง — Gen 1/2/3 ตรวจสุขภาพแบต ราคาดี"
-description: "WE BUY รับซื้อ AirPods Pro มือสอง Gen 1, Gen 2 และ Gen 3 ประเมินราคาตามสุขภาพ�..."
+description: "รับซื้อ AirPods Pro มือสอง — AirPods Pro คือ True Wireless ที่มีมูลค่าในตลาดมือสองสูงที่สุดในกลุ่ม AirPods เนื่องจากระบบตัดเสียง ANC และ Transparency Mode"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-airpods-pro"
@@ -12,7 +12,6 @@ faqItems:
     answer: "รับครับ ทั้ง Gen 1, Gen 2 และ Gen 3 ส่งรูปแบตเตอรี่และสภาพมาประเมินราคาผ่าน Line @webuy ได้เลย"
 
 ---
-
 
 **รับซื้อ AirPods Pro มือสอง** — AirPods Pro คือ True Wireless ที่มีมูลค่าในตลาดมือสองสูงที่สุดในกลุ่ม AirPods เนื่องจากระบบตัดเสียง ANC และ Transparency Mode
 

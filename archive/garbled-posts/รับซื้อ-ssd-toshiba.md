@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Toshiba มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Toshiba มือสอง OCZ RD400, TR200 ทุกรุ่น ประเมินตามความจุและ�..."
+description: "รับซื้อ SSD Toshiba มือสอง ทุกรุ่น จ่ายสดทันที - Archived copy moved out of the live content set and kept for internal reference only"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-toshiba"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
 
 ---
-
 
 **รับซื้อ SSD Toshiba** ทุกรุ่น ได้แก่ OCZ RD400, TR200 ทุกรุ่น
 

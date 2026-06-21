@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Dell มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Dell มือสอง Dell UPS ทุกรุ่นที่ใช้ใน Server Room ประเมินตามสภ�..."
+description: "รับซื้อ Dell ทุกรุ่น ได้แก่ Dell UPS ทุกรุ่นที่ใช้ใน Server Room"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-dell"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
 
 ---
-
 
 **รับซื้อ Dell** ทุกรุ่น ได้แก่ Dell UPS ทุกรุ่นที่ใช้ใน Server Room
 

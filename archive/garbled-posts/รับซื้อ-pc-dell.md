@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ PC Dell มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ PC Dell มือสอง Desktop PC Dell OptiPlex, Inspiron Desktop ทุกรุ่น ประเมินตามส�..."
+description: "รับซื้อ PC Dell ครอบคลุม Desktop PC Dell OptiPlex, Inspiron Desktop ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-pc-dell"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
 
 ---
-
 
 **รับซื้อ PC Dell** ครอบคลุม Desktop PC Dell OptiPlex, Inspiron Desktop ทุกรุ่น
 

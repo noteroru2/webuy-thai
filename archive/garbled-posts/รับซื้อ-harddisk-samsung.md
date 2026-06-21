@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Samsung มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Samsung มือสอง HDD Samsung รุ่นเก่า (ก่อน Seagate ซื้อกิจการ) ประ�..."
+description: "รับซื้อ Samsung ทุกรุ่น ได้แก่ HDD Samsung รุ่นเก่า (ก่อน Seagate ซื้อกิจการ)"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-harddisk-samsung"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ Samsung** ทุกรุ่น ได้แก่ HDD Samsung รุ่นเก่า (ก่อน Seagate ซื้อกิจการ)
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ PC Acer มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ PC Acer มือสอง Desktop PC Acer Aspire TC, Veriton ทุกรุ่น ประเมินตามสภาพ�..."
+description: "รับซื้อ PC Acer ครอบคลุม Desktop PC Acer Aspire TC, Veriton ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-pc-acer"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
 
 ---
-
 
 **รับซื้อ PC Acer** ครอบคลุม Desktop PC Acer Aspire TC, Veriton ทุกรุ่น
 

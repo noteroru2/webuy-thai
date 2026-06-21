@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD Server มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ SSD Server มือสอง Enterprise SSD ทุกยี่ห้อ Intel, Samsung PM, Micron, Seagate, WD Gold ที่�..."
+description: "รับซื้อ SSD Server ครอบคลุม Enterprise SSD ทุกยี่ห้อ Intel, Samsung PM, Micron, Seagate, WD Gold ที่ใช้ใน Server"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd-server"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
 
 ---
-
 
 **รับซื้อ SSD Server** ครอบคลุม Enterprise SSD ทุกยี่ห้อ Intel, Samsung PM, Micron, Seagate, WD Gold ที่ใช้ใน Server
 

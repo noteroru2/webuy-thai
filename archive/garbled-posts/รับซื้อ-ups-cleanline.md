@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Cleanline มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Cleanline มือสอง ทุกรุ่น ประเมินตามสภาพจริง จ่ายเงิ�..."
+description: "รับซื้อ Cleanline มือสอง ทุกรุ่น จ่ายสดทันที - Archived copy moved out of the live content set and kept for internal reference only"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-cleanline"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
 
 ---
-
 
 **รับซื้อ Cleanline** ทุกรุ่น ได้แก่ ทุกรุ่น
 

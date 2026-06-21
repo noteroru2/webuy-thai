@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Switch มือสอง ทุกยี่ห้อ จ่ายสดทันที"
-description: "รับซื้อ Switch มือสอง Network Switch ทุกยี่ห้อ Cisco, HP, Aruba, Mikrotik, Ubiquiti ประเมิน�..."
+description: "รับซื้อ Switch ครอบคลุม Network Switch ทุกยี่ห้อ Cisco, HP, Aruba, Mikrotik, Ubiquiti"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-switch"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
 
 ---
-
 
 **รับซื้อ Switch** ครอบคลุม Network Switch ทุกยี่ห้อ Cisco, HP, Aruba, Mikrotik, Ubiquiti
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Eaton มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Eaton มือสอง 5P, 5PX, 9PX, 93PS ทุกรุ่น ประเมินตามสภาพจริง จ่�..."
+description: "รับซื้อ Eaton มือสอง ทุกรุ่น จ่ายสดทันที - Archived copy moved out of the live content set and kept for internal reference only"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-eaton"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
 
 ---
-
 
 **รับซื้อ Eaton** ทุกรุ่น ได้แก่ 5P, 5PX, 9PX, 93PS ทุกรุ่น
 

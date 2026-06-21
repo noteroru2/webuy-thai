@@ -1,6 +1,6 @@
-﻿---
+---
 title: "ก่อนขาย MacBook ต้องลบข้อมูลยังไง"
-description: "ก่อนขาย MacBook ต้องลบข้อมูลยังไง — สำรอง ออกจาก Apple ID ปิด Find My �..."
+description: "คำตอบสั้น: ก่อนขาย MacBook ควรสำรองข้อมูล → ออกจาก Apple ID → ปิด Find My → Erase Mac (หรือลบผู้ใช้ตามเวอร์ชัน macOS) เมื่อคุณเป็นเจ้าของและรู้รหัสบัญชี"
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ก่อนขาย-macbook-ลบข้อมูล"
@@ -23,8 +23,6 @@ qualityScore: 0
 qualityFlags: []
 
 ---
-
-
 
 **คำตอบสั้น:** ก่อนขาย MacBook ควร**สำรองข้อมูล → ออกจาก Apple ID → ปิด Find My → Erase Mac** (หรือลบผู้ใช้ตามเวอร์ชัน macOS) เมื่อคุณเป็นเจ้าของและรู้รหัสบัญชี
 

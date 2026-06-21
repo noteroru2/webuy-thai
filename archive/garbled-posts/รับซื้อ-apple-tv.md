@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Apple TV มือสอง — Apple TV 4K ทุกรุ่น ราคาดี จ่ายทันที"
-description: "WE BUY รับซื้อ Apple TV มือสอง ทั้ง Apple TV 4K Gen 1/2/3 ประเมินราคาตามรุ่นแ�..."
+description: "รับซื้อ Apple TV มือสอง — WE BUY ปิด Apple ecosystem ครบ รับซื้อ Apple TV ทุกรุ่นที่ยังมีตลาดรองรับ"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-apple-tv"
@@ -12,7 +12,6 @@ faqItems:
     answer: "รับครับ ทั้ง Apple TV 4K Gen 1, 2, 3 และ Apple TV HD ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
 
 ---
-
 
 **รับซื้อ Apple TV มือสอง** — WE BUY ปิด Apple ecosystem ครบ รับซื้อ Apple TV ทุกรุ่นที่ยังมีตลาดรองรับ
 

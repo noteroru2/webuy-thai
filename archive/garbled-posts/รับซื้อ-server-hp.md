@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Server HP / HPE มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Server HP / HPE มือสอง ประเมินตามสเปก CPU RAM Storage และสภาพเครื�..."
+description: "รับซื้อ Server HP / HPE ทุกรุ่น ได้แก่ ProLiant DL360, DL380, ML350 และทุกซีรีส์"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-server-hp"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่ถ้าต้องการรักษาข้อมูลควรถอดออกหรือ Wipe ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ Server HP / HPE** ทุกรุ่น ได้แก่ ProLiant DL360, DL380, ML350 และทุกซีรีส์
 

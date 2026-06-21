@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Server Cisco มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Server Cisco มือสอง ประเมินตามสเปก CPU RAM Storage และสภาพเครื่�..."
+description: "รับซื้อ Server Cisco ทุกรุ่น ได้แก่ UCS C220, C240, C480 และ Blade B-series"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-server-cisco"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ไม่จำเป็น แต่ถ้าต้องการรักษาข้อมูลควรถอดออกหรือ Wipe ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ Server Cisco** ทุกรุ่น ได้แก่ UCS C220, C240, C480 และ Blade B-series
 

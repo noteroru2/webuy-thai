@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ ASUS NUC มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ ASUS NUC มือสอง ASUS NUC ทุกรุ่น รวม NUC 14 Pro และ Evo ประเมินตามส�..."
+description: "รับซื้อ ASUS NUC ครอบคลุม ASUS NUC ทุกรุ่น รวม NUC 14 Pro และ Evo"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-asus-nuc"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
 
 ---
-
 
 **รับซื้อ ASUS NUC** ครอบคลุม ASUS NUC ทุกรุ่น รวม NUC 14 Pro และ Evo
 

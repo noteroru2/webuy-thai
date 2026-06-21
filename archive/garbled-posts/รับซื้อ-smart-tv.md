@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Smart TV มือสอง — Samsung LG Sony ทุกขนาด ราคาดี จ่ายทันที"
-description: "WE BUY รับซื้อ Smart TV มือสองทุกยี่ห้อ Samsung LG Sony รับทั้ง OLED QLED และ LED ท�..."
+description: "รับซื้อ Smart TV มือสอง — WE BUY รับซื้อ Smart TV มือสองที่ยังมีตลาดรองรับ โดยเฉพาะ OLED และ QLED ระดับพรีเมียม"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-smart-tv"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับตั้งแต่ 43' ขึ้นไปครับ โดยเฉพาะ 55' และ 65' ซึ่งเป็นขนาดที่ตลาดมือสองต้องการสูงสุด"
 
 ---
-
 
 **รับซื้อ Smart TV มือสอง** — WE BUY รับซื้อ Smart TV มือสองที่ยังมีตลาดรองรับ โดยเฉพาะ OLED และ QLED ระดับพรีเมียม
 

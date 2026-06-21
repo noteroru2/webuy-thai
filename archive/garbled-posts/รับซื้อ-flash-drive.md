@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Flash Drive / USB Drive มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Flash Drive / USB Drive มือสอง Flash Drive ทุกยี่ห้อ Sandisk, Kingston, Transcend ทั้งใ�..."
+description: "รับซื้อ Flash Drive / USB Drive ทุกรุ่น ได้แก่ Flash Drive ทุกยี่ห้อ Sandisk, Kingston, Transcend ทั้งใหม่และมือสอง"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-flash-drive"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
 
 ---
-
 
 **รับซื้อ Flash Drive / USB Drive** ทุกรุ่น ได้แก่ Flash Drive ทุกยี่ห้อ Sandisk, Kingston, Transcend ทั้งใหม่และมือสอง
 

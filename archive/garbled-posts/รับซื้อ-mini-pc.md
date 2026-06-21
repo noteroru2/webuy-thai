@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Mini PC มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Mini PC มือสอง Mini PC ทุกยี่ห้อ Intel NUC, ASUS NUC, Beelink, MinisForum, Mac Mini ประเ�..."
+description: "รับซื้อ Mini PC ครอบคลุม Mini PC ทุกยี่ห้อ Intel NUC, ASUS NUC, Beelink, MinisForum, Mac Mini"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-mini-pc"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
 
 ---
-
 
 **รับซื้อ Mini PC** ครอบคลุม Mini PC ทุกยี่ห้อ Intel NUC, ASUS NUC, Beelink, MinisForum, Mac Mini
 

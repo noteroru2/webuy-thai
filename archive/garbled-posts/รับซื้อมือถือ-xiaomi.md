@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อมือถือ Xiaomi มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อมือถือ Xiaomi มือสอง Xiaomi 14, 13 Series, Redmi Note ทุกรุ่น ประเมินตา�..."
+description: "รับซื้อมือถือ Xiaomi ครอบคลุม Xiaomi 14, 13 Series, Redmi Note ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อมือถือ-xiaomi"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
 
 ---
-
 
 **รับซื้อมือถือ Xiaomi** ครอบคลุม Xiaomi 14, 13 Series, Redmi Note ทุกรุ่น
 

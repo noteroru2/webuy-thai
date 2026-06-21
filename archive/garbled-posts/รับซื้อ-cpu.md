@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ CPU มือสอง ทุกรุ่น Intel AMD จ่ายสดทันที"
-description: "รับซื้อ CPU มือสอง Intel Core, Xeon, AMD Ryzen, EPYC ทุกรุ่น ประเมินตามรุ่นแล�..."
+description: "รับซื้อ CPU มือสอง ครอบคลุม Intel และ AMD ทุกรุ่น ทั้งสำหรับ PC ทั่วไปและ Workstation/Server"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-cpu"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ยังขายได้ครับ แต่ราคาจะต่ำมาก อาจประเมินรวมเป็นล็อตถ้ามีหลายตัว"
 
 ---
-
 
 **รับซื้อ CPU มือสอง** ครอบคลุม Intel และ AMD ทุกรุ่น ทั้งสำหรับ PC ทั่วไปและ Workstation/Server
 

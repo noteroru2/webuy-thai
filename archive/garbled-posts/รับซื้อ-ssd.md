@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ SSD มือสอง ทุกยี่ห้อ ทุกขนาด จ่ายสดทันที"
-description: "WE BUY รับซื้อ SSD มือสอง ทุกยี่ห้อ Samsung WD Kingston SanDisk Crucial ADATA ทั้ง SATA M.2 NVMe �..."
+description: "รับซื้อ SSD มือสอง ครอบคลุมทุก Interface และทุกขนาด ตั้งแต่ SSD ทั่วไปสำหรับโน๊ตบุ๊คและ PC ไปจนถึง Enterprise SSD สำหรับ Server"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ssd"
@@ -16,7 +16,6 @@ faqItems:
     answer: "รับได้ครับ ยิ่งใหม่ยิ่งได้ราคาดี"
 
 ---
-
 
 **รับซื้อ SSD มือสอง** ครอบคลุมทุก Interface และทุกขนาด ตั้งแต่ SSD ทั่วไปสำหรับโน๊ตบุ๊คและ PC ไปจนถึง Enterprise SSD สำหรับ Server
 

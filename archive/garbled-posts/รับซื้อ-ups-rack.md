@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ UPS Rack มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ UPS Rack มือสอง UPS แบบ Rack-mount 1U-3U ทุกยี่ห้อ ประเมินตามสภา�..."
+description: "รับซื้อ UPS Rack ทุกรุ่น ได้แก่ UPS แบบ Rack-mount 1U-3U ทุกยี่ห้อ"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ups-rack"
@@ -14,7 +14,6 @@ faqItems:
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
 
 ---
-
 
 **รับซื้อ UPS Rack** ทุกรุ่น ได้แก่ UPS แบบ Rack-mount 1U-3U ทุกยี่ห้อ
 

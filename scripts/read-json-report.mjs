@@ -1,9 +1,16 @@
-import fs from 'fs';
+import fs from 'node:fs';
 
-let jsonStr = fs.readFileSync('link-report-http.json', 'utf16le');
-if (jsonStr.charCodeAt(0) === 0xFEFF) {
-  jsonStr = jsonStr.slice(1);
+function readJsonText(filePath) {
+  const buffer = fs.readFileSync(filePath);
+
+  if (buffer.length >= 2 && buffer[0] === 0xff && buffer[1] === 0xfe) {
+    return buffer.slice(2).toString('utf16le');
+  }
+
+  return buffer.toString('utf8').replace(/^\uFEFF/, '');
 }
+
+const jsonStr = readJsonText('link-report-http.json');
 
 const report = JSON.parse(jsonStr);
 

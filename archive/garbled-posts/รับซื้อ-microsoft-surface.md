@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อMicrosoft Surface มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อMicrosoft Surface มือสอง Microsoft Surface Pro, Go, Laptop ทุกรุ่น ประเมินตามส�..."
+description: "รับซื้อMicrosoft Surface ครอบคลุม Microsoft Surface Pro, Go, Laptop ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-microsoft-surface"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ อุปกรณ์เสริมไม่จำเป็น แต่ถ้ามีช่วยได้"
 
 ---
-
 
 **รับซื้อMicrosoft Surface** ครอบคลุม Microsoft Surface Pro, Go, Laptop ทุกรุ่น
 

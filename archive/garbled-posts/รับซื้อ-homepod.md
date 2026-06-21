@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ HomePod มือสอง — HomePod, HomePod mini รับทุกสี ราคาดี"
-description: "WE BUY รับซื้อ HomePod มือสอง ทั้ง HomePod รุ่น 2nd Gen และ HomePod mini ทุกสี รับท�..."
+description: "รับซื้อ HomePod มือสอง — WE BUY รับซื้อ HomePod และ HomePod mini ทุกรุ่น ทุกสี"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-homepod"
@@ -12,7 +12,6 @@ faqItems:
     answer: "รับครับ ทั้ง HomePod Gen 2 และ HomePod mini ทุกสี ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
 
 ---
-
 
 **รับซื้อ HomePod มือสอง** — WE BUY รับซื้อ HomePod และ HomePod mini ทุกรุ่น ทุกสี
 

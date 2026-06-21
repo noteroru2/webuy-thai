@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ iPad หาดใหญ่ มือสอง — Pro/Air/mini ทุกรุ่น ราคาดี จ่ายทันที"
-description: "WE BUY รับซื้อ iPad มือสองในหาดใหญ่ ทั้ง iPad Pro Air mini และ iPad Gen ทุกรุ่�..."
+description: "รับซื้อ iPad หาดใหญ่ — WE BUY รับซื้อ iPad มือสองในหาดใหญ่ครอบคลุมทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-ipad-หาดใหญ่"
@@ -12,7 +12,6 @@ faqItems:
     answer: "รับครับ ทั้ง iPad Pro Air mini และ iPad Gen ทุกรุ่น ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
 
 ---
-
 
 **รับซื้อ iPad หาดใหญ่** — WE BUY รับซื้อ iPad มือสองในหาดใหญ่ครอบคลุมทุกรุ่น
 

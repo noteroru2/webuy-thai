@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ MacBook Pro มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ MacBook Pro มือสอง MacBook Pro 13, 14, 16 นิ้ว ชิป M1-M4 และ Intel ทุกรุ่น ปร�..."
+description: "รับซื้อ MacBook Pro ครอบคลุม MacBook Pro 13, 14, 16 นิ้ว ชิป M1-M4 และ Intel ทุกรุ่น"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-macbook-pro"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้บางกรณีครับ แต่ควรรีเซ็ตหรือปลด iCloud ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ MacBook Pro** ครอบคลุม MacBook Pro 13, 14, 16 นิ้ว ชิป M1-M4 และ Intel ทุกรุ่น
 

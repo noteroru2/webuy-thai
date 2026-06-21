@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Mac Pro มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Mac Pro มือสอง Mac Pro Tower และ Rack ทุกรุ่น ประเมินตามสภาพจร�..."
+description: "รับซื้อ Mac Pro มือสอง ทุกรุ่น จ่ายสดทันที - Archived copy moved out of the live content set and kept for internal reference only"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-mac-pro"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้บางกรณีครับ แต่ควรรีเซ็ตหรือปลด iCloud ก่อนส่งมอบ"
 
 ---
-
 
 **รับซื้อ Mac Pro** ครอบคลุม Mac Pro Tower และ Rack ทุกรุ่น
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "รับซื้อ Intel NUC มือสอง ทุกรุ่น จ่ายสดทันที"
-description: "รับซื้อ Intel NUC มือสอง Intel NUC ทุกรุ่น NUC5, NUC7, NUC8, NUC10, NUC11, NUC12, NUC13 ประเมิน�..."
+description: "รับซื้อ Intel NUC ครอบคลุม Intel NUC ทุกรุ่น NUC5, NUC7, NUC8, NUC10, NUC11, NUC12, NUC13"
 pubDate: "2026-06-05"
 updatedDate: "2026-06-05"
 slug: "รับซื้อ-intel-nuc"
@@ -14,7 +14,6 @@ faqItems:
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
 
 ---
-
 
 **รับซื้อ Intel NUC** ครอบคลุม Intel NUC ทุกรุ่น NUC5, NUC7, NUC8, NUC10, NUC11, NUC12, NUC13
 

@@ -1,6 +1,6 @@
-﻿---
+---
 title: "ขาย iPhone ติดบัญชี Apple ID ได้ไหม"
-description: "ขาย iPhone ติดบัญชี Apple ID ได้ไหม — ต้องออกจากบัญชีและปิด Find My ก�..."
+description: "คำตอบสั้น: ขาย iPhone ที่ยังติด Apple ID / Find My ให้ร้านที่ถูกต้องไม่ได้ในทางปฏิบัติ — คุณต้องออกจากบัญชีและปิด Find My ก่อน WE BUY..."
 pubDate: "2026-05-16"
 updatedDate: "2026-05-16"
 slug: "ขาย-iphone-ติด-apple-id-ได้ไหม"
@@ -23,8 +23,6 @@ qualityScore: 0
 qualityFlags: []
 
 ---
-
-
 
 **คำตอบสั้น:** ขาย iPhone ที่**ยังติด Apple ID / Find My** ให้ร้านที่ถูกต้อง**ไม่ได้**ในทางปฏิบัติ — คุณต้อง**ออกจากบัญชีและปิด Find My** ก่อน WE BUY **ไม่รับ**เครื่องที่ยืนยันเจ้าของไม่ได้
 
