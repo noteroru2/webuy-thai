@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content';
+
 export interface Props {
   keyword: string;     // e.g. "รับซื้อโน๊ตบุ๊ค"
   slugPrefix: string;  // e.g. "รับซื้อโน๊ตบุ๊ค"
@@ -7,19 +9,22 @@ export interface Props {
 
 const { keyword, slugPrefix, className = '' } = Astro.props;
 
-// List of all 77 provinces
-const provinces = [
-  "กรุงเทพมหานคร", "กระบี่", "กาญจนบุรี", "กาฬสินธุ์", "กำแพงเพชร", "ขอนแก่น", "จันทบุรี", "ฉะเชิงเทรา", "ชลบุรี", "ชัยนาท",
-  "ชัยภูมิ", "ชุมพร", "เชียงราย", "เชียงใหม่", "ตรัง", "ตราด", "ตาก", "นครนายก", "นครปฐม", "นครพนม",
-  "นครราชสีมา", "นครศรีธรรมราช", "นครสวรรค์", "นนทบุรี", "นราธิวาส", "น่าน", "บึงกาฬ", "บุรีรัมย์", "ปทุมธานี", "ประจวบคีรีขันธ์",
-  "ปราจีนบุรี", "ปัตตานี", "พระนครศรีอยุธยา", "พะเยา", "พังงา", "พัทลุง", "พิจิตร", "พิษณุโลก", "เพชรบุรี", "เพชรบูรณ์",
-  "แพร่", "ภูเก็ต", "มหาสารคาม", "มุกดาหาร", "แม่ฮ่องสอน", "ยโสธร", "ยะลา", "ร้อยเอ็ด", "ระนอง", "ระยอง",
-  "ราชบุรี", "ลพบุรี", "ลำปาง", "ลำพูน", "เลย", "ศรีสะเกษ", "สกลนคร", "สงขลา", "สตูล", "สมุทรปราการ",
-  "สมุทรสงคราม", "สมุทรสาคร", "สระแก้ว", "สระบุรี", "สิงห์บุรี", "สุโขทัย", "สุพรรณบุรี", "สุราษฎร์ธานี", "สุรินทร์", "หนองคาย",
-  "หนองบัวลำภู", "อ่างทอง", "อำนาจเจริญ", "อุดรธานี", "อุตรดิตถ์", "อุทัยธานี", "อุบลราชธานี"
-];
+// Query only posts whose slug starts with slugPrefix-
+const allPosts = await getCollection('posts');
+const matchingLinks = allPosts
+  .filter(p => {
+    const slug: string = (p.data as { slug?: string }).slug ?? p.id ?? '';
+    return slug.startsWith(slugPrefix + '-') && !(p.data as { noindex?: boolean }).noindex;
+  })
+  .map(p => {
+    const slug: string = (p.data as { slug?: string }).slug ?? p.id ?? '';
+    const label = slug.replace(slugPrefix + '-', '');
+    return { href: `/${slug}/`, label };
+  })
+  .sort((a, b) => a.label.localeCompare(b.label, 'th'));
 ---
 
+{matchingLinks.length > 0 && (
 <div class={`my-12 ${className}`}>
   <div class="text-center mb-8">
     <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">📍 เช็คราคา {keyword} ในพื้นที่ของคุณ</h2>
@@ -29,19 +34,20 @@ const provinces = [
   </div>
   
   <div class="bg-[#0f172a] border border-white/10 rounded-2xl p-6 md:p-8">
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-      {provinces.map(prov => (
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 pr-2 custom-scrollbar">
+      {matchingLinks.map(link => (
         <a 
-          href={`/${slugPrefix}-${prov}/`}
+          href={link.href}
           class="flex items-center gap-2 p-3 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-brand-500/10 hover:border-brand-500/30 hover:text-brand-300 transition-all text-sm text-gray-300"
         >
           <svg class="w-4 h-4 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          <span class="truncate">{prov}</span>
+          <span class="truncate">{link.label}</span>
         </a>
       ))}
     </div>
   </div>
 </div>
+)}
 
 <style>
   .custom-scrollbar::-webkit-scrollbar {
