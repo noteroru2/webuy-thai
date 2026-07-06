@@ -1,13 +1,13 @@
 ---
 const trades = [
-  { item: "MacBook Pro M2 13-inch", location: "ลาดพร้าว", price: "32,000", time: "15 นาทีที่แล้ว" },
-  { item: "iPhone 14 Pro Max 256GB", location: "เชียงใหม่", price: "28,500", time: "42 นาทีที่แล้ว" },
-  { item: "iPad Pro 11 M1", location: "ภูเก็ต", price: "18,000", time: "1 ชั่วโมงที่แล้ว" },
-  { item: "โน๊ตบุ๊ค ASUS ROG Strix", location: "ขอนแก่น", price: "22,000", time: "2 ชั่วโมงที่แล้ว" },
-  { item: "คอมประกอบ i5-12400F RTX3060", location: "บางนา", price: "15,500", time: "2 ชั่วโมงที่แล้ว" },
-  { item: "Sony A7 III + Lens 28-70", location: "ชลบุรี", price: "35,000", time: "3 ชั่วโมงที่แล้ว" },
-  { item: "PS5 รุ่นใส่แผ่น", location: "นนทบุรี", price: "12,500", time: "3 ชั่วโมงที่แล้ว" },
-  { item: "Apple Watch Series 8", location: "ระยอง", price: "8,500", time: "4 ชั่วโมงที่แล้ว" },
+  { item: "MacBook Pro M2 13-inch", location: "ลาดพร้าว", price: "32,000", time: "สภาพสวย ครบกล่อง" },
+  { item: "iPhone 14 Pro Max 256GB", location: "เชียงใหม่", price: "28,500", time: "สุขภาพแบต 87%" },
+  { item: "iPad Pro 11 M1", location: "ภูเก็ต", price: "18,000", time: "สภาพใช้งานทั่วไป" },
+  { item: "โน๊ตบุ๊ค ASUS ROG Strix", location: "ขอนแก่น", price: "22,000", time: "สภาพดี อุปกรณ์ครบ" },
+  { item: "คอมประกอบ i5-12400F RTX3060", location: "บางนา", price: "15,500", time: "เครื่องสภาพดีพร้อมใช" },
+  { item: "Sony A7 III + Lens 28-70", location: "ชลบุรี", price: "35,000", time: "ชัตเตอร์น้อย ไม่มีรา" },
+  { item: "PS5 รุ่นใส่แผ่น", location: "นนทบุรี", price: "12,500", time: "จอยแท้ กล่องครบ" },
+  { item: "Apple Watch Series 8", location: "ระยอง", price: "8,500", time: "รอยขีดข่วนเล็กน้อย" },
 ];
 
 // Duplicate trades to create a seamless infinite marquee effect
@@ -16,8 +16,7 @@ const marqueeItems = [...trades, ...trades];
 
 <section class="recent-trades-wrapper">
   <div class="trades-header">
-    <span class="live-dot"></span>
-    <h3>อัปเดตผลงานรับซื้อล่าสุด (Live)</h3>
+    <h3>ตัวอย่างเคสประเมินราคาสินค้าไอที</h3>
   </div>
   
   <div class="marquee-container">
@@ -30,7 +29,7 @@ const marqueeItems = [...trades, ...trades];
           <div class="trade-details">
             <p class="trade-title">รับซื้อ {trade.item}</p>
             <p class="trade-meta">
-              <span class="trade-price">จ่ายสด {trade.price}฿</span>
+              <span class="trade-price">ราคาประเมิน {trade.price}฿</span>
               <span class="trade-loc">📍 {trade.location}</span>
               <span class="trade-time">{trade.time}</span>
             </p>
@@ -38,6 +37,9 @@ const marqueeItems = [...trades, ...trades];
         </div>
       ))}
     </div>
+  </div>
+  <div class="trades-disclaimer text-center text-xs text-text-muted mt-3 px-4">
+    *หมายเหตุ: ตัวเลขด้านบนเป็นตัวอย่างเคสประเมินตามสภาพและอุปกรณ์ของแต่ละบุคคลจริง ไม่ใช่ราคาการันตีสำหรับทุกเครื่อง
   </div>
 </section>
 
@@ -66,21 +68,7 @@ const marqueeItems = [...trades, ...trades];
     color: #334155;
   }
   
-  .live-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #22c55e;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-  }
-
-  .marquee-container {
+    .marquee-container {
     width: 100%;
     overflow: hidden;
     position: relative;
