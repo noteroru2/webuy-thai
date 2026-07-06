@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ AirPods มือสอง — AirPods Pro Max ทุกรุ่น ราคาดี จ่ายทันที"
 description: "WE BUY รับซื้อ AirPods มือสองทุกรุ่น AirPods 2, 3, AirPods Pro Gen 1/2/3 และ AirPods Max ประเม..."
 pubDate: "2026-06-05"
@@ -14,8 +14,9 @@ faqItems:
     answer: "รับครับ แต่ราคาจะปรับตามสุขภาพแบตจริง แนะนำเช็กและแจ้งเปอร์เซ็นต์แบตตั้งแต่ต้น"
   - question: "AirPods ไม่มีกล่องรับไหม?"
     answer: "รับครับ แต่มีกล่องและอุปกรณ์ครบจะได้ราคาดีกว่า แจ้งรายการอุปกรณ์ที่มีมาตั้งแต่ต้น"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ AirPods มือสอง** — WE BUY รับซื้อ AirPods ทุกรุ่นที่ยังมีตลาดรองรับ ปิด Apple ecosystem ของคุณให้ครบ ไม่ว่าจะเป็น AirPods รุ่นธรรมดา, AirPods Pro หรือ AirPods Max ราคาสูงสุด

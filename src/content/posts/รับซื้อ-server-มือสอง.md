@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Server มือสอง ทุกยี่ห้อ ทุกรุ่น จ่ายสดทันที"
 description: "WE BUY รับซื้อ Server มือสอง ทุกยี่ห้อ Dell HP Cisco Lenovo IBM Oracle Supermicro ประเมินต..."
 pubDate: "2026-06-05"
@@ -14,8 +14,9 @@ faqItems:
     answer: "มีหรือไม่มีก็ได้ แต่ถ้ามีครบชุดช่วยให้ราคาดีขึ้น"
   - question: "Server Rack รับถอดออกจาก Rack ด้วยไหม"
     answer: "มีบริการสำหรับล็อตใหญ่ในพื้นที่หลัก ทักมาก่อนครับ"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Server มือสอง** ครอบคลุมทุก Form Factor ทั้ง Tower, Rack และ Blade Server จากทุกยี่ห้อ ไม่ว่าจะเป็นเครื่องที่ยังใช้งานได้หรือหยุดใช้งานแล้ว WE BUY รับประเมินทุกกรณี

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อมือถือ Android มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อมือถือ Android มือสอง มือถือ Android ทุกยี่ห้อ Samsung, OPPO, Vivo, Xiaomi,..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ รอยขีดข่วนเล็กน้อยมีผลกับราคาไม่มาก แต่ถ้าจอแตกจะลดมากกว่า"
   - question: "ไม่มีกล่องขายได้ไหม"
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
-
+noindex: true
 ---
+
 
 
 **รับซื้อมือถือ Android** ครอบคลุม มือถือ Android ทุกยี่ห้อ Samsung, OPPO, Vivo, Xiaomi, Realme, Honor

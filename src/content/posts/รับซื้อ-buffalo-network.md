@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Buffalo มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Buffalo มือสอง LinkStation, TeraStation ทุกรุ่น ประเมินตามสภาพจริง..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ แม้รุ่นเก่าที่ยังใช้งานได้ก็มีมูลค่า"
   - question: "ต้องมีกล่องไหม"
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ราคาดีขึ้นเล็กน้อย"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Buffalo** ทุกรุ่น ได้แก่ LinkStation, TeraStation ทุกรุ่น

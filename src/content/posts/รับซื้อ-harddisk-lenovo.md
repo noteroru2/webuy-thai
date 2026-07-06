@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Lenovo มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Lenovo มือสอง HDD ที่ติดมากับ Lenovo Server, SATA/SAS ทุกขนาด ประเมิ..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ แต่ราคาจะลดตามความรุนแรงของ Bad Sector ควรแจ้งตรง ๆ ก่อน"
   - question: "ไม่มี SMART data ประเมินได้ไหม"
     answer: "ประเมินเบื้องต้นได้ครับ แต่ขอรูปและข้อมูลรุ่นก่อน"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Lenovo** ทุกรุ่น ได้แก่ HDD ที่ติดมากับ Lenovo Server, SATA/SAS ทุกขนาด

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ UPS กรุงเทพมหานคร มือสอง — APC Eaton CyberPower Syndome รับทุกขนาด จ่ายทันที"
 description: "WE BUY รับซื้อ UPS มือสองในกรุงเทพมหานคร ทุกยี่ห้อ APC, Eaton, CyberPower, S..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "รับครับ ทุกยี่ห้อ ทั้ง APC Eaton CyberPower Syndome True Online Cleanline และยี่ห้ออื่น ๆ รับทุกขนาดตั้งแต่ 600VA จนถึงระดับ 100 kVA ส่งรูปและสเปกมาประเมินราคาผ่าน Line @webuy ได้เลย"
   - question: "UPS ที่แบตเสื่อมแล้วรับไหม?"
     answer: "รับครับ ประเมินราคาตามสภาพของ Inverter และ Body รวมถึง Circuit ภายใน แม้แบตเตอรี่จะหมดสภาพแล้วก็ตาม"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ UPS กรุงเทพมหานคร** — WE BUY รับซื้อ UPS (เครื่องสำรองไฟ) มือสองในกรุงเทพมหานครและกรุงเทพและปริมณฑล

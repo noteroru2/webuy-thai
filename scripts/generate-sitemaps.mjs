@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { config as loadEnv } from 'dotenv';
@@ -78,9 +78,42 @@ function getChangeFreq(path) {
 	return 'weekly';
 }
 
+function isTruncatedOrGarbled(pathname) {
+	const segments = pathname.split('/').filter(Boolean);
+	if (segments.length === 0) return false;
+	const slug = segments[segments.length - 1];
+	
+	// Check for truncated Thai words or suffixes
+	if (/-(?:ภูเก|ศรีสะเก|บุรี|กาฬสินธ)$/.test(slug)) return true;
+	
+	// Check if it ends in a single/double character Thai suffix (e.g. -อุ)
+	const slugTail = slug.split('-').filter(Boolean).pop() || '';
+	if (slug.length > 18 && slugTail.length > 0 && slugTail.length <= 2 && !/^(19|20)\d{2}$/.test(slugTail) && /[\u0e00-\u0e7f]/.test(slugTail)) {
+		return true;
+	}
+	
+	return false;
+}
+
 function main() {
 	const siteOrigin = getSiteOrigin();
 	console.log(`Generating sitemaps for origin: ${siteOrigin}`);
+
+	const gonePaths = new Set();
+	const gonePathsJsonPath = join(root, 'docs/recovery/batch-1/moved-files.json');
+	if (existsSync(gonePathsJsonPath)) {
+		try {
+			const moved = JSON.parse(readFileSync(gonePathsJsonPath, 'utf8'));
+			for (const item of moved) {
+				let slug = item.slug;
+				if (!slug.startsWith('/')) slug = `/${slug}`;
+				if (!slug.endsWith('/')) slug = `${slug}/`;
+				gonePaths.add(slug);
+			}
+		} catch (e) {
+			console.error('Failed to load gone paths in generate-sitemaps.mjs:', e);
+		}
+	}
 
 	const htmlFiles = walkIndexHtml(distDir);
 	const categorizedUrls = {
@@ -113,6 +146,15 @@ function main() {
 
 		// Only index if canonical matches the expected path
 		if (canonicalPath !== expectedPath) continue;
+
+		// Filter gone / quarantined paths
+		if (gonePaths.has(expectedPath)) continue;
+
+		// Filter tag/category/feed/archive paths
+		if (/\/tag\/|\/category\/|\/feed\/|\/archive\//i.test(expectedPath)) continue;
+
+		// Filter truncated or garbled paths
+		if (isTruncatedOrGarbled(expectedPath)) continue;
 
 		const category = determineCategory(expectedPath);
 		const fullUrl = `${siteOrigin}${expectedPath === '/' ? '' : expectedPath}`;

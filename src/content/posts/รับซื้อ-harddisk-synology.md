@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Harddisk Synology มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Harddisk Synology มือสอง HAT5300, HAT5310 ที่ออกแบบมาสำหรับ Synology NAS ประ..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ แม้รุ่นเก่าที่ยังใช้งานได้ก็มีมูลค่า"
   - question: "ต้องมีกล่องไหม"
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ราคาดีขึ้นเล็กน้อย"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Harddisk Synology** ทุกรุ่น ได้แก่ HAT5300, HAT5310 ที่ออกแบบมาสำหรับ Synology NAS

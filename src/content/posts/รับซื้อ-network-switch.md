@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Network Switch มือสอง ทุกยี่ห้อ จ่ายสดทันที"
 description: "รับซื้อ Network Switch มือสอง Managed Switch, Unmanaged Switch, PoE Switch ทุกยี่ห้อ ประเมิน..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ถ้ายังทำงานได้และมีอุปกรณ์ครบก็ยังมีมูลค่า"
   - question: "รับเป็นล็อตหลายตัวได้ไหม"
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Network Switch** ครอบคลุม Managed Switch, Unmanaged Switch, PoE Switch ทุกยี่ห้อ

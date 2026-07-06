@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Keyboard มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Keyboard มือสอง คีย์บอร์ดทุกประเภท Mechanical, Membrane ทุกยี่ห้..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
   - question: "รับล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Keyboard** ครอบคลุม คีย์บอร์ดทุกประเภท Mechanical, Membrane ทุกยี่ห้อ

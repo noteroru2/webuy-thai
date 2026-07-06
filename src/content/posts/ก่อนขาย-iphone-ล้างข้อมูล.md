@@ -1,4 +1,4 @@
-﻿---
+---
 title: "ก่อนขาย iPhone ต้องล้างข้อมูลยังไง"
 description: "ก่อนขาย iPhone ต้องล้างข้อมูลยังไง — สำรอง ออกจาก Apple ID ปิด Find..."
 pubDate: "2026-05-16"
@@ -21,8 +21,9 @@ faqItems:
     answer: "รุ่น ความจุ รูปสภาพ และยืนยันว่าออกจาก iCloud แล้ว — ดูรายการที่หน้าเช็กราคาก่อนขาย"
 qualityScore: 0
 qualityFlags: []
-
+noindex: true
 ---
+
 
 
 

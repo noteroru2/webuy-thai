@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ CyberPower มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ CyberPower มือสอง CP, PR, OL series ทุกรุ่น ประเมินตามสภาพจริง จ..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามต้นทุนแบตที่ต้องเปลี่ยน"
   - question: "รับล็อตหลายตัวได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ CyberPower** ทุกรุ่น ได้แก่ CP, PR, OL series ทุกรุ่น

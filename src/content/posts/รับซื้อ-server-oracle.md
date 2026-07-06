@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Server Oracle มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Server Oracle มือสอง ประเมินตามสเปก CPU RAM Storage และสภาพเครื่..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ รุ่นเก่าที่ยังใช้งานได้และมีชิ้นส่วนครบยังมีมูลค่า"
   - question: "ต้องถอด HDD ออกก่อนไหม"
     answer: "ไม่จำเป็น แต่ถ้าต้องการรักษาข้อมูลควรถอดออกหรือ Wipe ก่อนส่งมอบ"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Server Oracle** ทุกรุ่น ได้แก่ SPARC T-series, x86 Server และทุกรุ่น

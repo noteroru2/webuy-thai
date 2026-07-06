@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ NAS Storage มือสอง ทุกยี่ห้อ Synology QNAP"
 description: "รับซื้อ NAS Storage มือสอง Synology QNAP NETGEAR ReadyNAS Buffalo และทุกยี่ห้อ ประเมิน..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาจะขึ้นกับโครงเครื่องและ Port ที่ยังทำงานได้"
   - question: "NAS เสียยังรับไหม"
     answer: "รับได้ ประเมินตามชิ้นส่วนที่ยังดี ส่งอาการมาก่อนครับ"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ NAS Storage มือสอง** ครอบคลุมทุกยี่ห้อและทุกขนาด ตั้งแต่ NAS บ้าน 2-bay ไปจนถึง NAS องค์กร 12-bay ขึ้นไป

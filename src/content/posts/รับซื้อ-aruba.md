@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Aruba (HPE) มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Aruba (HPE) มือสอง Switch, Access Point, Controller ทุกรุ่น ประเมินตามสภาพ..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ถ้ายังทำงานได้และ Port ไม่เสียก็ยังมีมูลค่า"
   - question: "ต้องมี License ด้วยไหม"
     answer: "ไม่จำเป็น แต่ถ้ามี License ที่ยัง Active ช่วยให้ราคาดีขึ้นได้"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Aruba (HPE)** ประเภท Network ทุกรุ่น ได้แก่ Switch, Access Point, Controller ทุกรุ่น

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ PC HP มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ PC HP มือสอง Desktop PC HP ProDesk, EliteDesk, Pavilion Desktop ทุกรุ่น ประเมินตาม..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาจะปรับตามความรุนแรงของตำหนิ ส่งรูปมาก่อนได้เลย"
   - question: "ไม่มีสายหรืออะแดปเตอร์ขายได้ไหม"
     answer: "ได้ครับ แต่มีครบช่วยให้ราคาดีขึ้น"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ PC HP** ครอบคลุม Desktop PC HP ProDesk, EliteDesk, Pavilion Desktop ทุกรุ่น

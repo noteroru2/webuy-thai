@@ -46,6 +46,22 @@ function redirectTrailingSlashFile(url) {
 	return noSlash + search;
 }
 
+const gonePaths = new Set();
+const gonePathsJsonPath = path.join(root, 'docs/recovery/batch-1/moved-files.json');
+if (fs.existsSync(gonePathsJsonPath)) {
+	try {
+		const moved = JSON.parse(readFileSync(gonePathsJsonPath, 'utf8'));
+		for (const item of moved) {
+			let slug = item.slug;
+			if (!slug.startsWith('/')) slug = `/${slug}`;
+			if (!slug.endsWith('/')) slug = `${slug}/`;
+			gonePaths.add(slug);
+		}
+	} catch (e) {
+		console.error('Failed to load gone paths in start.mjs:', e);
+	}
+}
+
 const redirects = new Map([
 	['/โน๊ตบุ๊ค/', '/รับซื้อโน๊ตบุ๊ค/'],
 	['/คอม/', '/รับซื้อคอม/'],
@@ -85,6 +101,12 @@ http
 		const parsed = new URL(url, 'http://127.0.0.1');
 		const decodedPathname = decodeURI(parsed.pathname);
 		const normalizedUrl = decodedPathname + parsed.search;
+
+		if (gonePaths.has(decodedPathname)) {
+			res.writeHead(410, { 'Content-Type': 'text/html; charset=utf-8' });
+			res.end('<h1>410 Gone</h1><p>This content has been permanently removed.</p>');
+			return;
+		}
 
 		const fileRedirect = redirectTrailingSlashFile(normalizedUrl);
 		if (fileRedirect) {

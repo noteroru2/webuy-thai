@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ SSD SSD M.2 มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ SSD SSD M.2 มือสอง SSD แบบ M.2 Form Factor ทั้ง SATA และ NVMe ทุกยี่ห้อ ปร..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ถ้า SMART ยังดีก็ยังมีมูลค่า"
   - question: "ต้องมีกล่องหรือสติกเกอร์ไหม"
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ SSD SSD M.2** ทุกรุ่น ได้แก่ SSD แบบ M.2 Form Factor ทั้ง SATA และ NVMe ทุกยี่ห้อ

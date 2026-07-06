@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อGaming PC มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อGaming PC มือสอง PC Gaming ประกอบ ทั้งแบบ Custom Build และแบรนด์ Alienwar..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามสภาพจริง ส่งรูปมาก่อนได้เลย"
   - question: "รับยกล็อตได้ไหม"
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
-
+noindex: true
 ---
+
 
 
 **รับซื้อGaming PC** ครอบคลุม PC Gaming ประกอบ ทั้งแบบ Custom Build และแบรนด์ Alienware, ROG, MSI

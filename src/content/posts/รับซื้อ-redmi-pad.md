@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อRedmi Pad มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อRedmi Pad มือสอง Redmi Pad, Redmi Pad SE ทุกรุ่น ประเมินตามสภาพและแ..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามความรุนแรง ส่งรูปมาก่อน"
   - question: "ไม่มี Apple Pencil หรือ Cover ขายได้ไหม"
     answer: "ได้ครับ อุปกรณ์เสริมไม่จำเป็น แต่ถ้ามีช่วยได้"
-
+noindex: true
 ---
+
 
 
 **รับซื้อRedmi Pad** ครอบคลุม Redmi Pad, Redmi Pad SE ทุกรุ่น

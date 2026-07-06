@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ RAM PC มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ RAM PC มือสอง RAM DIMM สำหรับ Desktop PC DDR3, DDR4, DDR5 ทุกยี่ห้อ ประเมิ..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ RAM ส่วนใหญ่ขายได้แม้ไม่มีกล่อง"
   - question: "RAM ที่ทดสอบแล้วผ่านรับไหม"
     answer: "รับครับ ถ้ามี screenshot ผลทดสอบยิ่งช่วยให้ประเมินได้เร็ว"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ RAM PC** ครอบคลุม RAM DIMM สำหรับ Desktop PC DDR3, DDR4, DDR5 ทุกยี่ห้อ

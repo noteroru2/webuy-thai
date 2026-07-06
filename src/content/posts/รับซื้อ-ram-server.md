@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ RAM Server มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ RAM Server มือสอง RAM ECC Registered DDR3, DDR4, DDR5 ที่ใช้ใน Server ประเมินตาม..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "รับได้ครับ ยิ่งใหม่ยิ่งได้ราคาดี"
   - question: "รับเป็นล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ยิ่งล็อตใหญ่ยิ่งประเมินรวมได้เร็ว"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ RAM Server** ครอบคลุม RAM ECC Registered DDR3, DDR4, DDR5 ที่ใช้ใน Server

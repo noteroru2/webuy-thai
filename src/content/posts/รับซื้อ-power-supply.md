@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Power Supply มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Power Supply มือสอง PSU สำหรับ Desktop PC ทุกยี่ห้อ Corsair, Seasonic, EVGA, be quiet!..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
   - question: "รับล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Power Supply** ครอบคลุม PSU สำหรับ Desktop PC ทุกยี่ห้อ Corsair, Seasonic, EVGA, be quiet!, Thermaltake

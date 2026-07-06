@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ iPad เชียงใหม่ มือสอง — iPad Pro/Air/mini ทุกรุ่น จ่ายทันที"
 description: "WE BUY รับซื้อ iPad มือสองในเชียงใหม่ ทั้ง iPad Pro, Air, mini และ iPad Gen ทุกร..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "รับครับ ทั้ง iPad Pro, Air, mini และ iPad Gen ทุกรุ่น ทั้งแบบ Wi-Fi Only และใส่ซิม ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
   - question: "iPad ติด iCloud รับไหม?"
     answer: "ต้องปลด iCloud ก่อนครับ เพราะหากยังติด Activation Lock จะส่งผลต่อราคาอย่างมาก ทีมงานช่วยแนะนำขั้นตอนการปลดได้"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ iPad เชียงใหม่** — WE BUY รับซื้อ iPad มือสองในเชียงใหม่และจังหวัดใกล้เคียง ครอบคลุมทุกรุ่นและทุกสภาพ

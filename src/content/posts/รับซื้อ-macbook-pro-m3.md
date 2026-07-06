@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ MacBook Pro M3 มือสอง"
 description: "WE BUY รับซื้อ MacBook Pro M3 มือสอง ทั้ง 14 นิ้ว และ 16 นิ้ว ชิป M3, M3 Pro, M3 Max ป..."
 pubDate: "2026-06-05"
@@ -10,8 +10,9 @@ heroImage: "/media/notebook-showcase/macbook-air-on-box.webp"
 faqItems:
   - question: "MacBook Pro M3 มือสอง รับทุกสเปกไหม?"
     answer: "รับครับ ทุกสเปก ทั้ง base model จนถึง Max configuration ส่งรูป About This Mac มาประเมินราคาผ่าน Line @webuy ได้เลย รู้ราคาภายใน 15-30 นาที"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ MacBook Pro M3 มือสอง** — WE BUY รับซื้อ MacBook รุ่นนี้ด้วยราคาที่ตรงกับตลาดมือสองจริง ประเมินตามชิป M3/M3 Pro/M3 Max RAM SSD และรอบชาร์จ

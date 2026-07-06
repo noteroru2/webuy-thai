@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ SSD XPG (ADATA) มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ SSD XPG (ADATA) มือสอง Gammix S70, SX8200 Pro, SPECTRIX S20G ทุกรุ่น ประเมินตามค..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ถ้า SMART ยังดีก็ยังมีมูลค่า"
   - question: "ต้องมีกล่องหรือสติกเกอร์ไหม"
     answer: "ไม่จำเป็น แต่มีกล่องช่วยให้ขายได้ง่ายกว่า"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ SSD XPG (ADATA)** ทุกรุ่น ได้แก่ Gammix S70, SX8200 Pro, SPECTRIX S20G ทุกรุ่น

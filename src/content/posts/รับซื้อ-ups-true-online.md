@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ UPS True Online มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ UPS True Online มือสอง UPS แบบ Double Conversion True Online ทุกยี่ห้อ ประเมิน..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ราคาปรับตามต้นทุนแบตที่ต้องเปลี่ยน"
   - question: "รับล็อตหลายตัวได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ UPS True Online** ทุกรุ่น ได้แก่ UPS แบบ Double Conversion True Online ทุกยี่ห้อ

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "รับซื้อ Mainboard มือสอง ทุกรุ่น จ่ายสดทันที"
 description: "รับซื้อ Mainboard มือสอง Mainboard PC และ Server ทุกยี่ห้อ ASUS, Gigabyte, MSI, ASRock, Intel, Super..."
 pubDate: "2026-06-05"
@@ -12,8 +12,9 @@ faqItems:
     answer: "ได้ครับ ไม่จำเป็นต้องมีกล่อง"
   - question: "รับล็อตหลายชิ้นได้ไหม"
     answer: "รับได้ครับ ประเมินรวมทั้งล็อต"
-
+noindex: true
 ---
+
 
 
 **รับซื้อ Mainboard** ครอบคลุม Mainboard PC และ Server ทุกยี่ห้อ ASUS, Gigabyte, MSI, ASRock, Intel, Supermicro

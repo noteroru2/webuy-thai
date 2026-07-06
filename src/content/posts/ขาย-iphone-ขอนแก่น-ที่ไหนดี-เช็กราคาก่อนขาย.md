@@ -1,4 +1,4 @@
-﻿---
+---
 title: "ขาย iPhone ขอนแก่นที่ไหนดี"
 description: "คำแนะนำสำหรับคนที่ต้องการขาย iPhone ในขอนแก่น ตั้งแต่การ..."
 pubDate: "2026-05-16"
@@ -15,8 +15,9 @@ faqItems:
     answer: "ควรสำรองข้อมูล ออกจาก Apple ID ปิด Find My iPhone แล้วค่อยรีเซ็ตเครื่อง เพื่อให้ผู้ซื้อใช้งานต่อได้ทันทีและไม่ติดล็อกบัญชีเดิม"
 qualityScore: 0
 qualityFlags: []
-
+noindex: true
 ---
+
 
 
 
