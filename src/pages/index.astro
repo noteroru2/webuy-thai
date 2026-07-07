@@ -12,11 +12,12 @@ import TrustBadges from '../components/money-pages/TrustBadges.astro';
 import CtaBand from '../components/CtaBand.astro';
 import EstimateCards from '../components/ui/EstimateCards.astro';
 import ServiceCategoryGrid from '../components/ui/ServiceCategoryGrid.astro';
+import { isSafeHomePreviewPost } from '../lib/claim-filter';
 import { getPublishedPosts } from '../lib/posts';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const allPosts = await getPublishedPosts();
-const recent = allPosts.slice(0, 6);
+const recent = allPosts.filter((post) => isSafeHomePreviewPost(post.data)).slice(0, 6);
 const site = getSiteOrigin();
 const orgName = import.meta.env.PUBLIC_ORG_NAME ?? 'WE BUY | เรารับซื้อ';
 const orgLogo = import.meta.env.PUBLIC_ORG_LOGO_URL ?? '/favicon.svg';

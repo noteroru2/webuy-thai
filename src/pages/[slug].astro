@@ -199,7 +199,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			description={
 				plainExcerpt ||
 				(isTransactional
-					? `WE BUY รับซื้อ ${plainTitle} มือสอง ประเมินฟรีใน 15 นาที จ่ายเงินสดทันที ทัก Line @webuy`
+					? `WE BUY รับซื้อ ${plainTitle} มือสอง ประเมินเบื้องต้นในเวลาทำการ ตรวจรับและชำระเงินหลังยืนยันสภาพ ทัก Line @webuy`
 					: `เพิ่มความรู้ ${plainTitle} จาก ${orgName} — แกนหลักรับซื้อโน๊ตบุ๊คและรับซื้อคอม`)
 			}
 			pathname={articlePath}
@@ -227,9 +227,9 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 							<h1 class="title" set:html={titleHtml} />
 							<p class="sell-urgency">
 								<span class="urgency-dot" aria-hidden="true"></span>
-								<span>ประเมินฟรี 15 นาที</span>
+								<span>ประเมินเบื้องต้นในเวลาทำการ</span>
 								<span aria-hidden="true">·</span>
-								<span>จ่ายเงินสดทันที</span>
+								<span>ตรวจรับและชำระเงินหลังยืนยันสภาพ</span>
 								<span aria-hidden="true">·</span>
 								<span>ไม่มีวันหยุด</span>
 							</p>
@@ -242,7 +242,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 					)}
 					<div class="sell-cta-top">
 						<div class="sell-cta-top-inner">
-							<ContactBox heading={`ต้องการขาย ${plainTitle}?`} text="ส่งรูป รุ่น และสภาพเครื่องมาได้เลย ทีมงานประเมินราคาให้ฟรีใน 15 นาที จ่ายสดทันที" />
+							<ContactBox heading={`ต้องการขาย ${plainTitle}?`} text="ส่งรูป รุ่น และสภาพเครื่องมาได้เลย ทีมงานประเมินราคาเบื้องต้นในเวลาทำการ ตรวจรับและชำระเงินหลังยืนยันสภาพ" />
 						</div>
 					</div>
 					<div class="sell-body">
@@ -278,7 +278,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 							<div class="article-prose">{Content && <Content />}</div>
 							{localServiceContext && <ImportantLocalServiceSection context={localServiceContext} />}
 							<div class="sell-cta-mid">
-								<ContactBox heading="พร้อมขายแล้ว? ทัก Line @webuy ได้เลย" text="แจ้งรุ่น สเปก สภาพเครื่อง และรูปถ่ายจริง — ได้ราคาทันที ไม่ต้องเดินทางก่อน" variant="secondary" />
+								<ContactBox heading="พร้อมขายแล้ว? ทัก Line @webuy ได้เลย" text="แจ้งรุ่น สเปก สภาพเครื่อง และรูปถ่ายจริง — ได้ราคาประเมินเบื้องต้น ไม่ต้องเดินทางก่อน" variant="secondary" />
 							</div>
 							{faqItemsData && faqItemsData.length > 0 && (
 								<section class="article-faq" aria-labelledby="article-faq-heading">
@@ -293,7 +293,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 							)}
 							<NaturalSeoSections {...articleLongform} />
 							<div class="sell-footer">
-								<ContactBox heading="ขายด่วน ได้เงินทันที — ทัก Line @webuy" text="ส่งรูปมาเลย ไม่ต้องโทรก่อน ประเมินไว จ่ายสดทันที ทุกวัน 24 ชม." />
+								<ContactBox heading="ขายด่วน ชำระเงินหลังยืนยันสภาพ — ทัก Line @webuy" text="ส่งรูปมาเลย ไม่ต้องโทรก่อน ประเมินไว ตรวจรับและชำระเงินหลังยืนยันสภาพ ทุกวัน 24 ชม." />
 								<section style="margin-top:2rem;">
 									<h2 style="font-size:1.1rem;font-weight:800;color:#0f172a;margin:0 0 1rem;">บริการรับซื้ออื่น ๆ</h2>
 									<ul class="sell-service-links">
@@ -378,7 +378,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 							<section class="sell-intent-cta" aria-label="ต้องการขายเลย?">
 								<p class="sell-intent-cta__heading">อยากขายจริง? ทัก Line @webuy ได้เลย</p>
 								<p class="sell-intent-cta__sub">
-									อ่านข้อมูลครบแล้ว — ทีมงานพร้อมประเมินราคาให้ฟรีใน 15 นาที ไม่ต้องเดินทาง
+									อ่านข้อมูลครบแล้ว — ทีมงานพร้อมประเมินราคาเบื้องต้นในเวลาทำการ ไม่ต้องเดินทาง
 								</p>
 								<a
 									href="https://line.me/R/ti/p/@webuy"
@@ -457,7 +457,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 						<section class="mb-10">
 							<h2 class="text-xl font-bold mb-4">บริการรับซื้อ (Related Services)</h2>
 							<p class="text-gray-600 mb-4 text-sm">
-								หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี จ่ายเงินทันที:
+								หากคุณสนใจเปลี่ยนอุปกรณ์ไอทีเป็นเงินสด WE BUY พร้อมให้บริการประเมินราคาฟรี ชำระเงินหลังยืนยันสภาพ:
 							</p>
 							<ul class="flex flex-wrap gap-3 list-none p-0 m-0">
 								<li>
