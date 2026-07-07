@@ -172,3 +172,38 @@
 		radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 40%),
 		linear-gradient(180deg, #ffffff, #f8fafc);
 }
+
+/* Mobile UX and Hero CTA additions */
+.longform .hero-cta {
+	margin-top: 1.75rem;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1.75rem;
+}
+.longform .btn-line {
+	display: inline-flex;
+	align-items: center;
+	background: #00B900;
+	color: #fff !important;
+	padding: 0.85rem 2.2rem;
+	font-size: 1.1rem;
+	box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+	border-radius: 50px;
+	font-weight: bold;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+.longform .btn-line:hover {
+	background: #009900;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+	.longform .intro {
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+}

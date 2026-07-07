@@ -48,16 +48,22 @@ const {
 				เน้นรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์ทุกสเปก โดยทีมงานมืออาชีพ — มีหมวดรับซื้ออุปกรณ์อื่น บริการซ่อม/จำหน่าย และช่องทาง LINE โปร่งใสทุกขั้นตอน
 			</p>
 			<div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:max-w-xl">
-				<ButtonLink href={contactPath} variant="primary" class="justify-center sm:justify-center">ติดต่อเรา</ButtonLink>
-				<ButtonLink href={lineUrl} variant="secondary" target="_blank" rel="noopener noreferrer" class="justify-center">
-					ประเมินราคาฟรี
+				<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer" class="justify-center">
+					ส่งรูปประเมินทาง LINE
 				</ButtonLink>
 				<ButtonLink
 					href={servicesPath}
 					variant="secondary"
 					class="justify-center !border-gray-200 !text-text-muted hover:!border-brand-500/30 hover:!bg-white hover:!text-brand-700"
 				>
-					ดูบริการทั้งหมด
+					ดูหมวดสินค้าที่รับซื้อ
+				</ButtonLink>
+				<ButtonLink
+					href={contactPath}
+					variant="secondary"
+					class="justify-center !border-gray-200 !text-text-muted hover:!border-brand-500/30 hover:!bg-white hover:!text-brand-700"
+				>
+					ติดต่อเรา
 				</ButtonLink>
 			</div>
 			<dl class="mt-12 grid gap-6 border-t border-gray-200/90 pt-10 sm:grid-cols-3">

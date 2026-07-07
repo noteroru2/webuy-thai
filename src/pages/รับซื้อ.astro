@@ -567,7 +567,7 @@ const categories = [
 		text-align: center;
 	}
 	.trust-item .icon {
-		font-size: 2.5rem;
+		font-size: clamp(1.75rem, 5vw, 2.5rem);
 		margin-bottom: 1rem;
 	}
 	.trust-item h3 {
@@ -665,5 +665,38 @@ const categories = [
 		border-color: var(--accent);
 		color: var(--accent);
 		text-decoration: none;
+	}
+
+	.hero-cta {
+		margin-top: 1.75rem;
+		display: flex;
+		justify-content: center;
+	}
+	.hero-cta .btn-line {
+		background: #00B900;
+		color: #fff !important;
+		padding: 0.85rem 2.2rem;
+		font-size: 1.1rem;
+		box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+		border-radius: 50px;
+		font-weight: bold;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+	.hero-cta .btn-line:hover {
+		background: #009900;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+	}
+	
+	@media (max-width: 768px) {
+		.subtitle {
+			font-size: 0.95rem;
+			line-height: 1.6;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
 	}
 </style>

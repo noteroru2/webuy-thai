@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-07-07T13:03:33.911Z",
+  "overallPass": true,
+  "results": [
+    {
+      "route": "/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 7,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อ/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อโน๊ตบุ๊ค/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อคอม/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อแมคบุ๊ค/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อไอโฟน/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 4,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อไอแพด/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/รับซื้อกล้อง/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/พื้นที่ให้บริการ/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/contact/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "route": "/ความน่าเชื่อถือ/",
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 0,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
