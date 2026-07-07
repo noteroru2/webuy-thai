@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
+    "playwright": "^1.61.1",
     "turndown": "^7.2.0"
   },
   "dependencies": {

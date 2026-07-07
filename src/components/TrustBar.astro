@@ -6,10 +6,10 @@ interface Props {
 const { variant = 'light', compact = false } = Astro.props;
 
 const stats = [
-	{ icon: '📦', value: '5,000+', label: 'เครื่องที่รับซื้อ' },
-	{ icon: '⚡', value: '15 นาที', label: 'ประเมินราคา' },
-	{ icon: '💵', value: 'จ่ายสด', label: 'ทันทีทุกวัน' },
-	{ icon: '⭐', value: '4.9 / 5', label: 'รีวิวจากลูกค้า' },
+	{ icon: '📋', value: 'ประเมินเบื้องต้น', label: 'ส่งรูปและสเปกก่อน' },
+	{ icon: '🔍', value: 'ตรวจรับจริง', label: 'ยืนยันสภาพก่อนชำระ' },
+	{ icon: '💬', value: 'LINE @webuy', label: 'ช่องทางหลัก' },
+	{ icon: '🏢', value: 'AMPHON', label: 'TRADING' },
 ];
 ---
 
@@ -45,39 +45,43 @@ const stats = [
 		border-right: 1px solid rgba(15, 23, 42, 0.07);
 	}
 	.trust-bar.light .trust-value {
-		color: #ea580c;
+		color: #0284c7;
 	}
 	.trust-bar.light .trust-label {
 		color: #64748b;
 	}
 
-	/* Orange variant */
-	.trust-bar.orange {
-		background: linear-gradient(135deg, #fff8ed 0%, #ffecd4 100%);
-		border-color: rgba(234, 88, 12, 0.18);
-		box-shadow: 0 3px 16px rgba(249, 115, 22, 0.1);
+	/* Teal variant (alias: orange for backward compat) */
+	.trust-bar.orange,
+	.trust-bar.teal {
+		background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+		border-color: rgba(2, 132, 199, 0.18);
+		box-shadow: 0 3px 16px rgba(2, 132, 199, 0.08);
 	}
-	.trust-bar.orange .trust-item {
-		border-right: 1px solid rgba(234, 88, 12, 0.12);
+	.trust-bar.orange .trust-item,
+	.trust-bar.teal .trust-item {
+		border-right: 1px solid rgba(2, 132, 199, 0.12);
 	}
-	.trust-bar.orange .trust-value {
-		color: #c2410c;
+	.trust-bar.orange .trust-value,
+	.trust-bar.teal .trust-value {
+		color: #0369a1;
 	}
-	.trust-bar.orange .trust-label {
-		color: #78350f;
+	.trust-bar.orange .trust-label,
+	.trust-bar.teal .trust-label {
+		color: #475569;
 	}
 
 	/* Dark variant */
 	.trust-bar.dark {
 		background: #0f172a;
-		border-color: rgba(249, 115, 22, 0.2);
+		border-color: rgba(2, 132, 199, 0.25);
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 	}
 	.trust-bar.dark .trust-item {
 		border-right: 1px solid rgba(255, 255, 255, 0.06);
 	}
 	.trust-bar.dark .trust-value {
-		color: #f97316;
+		color: #38bdf8;
 	}
 	.trust-bar.dark .trust-label {
 		color: #94a3b8;

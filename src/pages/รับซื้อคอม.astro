@@ -4,13 +4,14 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
+import '../styles/money-page.css';
+import CtaBand from '../components/CtaBand.astro';
+import MoneyPageLanding from '../components/money-pages/MoneyPageLanding.astro';
+import MoneyPageFaq from '../components/money-pages/MoneyPageFaq.astro';
+import SafeProcessBar from '../components/money-pages/SafeProcessBar.astro';
+import { pcLanding } from '../lib/moneyPageLanding';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
-
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
@@ -175,21 +176,32 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	type="article"
 	jsonLd={articleJsonLd}
 >
-	<div class="page">
-		<header class="header">
-			<h1>รับซื้อคอมพิวเตอร์ ตั้งโต๊ะ พีซีประกอบ และเกมมิ่ง PC ให้ราคาสูง จ่ายเงินสดทันที</h1>
-			<p class="subtitle">
-				ในโลกเทคโนโลยีที่ก้าวไปอย่างรวดเร็ว คอมพิวเตอร์ที่เราเพิ่งซื้อมาด้วยความภาคภูมิใจเมื่อไม่กี่ปีก่อน อาจเริ่มไม่ตอบโจทย์ความต้องการในปัจจุบัน ไม่ว่าคุณจะเป็นเกมเมอร์ตัวยงที่ต้องการเฟรมเรตสูงสุดในการเล่นเกมระดับ AAA, สตรีมเมอร์ที่ต้องการเครื่องที่แรงพอจะไลฟ์สดและเล่นเกมพร้อมกัน, นักสร้างสรรค์ผลงาน 3D ที่ต้องการพลังประมวลผลมหาศาล, หรือเพียงแค่คนทำงานที่อยากเปลี่ยนจากคอมพิวเตอร์ตั้งโต๊ะไปใช้โน้ตบุ๊กเพื่อความคล่องตัว การปล่อยให้เครื่องคอมพิวเตอร์เก่าตั้งฝุ่นจับอยู่เฉย ๆ คือการปล่อยให้มูลค่าของมันลดลงไปทุกวัน ที่ WE BUY เราเข้าใจมูลค่าของฮาร์ดแวร์ทุกชิ้น เรารับซื้อคอมพิวเตอร์มือสองทุกรูปแบบ ทั้งคอมประกอบ (Custom PC), คอมแบรนด์เนม (Branded PC อย่าง Dell, HP, Lenovo), คอมพิวเตอร์เกมมิ่ง (Gaming Desktop), คอมสำหรับงานออฟฟิศ (Office PC) ไปจนถึงเวิร์กสเตชัน (Workstation) ด้วยประสบการณ์ในวงการไอทีและการติดตามกลไกราคาตลาดอย่างใกล้ชิด เราสามารถประเมินราคาชิ้นส่วนทุกชิ้นได้อย่างแม่นยำ พร้อมเสนอราคาที่คุณจะต้องพึงพอใจ บริการของเราเน้นความสะดวก รวดเร็ว และให้ความมั่นใจด้วยการโอนเงินทันทีที่ตกลงกันเสร็จสิ้น
-			</p>
-			<div class="hero-cta">
-				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+	<div class="money-page">
+		<header class="money-page-hero">
+			<div class="money-page-hero-inner">
+				<h1>รับซื้อคอมพิวเตอร์มือสอง ประเมินตามสเปก CPU GPU และสภาพจริง</h1>
+				<p class="intro">
+					ส่งรูปและสเปกคอมทาง LINE @webuy เพื่อรับราคาประเมินเบื้องต้น รองรับทั้งคอมประกอบ คอมแบรนด์ และเกมมิ่ง
+				</p>
+				<div class="hero-cta">
+					<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+				</div>
 			</div>
 		</header>
 
-		<section class="content">
-			
-			<TrustBadges className="mb-12 mt-8" />
-			<RecentTradesSlider />
+		<div class="money-landing px-4">
+			<SafeProcessBar />
+		</div>
+
+		<MoneyPageLanding
+			evalCards={pcLanding.evalCards}
+			checklist={pcLanding.checklist}
+			priceItems={priceItems}
+			priceTitle="ตัวอย่างช่วงราคาคอมอ้างอิง"
+		/>
+
+		<section class="money-seo-appendix content">
+			<p class="appendix-label">รายละเอียดเพิ่มเติมสำหรับ SEO — เนื้อหาด้านล่างเป็นการอธิบายเชิงลึก</p>
 			<h2>ทำไมลูกค้าส่วนใหญ่ถึงวางใจเลือกขายคอมพิวเตอร์ให้เรา</h2>
 			<p>การขายคอมพิวเตอร์มือสองนั้นมีความซับซ้อนกว่าการขายสมาร์ทโฟนหรือแท็บเล็ตมาก เนื่องจากคอมพิวเตอร์ประกอบด้วยชิ้นส่วนหลากหลาย (CPU, GPU, RAM, Mainboard, Storage, PSU, Case, Cooling System) ซึ่งแต่ละชิ้นมีแบรนด์ รุ่น และอายุการใช้งานที่แตกต่างกัน หากคุณนำเครื่องไปขายให้ร้านรับซื้อทั่วไปที่ไม่มีความเชี่ยวชาญเฉพาะทาง พวกเขามักจะตีราคาแบบ "เหมารวม" ในเรทที่ต่ำที่สุด เพื่อป้องกันความเสี่ยงของตัวร้านเอง ทำให้คุณสูญเสียมูลค่าที่ควรจะได้จากชิ้นส่วนระดับพรีเมียมที่คุณอุตส่าห์คัดสรรมาอย่างดี ไม่ว่าจะเป็นชุดน้ำเปิดราคาแพง พัดลมไฟ RGB แบบจัดเต็ม หรือการ์ดจอแบรนด์ท็อป</p>
 			<p>ที่ WE BUY ทีมงานประเมินของเราคือผู้ที่คลุกคลีอยู่ในวงการประกอบคอมพิวเตอร์ เราแยกประเมินราคาตามสเปกของแต่ละชิ้นส่วน (Component-based Pricing) อย่างโปร่งใส เรารู้ดีว่าพาวเวอร์ซัพพลายระดับ 80 Plus Platinum จากแบรนด์ชั้นนำนั้นมีราคาแพงแค่ไหน หรือชุดระบายความร้อนด้วยน้ำแบบเปิด (Custom Water Cooling) มีต้นทุนอย่างไร ดังนั้น เราจึงกล้าให้ราคารับซื้อที่สะท้อนมูลค่าจริงของฮาร์ดแวร์ที่คุณมี ซึ่งมักจะสูงกว่าราคาเหมาของร้านทั่วไปอย่างชัดเจน และเราสามารถอธิบายเหตุผลของราคาแต่ละจุดได้อย่างสมเหตุสมผล</p>
@@ -204,9 +216,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<p>จุดเด่นที่ทำให้เราแตกต่างจากที่อื่นคือ เราให้คุณค่ากับความสวยงามของการประกอบ (Aesthetic) ด้วย หากเครื่องของคุณจัดสายไฟมาอย่างเป็นระเบียบ (Cable Management) ใช้เคสกระจกแบรนด์ดัง (เช่น Lian Li, Phanteks, Corsair) ติดตั้งชุดพัดลมไฟ RGB แบบจัดเต็ม และมีระบบระบายความร้อนด้วยชุดน้ำปิด (AIO Liquid Cooler) หรือชุดน้ำเปิด (Custom Loop) เครื่องที่มีความสวยงามเหล่านี้มักจะหาเจ้าของใหม่ได้รวดเร็ว เราจึงสามารถเสนอราคารับซื้อที่ดึงดูดใจให้กับคุณได้อย่างแน่นอน</p>
 			<p>แน่นอนว่า เครื่องสเปกสูงย่อมมาพร้อมความบอบบางในการขนย้าย ทีมงานของเราได้รับการฝึกฝนมาอย่างดีในการจับถือ ถอดประกอบชิ้นส่วน (ในกรณีที่จำเป็นต้องส่งทางไกล เราจะแนะนำวิธีถอดการ์ดจอออกก่อนเพื่อกันสล็อตหัก) เพื่อรับประกันความปลอดภัยของอุปกรณ์ที่มีมูลค่าสูงของคุณในทุกขั้นตอน</p>
 
-			
-			<ComparisonTable />
-			<StepCards />
 			<h2>คอมพิวเตอร์แบรนด์เนม (Branded PC) และเครื่องสำนักงาน</h2>
 			<p>นอกเหนือจากกลุ่มคอมพิวเตอร์ประกอบแล้ว "คอมพิวเตอร์แบรนด์เนม" หรือเครื่องสำเร็จรูปที่ผลิตจากโรงงาน ก็เป็นสินค้าอีกกลุ่มที่เรารับซื้อเป็นจำนวนมาก ทั้งในรูปแบบของเครื่องเดี่ยวจากผู้ใช้ตามบ้าน และแบบเหมาล็อตจากบริษัทหรือหน่วยงานต่าง ๆ</p>
 			<p>คอมพิวเตอร์แบรนด์เนมจากผู้ผลิตชั้นนำอย่าง Dell, HP, Lenovo, Acer, หรือ ASUS มักจะมีจุดเด่นเรื่องความเสถียรและทนทาน รุ่นที่ได้รับความนิยมสูงในตลาดมือสองคือกลุ่ม "Mini PC" หรือคอมพิวเตอร์ขนาดเล็กจิ๋วที่ประหยัดพื้นที่บนโต๊ะทำงาน รวมถึงกลุ่ม "All-in-One PC" ที่รวมหน้าจอและตัวเครื่องไว้ในชิ้นเดียว หากคุณมีเครื่องเหล่านี้ที่ยังอยู่ในสภาพดี หน้าจอไม่มีจุดเดดพิกเซล และการทำงานปกติ เรายินดีประเมินราคาให้ตามสเปกปีที่ผลิต แม้ว่ามันอาจจะไม่ได้แรงเท่าเครื่องประกอบ แต่มันก็มีความต้องการที่ชัดเจนสำหรับผู้ใช้งานตามบ้านที่เน้นประหยัดพื้นที่</p>
@@ -260,6 +269,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<ProvincialGrid keyword="รับซื้อคอมพิวเตอร์" slugPrefix="รับซื้อคอม" />
 		</section>
 	</div>
+	<MoneyPageFaq items={faqItems} />
+	<CtaBand heading="ส่งสเปกคอมเพื่อรับราคาประเมินเบื้องต้น" text="แจ้งรุ่น CPU/GPU สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง ไม่บังคับตัดสินใจ" />
 </BaseLayout>
 
 <style>

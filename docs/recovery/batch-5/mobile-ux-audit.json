@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-07-07T13:03:33.911Z",
+  "timestamp": "2026-07-07T14:04:27.807Z",
   "overallPass": true,
   "results": [
     {
       "route": "/",
       "status": "pass",
       "h1Count": 1,
-      "totalImages": 7,
+      "totalImages": 15,
       "imagesMissingDimensions": 0,
       "errors": [],
       "warnings": []
@@ -15,7 +15,7 @@
       "route": "/รับซื้อ/",
       "status": "pass",
       "h1Count": 1,
-      "totalImages": 0,
+      "totalImages": 7,
       "imagesMissingDimensions": 0,
       "errors": [],
       "warnings": []

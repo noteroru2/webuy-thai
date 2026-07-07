@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
@@ -151,6 +152,7 @@ const contactKeywords =
 			density="full"
 		/>
 	</section>
+	<CtaBand heading="ส่งรูปสินค้าเพื่อประเมินราคาเบื้องต้น" text="แจ้งรุ่น สเปก สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง" />
 </BaseLayout>
 
 <style>

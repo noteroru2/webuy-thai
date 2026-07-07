@@ -1,0 +1,75 @@
+---
+interface Category {
+	href: string;
+	title: string;
+	desc: string;
+	image?: string;
+	imageAlt?: string;
+	icon?: string;
+	gradient?: string;
+}
+
+interface Props {
+	heading?: string;
+	subheading?: string;
+	categories?: Category[];
+}
+
+const {
+	heading = 'หมวดสินค้าที่รับซื้อ',
+	subheading = 'เลือกหมวดที่ตรงกับสินค้าของคุณ แล้วส่งรูปและสเปกมาประเมินเบื้องต้น',
+	categories = [
+		{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊ค', desc: 'โน้ตบุ๊กทุกยี่ห้อ ทั้งสายทำงานและเกมมิ่ง', image: '/media/notebook-showcase/asus-tuf-gaming-a15.webp', imageAlt: 'โน๊ตบุ๊คเกมมิ่ง', gradient: 'from-sky-500 to-blue-700', icon: '💻' },
+		{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์', desc: 'PC แบรนด์เนม คอมประกอม และคอมสำนักงาน', image: '/media/category/generic_desktop_pc_1781509169636.png', imageAlt: 'คอมพิวเตอร์ตั้งโต๊ะ', gradient: 'from-cyan-500 to-teal-700', icon: '🖥️' },
+		{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'MacBook Air / Pro ชิป Intel และ M-series', image: '/media/notebook-showcase/macbook-air-on-box.webp', imageAlt: 'MacBook', gradient: 'from-slate-500 to-slate-800', icon: '🍎' },
+		{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อ iPhone', desc: 'ทุกรุ่น ประเมินตามสภาพและสุขภาพแบต', image: '/media/apple-local/iphone15-black-front.webp', imageAlt: 'iPhone', gradient: 'from-indigo-500 to-violet-700', icon: '📱' },
+		{ href: '/รับซื้อไอแพด/', title: 'รับซื้อ iPad', desc: 'iPad Pro, Air, mini ทุกรุ่น', image: '/media/apple-local/ipad-mini-silver-back.webp', imageAlt: 'iPad', gradient: 'from-blue-400 to-sky-600', icon: '📲' },
+		{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless และเลนส์', image: '/media/category/generic_camera_1781509181019.png', imageAlt: 'กล้องถ่ายรูป', gradient: 'from-emerald-500 to-teal-700', icon: '📷' },
+		{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมสำนักงาน / ล็อตบริษัท', desc: 'รับซื้อคอมหลายเครื่องจากองค์กร', image: '/media/notebook-showcase/bulk-gaming-notebooks-lot.webp', imageAlt: 'คอมหลายเครื่อง', gradient: 'from-amber-500 to-orange-600', icon: '🏢' },
+	],
+} = Astro.props;
+---
+
+<section class="border-b border-gray-200/80 bg-white py-14 sm:py-16 lg:py-20" aria-labelledby="service-grid-heading">
+	<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+		<div class="text-center">
+			<h2 id="service-grid-heading" class="text-[clamp(1.5rem,2.5vw+1rem,2rem)] font-extrabold tracking-tight text-text">
+				{heading}
+			</h2>
+			<p class="mx-auto mt-3 max-w-[42rem] text-base leading-relaxed text-text-muted">{subheading}</p>
+		</div>
+		<div class="mt-10 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			{
+				categories.map((cat) => (
+					<a
+						href={cat.href}
+						class="group flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border border-gray-200/90 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-brand-500/30 hover:shadow-md"
+					>
+						<div class={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${cat.gradient ?? 'from-brand-500 to-brand-700'}`}>
+							{cat.image ? (
+								<img
+									src={cat.image}
+									alt={cat.imageAlt ?? cat.title}
+									width="320"
+									height="200"
+									loading="lazy"
+									decoding="async"
+									class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+									onerror="this.style.display='none'"
+								/>
+							) : null}
+							<div class="pointer-events-none absolute inset-0 flex items-center justify-center text-4xl opacity-90" aria-hidden="true">
+								{cat.icon}
+							</div>
+						</div>
+						<div class="flex flex-1 flex-col p-5">
+							<h3 class="text-base font-bold text-text group-hover:text-brand-700">{cat.title}</h3>
+							<p class="mt-1.5 flex-1 text-sm leading-relaxed text-text-muted">{cat.desc}</p>
+							<span class="mt-3 inline-flex min-h-[44px] items-center text-sm font-semibold text-brand-600">ดูรายละเอียด →</span>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+</section>

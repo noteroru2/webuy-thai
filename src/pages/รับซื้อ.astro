@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ServiceCategoryGrid from '../components/ui/ServiceCategoryGrid.astro';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
+import SafeProcessBar from '../components/money-pages/SafeProcessBar.astro';
 import StepCards from '../components/money-pages/StepCards.astro';
 import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
@@ -142,7 +143,7 @@ const categories = [
 	{ href: '/รับซื้อคอมประกอบ/', title: 'รับซื้อคอมประกอบ', desc: 'Custom PC, Gaming PC, การ์ดจอ และอะไหล่แยกชิ้น' },
 	{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อไอโฟน', desc: 'iPhone ทุกรุ่น ตั้งแต่รุ่นเก่าจนถึงรุ่นล่าสุด ประเมินตามสุขภาพแบต' },
 	{ href: '/รับซื้อไอแพด/', title: 'รับซื้อไอแพด', desc: 'iPad Pro, Air, mini และ iPad Gen ทุกรุ่น ทั้งแบบ Wi-Fi และใส่ซิม' },
-	{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'MacBook Air / Pro ทั้งชิป Intel และตระกูล M1-M5 ให้ราคาสูง' },
+	{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'MacBook Air / Pro ชิป Intel และ M-series — ประเมินตามสเปกและสภาพ' },
 	{ href: '/รับซื้อสมาร์ทโฟน-android/', title: 'รับซื้อสมาร์ทโฟน Android', desc: 'Samsung S/Z Series, ROG Phone และรุ่นเรือธงทุกค่าย' },
 	{ href: '/รับซื้อ-apple-watch/', title: 'รับซื้อ Apple Watch', desc: 'Series ล่าสุด, Ultra, SE รับซื้อทุกสภาพ ประเมินตามสุขภาพแบต' },
 	{ href: '/รับซื้อเครื่องเกม/', title: 'รับซื้อเครื่องเกม', desc: 'PS5, Nintendo Switch, Steam Deck รับซื้อพร้อมแผ่นเกมและจอย' },
@@ -160,18 +161,18 @@ const categories = [
 	<div class="container page">
 		<header class="head">
 			<p class="tech-eyebrow">WE BUY • Buyback Categories</p>
-			<h1 class="tech-h2">บริการรับซื้อสินค้าไอทีมือสอง ทุกประเภท ราคาดีที่สุด จ่ายเงินสดทันที</h1>
+			<h1 class="tech-h2">บริการรับซื้อสินค้าไอทีมือสอง ครบทุกหมวด — ประเมินตามสภาพจริง</h1>
 			<p class="lead">
-				เราคือผู้เชี่ยวชาญในการ <strong>รับซื้อสินค้าไอทีมือสอง</strong> ที่เน้นความโปร่งใสและยุติธรรมที่สุด 
-				ไม่ว่าคุณจะมีเครื่องสภาพสวยเหมือนใหม่ หรือเครื่องที่มีตำหนิจากการใช้งาน 
-				ทีมงานของเราพร้อมประเมินราคาให้คุณตามมูลค่าตลาดจริง ติดต่อเราง่าย จบไว ได้เงินชัวร์
+				<strong>รับซื้อสินค้าไอทีมือสอง</strong> หลายหมวด — ส่งรูป รุ่น สเปก และสภาพเครื่องทาง LINE @webuy 
+				เพื่อรับราคาประเมินเบื้องต้นก่อนตกลงขาย ตรวจรับและยืนยันสภาพก่อนชำระเงิน
 			</p>
 		</header>
 
+		<ServiceCategoryGrid />
+
 		<section class="sales-content prose" style="max-width: 100%;">
 			
-			<TrustBadges className="mb-12 mt-8" />
-			<RecentTradesSlider />
+			<SafeProcessBar className="mb-12 mt-8" />
 			<h2>ทำไมถึงควรขายสินค้าไอทีมือสองกับเรา</h2>
 			<p>เมื่อคุณมีความคิดที่จะขายอุปกรณ์ไอทีมือสอง ไม่ว่าจะเป็นโน้ตบุ๊ค คอมพิวเตอร์ สมาร์ทโฟน หรือกล้องถ่ายรูป การมองหาศูนย์รับซื้อที่ไว้ใจได้คือสิ่งสำคัญที่สุด เราเข้าใจดีว่าอุปกรณ์ทุกชิ้นมีมูลค่าและมีความทรงจำของคุณอยู่ ดังนั้นเราจึงออกแบบบริการรับซื้อสินค้าไอทีมือสองให้ตอบโจทย์ผู้ขายมากที่สุด โดยเน้นไปที่ความรวดเร็ว ความปลอดภัย และราคาที่ยุติธรรมที่สุดในตลาด</p>
 			
@@ -298,10 +299,10 @@ const categories = [
 			<p>ไม่จำเป็นครับ คุณสามารถขายเครื่องเปล่าๆ ให้เราได้เลย แต่ดังที่กล่าวไปแล้วว่า หากคุณมีอุปกรณ์เสริมแท้ครบกล่อง ราคาที่คุณจะได้ก็จะสูงขึ้นตามไปด้วย หากมีสายชาร์จหรืออแดปเตอร์เทียบ (ของปลอม) รบกวนแจ้งล่วงหน้าด้วยครับ</p>
 
 			<h4>ถ้าประเมินราคาหน้างานแล้วไม่พอใจ ยกเลิกได้ไหม?</h4>
-			<p>ยกเลิกได้ 100% ครับ เรายึดมั่นในความสบายใจของลูกค้าเป็นหลัก หากทีมงานไปตรวจเครื่องแล้วพบตำหนิที่คุณอาจไม่ได้แจ้งล่วงหน้า ทำให้ราคาต้องปรับลดลง และคุณรู้สึกว่ายังไม่อยากขายในราคานั้น คุณสามารถปฏิเสธการขายได้ทันที โดยไม่มีค่าใช้จ่ายหรือข้อผูกมัดใดๆ ทั้งสิ้น</p>
+			<p>ยกเลิกได้ครับ เรายึดมั่นในความสบายใจของลูกค้าเป็นหลัก หากทีมงานไปตรวจเครื่องแล้วพบตำหนิที่คุณอาจไม่ได้แจ้งล่วงหน้า ทำให้ราคาต้องปรับลดลง และคุณรู้สึกว่ายังไม่อยากขายในราคานั้น คุณสามารถปฏิเสธการขายได้ โดยไม่มีค่าใช้จ่ายหรือข้อผูกมัดใดๆ ทั้งสิ้น</p>
 
 			<h5>การโอนเงินใช้เวลานานแค่ไหน?</h5>
-			<p>หลังจากตรวจเครื่องเสร็จและคุณตกลงขาย เราจะทำการโอนเงินผ่านระบบ Mobile Banking ทันทีแบบ Real-time คุณสามารถตรวจสอบยอดเงินเข้าบัญชีได้ทันทีก่อนแยกย้ายกัน</p>
+			<p>หลังตรวจรับและยืนยันสภาพครบถ้วน หากคุณตกลงขาย เราจะชำระเงินตามช่องทางที่แจ้งไว้ล่วงหน้า คุณสามารถตรวจสอบยอดเงินเข้าบัญชีก่อนส่งมอบเครื่องได้</p>
 
 
 			<h2>สัญญาณเตือนว่าถึงเวลาที่ควรเปลี่ยนและขายเครื่องเก่าของคุณแล้ว</h2>
@@ -368,6 +369,7 @@ const categories = [
 			<ProvincialGrid keyword="รับซื้อสินค้าไอที" slugPrefix="รับซื้อคอม" />
 		</section>
 	</div>
+	<CtaBand heading="ส่งรูปสินค้าเพื่อประเมินราคาเบื้องต้น" text="แจ้งรุ่น สเปก สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง" />
 </BaseLayout>
 
 <style>

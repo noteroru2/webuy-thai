@@ -4,13 +4,15 @@ import ContactBox from '../components/ContactBox.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
+import '../styles/money-page.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import CtaBand from '../components/CtaBand.astro';
+import MoneyPageLanding from '../components/money-pages/MoneyPageLanding.astro';
+import MoneyPageFaq from '../components/money-pages/MoneyPageFaq.astro';
+import SafeProcessBar from '../components/money-pages/SafeProcessBar.astro';
+import { cameraLanding } from '../lib/moneyPageLanding';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
@@ -145,21 +147,32 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	type="article"
 	jsonLd={articleJsonLd}
 >
-	<div class="page">
-		<header class="header">
-			<h1>รับซื้อกล้อง เลนส์ และอุปกรณ์ถ่ายภาพมือสอง ประเมินราคายุติธรรม จ่ายเงินสดทันที</h1>
-			<p class="subtitle">
-				หากคุณมีกล้องถ่ายรูปที่ถูกเก็บทิ้งไว้ในตู้กันชื้นจนแทบไม่ได้หยิบออกมาใช้งาน ไม่ว่าจะเป็นกล้อง DSLR คู่ใจที่เคยใช้รับงาน กล้อง Mirrorless ตัวท็อปที่ซื้อมาแล้วอยากอัปเกรดข้ามค่าย เลนส์ซูมระยะไกลที่ไม่ตอบโจทย์ไลฟ์สไตล์อีกต่อไป หรือแม้แต่กล้องฟิล์มคลาสสิกที่ตกทอดมาจากครอบครัว อย่าปล่อยให้อุปกรณ์เหล่านี้เสื่อมสภาพไปตามกาลเวลาและมูลค่าลดลงไปทุกวัน WE BUY คือจุดหมายปลายทางอันดับหนึ่งสำหรับช่างภาพและผู้รักการถ่ายภาพที่ต้องการเปลี่ยนอุปกรณ์คู่ใจให้กลายเป็นเงินทุน เรารับซื้อกล้องดิจิตอล เลนส์ และอุปกรณ์เสริมจากทุกค่ายชั้นนำ ไม่ว่าจะเป็น Canon, Nikon, Sony, Fujifilm, Panasonic Lumix, Olympus ไปจนถึงแบรนด์ระดับพรีเมียมอย่าง Leica ด้วยทีมงานที่มีความรู้ลึกซึ้งและประสบการณ์ตรงในวงการภาพถ่าย เราจึงสามารถประเมินราคาได้อย่างแม่นยำ อิงตามสเปก สภาพการใช้งาน จำนวนชัตเตอร์ และกลไกของตลาดมือสองในปัจจุบัน คุณสามารถมั่นใจได้ว่าจะได้รับข้อเสนอที่คุ้มค่าที่สุด โดยไม่ต้องเสียเวลาลงประกาศขายเอง ไม่ต้องเสี่ยงกับการต่อรองราคาหน้างาน และที่สำคัญคือเราพร้อมโอนเงินหรือจ่ายเงินสดให้คุณทันทีแบบเต็มจำนวน
-			</p>
-			<div class="hero-cta">
-				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+	<div class="money-page">
+		<header class="money-page-hero">
+			<div class="money-page-hero-inner">
+				<h1>รับซื้อกล้องและเลนส์มือสอง ประเมินตามรุ่น ชัตเตอร์ และสภาพจริง</h1>
+				<p class="intro">
+					ส่งรูปกล้อง เลนส์ และข้อมูลชัตเตอร์ทาง LINE @webuy เพื่อรับราคาประเมินเบื้องต้น
+				</p>
+				<div class="hero-cta">
+					<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+				</div>
 			</div>
 		</header>
 
-		<section class="content">
-			
-			<TrustBadges className="mb-12 mt-8" />
-			<RecentTradesSlider />
+		<div class="money-landing px-4">
+			<SafeProcessBar />
+		</div>
+
+		<MoneyPageLanding
+			evalCards={cameraLanding.evalCards}
+			checklist={cameraLanding.checklist}
+			priceItems={priceItems}
+			priceTitle="ตัวอย่างช่วงราคากล้องอ้างอิง"
+		/>
+
+		<section class="money-seo-appendix content">
+			<p class="appendix-label">รายละเอียดเพิ่มเติมสำหรับ SEO — เนื้อหาด้านล่างเป็นการอธิบายเชิงลึก</p>
 			<h2>ทำไมต้องเลือกขายกล้องกับทีมงานมืออาชีพอย่าง WE BUY</h2>
 			<p>เมื่อถึงเวลาที่ต้องตัดสินใจขายกล้องและเลนส์ หลายคนอาจเลือกลงประกาศขายตามกลุ่ม Facebook หรือเว็บไซต์ขายของมือสอง ซึ่งแน่นอนว่าคุณอาจมีโอกาสได้ราคาที่ถูกใจ แต่มักจะแลกมาด้วยความยุ่งยากและปัญหาที่น่าปวดหัวมากมาย ตั้งแต่การต้องคอยตอบคำถามแชทซ้ำๆ จากผู้ซื้อหลายราย การถูกนัดดูของแล้วโดนเท (No-show) ไปจนถึงการเจอมิจฉาชีพในคราบผู้ซื้อที่มาพร้อมกลโกงสารพัดรูปแบบ และสิ่งที่แย่ที่สุดคือการถูกกดราคาหน้างานด้วยข้ออ้างต่างๆ นานา ทั้งรอยขนแมวเล็กๆ น้อยๆ หรือฝุ่นในเลนส์ที่ไม่ได้มีผลต่อภาพถ่ายเลย ทำให้การขายกล้องแต่ละครั้งกลายเป็นประสบการณ์ที่เหนื่อยล้า</p>
 			<p>ที่ WE BUY เราออกแบบกระบวนการรับซื้อกล้องมาเพื่อแก้ปัญหาเหล่านี้โดยเฉพาะ ความแตกต่างของเราเริ่มต้นที่ "ความเชี่ยวชาญของทีมประเมินราคา" กล้องถ่ายภาพเป็นอุปกรณ์อิเล็กทรอนิกส์ที่มีความซับซ้อนและเปราะบาง การประเมินสภาพเซ็นเซอร์รับภาพ (Image Sensor) การตรวจสอบการทำงานของมอเตอร์ออโต้โฟกัสในเลนส์ และการเช็คระบบกันสั่น (IBIS) ต้องอาศัยผู้ที่มีความเข้าใจอย่างแท้จริง หากคุณนำกล้องไปขายตามร้านตู้โทรศัพท์หรือร้านรับจำนำทั่วไป พวกเขามักจะดูแค่ว่ากล้องเปิดติดหรือไม่ แล้วกดราคารับซื้อให้ต่ำที่สุดเพื่อลดความเสี่ยง แต่สำหรับเรา เรามองเห็นคุณค่าของอุปกรณ์ทุกชิ้น เรารู้ว่าเลนส์เกรดโปร (เช่น L-Series ของ Canon หรือ G Master ของ Sony) มีมูลค่าในตัวมันเองสูงมากแม้จะตกรุ่นไปแล้ว เราจึงกล้าให้ราคารับซื้อที่สูงกว่าตลาดทั่วไปอย่างชัดเจน</p>
@@ -175,9 +188,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<p>ค่ายอื่นๆ อย่าง "Nikon" (Z Series เช่น Zfc, Z50, Z6 II, Z8), "Panasonic Lumix" (สายวิดีโอตัวท็อปอย่าง GH6, S5 II), และ "OM System / Olympus" (กล้อง Micro Four Thirds ที่กันสั่นเทพที่สุด) เราก็รับซื้อในราคาที่อิงตามกลไกตลาดจริงอย่างยุติธรรม การประเมินราคาจะขึ้นอยู่กับเซ็นเซอร์รับภาพ จำนวนชัตเตอร์ และสภาพภายนอกเป็นหลัก</p>
 			<p>แม้ว่าตลาดกล้อง Mirrorless จะมีการแข่งขันที่ดุเดือดและมีรุ่นใหม่ออกมาตลอดเวลา แต่สำหรับ WE BUY เรามีฐานลูกค้าที่ต้องการกล้องหลากหลายประเภท จึงทำให้เรารับซื้อได้ในเรทที่ทำให้คุณยิ้มได้เสมอ</p>
 
-			
-			<ComparisonTable />
-			<StepCards />
 			<h2>กล้อง DSLR แม้จะเก่า แต่ก็ยังเก๋าและมีมูลค่าในตลาด</h2>
 			<p>แม้ว่าเทคโนโลยีโลกกำลังหมุนไปหา Mirrorless แต่ "กล้อง DSLR (Digital Single-Lens Reflex)" ก็ไม่ได้หายไปจากสารบบอย่างสิ้นเชิง กล้อง DSLR ยังคงมีเสน่ห์และข้อได้เปรียบที่ช่างภาพหลายคนยังโหยหา ไม่ว่าจะเป็นช่องมองภาพแบบออปติคอล (Optical Viewfinder) ที่ให้ภาพใสเคลียร์สบายตาโดยไม่มีความหน่วง (Lag), การจับถือและกริป (Grip) ที่บึกบึนกระชับมือ, และที่สำคัญที่สุดคืออายุการใช้งานแบตเตอรี่ที่อึดทน สามารถถ่ายได้เป็นพันๆ ช็อตโดยไม่ต้องเปลี่ยนแบต ทำให้ตลาดมือสองของกล้อง DSLR ยังคงหมุนเวียนอยู่ตลอดเวลา</p>
 			<p>เรารับซื้อกล้อง DSLR ทุกระดับ ตั้งแต่ "กล้องระดับเริ่มต้น (Entry-Level)" สำหรับมือใหม่หัดถ่าย เช่น Canon EOS 200D, 800D, 850D หรือ Nikon D3500, D5600 กล้องกลุ่มนี้เหมาะสำหรับนักเรียนนักศึกษาที่กำลังเรียนวิชาถ่ายภาพ หรือผู้ที่อยากเริ่มต้นจริงจังแต่มีงบจำกัด หากคุณเรียนจบแล้วหรืออยากเปลี่ยนไปใช้กล้องที่เบาขึ้น นำกล้องเก่ามาเปลี่ยนเป็นทุนกับเราได้เลย ราคาประเมินอาจจะอยู่ในหลักพันถึงหมื่นต้นๆ แต่ก็ยังดีกว่าปล่อยให้ฝุ่นเกาะจนยางเสื่อมสภาพ</p>
@@ -234,6 +244,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<ProvincialGrid keyword="รับซื้อกล้อง" slugPrefix="รับซื้อกล้อง" />
 		</section>
 	</div>
+	<MoneyPageFaq items={faqItems} />
+	<CtaBand heading="ส่งรูปกล้องและเลนส์เพื่อรับราคาประเมินเบื้องต้น" text="แจ้งรุ่น สภาพ อุปกรณ์ครบชุด และรูปชัดทุกมุม ทีมงานจะประเมินตามข้อมูลจริง ไม่บังคับตัดสินใจ" />
 </BaseLayout>
 
 <style>

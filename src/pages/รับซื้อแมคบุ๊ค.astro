@@ -5,14 +5,16 @@ import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
+import '../styles/money-page.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 import { isanMacbookPages } from '../lib/isanLocalHubs';
 
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import CtaBand from '../components/CtaBand.astro';
+import MoneyPageLanding from '../components/money-pages/MoneyPageLanding.astro';
+import MoneyPageFaq from '../components/money-pages/MoneyPageFaq.astro';
+import SafeProcessBar from '../components/money-pages/SafeProcessBar.astro';
+import { macbookLanding } from '../lib/moneyPageLanding';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
@@ -45,7 +47,7 @@ const macbookShowcase = [
 ];
 
 const priceItems = [
-	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 85,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับจำนวน Core CPU/GPU และ RAM' },
+	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 85,000+ บาท', note: 'ช่วงราคาขึ้นอยู่กับจำนวน Core CPU/GPU และ RAM' },
 	{ model: 'MacBook Pro M1 / M2 / M3 Pro/Max', price: '25,000 - 55,000 บาท', note: 'ประเมินจากรอบชาร์จและสภาพจอภาพ Liquid Retina XDR' },
 	{ model: 'MacBook Air M2 / M3 / M4 (8GB - 24GB)', price: '18,000 - 35,000 บาท', note: 'เน้นสภาพสวย น้ำหนักเบา แบตเตอรี่เสื่อมน้อย' },
 	{ model: 'MacBook Air M1 (รุ่นเริ่มต้น)', price: '12,000 - 16,000 บาท', note: 'รุ่นยอดนิยม ราคาค่อนข้างนิ่งในตลาดมือสอง' },
@@ -71,11 +73,11 @@ const faqItems = [
 	},
 	{
 		q: 'ติดต่อช่องทางไหนตอบเร็วที่สุด?',
-		a: 'แนะนำ Line @webuy ครับ เพราะคุณสามารถส่งรูปเครื่อง หน้าจอ About This Mac และรูปตำหนิได้ทันที ช่วยให้ทีมงานตีราคาได้ภายใน 15-30 นาทีในช่วงเวลาทำการ',
+		a: 'แนะนำ Line @webuy ครับ เพราะคุณสามารถส่งรูปเครื่อง หน้าจอ About This Mac และรูปตำหนิได้ทันที ช่วยให้ทีมงานประเมินได้รวดเร็วในช่วงเวลาทำการ',
 	},
 	{
 		q: 'จ่ายเงินอย่างไรหลังตกลงราคา?',
-		a: 'จ่ายเงินสดทันทีหน้างาน หรือโอนเข้าบัญชีธนาคารตามที่ลูกค้าสะดวกทันทีหลังตรวจรับเครื่องเสร็จสิ้น ทุกธุรกรรมโปร่งใสและมีหลักฐานชัดเจน',
+		a: 'ชำระเงินตามที่ตกลงหลังตรวจรับเครื่อง ทั้งเงินสดหรือโอนผ่านบัญชีธนาคาร ตามความสะดวกของลูกค้า ทุกธุรกรรมโปร่งใสและมีหลักฐานชัดเจน',
 	},
 	{
 		q: 'อยู่ต่างจังหวัดขายได้ไหม?',
@@ -174,21 +176,32 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	type="article"
 	jsonLd={articleJsonLd}
 >
-	<div class="page">
-		<header class="header">
-			<h1>รับซื้อ MacBook ทุกรุ่น (Pro, Air) ประเมินราคาสูง จ่ายเงินสดทันที</h1>
-			<p class="subtitle">
-				MacBook คือที่สุดแห่งโน้ตบุ๊กทรงประสิทธิภาพที่มืออาชีพทั่วโลกไว้วางใจ แต่เมื่อสถาปัตยกรรมชิป Apple Silicon รุ่นใหม่ (M-Series) ถูกเปิดตัวออกมาอย่างต่อเนื่องพร้อมความแรงที่ก้าวกระโดด ทำให้เจ้าของ MacBook หลายท่านเริ่มมองหาโอกาสในการอัปเกรดเครื่องใหม่ให้ตอบสนองการทำงานได้เร็วยิ่งขึ้น หากคุณกำลังต้องการเปลี่ยน MacBook เครื่องเก่า ไม่ว่าจะเป็น MacBook Pro สเปกเทพสำหรับงานตัดต่อวิดีโอ 8K หรือ MacBook Air เครื่องเบาสำหรับพกพาไปทำงานร้านกาแฟ ให้กลับกลายเป็นเงินก้อนใหญ่ WE BUY พร้อมรับช่วงต่ออุปกรณ์ของคุณ เรารับซื้อ MacBook ทุกรุ่น ตั้งแต่ชิป M-Series เจเนอเรชันล่าสุด ไปจนถึงรุ่นชิป Intel ดั้งเดิม ด้วยกระบวนการประเมินราคาที่โปร่งใสและตรงไปตรงมา อิงตามสเปกเครื่อง (CPU, RAM, SSD), จำนวนรอบชาร์จแบตเตอรี่ (Cycle Count) และสภาพเครื่องภายนอก เรากล้าให้ข้อเสนอที่สูงที่สุดในตลาด และมีบริการนัดรับถึงที่ เพื่อให้คุณสามารถขายแมคบุ๊คได้อย่างสะดวก ปลอดภัย และได้รับเงินสดโอนเข้าบัญชีทันทีโดยไม่ต้องรอนาน
-			</p>
-			<div class="hero-cta">
-				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+	<div class="money-page">
+		<header class="money-page-hero">
+			<div class="money-page-hero-inner">
+				<h1>รับซื้อ MacBook มือสอง ประเมินตามรุ่น ชิป และสภาพจริง</h1>
+				<p class="intro">
+					ส่งรูป About This Mac และภาพเครื่องทาง LINE @webuy เพื่อรับช่วงราคาประเมินเบื้องต้น
+				</p>
+				<div class="hero-cta">
+					<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+				</div>
 			</div>
 		</header>
 
-		<section class="content">
-			
-			<TrustBadges className="mb-12 mt-8" />
-			<RecentTradesSlider />
+		<div class="money-landing px-4">
+			<SafeProcessBar />
+		</div>
+
+		<MoneyPageLanding
+			evalCards={macbookLanding.evalCards}
+			checklist={macbookLanding.checklist}
+			priceItems={priceItems}
+			priceTitle="ตัวอย่างช่วงราคา MacBook อ้างอิง"
+		/>
+
+		<section class="money-seo-appendix content">
+			<p class="appendix-label">รายละเอียดเพิ่มเติมสำหรับ SEO — เนื้อหาด้านล่างเป็นการอธิบายเชิงลึก</p>
 			<h2>ทำไมลูกค้ามืออาชีพถึงเลือกขาย MacBook กับ WE BUY</h2>
 			<p>การขายอุปกรณ์ไอทีระดับพรีเมียมอย่าง MacBook มีความท้าทายมากกว่าการขายโน้ตบุ๊กทั่วไป เนื่องจากเป็นสินค้าที่มีราคาสูง หากคุณเลือกลงประกาศขายเองในโซเชียลมีเดียหรือแพลตฟอร์มออนไลน์ คุณอาจต้องเผชิญกับความกดดันจากผู้ซื้อที่พยายามต่อรองราคาอย่างหนัก (Lowballing) การถูกซักถามข้อมูลทางเทคนิคซ้ำๆ และความเสี่ยงในการถูกหลอกลวงหรือถูกฉกชิงเครื่องระหว่างการนัดดูของ ซึ่งเป็นเรื่องที่ทำให้หลายคนรู้สึกไม่ปลอดภัย ในขณะเดียวกัน ถ้านำไปขายตามร้านตู้โทรศัพท์หรือร้านรับจำนำทั่วไปที่ไม่มีความเชี่ยวชาญในระบบ macOS พวกเขามักจะตีราคาเหมาๆ โดยไม่สนใจว่าเครื่องของคุณอัปเกรด RAM หรือเพิ่มความจุ SSD มาสูงแค่ไหน ทำให้คุณสูญเสียมูลค่าที่แท้จริงไปอย่างน่าเสียดาย</p>
 			<p>WE BUY ถูกสร้างขึ้นมาเพื่อแก้ปัญหาเหล่านี้ (Pain Points) ให้หมดไป ทีมประเมินของเราคือผู้ที่คลุกคลีและเข้าใจระบบ Ecosystem ของ Apple อย่างถ่องแท้ เรารู้ดีว่า MacBook Pro รุ่นชิป M Max ที่มี RAM 64GB นั้นมีมูลค่ามหาศาลสำหรับคนทำงานโปรดักชัน เราจึงประเมินราคาโดยแยกตาม Custom Configuration (CTO - Configure to Order) ของแต่ละเครื่องอย่างละเอียด เพื่อให้แน่ใจว่าคุณจะได้รับเงินทุกบาททุกสตางค์ที่สมควรจะได้จากสเปกที่คุณลงทุนไป</p>
@@ -203,9 +216,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<p>เราเข้าใจดีว่าคอมพิวเตอร์สายทำงานย่อมมีร่องรอยการใช้งาน (Wear and Tear) บ้างเป็นเรื่องปกติ เช่น รอยขนแมวใต้ฐานเครื่อง (Bottom Case) หรือรอยมันบนคีย์บอร์ด ซึ่งเราถือเป็นเรื่องเล็กน้อยและแทบจะไม่มีผลต่อราคาประเมิน แต่หากเครื่องมี "รอยบุบกระแทก (Dent)" ตามมุมจากการทำตก อันนี้จะส่งผลต่อโครงสร้างอะลูมิเนียมและราคาประเมินจะปรับลดลงตามความเหมาะสม</p>
 			<p>แม้จะมีรุ่นใหม่ออกมา แต่ผู้ใช้จำนวนมากยังคงต้องการเครื่องรุ่นโปรในราคามือสองที่จับต้องได้ ดังนั้น MacBook Pro ของคุณจึงมีมูลค่าเสมอ ไม่ว่าจะผ่านการใช้งานมานานแค่ไหน หากดูแลดีก็ย่อมได้ราคาดีตามไปด้วย</p>
 
-			
-			<ComparisonTable />
-			<StepCards />
 			<h2>MacBook Air บางเบา แต่ราคามือสองไม่เบาตาม</h2>
 			<p>หาก MacBook Pro คือรถสปอร์ตสมรรถนะสูง "MacBook Air" ก็เปรียบเสมือนรถซีดานหรูที่ตอบโจทย์การใช้งานอเนกประสงค์ของคนส่วนใหญ่ ด้วยดีไซน์ที่บางเฉียบ น้ำหนักที่เบาหวิว และการทำงานแบบไร้พัดลม (Fanless Design) ที่เงียบกริบ ทำให้ MacBook Air กลายเป็นโน้ตบุ๊กที่ขายดีที่สุดในโลก และในตลาดมือสอง มันก็เป็นที่ต้องการอย่างบ้าคลั่งเช่นเดียวกัน โดยเฉพาะในกลุ่มนักศึกษา พนักงานออฟฟิศ และผู้เริ่มต้นทำธุรกิจ</p>
 			<p>ตั้งแต่การมาถึงของชิป M1 ในปี 2020 MacBook Air ได้ยกระดับมาตรฐานประสิทธิภาพขึ้นไปอีกขั้น รุ่น M1 (หน้าจอ 13.3 นิ้ว) ถือเป็นรุ่นคลาสสิกที่ยังคงขายคล่องและราคาแข็งแกร่งมาก หากคุณมี MacBook Air M1 สภาพดีๆ เก็บไว้ ราคารับซื้อจะอยู่หลักหมื่นกลางๆ ซึ่งถือว่าคุ้มค่ามากเมื่อเทียบกับอายุของมัน</p>
@@ -257,6 +267,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<ProvincialGrid keyword="รับซื้อ MacBook" slugPrefix="รับซื้อ-macbook" />
 		</section>
 	</div>
+	<MoneyPageFaq items={faqItems} />
+	<CtaBand heading="ส่งรูป MacBook เพื่อรับราคาประเมินเบื้องต้น" text="แจ้งรุ่น ชิป ความจุ สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง ไม่บังคับตัดสินใจ" />
 </BaseLayout>
 
 <style>

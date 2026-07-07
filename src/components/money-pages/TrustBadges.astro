@@ -6,21 +6,21 @@ export interface Props {
 const { className = '' } = Astro.props;
 ---
 
-<div class={`grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-y border-white/10 ${className}`}>
-  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
-    <div class="text-3xl font-bold text-brand-400 mb-1">10,000+</div>
-    <div class="text-xs text-gray-400">เครื่องที่รับซื้อแล้ว</div>
+<div class={`grid grid-cols-2 md:grid-cols-4 gap-3 py-6 ${className}`}>
+  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-brand-50/80 border border-brand-100">
+    <div class="text-lg font-bold text-brand-700 mb-1">ส่งรูปประเมินได้</div>
+    <div class="text-xs text-gray-600">แนบรุ่น สเปก และสภาพ</div>
   </div>
-  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
-    <div class="text-3xl font-bold text-brand-400 mb-1">15 นาที</div>
-    <div class="text-xs text-gray-400">ประเมินราคาไวสุด</div>
+  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-brand-50/80 border border-brand-100">
+    <div class="text-lg font-bold text-brand-700 mb-1">ตอบกลับในเวลาทำการ</div>
+    <div class="text-xs text-gray-600">ผ่าน LINE @webuy</div>
   </div>
-  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
-    <div class="text-3xl font-bold text-brand-400 mb-1">100%</div>
-    <div class="text-xs text-gray-400">ล้างข้อมูลปลอดภัย</div>
+  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-brand-50/80 border border-brand-100">
+    <div class="text-lg font-bold text-brand-700 mb-1">ตรวจตามสภาพจริง</div>
+    <div class="text-xs text-gray-600">ยืนยันก่อนชำระเงิน</div>
   </div>
-  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
-    <div class="text-3xl font-bold text-brand-400 mb-1">77</div>
-    <div class="text-xs text-gray-400">จังหวัดที่ให้บริการ</div>
+  <div class="flex flex-col items-center justify-center text-center p-4 rounded-xl bg-brand-50/80 border border-brand-100">
+    <div class="text-lg font-bold text-brand-700 mb-1">ประเมินออนไลน์ทั่วไทย</div>
+    <div class="text-xs text-gray-600">ส่งข้อมูลหรือจัดส่งตามสะดวก</div>
   </div>
 </div>

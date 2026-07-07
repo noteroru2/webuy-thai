@@ -1,0 +1,27 @@
+---
+interface FaqItem {
+	q: string;
+	a: string;
+}
+
+interface Props {
+	items: FaqItem[];
+	heading?: string;
+}
+
+const { items, heading = 'คำถามที่พบบ่อย' } = Astro.props;
+---
+
+<section class="money-section money-section--soft" aria-labelledby="money-faq-heading">
+	<div class="money-landing">
+		<h2 id="money-faq-heading" class="money-section-title">{heading}</h2>
+		<div class="money-faq-list">
+			{items.slice(0, 8).map((item) => (
+				<details class="money-faq-item">
+					<summary>{item.q}</summary>
+					<p>{item.a}</p>
+				</details>
+			))}
+		</div>
+	</div>
+</section>

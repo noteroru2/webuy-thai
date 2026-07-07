@@ -5,14 +5,16 @@ import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
+import '../styles/money-page.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 import { isanIpadPages } from '../lib/isanLocalHubs';
 
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import CtaBand from '../components/CtaBand.astro';
+import MoneyPageLanding from '../components/money-pages/MoneyPageLanding.astro';
+import MoneyPageFaq from '../components/money-pages/MoneyPageFaq.astro';
+import SafeProcessBar from '../components/money-pages/SafeProcessBar.astro';
+import { ipadLanding } from '../lib/moneyPageLanding';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
@@ -50,7 +52,7 @@ const ipadShowcase = [
 ];
 
 const priceItems = [
-	{ model: 'iPad Pro (M4 / M5) - ทุกขนาด', price: '28,000 - 55,000+ บาท', note: 'ราคาสูงสุดขึ้นอยู่กับความจุ 1TB/2TB และ Nano-texture' },
+	{ model: 'iPad Pro (M4 / M5) - ทุกขนาด', price: '28,000 - 55,000+ บาท', note: 'ช่วงราคาขึ้นอยู่กับความจุ 1TB/2TB และ Nano-texture' },
 	{ model: 'iPad Pro (M1 / M2) - 11" & 12.9"', price: '16,000 - 32,000 บาท', note: 'เครื่องสภาพสวย แบตเตอรี่เฮลท์ดี 90%+' },
 	{ model: 'iPad Air (M2 / M3) - 11" & 13"', price: '14,000 - 24,000 บาท', note: 'เน้นสีเครื่องยอดนิยมและความจุ 128GB ขึ้นไป' },
 	{ model: 'iPad mini (รุ่นที่ 6 / 7)', price: '10,000 - 18,000 บาท', note: 'ขนาดพกพาที่ตลาดต้องการสูง โดยเฉพาะรุ่นใส่ซิม' },
@@ -84,7 +86,7 @@ const faqItems = [
 	},
 	{
 		q: 'จ่ายเงินอย่างไร?',
-		a: 'จ่ายเงินสดทันทีหน้างาน หรือโอนเข้าบัญชีธนาคารทันทีหลังตรวจสอบเครื่องเสร็จ จบงานไว ไม่ต้องรอนาน',
+		a: 'ชำระเงินตามที่ตกลงหลังตรวจรับเครื่อง ทั้งเงินสดหรือโอนผ่านบัญชีธนาคาร ตามความสะดวกของลูกค้า',
 	},
 	{
 		q: 'อยู่ต่างจังหวัดขายได้อย่างไร?',
@@ -171,21 +173,32 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	type="article"
 	jsonLd={articleJsonLd}
 >
-	<div class="page">
-		<header class="header">
-			<h1>รับซื้อ iPad ทุกรุ่น ประเมินราคาโปร่งใส ให้ราคาสูง จ่ายเงินสดทันที</h1>
-			<p class="subtitle">
-				iPad กลายเป็นอุปกรณ์ชิ้นสำคัญที่ตอบโจทย์ทั้งการเรียน การทำงาน และความบันเทิงในเครื่องเดียว แต่เมื่อเทคโนโลยีพัฒนาอย่างก้าวกระโดดชิป M-Series รุ่นใหม่ถูกเปิดตัวออกมา คุณอาจเริ่มรู้สึกว่า iPad ตัวเดิมที่มีเริ่มช้า ไม่ลื่นไหล หรือไม่รองรับ Apple Pencil รุ่นใหม่ล่าสุด หากคุณกำลังมองหาทุนเพื่ออัปเกรดเป็นรุ่นใหม่ หรือแค่อยากเปลี่ยนอุปกรณ์ที่ไม่ได้ใช้ให้กลายเป็นเงินก้อน WE BUY คือศูนย์รับซื้ออุปกรณ์ Apple อันดับต้นๆ ของประเทศ เรารับซื้อไอแพดมือสองทุกรุ่นอย่างครอบคลุม ไม่ว่าจะเป็น iPad Pro ตัวท็อปที่ทรงพลัง, iPad Air ที่บางเบาคล่องตัว, iPad mini ขนาดกะทัดรัดที่พกพาสะดวก, ไปจนถึง iPad รุ่นมาตรฐาน (Gen) ที่นักเรียนนักศึกษาใช้งานกันอย่างแพร่หลาย ด้วยมาตรฐานการประเมินราคาที่เป็นธรรม อิงจากสเปกชิปประมวลผล ขนาดความจุ และสุขภาพแบตเตอรี่ (Battery Health) เราจึงกล้าเสนอราคารับซื้อที่สูงกว่าร้านทั่วไปในตลาด พร้อมบริการตรวจเช็คเครื่องที่รวดเร็ว ทันใจ โอนเงินสดเต็มจำนวนเข้าบัญชีทันทีที่คุณตกลงขายโดยไม่มีเงื่อนไขจุกจิกกวนใจ
-			</p>
-			<div class="hero-cta">
-				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+	<div class="money-page">
+		<header class="money-page-hero">
+			<div class="money-page-hero-inner">
+				<h1>รับซื้อ iPad มือสอง ประเมินตามรุ่น ความจุ และสภาพจริง</h1>
+				<p class="intro">
+					ส่งรูปและสเปก iPad ทาง LINE @webuy เพื่อรับราคาประเมินเบื้องต้น รองรับทุกซีรีส์ Pro Air mini และ Gen
+				</p>
+				<div class="hero-cta">
+					<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
+				</div>
 			</div>
 		</header>
 
-		<section class="content">
-			
-			<TrustBadges className="mb-12 mt-8" />
-			<RecentTradesSlider />
+		<div class="money-landing px-4">
+			<SafeProcessBar />
+		</div>
+
+		<MoneyPageLanding
+			evalCards={ipadLanding.evalCards}
+			checklist={ipadLanding.checklist}
+			priceItems={priceItems}
+			priceTitle="ตัวอย่างช่วงราคา iPad อ้างอิง"
+		/>
+
+		<section class="money-seo-appendix content">
+			<p class="appendix-label">รายละเอียดเพิ่มเติมสำหรับ SEO — เนื้อหาด้านล่างเป็นการอธิบายเชิงลึก</p>
 			<h2>ทำไมลูกค้าถึงไว้วางใจขาย iPad ให้กับ WE BUY</h2>
 			<p>การนำอุปกรณ์ Apple สุดหวงอย่าง iPad ไปเสนอขายตามร้านตู้โทรศัพท์หรือโพสต์ขายบนช่องทางออนไลน์ มักสร้างความกังวลใจให้กับผู้ขายอยู่ไม่น้อย ปัญหาคลาสสิกที่หลายคนต้องเผชิญคือการถูกประเมินราคาต่ำเกินจริง ถูกอ้างตำหนิเล็กๆ น้อยๆ เพื่อกดราคาหน้างาน หรือแย่ไปกว่านั้นคือต้องเสียเวลาเจรจากับผู้ซื้อออนไลน์ที่ต่อรองราคาอย่างไม่สมเหตุสมผลและมักจะหายเงียบไปในที่สุด ความยุ่งยากเหล่านี้ทำให้หลายคนถอดใจและปล่อยให้เครื่องเสื่อมค่าอยู่ในลิ้นชัก ที่ WE BUY เราปฏิวัติวงการรับซื้อด้วยการมุ่งเน้นสร้างประสบการณ์การขายที่ "โปร่งใส รวดเร็ว และเป็นธรรมที่สุด"</p>
 			<p>ความน่าเชื่อถือของเราเริ่มต้นตั้งแต่กระบวนการประเมินราคาออนไลน์ คุณสามารถส่งรายละเอียดของ iPad ทั้งข้อมูลสเปก รูปภาพสภาพเครื่อง และสุขภาพแบตเตอรี่ เข้ามาทาง Line @webuy ทีมประเมินของเราซึ่งมีความเชี่ยวชาญในกลุ่มสินค้า Apple โดยเฉพาะ จะทำการวิเคราะห์ข้อมูลอย่างรอบคอบและแจ้งช่วงราคาประเมินเบื้องต้นที่สะท้อนมูลค่าตลาดจริงในปัจจุบันกลับไปให้คุณทราบภายในเวลาเพียง 15-30 นาที ราคาที่เราเสนอนั้นเป็นราคาที่คุณจะได้รับจริงๆ หากสภาพเครื่องตรงตามที่แจ้งไว้ เราไม่มีนโยบายใช้กลยุทธ์ล่อลวงด้วยราคาสูงปรี๊ดแล้วหักหลังด้วยการกดราคาหน้างานอย่างเด็ดขาด ความซื่อสัตย์คือรากฐานสำคัญที่ทำให้ลูกค้าเก่ากลับมาใช้บริการซ้ำและบอกต่อ</p>
@@ -200,9 +213,6 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<p>ในการประเมินราคา iPad Pro เราจะตรวจสอบการทำงานของหน้าจอ ProMotion 120Hz อย่างละเอียดว่ายังสัมผัสลื่นไหลไม่มีจุดสะดุดหรือไม่ รวมถึงเช็คการสแกนใบหน้า (Face ID) และการทำงานของพอร์ต USB-C หากเครื่องของคุณมีสภาพบอดี้ที่สวยงาม ไม่มีรอยบุบตามมุม (ซึ่งมักเกิดจากการตกหล่น) และสุขภาพแบตเตอรี่ยังดีอยู่ เรารับประกันเลยว่าเราพร้อมเสนอราคาชนทุกร้าน เพื่อรับเครื่องคุณภาพระดับโปรนี้เข้าสู่สต็อกของเรา</p>
 			<p>แม้ว่าการออกรุ่นใหม่ของ Apple จะทำให้ราคาเครื่องรุ่นเก่ามีการปรับตัวลงบ้างตามกลไกตลาด แต่ความต้องการในรุ่น Pro นั้นไม่เคยลดลง ผู้ใช้หลายคนยังคงตามหา iPad Pro M1 หรือ M2 ในสภาพนางฟ้าเพื่อนำไปใช้ทำงานหนักแบบคุ้มค่าเงินทุกบาท ดังนั้นอย่ากังวลไป เครื่องของคุณมีค่าเสมอเมื่อนำมาให้เราประเมิน</p>
 
-			
-			<ComparisonTable />
-			<StepCards />
 			<h2>iPad Air และ iPad mini — ความสมดุลของประสิทธิภาพและการพกพา</h2>
 			<p>ขยับลงมาจากรุ่น Pro คือ "iPad Air" ซึ่งเปรียบเสมือนจุดสมดุลที่ลงตัวที่สุดระหว่างความแรงและราคา iPad Air ตั้งแต่เจเนอเรชันที่ 4 เป็นต้นมา ได้รับการปรับโฉมใหม่ให้มีดีไซน์ไร้ปุ่มโฮมขอบเหลี่ยมคล้ายรุ่น Pro และรองรับ Apple Pencil 2 ทำให้ได้รับความนิยมในหมู่นักศึกษาและวัยทำงานอย่างถล่มทลาย ยิ่งในรุ่น Air 5 ที่ข้ามมาใช้ชิป M1 และรุ่น Air M2 ล่าสุดที่มีขนาดหน้าจอ 13 นิ้วให้เลือก ประสิทธิภาพของมันก็แรงพอที่จะใช้งานหนักๆ ได้สบายๆ ราคารับซื้อของ iPad Air จึงอยู่ในเกณฑ์ที่ดีมากและปล่อยออกสู่ตลาดได้ไว</p>
 			<p>จุดเด่นของ iPad Air ในตลาดมือสองคือ "สีสัน" (Colors) Apple มักจะออกสีพาสเทลสวยๆ อย่างสีฟ้า สีชมพู หรือสีม่วงมาให้เลือก เครื่องที่มีสีสันโดนใจและอยู่ในสภาพที่สีไม่ลอก ไม่ด่าง จะดึงดูดผู้ซื้อได้ดีเยี่ยม เราจะเช็คการทำงานของ Touch ID บนปุ่มพาวเวอร์ว่าสแกนนิ้วได้แม่นยำหรือไม่ หากสแกนได้ปกติและหน้าจอไม่มีปัญหาอาการแสงลอด (Backlight Bleeding) คุณจะได้ราคาที่เต็มเพดาน</p>
@@ -255,6 +265,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			<ProvincialGrid keyword="รับซื้อ iPad" slugPrefix="รับซื้อไอแพด" />
 		</section>
 	</div>
+	<MoneyPageFaq items={faqItems} />
+	<CtaBand heading="ส่งรูป iPad เพื่อรับราคาประเมินเบื้องต้น" text="แจ้งรุ่น ความจุ สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง ไม่บังคับตัดสินใจ" />
 </BaseLayout>
 
 <style>

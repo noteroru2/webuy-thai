@@ -5,14 +5,16 @@ import TrustBar from '../components/TrustBar.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import PriceGuide from '../components/services/PriceGuide.astro';
 import '../styles/longform.css';
+import '../styles/money-page.css';
 import { formatPageTitle, getSiteOrigin, getSocialLinks } from '../lib/site';
 import { getPublishedPosts } from '../lib/posts';
 import { isanIphonePages } from '../lib/isanLocalHubs';
 
-import RecentTradesSlider from '../components/money-pages/RecentTradesSlider.astro';
-import TrustBadges from '../components/money-pages/TrustBadges.astro';
-import StepCards from '../components/money-pages/StepCards.astro';
-import ComparisonTable from '../components/money-pages/ComparisonTable.astro';
+import CtaBand from '../components/CtaBand.astro';
+import MoneyPageLanding from '../components/money-pages/MoneyPageLanding.astro';
+import MoneyPageFaq from '../components/money-pages/MoneyPageFaq.astro';
+import SafeProcessBar from '../components/money-pages/SafeProcessBar.astro';
+import { iphoneLanding } from '../lib/moneyPageLanding';
 import DataPrivacyBlock from '../components/money-pages/DataPrivacyBlock.astro';
 import ProvincialGrid from '../components/money-pages/ProvincialGrid.astro';
 const site = getSiteOrigin();
@@ -55,7 +57,7 @@ const iphoneShowcase = [
 ];
 
 const priceItems = [
-	{ model: 'iPhone 17 Pro Max (256GB - 1TB)', price: '32,000 - 45,000 บาท', note: 'ราคาสูงสุดสำหรับเครื่องศูนย์ไทย สุขภาพแบต 95%+' },
+	{ model: 'iPhone 17 Pro Max (256GB - 1TB)', price: '32,000 - 45,000 บาท', note: 'ช่วงราคาอ้างอิงเครื่องศูนย์ไทย สุขภาพแบต 95%+' },
 	{ model: 'iPhone 16 Pro Max (256GB - 1TB)', price: '25,000 - 33,000 บาท', note: 'เครื่องสภาพสวย กล่องอุปกรณ์ครบ' },
 	{ model: 'iPhone 15 Pro / Pro Max', price: '18,000 - 26,000 บาท', note: 'ขึ้นอยู่กับความจุและตำหนิหน้าจอ' },
 	{ model: 'iPhone 13 / 14 Series', price: '9,000 - 18,000 บาท', note: 'ประเมินตามสุขภาพแบตเตอรี่' },
@@ -85,7 +87,7 @@ const faqItems = [
 	},
 	{
 		q: 'ขายด่วนต้องส่งข้อมูลอะไรบ้าง?',
-		a: 'ส่งรุ่นเต็ม (เช่น iPhone 17 Pro Max 256GB), สุขภาพแบตเตอรี่, เวอร์ชัน iOS, สถานะ Face ID/True Tone, จุดตำหนิ (ถ้ามี), รูปเครื่องทุกมุม และวิดีโอสั้นทดสอบการใช้งานเบื้องต้น ส่งผ่าน Line @webuy ได้เลย ทีมงานพร้อมประเมินภายในไม่กี่นาที',
+		a: 'ส่งรุ่นเต็ม ความจุ สุขภาพแบตเตอรี่ สภาพเครื่อง รูปทุกมุม และวิดีโอทดสอบสั้น ๆ ผ่าน Line @webuy ทีมงานจะตอบกลับในเวลาทำการพร้อมราคาประเมินเบื้องต้น',
 	},
 	{
 		q: 'Face ID เสียหรือ True Tone หายมีผลต่อราคามากไหม?',
@@ -200,22 +202,33 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	type="article"
 	jsonLd={articleJsonLd}
 >
-	<article class="container longform">
+	<article class="container longform money-page">
 		<header>
 			<p class="kicker">iPhone Buyback Guide</p>
-			<h1>รับซื้อไอโฟน (iPhone) มือสอง ทุกรุ่น ทุกความจุ ประเมินราคาโปร่งใส จ่ายเงินทันที</h1>
+			<h1>รับซื้อ iPhone มือสอง ประเมินตามรุ่น ความจุ และสภาพจริง</h1>
 			<p class="intro">
-				หากคุณกำลังค้นหาคำว่า <strong>รับซื้อไอโฟน</strong> หรือต้องการ <strong>ขายไอโฟนมือสอง</strong> เพื่อเปลี่ยนเป็นเงินสดอย่างรวดเร็ว คุณมาถูกที่แล้วครับ การขายโทรศัพท์มือถือที่เคยเป็นเรื่องยุ่งยากและน่าปวดหัว จะกลายเป็นเรื่องง่าย สะดวก และปลอดภัยที่สุดเมื่อใช้บริการของเรา เราเข้าใจดีว่าไอโฟนทุกเครื่องมีมูลค่าและมีความสำคัญกับคุณ เราจึงให้ความสำคัญกับการประเมินราคาที่ยุติธรรม โปร่งใส และมีมาตรฐานสูงสุดในวงการรับซื้อโทรศัพท์มือถือ ไม่ว่าคุณจะมี iPhone รุ่นเก่าที่เก็บไว้ไม่ได้ใช้งาน หรือ iPhone รุ่นใหม่ล่าสุดที่ต้องการอัปเกรด เราพร้อมให้ราคาที่ดีที่สุดตามสภาพตลาด ณ ปัจจุบันโดยไม่มีการกดราคาหน้างานอย่างแน่นอน สิ่งที่ทำให้เราโดดเด่นและได้รับความไว้วางใจจากลูกค้ามากมายคือความซื่อสัตย์ในการให้ข้อมูล เราไม่อ้างตัวเลขลอยๆ เพื่อหลอกล่อให้คุณมาหา แต่เราประเมินราคาตามความเป็นจริง อ้างอิงจากราคาตลาดโลก สภาพเครื่อง และความสมบูรณ์ของการใช้งาน เพื่อให้คุณได้รับเงินสดก้อนใหญ่กลับบ้านด้วยความพึงพอใจสูงสุด การตัดสินใจขายไอโฟนกับเราคือการเลือกความสบายใจ เพราะนอกจากคุณจะได้ราคาที่สูงแล้ว คุณยังไม่ต้องกังวลเรื่องข้อมูลส่วนตัวรั่วไหล หรือการถูกมิจฉาชีพหลอกลวงบนโลกออนไลน์อีกต่อไป
+				ส่งรูป สเปก และสุขภาพแบตทาง LINE @webuy เพื่อรับราคาประเมินเบื้องต้น รองรับหลายรุ่นทั้งเครื่องศูนย์ไทยและเครื่องนอก
 			</p>
 			<div class="hero-cta">
 				<a class="btn-line" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">ส่งรูปประเมินทาง LINE</a>
 			</div>
 		</header>
 
+		<div class="money-landing px-4">
+			<SafeProcessBar />
+		</div>
+
+		<MoneyPageLanding
+			evalCards={iphoneLanding.evalCards}
+			checklist={iphoneLanding.checklist}
+			priceItems={priceItems}
+			priceTitle="ตัวอย่างช่วงราคา iPhone อ้างอิง"
+		/>
+
+		<div class="money-seo-appendix">
+			<p class="appendix-label">รายละเอียดเพิ่มเติมสำหรับ SEO — เนื้อหาด้านล่างเป็นการอธิบายเชิงลึก</p>
+
 		<section>
-			
-			<TrustBadges className="mb-12 mt-8" />
-			<RecentTradesSlider />
 			<h2>บริการรับซื้อไอโฟนมือสอง ให้ราคาสูง จ่ายเงินสดทันที</h2>
 			<p>
 				บริการของเรารูปแบบใหม่ที่ตอบโจทย์ไลฟ์สไตล์ของคนยุคดิจิทัลอย่างแท้จริง เราออกแบบขั้นตอนการรับซื้อไอโฟนมือสองให้มีความคล่องตัว รวดเร็ว และลดความซับซ้อนที่ไม่จำเป็นออกไปทั้งหมด คุณไม่ต้องเสียเวลาเดินทางตระเวนหาร้านตู้ตามห้างสรรพสินค้าเพื่อสอบถามราคาทีละร้านให้เหนื่อยเปล่า และไม่ต้องเสี่ยงกับการโพสต์ขายเองบนอินเทอร์เน็ตที่ต้องคอยตอบคำถามจุกจิก นัดเจอกับคนแปลกหน้า หรือลุ้นว่าจะถูกเบี้ยวหรือไม่ บริการของเราครอบคลุมตั้งแต่การประเมินราคาออนไลน์ผ่านช่องทาง LINE ที่ทำได้ตลอด 24 ชั่วโมง ไปจนถึงการนัดหมายรับเครื่องในสถานที่ที่คุณสะดวกที่สุด หรือบริการส่งเครื่องผ่านระบบขนส่งเอกชนสำหรับลูกค้าต่างจังหวัด เราการันตีว่าทันทีที่เครื่องของคุณผ่านการตรวจสอบสภาพตรงตามที่ตกลงกันไว้ คุณจะได้รับเงินสดหรือการโอนเงินเข้าบัญชีธนาคารในทันที ไม่มีการผัดผ่อน ไม่มีการรอรอบโอน และไม่มีการหักค่าธรรมเนียมแอบแฝงใดๆ ทั้งสิ้น
@@ -257,13 +270,10 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 		<ContactBox
 			heading="ต้องการขาย iPhone มือสอง?"
-			text="ส่งรุ่น ความจุ สุขภาพแบต รูปเครื่องมาทาง Line @webuy — ประเมินฟรีภายใน 15 นาที จ่ายสดทันที ทีมงานพร้อมให้บริการด้วยความเต็มใจ"
+			text="ส่งรุ่น ความจุ สุขภาพแบต และรูปเครื่องมาทาง Line @webuy — ประเมินฟรี ทีมงานพร้อมให้บริการในเวลาทำการ"
 		/>
 
 		<section>
-			
-			<ComparisonTable />
-			<StepCards />
 			<h2>ทำไมลูกค้าถึงเลือกใช้บริการรับซื้อไอโฟนกับเรา</h2>
 			<p>
 				ลูกค้าหลายหมื่นรายที่ผ่านการใช้บริการของเรา ต่างพูดเป็นเสียงเดียวกันว่า "สะดวก รวดเร็ว และได้ราคาดีจริง" นี่ไม่ใช่แค่คำโฆษณา แต่เป็นผลลัพธ์จากความมุ่งมั่นในการให้บริการที่ซื่อสัตย์และตรงไปตรงมาของเรา เราสร้างความแตกต่างในตลาดการรับซื้อโทรศัพท์มือถือด้วยการยกระดับมาตรฐานการให้บริการแบบมืออาชีพ เราไม่ใช่แค่ร้านตู้มือถือทั่วไป แต่เราคือผู้ให้บริการรับซื้อไอโฟนที่มีระบบการจัดการที่เป็นเลิศ มีฐานะทางการเงินที่มั่นคง สามารถรับซื้อไอโฟนจำนวนมาก หรือเครื่องที่มีมูลค่าสูงลิ่วได้อย่างไม่มีปัญหา คุณไม่จำเป็นต้องกังวลว่าเราจะไม่มีเงินจ่าย หรือต้องรอให้เรานำเครื่องไปขายต่อก่อนจึงจะได้เงิน ทุกยอดการรับซื้อ ไม่ว่าจะหลักพัน หลักหมื่น หรือหลักแสน เราพร้อมโอนสดให้ทันทีที่คุณตกลงขาย
@@ -417,7 +427,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 
 		<ContactBox
 			heading="เช็คราคาไอโฟนของคุณตอนนี้"
-			text="แอดไลน์ @webuy แจ้งรุ่นและความจุ ทีมงานพร้อมตีราคาให้ทันที! บริการประเมินฟรี ตลอด 24 ชั่วโมง"
+			text="แอดไลน์ @webuy แจ้งรุ่นและความจุ ส่งรูปประเมินเบื้องต้นได้ ทีมงานตอบกลับในเวลาทำการ"
 			variant="primary"
 		/>
 
@@ -490,5 +500,8 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			</p>
 		</section>
 
+		</div>
 	</article>
+	<MoneyPageFaq items={faqItems} />
+	<CtaBand heading="ส่งรูป iPhone เพื่อรับราคาประเมินเบื้องต้น" text="แจ้งรุ่น ความจุ สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง ไม่บังคับตัดสินใจ" />
 </BaseLayout>

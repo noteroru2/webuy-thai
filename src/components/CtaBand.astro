@@ -1,0 +1,165 @@
+---
+interface Props {
+	heading?: string;
+	text?: string;
+	btnText?: string;
+	btnHref?: string;
+	secondaryBtnText?: string;
+	secondaryBtnHref?: string;
+}
+
+const {
+	heading = 'ส่งรูปสินค้าเพื่อประเมินราคาเบื้องต้น',
+	text = 'แจ้งรุ่น สเปก สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง',
+	btnText = 'ส่งรูปทาง LINE',
+	btnHref = 'https://line.me/R/ti/p/@webuy',
+	secondaryBtnText = 'ติดต่อเรา',
+	secondaryBtnHref = '/contact/',
+} = Astro.props;
+---
+
+<div class="cta-band" role="complementary" aria-label="ติดต่อประเมินราคา">
+	<div class="cta-band-inner">
+		<div class="cta-band-content">
+			<h2 class="cta-band-heading">{heading}</h2>
+			<p class="cta-band-text">{text}</p>
+		</div>
+		<div class="cta-band-actions">
+			<a
+				href={btnHref}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="cta-band-btn cta-band-btn-primary"
+			>
+				<svg class="cta-band-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+					<path d="M12 2C6.48 2 2 6.06 2 11.05c0 2.81 1.35 5.32 3.47 6.98L4.5 22l4.2-2.13c1.07.3 2.19.46 3.3.46 5.52 0 10-4.06 10-9.05C22 6.06 17.52 2 12 2z"/>
+				</svg>
+				{btnText}
+			</a>
+			<a href={secondaryBtnHref} class="cta-band-btn cta-band-btn-secondary">
+				{secondaryBtnText}
+			</a>
+		</div>
+	</div>
+</div>
+
+<style>
+	.cta-band {
+		background-color: #fffbeb;
+		border-top: 1px solid #fde68a;
+		border-bottom: 1px solid #fde68a;
+		padding: 3.5rem 1rem;
+	}
+
+	@media (min-width: 640px) {
+		.cta-band {
+			padding: 4rem 1.5rem;
+		}
+	}
+
+	.cta-band-inner {
+		max-width: 1200px;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		text-align: center;
+	}
+
+	@media (min-width: 768px) {
+		.cta-band-inner {
+			flex-direction: row;
+			justify-content: space-between;
+			text-align: left;
+			gap: 3rem;
+		}
+	}
+
+	.cta-band-content {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.cta-band-heading {
+		margin: 0;
+		font-size: clamp(1.25rem, 2.5vw + 0.75rem, 1.75rem);
+		font-weight: 800;
+		line-height: 1.25;
+		color: #1c1917;
+		letter-spacing: -0.01em;
+	}
+
+	.cta-band-text {
+		margin: 0.625rem 0 0;
+		font-size: 1rem;
+		line-height: 1.75;
+		color: #57534e;
+		max-width: 36rem;
+	}
+
+	.cta-band-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	@media (min-width: 768px) {
+		.cta-band-actions {
+			justify-content: flex-start;
+		}
+	}
+
+	.cta-band-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.875rem 1.75rem;
+		border-radius: 999px;
+		font-size: 0.9375rem;
+		font-weight: 700;
+		text-decoration: none !important;
+		transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+		min-height: 44px;
+		white-space: nowrap;
+	}
+
+	.cta-band-btn:hover {
+		transform: translateY(-2px);
+		text-decoration: none !important;
+	}
+
+	.cta-band-btn-primary {
+		background-color: #0284c7;
+		color: #fff !important;
+		box-shadow: 0 4px 12px rgba(2, 132, 199, 0.30);
+	}
+
+	.cta-band-btn-primary:hover {
+		background-color: #0369a1;
+		color: #fff !important;
+		box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+	}
+
+	.cta-band-btn-secondary {
+		border: 2px solid #d6d3d1;
+		background-color: transparent;
+		color: #44403c !important;
+	}
+
+	.cta-band-btn-secondary:hover {
+		border-color: #0284c7;
+		color: #0284c7 !important;
+		background-color: #f0f9ff;
+	}
+
+	.cta-band-icon {
+		width: 1.125rem;
+		height: 1.125rem;
+		flex-shrink: 0;
+	}
+</style>
