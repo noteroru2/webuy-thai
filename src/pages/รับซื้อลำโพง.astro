@@ -85,38 +85,16 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: 'รับซื้อลำโพง Marshall JBL มือสอง ราคาดี จ่ายเงินทันที',
-		description:
-			'WE BUY รับซื้อลำโพงมือสอง Marshall, JBL, Bose และแบรนด์ชั้นนำ ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy',
+		name: 'รับซื้อลำโพงบลูทูธและลำโพงแบรนด์เนม มือสอง',
+		description: 'WE BUY รับซื้อลำโพงบลูทูธ Marshall, JBL, Bose, Harman Kardon, B&O ทุกแบรนด์ดัง ให้ราคาดี มีประเมินราคาทันที จ่ายเงินสด',
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: 'รับซื้อลำโพงมือสอง | วิธีการขายลำโพง Marshall และ JBL ให้ได้ราคาดีและไม่โดนหลอก',
-		description:
-			'คู่มือการประเมินราคาลำโพงบลูทูธมือสอง วิธีตรวจสอบของแท้-ของปลอม การเช็คสภาพเสียงและแบตเตอรี่ ครอบคลุม Marshall Acton, Stanmore, Emberton และ JBL ทุกรุ่น',
-		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', '@id': orgId, name: orgName },
-		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': `${pageUrl}#webpage`,
-		},
-		datePublished: '2026-03-24',
-		dateModified: '2026-03-24',
-		image: [new URL('/og-default.png', site).toString()],
-		keywords:
-			'รับซื้อลำโพง, รับซื้อ marshall, รับซื้อ jbl, ขายลำโพงมือสอง, รับซื้อลำโพงบลูทูธ, ประเมินราคาลำโพง, รับซื้อ marshall stanmore, รับซื้อ jbl boombox, ขายลำโพง marshall, ขายลำโพง jbl',
-		speakable: {
-			'@type': 'SpeakableSpecification',
-			cssSelector: ['h1', '.intro', '.faq'],
-		},
+		about: { '@id': `${pageUrl}#service` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
@@ -126,6 +104,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -135,27 +114,30 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
+		'@id': `${pageUrl}#service`,
 		name: 'บริการรับซื้อลำโพงมือสอง',
-		description:
-			'รับซื้อลำโพงบลูทูธ Marshall, JBL และแบรนด์เนมแท้ทุกรุ่น ประเมินราคาโปร่งใส จ่ายเงินทันที ติดต่อ Line @webuy 24 ชั่วโมง',
-		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
-		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		description: 'บริการรับซื้อลำโพงบลูทูธและลำโพงแบรนด์เนมทุกรุ่น ประเมินราคาโปร่งใส จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
+		areaServed: {
+			'@type': 'Country',
+			name: 'TH'
+		},
 		serviceType: 'รับซื้อลำโพงมือสอง',
 		url: pageUrl,
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'HowTo',
-		name: 'วิธีขายลำโพงมือสองให้ได้ราคาสูงกับ WE BUY',
-		description: 'ขั้นตอนง่าย ๆ ในการเปลี่ยนลำโพงเก่าเป็นเงินสดอย่างปลอดภัย',
+		'@id': `${pageUrl}#howto`,
+		name: 'วิธีขายลำโพงมือสองให้ได้ราคาดี',
+		description: 'ขั้นตอนง่าย ๆ ในการส่งข้อมูลประเมินราคาขายลำโพงกับ WE BUY',
 		step: [
-			{ '@type': 'HowToStep', name: 'ส่งข้อมูลและวิดีโอเสียง', text: 'ทัก Line @webuy ส่งรูปทุกมุมและวิดีโอเปิดเพลงทดสอบเสียง' },
-			{ '@type': 'HowToStep', name: 'รับราคาประเมินด่วน', text: 'ทีมงานตรวจสอบความแท้และสภาพ แจ้งราคาภายใน 15 นาที' },
-			{ '@type': 'HowToStep', name: 'นัดรับหรือส่งพัสดุ', text: 'ตกลงราคา นัดหมายจุดรับหรือส่งของตามช่องทางที่สะดวก' },
-			{ '@type': 'HowToStep', name: 'รับเงินทันที', text: 'ตรวจเช็คอุปกรณ์จริงเสร็จ รับเงินโอนหรือเงินสดทันที' },
-		],
-	},
-];
+			{ '@type': 'HowToStep', name: 'ส่งข้อมูลกล้อง', text: 'แอดไลน์ @webuy แล้วส่งรูปภาพกล้อง เลนส์ หรือลำโพง รวมถึงอุปกรณ์เสริมต่าง ๆ' },
+			{ '@type': 'HowToStep', name: 'รับราคาประเมิน', text: 'ทีมงานจะแจ้งราคาประเมินเบื้องต้นให้ทราบอย่างรวดเร็ว' },
+			{ '@type': 'HowToStep', name: 'ยืนยันและรับเงิน', text: 'ตกลงราคา นัดหมายรับของ และรับเงินโอนหรือเงินสดทันที' }
+		]
+	}
+]
 ---
 
 <BaseLayout

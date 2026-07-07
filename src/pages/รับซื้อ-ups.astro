@@ -87,28 +87,16 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง ทุกยี่ห้อ จ่ายเงินทันที',
-		description: 'WE BUY รับซื้อ UPS เครื่องสำรองไฟมือสอง APC Eaton CyberPower Syndome รับทุกขนาด ทุกสภาพ รับยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที',
+		name: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง ทุกรุ่น',
+		description: 'WE BUY รับซื้อ UPS เครื่องสำรองไฟมือสองทุกขนาด APC, Cleanline, Synergy, Leonics ทุกยี่ห้อ ประเมินราคากลางรวดเร็ว จ่ายเงินทันที',
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง | คู่มือปลดระวางและประเมินราคา',
-		description: 'รวมข้อมูลการรับซื้อ UPS มือสอง ปัจจัยราคา ประเภท UPS ที่มีมูลค่า ขั้นตอนปลดระวางสำหรับองค์กร และบริการรับเหมายกล็อต',
-		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', '@id': orgId, name: orgName },
-		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
-		mainEntityOfPage: { '@type': 'WebPage', '@id': `${pageUrl}#webpage` },
-		datePublished: '2026-06-05',
-		dateModified: '2026-06-05',
-		image: [new URL('/og-default.png', site).toString()],
-		keywords: 'รับซื้อ ups, รับซื้อ ups มือสอง, ขาย ups, ปลดระวาง ups, รับซื้อ ups apc, รับซื้อเครื่องสำรองไฟ, รับซื้อ ups eaton, รับซื้อ ups cyberpower',
+		about: { '@id': `${pageUrl}#service` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
@@ -118,6 +106,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -127,14 +116,18 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		name: 'บริการรับซื้อ UPS เครื่องสำรองไฟ มือสอง',
-		description: 'บริการรับซื้อ UPS เครื่องสำรองไฟมือสองทุกยี่ห้อ ทุกขนาด รับทั้งรายชิ้นและยกล็อตองค์กร ออกเอกสาร จ่ายเงินทันที',
-		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
-		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
-		serviceType: 'รับซื้อ UPS เครื่องสำรองไฟ มือสอง',
+		'@id': `${pageUrl}#service`,
+		name: 'บริการรับซื้อ UPS เครื่องสำรองไฟ',
+		description: 'บริการรับซื้อเครื่องสำรองไฟ UPS มือสอง ทุกขนาด ตั้งแต่ใช้งานในบ้านถึงระดับ Data Center ประเมินรวดเร็ว จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
+		areaServed: {
+			'@type': 'Country',
+			name: 'TH'
+		},
+		serviceType: 'รับซื้อ UPS มือสอง',
 		url: pageUrl,
 	},
-];
+]
 ---
 
 <BaseLayout

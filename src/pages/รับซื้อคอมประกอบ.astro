@@ -70,38 +70,16 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: 'รับซื้อคอมประกอบ (Custom PC) เครื่องเกมมิ่ง การ์ดจอ จ่ายเงินสด',
-		description:
-			'WE BUY รับซื้อคอมประกอบ (Custom PC) คอมเล่นเกม (Gaming PC) การ์ดจอ (VGA) และอะไหล่คอมมือสอง ประเมินราคารายชิ้น ให้ราคาสูง บริการรับถึงบ้าน',
+		name: 'รับซื้อคอมประกอบ คอมพิวเตอร์เล่นเกมและทำงาน',
+		description: 'WE BUY รับซื้อคอมประกอบ คอม PC เล่นเกม และคอมทำงานทุกสเปก Intel, AMD, NVIDIA ประเมินราคาจากสเปกชิ้นส่วน จ่ายเงินทันที',
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: 'รับซื้อคอมประกอบ Gaming PC ให้ราคาสูง ประเมินราคาแยกชิ้น',
-		description:
-			'บริการรับซื้อคอมพิวเตอร์ประกอบ (Custom PC) เครื่องเล่นเกมสเปกแรง การ์ดจอ RTX / Radeon มือสอง ตีราคาเป็นธรรมตามมูลค่าอะไหล่จริง นัดรับถึงบ้าน',
-		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', '@id': orgId, name: orgName },
-		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': `${pageUrl}#webpage`,
-		},
-		datePublished: '2026-05-11',
-		dateModified: '2026-05-11',
-		image: [new URL('/og-default.png', site).toString()],
-		keywords:
-			'รับซื้อคอมประกอบ, รับซื้อคอมเกมมิ่ง, รับซื้อ custom pc, รับซื้อการ์ดจอ, รับซื้อ vga, รับซื้อ rtx, รับซื้ออะไหล่คอม, ขายคอมประกอบ',
-		speakable: {
-			'@type': 'SpeakableSpecification',
-			cssSelector: ['h1', '.intro', '.faq'],
-		},
+		about: { '@id': `${pageUrl}#service` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
@@ -111,6 +89,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -120,15 +99,18 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		name: 'บริการรับซื้อคอมพิวเตอร์ประกอบ (Custom PC)',
-		description:
-			'บริการรับซื้อคอมพิวเตอร์ประกอบ คอมเกมมิ่งสเปกแรง และอะไหล่คอมพิวเตอร์ (CPU, VGA, RAM) ให้ราคาสูง ประเมินราคาโปร่งใส มีบริการยกถึงบ้าน',
-		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
-		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
-		serviceType: 'รับซื้อ Custom PC / อะไหล่คอมมือสอง',
+		'@id': `${pageUrl}#service`,
+		name: 'บริการรับซื้อคอมประกอบ',
+		description: 'บริการรับซื้อคอมพิวเตอร์ประกอบ PC เล่นเกม คอมพิวเตอร์สำนักงาน ประเมินแยกตามชิ้นส่วนอย่างเป็นธรรม จ่ายเงินทันที',
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
+		areaServed: {
+			'@type': 'Country',
+			name: 'TH'
+		},
+		serviceType: 'รับซื้อคอมพิวเตอร์ประกอบ',
 		url: pageUrl,
 	},
-];
+]
 ---
 
 <BaseLayout

@@ -71,38 +71,16 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: 'รับซื้อเครื่องเกม PS5, Nintendo Switch มือสอง จ่ายเงินสด',
-		description:
-			'WE BUY รับซื้อเครื่องเล่นเกมคอนโซลมือสอง PlayStation 5 (PS5), PS4, Nintendo Switch (OLED/V2), Steam Deck ให้ราคาสูง ประเมินราคาไว จ่ายเงินทันที',
+		name: 'รับซื้อเครื่องเกม Console และ Handheld ทุกรุ่น',
+		description: 'WE BUY รับซื้อเครื่องเล่นเกม PlayStation 5, PS4, Nintendo Switch, Steam Deck, ROG Ally มือสองทุกสภาพ ให้ราคาดี จ่ายเงินทันที',
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: 'รับซื้อเครื่องเกมมือสอง | PS5, Nintendo Switch, Steam Deck',
-		description:
-			'บริการรับซื้อเครื่องเกมคอนโซล PlayStation 5, Nintendo Switch และเครื่องเล่นเกมพกพา ให้ราคายุติธรรม รับซื้อพร้อมแผ่นเกมและจอยเสริม นัดรับรวดเร็ว',
-		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', '@id': orgId, name: orgName },
-		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': `${pageUrl}#webpage`,
-		},
-		datePublished: '2026-05-11',
-		dateModified: '2026-05-11',
-		image: [new URL('/og-default.png', site).toString()],
-		keywords:
-			'รับซื้อเครื่องเกม, รับซื้อ ps5, รับซื้อ playstation 5, รับซื้อ nintendo switch, รับซื้อ switch oled, รับซื้อ steam deck, ขายแผ่นเกม, รับซื้อจอย ps5',
-		speakable: {
-			'@type': 'SpeakableSpecification',
-			cssSelector: ['h1', '.intro', '.faq'],
-		},
+		about: { '@id': `${pageUrl}#service` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
@@ -112,6 +90,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -121,15 +100,18 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		name: 'บริการรับซื้อเครื่องเล่นเกมมือสอง',
-		description:
-			'บริการรับซื้อเครื่องเกม Console และ Handheld ทุกประเภท PS5, Nintendo Switch, Steam Deck ประเมินราคาโปร่งใส จ่ายเงินสดทันที มีบริการนัดรับ',
-		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
-		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
-		serviceType: 'รับซื้อ Video Game Console',
+		'@id': `${pageUrl}#service`,
+		name: 'บริการรับซื้อเครื่องเล่นเกม',
+		description: 'บริการรับซื้อเครื่องเกม PlayStation, Nintendo Switch, Xbox และเครื่องเกมพกพา ROG Ally, Steam Deck ประเมินราคาไว จ่ายทันที',
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
+		areaServed: {
+			'@type': 'Country',
+			name: 'TH'
+		},
+		serviceType: 'รับซื้อเครื่องเล่นเกมมือสอง',
 		url: pageUrl,
 	},
-];
+]
 ---
 
 <BaseLayout

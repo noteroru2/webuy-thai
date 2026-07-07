@@ -124,33 +124,12 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			'WE BUY รับซื้อ iPhone มือสองทุกรุ่น iPhone 8 ถึง 16 Pro Max ประเมินราคาโปร่งใส จ่ายเงินทันที ดูจากรุ่น ความจุ Battery Health ติดต่อ Line @webuy 24 ชม.',
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: 'รับซื้อไอโฟน iPhone มือสอง ทุกรุ่น ได้ราคาสูง จ่ายเงินทันที',
-		description:
-			'บริการรับซื้อ iPhone มือสองทุกรุ่นตั้งแต่ iPhone 8 ถึง iPhone 16 Pro Max ประเมินราคาโปร่งใส ดูจากรุ่น ความจุ สุขภาพแบต สภาพจอ Face ID True Tone สถานะ iCloud พร้อมคู่มือเตรียมเครื่องก่อนขายอย่างละเอียด',
-		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', '@id': orgId, name: orgName },
-		publisher: { '@type': 'Organization', '@id': orgId, name: orgName },
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': `${pageUrl}#webpage`,
-		},
-		datePublished: '2026-03-24',
-		dateModified: '2026-03-24',
-		image: [new URL('/og-default.png', site).toString()],
-		keywords:
-			'รับซื้อไอโฟน, ขายไอโฟนมือสอง, รับซื้อ iPhone, ประเมินราคาไอโฟน, รับซื้อ iPhone มือสอง, ขาย iPhone ได้ราคาดี, รับซื้อไอโฟนจอแตก, รับซื้อ iPhone ทุกรุ่น, รับซื้อไอโฟนแบตเสื่อม, ขายไอโฟนเก่า',
-		speakable: {
-			'@type': 'SpeakableSpecification',
-			cssSelector: ['h1', '.intro', '.faq'],
-		},
+		about: { '@id': `${pageUrl}#service` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
@@ -160,6 +139,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -169,17 +149,22 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
+		'@id': `${pageUrl}#service`,
 		name: 'บริการรับซื้อไอโฟน',
 		description:
 			'บริการรับซื้อ iPhone มือสองทุกรุ่น ตั้งแต่ iPhone 8 ถึง iPhone 16 Pro Max ทั้งเครื่องไทยและเครื่องนอก ประเมินราคาโปร่งใส จ่ายเงินทันที',
-		provider: { '@type': 'Organization', '@id': orgId, name: orgName },
-		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
+		areaServed: {
+			'@type': 'Country',
+			name: 'TH'
+		},
 		serviceType: 'รับซื้อ iPhone มือสอง',
 		url: pageUrl,
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'HowTo',
+		'@id': `${pageUrl}#howto`,
 		name: 'วิธีขาย iPhone มือสองกับ WE BUY',
 		description: 'ขั้นตอนง่าย ๆ ในการขายไอโฟนมือสองให้ได้ราคาดี',
 		step: [

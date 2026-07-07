@@ -381,51 +381,9 @@ export function buildImportantLocalServiceJsonLd(
 		featuredUrl?: string;
 	},
 ): Array<Record<string, unknown>> {
-	const localBusinessId = `${options.articleUrl}#localbusiness`;
 	const serviceId = `${options.articleUrl}#service`;
-	const socialLinks = getSocialLinks();
-	const imageList = options.featuredUrl ? [options.featuredUrl] : undefined;
-
-	// Deterministic pseudo-random rating based on URL length to make it look authentic (4.8 - 4.9, 1100-1400 reviews)
-	const num = options.articleUrl.length;
-	const ratingValue = (4.8 + (num % 2) * 0.1).toFixed(1);
-	const reviewCount = (1100 + (num * 17) % 300).toString();
 
 	return [
-		{
-			'@context': 'https://schema.org',
-			'@type': 'LocalBusiness',
-			'@id': localBusinessId,
-			name: `${options.orgName} ${context.service.shortLabel}${context.province.shortLabel}`,
-			description: options.description,
-			url: options.articleUrl,
-			image: imageList,
-			telephone: options.businessPhone,
-			parentOrganization: { '@id': options.orgId },
-			sameAs: socialLinks,
-			aggregateRating: {
-				'@type': 'AggregateRating',
-				ratingValue: ratingValue,
-				reviewCount: reviewCount
-			},
-			address: {
-				'@type': 'PostalAddress',
-				addressRegion: context.province.label,
-				addressCountry: 'TH',
-			},
-			areaServed: context.areaServedNames.map((name) => ({
-				'@type': 'AdministrativeArea',
-				name,
-			})),
-			hasMap: options.canonicalUrl,
-			contactPoint: {
-				'@type': 'ContactPoint',
-				contactType: 'sales',
-				telephone: options.businessPhone,
-				availableLanguage: ['th-TH'],
-				url: LINE_OA_URL,
-			},
-		},
 		{
 			'@context': 'https://schema.org',
 			'@type': 'Service',
@@ -434,7 +392,10 @@ export function buildImportantLocalServiceJsonLd(
 			description: options.description,
 			url: options.articleUrl,
 			serviceType: context.service.serviceType,
-			provider: { '@id': localBusinessId },
+			provider: { 
+				'@type': 'Organization',
+				'@id': `${new URL(options.articleUrl).origin}/#organization` 
+			},
 			areaServed: context.areaServedNames.map((name) => ({
 				'@type': 'AdministrativeArea',
 				name,

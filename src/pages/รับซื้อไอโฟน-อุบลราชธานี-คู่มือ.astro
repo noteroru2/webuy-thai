@@ -74,46 +74,23 @@ const jsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `รับซื้อไอโฟน ${localCity} — นัดรับด่วนในเมืองและวารินชำราบ จ่ายเงินสด`,
-		description: `บริการรับซื้อ iPhone มือสองใน${localCity} ประเมินราคาด่วนผ่าน Line @webuy นัดรับถึงที่ จ่ายเงินทันที`,
+		name: `รับซื้อ iPhone อุบลราชธานี — คู่มือขายไอโฟนมือสอง จ่ายเงินสดทันที`,
+		description: `ร้านรับซื้อไอโฟนมือสองในอุบลราชธานี ครอบคลุมเขตเมืองและวารินชำราบ ประเมินราคาออนไลน์ด่วน นัดรับสะดวก ปลอดภัย จ่ายเงินทันที ติดต่อ Line @webuy`,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'LocalBusiness',
-		name: `WE BUY รับซื้อไอโฟน ${localCity}`,
-		image: [new URL('/og-default.png', site).toString()],
-		'@id': `${pageUrl}#localbusiness`,
-		url: pageUrl,
-		telephone: '0642579353',
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: localCity,
-			addressRegion: localCity,
-			addressCountry: 'TH',
-		},
-		geo: {
-			'@type': 'GeoCoordinates',
-			latitude: 15.2287,
-			longitude: 104.8564,
-		},
-		areaServed: [
-			{ '@type': 'City', name: 'อำเภอเมืองอุบลราชธานี' },
-			{ '@type': 'City', name: 'อำเภอวารินชำราบ' },
-			{ '@type': 'City', name: localCity },
-		],
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
 			acceptedAnswer: { '@type': 'Answer', text: item.a },
 		})),
 	},
-];
+]
 ---
 
 <BaseLayout

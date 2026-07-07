@@ -69,29 +69,12 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 			'บริการรับซื้อกล้องมือสอง DSLR Mirrorless Compact กล้องฟิล์ม เลนส์ และอุปกรณ์เสริมทุกยี่ห้อ Canon Nikon Sony Fujifilm Panasonic Olympus Leica GoPro ประเมินราคาฟรี จ่ายเงินทันที',
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'Article',
-		headline: 'รับซื้อกล้อง | รับซื้อกล้องมือสอง DSLR Mirrorless ทุกยี่ห้อ ราคาดี',
-		description:
-			'บริการรับซื้อกล้องมือสอง DSLR Mirrorless Compact กล้องฟิล์ม เลนส์ และอุปกรณ์เสริมทุกยี่ห้อ Canon Nikon Sony Fujifilm Panasonic Olympus Leica GoPro ประเมินราคาฟรี จ่ายเงินทันที',
-		inLanguage: 'th-TH',
-		author: { '@type': 'Organization', name: orgName },
-		publisher: { '@type': 'Organization', name: orgName },
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': `${pageUrl}#webpage`,
-		},
-		datePublished: '2026-03-24',
-		dateModified: '2026-03-24',
-		keywords:
-			'รับซื้อกล้อง, ขายกล้องมือสอง, รับซื้อกล้องดิจิตอล, รับซื้อกล้อง DSLR, รับซื้อกล้อง Mirrorless, รับซื้อเลนส์, รับซื้อกล้องฟิล์ม, รับซื้อ Canon, รับซื้อ Nikon, รับซื้อ Sony, รับซื้อ Fujifilm, รับซื้อ GoPro, ขายกล้องราคาดี, ประเมินราคากล้อง',
-		image: [new URL('/og-default.png', site).toString()],
+		about: { '@id': `${pageUrl}#service` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: `${site}/รับซื้อ/` },
@@ -101,6 +84,7 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
@@ -110,17 +94,22 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'Service',
+		'@id': `${pageUrl}#service`,
 		name: 'บริการรับซื้อกล้อง',
 		description:
 			'บริการรับซื้อกล้องมือสอง DSLR Mirrorless Compact ทุกยี่ห้อ Canon Nikon Sony Fujifilm พร้อมเลนส์และอุปกรณ์เสริม ประเมินราคาโปร่งใส จ่ายเงินทันที',
-		provider: { '@type': 'Organization', name: orgName },
-		areaServed: serviceAreas.map((area) => ({ '@type': 'AdministrativeArea', name: area })),
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
+		areaServed: {
+			'@type': 'Country',
+			name: 'TH'
+		},
 		serviceType: 'รับซื้อกล้องมือสอง',
 		url: pageUrl,
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'HowTo',
+		'@id': `${pageUrl}#howto`,
 		name: 'วิธีขายกล้องมือสองกับ WE BUY',
 		description: 'ขั้นตอนง่าย ๆ ในการขายกล้องมือสองให้ได้ราคาดี',
 		step: [

@@ -67,47 +67,23 @@ const jsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `รับซื้อโน๊ตบุ๊ค ${localCity} — นัดรับถึงที่ เดอะมอลล์ เซ็นทรัล จ่ายเงินสด`,
-		description: `บริการรับซื้อโน๊ตบุ๊คมือสองในจังหวัดนครราชสีมา (โคราช) ทุกยี่ห้อ ประเมินราคาไว นัดรับในเมือง ม.ทส. จอหอ จ่ายเงินทันที ติดต่อ Line @webuy`,
+		name: `รับซื้อโน๊ตบุ๊คโคราช นครราชสีมา — ร้านรับซื้อ Notebook มือสอง จ่ายเงินสด`,
+		description: `บริการรับซื้อโน๊ตบุ๊คมือสองโคราช นครราชสีมา ทุกยี่ห้อ ประเมินราคาฟรี รวดเร็ว จ่ายเงินทันที ติดต่อ Line @webuy ตลอด 24 ชั่วโมง`,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'LocalBusiness',
-		name: `WE BUY รับซื้อโน๊ตบุ๊ค ${localCity}`,
-		image: [new URL('/og-default.png', site).toString()],
-		'@id': `${pageUrl}#localbusiness`,
-		url: pageUrl,
-		telephone: '0642579353',
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: 'นครราชสีมา',
-			addressRegion: 'Nakhon Ratchasima',
-			addressCountry: 'TH',
-		},
-		geo: {
-			'@type': 'GeoCoordinates',
-			latitude: 14.9738,
-			longitude: 102.0831
-		},
-		areaServed: [
-			{ '@type': 'City', name: 'อำเภอเมืองนครราชสีมา' },
-			{ '@type': 'City', name: 'จอหอ' },
-			{ '@type': 'City', name: 'มหาวิทยาลัยเทคโนโลยีสุรนารี' },
-			{ '@type': 'City', name: localCity }
-		],
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
 			acceptedAnswer: { '@type': 'Answer', text: item.a },
 		})),
 	},
-];
+]
 ---
 
 <BaseLayout

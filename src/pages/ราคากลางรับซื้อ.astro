@@ -126,15 +126,13 @@ const jsonLd: Array<Record<string, unknown>> = [
 		description: pageDescription,
 		url: `${site}${pagePath}`,
 		inLanguage: 'th-TH',
-		isPartOf: { '@type': 'WebSite', url: `${site}/` },
-		about: {
-			'@type': 'Thing',
-			name: 'ราคากลางรับซื้อสินค้าไอทีมือสอง',
-		},
+		isPartOf: { '@id': `${site}/#website` },
+		about: { '@id': `${site}/#organization` },
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${site}${pagePath}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'ราคากลางรับซื้อ', item: `${site}${pagePath}` },

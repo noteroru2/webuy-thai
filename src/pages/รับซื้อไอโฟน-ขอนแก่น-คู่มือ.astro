@@ -71,46 +71,23 @@ const jsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `รับซื้อไอโฟน ${localCity} — นัดรับด่วนในเมืองและ มข. จ่ายเงินสด`,
-		description: `บริการรับซื้อ iPhone มือสองในจังหวัด${localCity} ประเมินราคาด่วน 15 นาที นัดรับถึงที่ จ่ายเงินสดทันที แอดไลน์ @webuy`,
+		name: `รับซื้อ iPhone ขอนแก่น — คู่มือขายไอโฟนมือสองให้ได้ราคาสูง จ่ายเงินสด`,
+		description: `ร้านรับซื้อ iPhone มือสองขอนแก่น ทุกรุ่น ทุกสภาพ ประเมินราคาออนไลน์ด่วน นัดรับในเมืองขอนแก่น มข. จ่ายเงินทันที ติดต่อ Line @webuy`,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'LocalBusiness',
-		name: `WE BUY รับซื้อไอโฟน ${localCity}`,
-		image: [new URL('/og-default.png', site).toString()],
-		'@id': `${pageUrl}#localbusiness`,
-		url: pageUrl,
-		telephone: '0642579353',
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: localCity,
-			addressRegion: localCity,
-			addressCountry: 'TH',
-		},
-		geo: {
-			'@type': 'GeoCoordinates',
-			latitude: 16.4322,
-			longitude: 102.8236
-		},
-		areaServed: [
-			{ '@type': 'City', name: 'มหาวิทยาลัยขอนแก่น' },
-			{ '@type': 'City', name: 'อำเภอเมืองขอนแก่น' },
-			{ '@type': 'City', name: localCity }
-		],
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
 			acceptedAnswer: { '@type': 'Answer', text: item.a },
 		})),
 	},
-];
+]
 ---
 
 <BaseLayout

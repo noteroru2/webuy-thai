@@ -112,21 +112,19 @@ const faqItems = [
 const jsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
-		'@type': 'WebPage',
+		'@type': 'AboutPage',
 		'@id': `${site}${pagePath}#webpage`,
 		name: formatPageTitle('ความน่าเชื่อถือ'),
 		description: pageDescription,
 		url: `${site}${pagePath}`,
 		inLanguage: 'th-TH',
-		isPartOf: { '@type': 'WebSite', url: `${site}/` },
-		about: {
-			'@type': 'Thing',
-			name: 'ความน่าเชื่อถือ WE BUY รับซื้อสินค้าไอทีมือสอง',
-		},
+		isPartOf: { '@id': `${site}/#website` },
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${site}${pagePath}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'ความน่าเชื่อถือ', item: `${site}${pagePath}` },
@@ -167,9 +165,9 @@ const jsonLd: Array<Record<string, unknown>> = [
 				<p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Trust Center · {orgName}</p>
 				<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">ความน่าเชื่อถือ — ขายมือสองกับ WE BUY อย่างโปร่งใส</h1>
 				<p class="mt-5 max-w-3xl text-lg leading-[1.75] text-text-muted">
-					<strong class="font-semibold text-text">คำตอบสั้น:</strong> WE BUY ประเมินราคาจากรุ่น สเปก สภาพจริง
-					และแนวตลาดมือสอง — ให้ช่วงราคาเบื้องต้นก่อน ยืนยันราคาสุดท้ายหลังตรวจเครื่อง ชำระเมื่อตกลงเท่านั้น
-					ไม่กล่าวอ้างราคาสูงสุดหรือรับซื้อทุกกรณี
+					เรารับซื้อ.com เป็นช่องทางประเมินราคารับซื้อสินค้าไอทีมือสองในเครือ <strong>AMPHON TRADING</strong> 
+					ที่มุ่งเน้นความโปร่งใส ลูกค้าสามารถส่งรูป รุ่น สเปก สภาพ และอุปกรณ์ เพื่อรับราคาประเมินเบื้องต้นประกอบการตัดสินใจก่อนตกลงขาย 
+					และการชำระเงินที่แน่นอนจะเกิดขึ้นตามการตรวจรับและยืนยันสภาพจริงโดยไม่มีการกดราคาอย่างไม่เป็นธรรม
 				</p>
 				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
 					<ButtonLink href="/เช็กราคาก่อนขาย/" variant="primary">เช็กราคาก่อนขาย</ButtonLink>

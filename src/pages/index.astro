@@ -255,30 +255,6 @@ const homeJsonLd: Record<string, unknown> = {
 			},
 		},
 		{
-			'@type': 'Organization',
-			'@id': orgId,
-			name: orgName,
-			url: site,
-			logo: {
-				'@type': 'ImageObject',
-				url: new URL(orgLogo, site).toString(),
-			},
-			contactPoint: {
-				'@type': 'ContactPoint',
-				contactType: 'customer support',
-				telephone: businessPhone,
-				availableLanguage: ['Thai'],
-			},
-			address: {
-				'@type': 'PostalAddress',
-				addressLocality,
-				addressRegion,
-				postalCode,
-				addressCountry: 'TH',
-			},
-			sameAs: socialLinks.length > 0 ? socialLinks : undefined,
-		},
-		{
 			'@type': 'WebPage',
 			'@id': `${site}/#webpage`,
 			url: `${site}/`,
@@ -286,6 +262,7 @@ const homeJsonLd: Record<string, unknown> = {
 			description: homeDescription,
 			inLanguage: 'th-TH',
 			isPartOf: { '@id': websiteId },
+			about: { '@id': `${site}/#organization` }
 		},
 		{
 			'@type': 'FAQPage',
@@ -299,94 +276,7 @@ const homeJsonLd: Record<string, unknown> = {
 					text: item.answer,
 				},
 			})),
-		},
-		{
-			'@type': 'LocalBusiness',
-			'@id': localId,
-			name: siteName,
-			url: site,
-			image: [new URL('/hero-soft.svg', site).toString()],
-			description: `${orgName} — เน้นรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง พร้อมบริการไอทีเสริม ครอบคลุมหลายพื้นที่ในประเทศไทย ติดต่อ Line @webuy`,
-			telephone: businessPhone,
-			priceRange: '$$',
-			parentOrganization: { '@id': orgId },
-			aggregateRating: {
-				'@type': 'AggregateRating',
-				ratingValue: '4.9',
-				reviewCount: '158',
-			},
-			review: [
-				{
-					'@type': 'Review',
-					reviewRating: {
-						'@type': 'Rating',
-						ratingValue: '5',
-						bestRating: '5',
-					},
-					author: {
-						'@type': 'Person',
-						name: 'ลูกค้าทั่วไป',
-					},
-					reviewBody: 'ส่งข้อมูลทางไลน์แล้วได้คำตอบชัดเจน รู้ว่าประเมินจากอะไรบ้างก่อนตกลง',
-				},
-				{
-					'@type': 'Review',
-					reviewRating: {
-						'@type': 'Rating',
-						ratingValue: '5',
-						bestRating: '5',
-					},
-					author: {
-						'@type': 'Person',
-						name: 'ลูกค้าองค์กร / SME',
-					},
-					reviewBody: 'ชอบที่อธิบายเป็นขั้น ๆ ไม่เร่งให้ตัดสินใจทันที',
-				},
-			],
-			address: {
-				'@type': 'PostalAddress',
-				addressLocality,
-				addressRegion,
-				postalCode,
-				addressCountry: 'TH',
-			},
-			geo: {
-				'@type': 'GeoCoordinates',
-				latitude: geoLat,
-				longitude: geoLon,
-			},
-			areaServed: serviceAreas.map((area) => ({
-				'@type': 'AdministrativeArea',
-				name: area,
-			})),
-			openingHoursSpecification: [
-				{
-					'@type': 'OpeningHoursSpecification',
-					dayOfWeek: [
-						'Monday',
-						'Tuesday',
-						'Wednesday',
-						'Thursday',
-						'Friday',
-						'Saturday',
-						'Sunday',
-					],
-					opens: '00:00',
-					closes: '23:59',
-				},
-			],
-			contactPoint: [
-				{
-					'@type': 'ContactPoint',
-					contactType: 'customer support',
-					availableLanguage: ['Thai'],
-					url: 'https://line.me/R/ti/p/@webuy',
-					telephone: businessPhone,
-				},
-			],
-			hasMap: mapUrl,
-			sameAs: socialLinks.length > 0 ? socialLinks : undefined,
-		},
+		}
 	],
 };
 ---

@@ -24,10 +24,12 @@ const jsonLd: Array<Record<string, unknown>> = [
 		url: pageUrl,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${pageUrl}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'รับซื้อ', item: pageUrl },
@@ -35,11 +37,76 @@ const jsonLd: Array<Record<string, unknown>> = [
 	},
 	{
 		'@context': 'https://schema.org',
+		'@type': 'ItemList',
+		'@id': `${pageUrl}#itemlist`,
+		name: 'หมวดหมู่บริการรับซื้อไอทีหลัก',
+		url: pageUrl,
+		numberOfItems: 7,
+		itemListElement: [
+			{ '@type': 'ListItem', position: 1, url: `${site}/รับซื้อโน๊ตบุ๊ค/`, name: 'รับซื้อโน๊ตบุ๊ค' },
+			{ '@type': 'ListItem', position: 2, url: `${site}/รับซื้อคอม/`, name: 'รับซื้อคอมพิวเตอร์' },
+			{ '@type': 'ListItem', position: 3, url: `${site}/รับซื้อแมคบุ๊ค/`, name: 'รับซื้อ MacBook' },
+			{ '@type': 'ListItem', position: 4, url: `${site}/รับซื้อไอโฟน/`, name: 'รับซื้อ iPhone' },
+			{ '@type': 'ListItem', position: 5, url: `${site}/รับซื้อไอแพด/`, name: 'รับซื้อ iPad' },
+			{ '@type': 'ListItem', position: 6, url: `${site}/รับซื้อกล้อง/`, name: 'รับซื้อกล้อง' },
+			{ '@type': 'ListItem', position: 7, url: `${site}/รับซื้อคอม/`, name: 'รับซื้อคอมพิวเตอร์สำนักงาน/B2B' }
+		]
+	},
+	{
+		'@context': 'https://schema.org',
 		'@type': 'Service',
+		'@id': `${pageUrl}#service`,
 		name: 'บริการรับซื้อสินค้าไอทีมือสอง',
 		description: 'รับซื้อโน้ตบุ๊ค, คอมพิวเตอร์, มือถือ และอุปกรณ์ไอทีทุกชนิด ให้ราคาสูง จ่ายเงินสดทันที',
-		provider: { '@type': 'Organization', name: orgName },
+		provider: { '@type': 'Organization', '@id': `${site}/#organization` },
 		url: pageUrl,
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
+		mainEntity: [
+			{
+				'@type': 'Question',
+				name: 'เครื่องติดล็อค iCloud หรือติดสัญญาเครือข่าย รับซื้อไหม?',
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: 'เรารับซื้อเครื่องในหลากหลายสภาพ แต่มีเงื่อนไขสำคัญคือ สำหรับเครื่อง Apple ต้องสามารถ Log out ออกจาก iCloud หรือ Apple ID ได้สมบูรณ์ก่อนส่งมอบ หากเครื่องติดล็อคขโมยมา เราขอสงวนสิทธิ์ไม่รับซื้อในทุกกรณี ส่วนเครื่องที่ติดสัญญาเครือข่าย เรารับพิจารณาเป็นเคสๆ ไป'
+				}
+			},
+			{
+				'@type': 'Question',
+				name: 'เครื่องพัง หน้าจอแตก เปิดไม่ติด รับซื้อหรือไม่?',
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: 'รับซื้อครับ! เครื่องที่หน้าจอแตก, แบตเตอรี่เสื่อมจัด, หรือแม้กระทั่งเปิดไม่ติด (บอร์ดเสีย) เราก็รับซื้อเพื่อนำไปเป็นอะไหล่ แต่ราคาประเมินจะอ้างอิงจากชิ้นส่วนที่ยังสามารถใช้งานได้'
+				}
+			},
+			{
+				'@type': 'Question',
+				name: 'จำเป็นต้องมีกล่องและอุปกรณ์แท้ครบไหม?',
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: 'ไม่จำเป็นครับ คุณสามารถขายเครื่องเปล่าๆ ให้เราได้เลย แต่หากคุณมีอุปกรณ์เสริมแท้ครบกล่อง ราคาที่คุณจะได้ก็จะสูงขึ้นตามไปด้วย'
+				}
+			},
+			{
+				'@type': 'Question',
+				name: 'ถ้าประเมินราคาหน้างานแล้วไม่พอใจ ยกเลิกได้ไหม?',
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: 'ยกเลิกได้ 100% ครับ เรายึดมั่นในความสบายใจของลูกค้าเป็นหลัก หากทีมงานไปตรวจเครื่องแล้วราคาปรับลดลง และคุณรู้สึกว่ายังไม่อยากขาย สามารถปฏิเสธการขายได้ทันที โดยไม่มีค่าใช้จ่ายหรือข้อผูกมัดใดๆ'
+				}
+			},
+			{
+				'@type': 'Question',
+				name: 'การโอนเงินใช้เวลานานแค่ไหน?',
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: 'หลังจากตรวจเครื่องเสร็จและคุณตกลงขาย เราจะทำการโอนเงินผ่านระบบ Mobile Banking ทันทีแบบ Real-time คุณสามารถตรวจสอบยอดเงินเข้าบัญชีได้ทันทีก่อนส่งมอบเครื่อง'
+				}
+			}
+		]
 	}
 ];
 
