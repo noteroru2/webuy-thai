@@ -1,6 +1,10 @@
 .longform {
 	padding-top: 2rem;
-	max-width: 920px;
+	max-width: 51.25rem;
+}
+.longform .prose,
+.longform article {
+	max-width: 51.25rem;
 }
 .longform .kicker {
 	margin: 0;
@@ -31,12 +35,13 @@
 	box-shadow: 0 2px 16px rgba(15, 23, 42, 0.04);
 }
 .longform h2 {
-	margin: 0 0 0.55rem;
+	margin: 0 0 0.65rem;
+	padding-top: 0.75rem;
 	font-size: clamp(1.18rem, 2.2vw, 1.5rem);
 	line-height: 1.3;
 }
 .longform h3 {
-	margin: 0.9rem 0 0.4rem;
+	margin: 1.1rem 0 0.45rem;
 	font-size: 1.05rem;
 }
 .longform h4 {
@@ -50,9 +55,12 @@
 	color: var(--muted);
 }
 .longform p {
-	margin: 0.55rem 0;
+	margin: 0 0 0.85rem;
 	color: #32465c;
-	line-height: 1.75;
+	line-height: 1.8;
+}
+.longform p:last-child {
+	margin-bottom: 0;
 }
 .longform ul,
 .longform ol {
@@ -66,13 +74,14 @@
 	color: var(--accent);
 }
 .longform .highlight-box {
-	background: #fff8ee;
-	border-left: 4px solid #f0a830;
-	padding: 0.7rem 0.85rem;
+	background: #e0f2fe;
+	border-left: 4px solid #0284c7;
+	padding: 0.75rem 0.9rem;
 	border-radius: 0 var(--radius) var(--radius) 0;
-	margin-block: 0.6rem;
+	margin-block: 0.75rem;
 	font-size: 0.95rem;
-	color: #483a1d;
+	color: #0c4a6e;
+	line-height: 1.65;
 }
 .longform .eeat-note {
 	margin: 1.25rem 0 0;
@@ -133,7 +142,7 @@
 	border-radius: calc(var(--radius) + 6px);
 	border: 1px solid rgba(15, 23, 42, 0.08);
 	background:
-		radial-gradient(circle at top left, rgba(249, 115, 22, 0.08), transparent 38%),
+		radial-gradient(circle at top left, rgba(2, 132, 199, 0.07), transparent 38%),
 		linear-gradient(180deg, #ffffff, #f8fafc);
 	box-shadow:
 		0 18px 42px rgba(15, 23, 42, 0.08),
@@ -171,4 +180,77 @@
 	background:
 		radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 40%),
 		linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+/* Mobile UX and Hero CTA additions */
+.longform .hero-cta {
+	margin-top: 1.75rem;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1.75rem;
+}
+.longform .btn-line {
+	display: inline-flex;
+	align-items: center;
+	background: #00B900;
+	color: #fff !important;
+	padding: 0.85rem 2.2rem;
+	font-size: 1.1rem;
+	box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
+	border-radius: 50px;
+	font-weight: bold;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+.longform .btn-line:hover {
+	background: #009900;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+	.longform .intro {
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.longform p {
+		font-size: 0.98rem;
+		line-height: 1.75;
+	}
+}
+
+.longform .table-wrap,
+.longform table {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.longform table {
+	border-collapse: collapse;
+	margin: 0.75rem 0 1rem;
+	font-size: 0.92rem;
+}
+.longform th,
+.longform td {
+	padding: 0.65rem 0.75rem;
+	border: 1px solid rgba(15, 23, 42, 0.1);
+	vertical-align: top;
+	min-width: 8rem;
+}
+.longform thead th {
+	background: #f1f5f9;
+	font-weight: 700;
+}
+.longform .info-box {
+	background: #e0f2fe;
+	border-left: 4px solid #0284c7;
+	padding: 0.85rem 1rem;
+	border-radius: 0 var(--radius) var(--radius) 0;
+	margin-block: 0.85rem;
+	font-size: 0.95rem;
+	color: #0c4a6e;
+	line-height: 1.65;
 }

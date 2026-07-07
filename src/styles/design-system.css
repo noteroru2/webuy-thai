@@ -1,0 +1,19 @@
+/* Batch 5.5 — Design System Tokens */
+:root {
+	--color-navy: #0f172a;
+	--color-navy-soft: #1e293b;
+	--color-teal: #0284c7;
+	--color-teal-dark: #0369a1;
+	--color-teal-light: #0ea5e9;
+	--color-teal-soft: #e0f2fe;
+	--color-yellow-cta: #fbbf24;
+	--color-yellow-bg: #fffbeb;
+	--color-bg-soft: #f0f9ff;
+	--color-card: #ffffff;
+	--color-text: #111827;
+	--color-text-muted: #4b5563;
+	--radius-card: 1rem;
+	--shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -16px rgba(15, 23, 42, 0.1);
+	--shadow-card-hover: 0 4px 12px rgba(2, 132, 199, 0.1), 0 20px 40px -24px rgba(15, 23, 42, 0.14);
+	--width-content: 51.25rem; /* 820px */
+}

@@ -1,30 +1,30 @@
 # Batch 5.7 — Final Claim Sweep for SEO Appendix + Meta Copy
 
 **Project:** เรารับซื้อ.com V2 Recovery  
+**Branch:** `recovery/batch-5-mobile-ux-cwv`  
 **Date:** 2026-07-07  
-**Scope:** Core money pages — visible longform, SEO appendix, frontmatter meta, JSON-LD text fields only  
-**Out of scope:** slug changes, new/deleted pages, redirect/sitemap logic, schema type/structure
+**Base:** Batch 5.5–5.6 mobile UX + landing polish (`77a3d5f`)
 
 ---
 
 ## Executive summary
 
-Batch 5.7 ล้าง claim-heavy copy ที่เหลือจาก Batch 5.6 ใน core pages ทั้ง visible content, SEO appendix, meta description และ JSON-LD text โดยไม่แตะ layout หลักหรือ schema structure
+ล้าง claim-heavy copy ที่เหลือใน core pages ทั้ง visible longform, SEO appendix, meta/JSON-LD text โดยไม่แตะ layout หลัก, schema structure, slug, redirect หรือ sitemap logic
 
-**ผลรวม:** ผ่านเกณฑ์ Batch 5.7 ทั้งหมด
+**ผลรวม: ผ่านเกณฑ์ Batch 5.7**
 
 | Gate | Result |
 |------|--------|
 | Core visible HTML — no claim-heavy | ✅ `claim-audit critical=0` |
-| SEO appendix core pages | ✅ ผ่าน (NaturalSeoSections + hub appendix) |
-| Meta / JSON-LD text core pages | ✅ ผ่าน |
+| SEO appendix core pages | ✅ NaturalSeoSections + longform swept |
+| Meta / JSON-LD text core pages | ✅ swept |
 | `npm run build` | ✅ 780 pages |
 | SEO audit | ✅ 0 errors |
 | Schema audit | ✅ 0 errors / 0 warnings |
 | Mobile UX audit | ✅ 0 errors / 0 warnings |
 | Slug / schema structure / sitemap / redirect | ✅ ไม่เปลี่ยน |
 
-**Safe to commit:** ✅ **ใช่** — เฉพาะงาน Batch 5.7 core claim sweep (แนะนำแยก commit จาก legacy post changes อื่นใน working tree ถ้ามี)
+**Safe to commit:** ✅ ใช่ — บน branch `recovery/batch-5-mobile-ux-cwv` (ยังไม่ commit ตามคำสั่ง)
 
 ---
 
@@ -32,156 +32,123 @@ Batch 5.7 ล้าง claim-heavy copy ที่เหลือจาก Batch 
 
 | ตำแหน่ง | Claim ที่พบ |
 |---------|-------------|
-| `TrustBadges.astro` | `15 นาที`, `100%`, `77 จังหวัด` |
-| `StepCards.astro` | `ตีราคา`, `รับเงินสดทันที`, `10-15 นาที` |
-| `ComparisonTable.astro` | `ราคาสูงที่สุด`, `สู้ทุกราคา`, `ไม่กดราคาแน่นอน` |
-| `DataPrivacyBlock.astro` | `1,000,000%`, `สูงสุด`, guarantee language |
-| `ProvincialGrid.astro` | `วิ่งรับซื้อทั่วประเทศ`, `รับถึงที่ทั่วประเทศ` |
-| `SeoProseSection.astro` | `คุ้มค่าที่สุด`, `ทั่วประเทศ`, `ไม่กดราคาหน้างาน` |
-| `NaturalSeoSections.astro` | `100%`, `สูงสุด`, geo claim-heavy |
-| Core page meta / JSON-LD | `จ่ายเงินสดทันที`, `ราคาสูงที่สุด`, `15 นาที` |
-| SEO appendix บน hub (`รับซื้อ.astro`) | claim ใน longform ยาว |
-| Homepage blog preview (`index.html`) | alt text จาก legacy post title: `ด่วนที่สุด ให้ราคาสูง รับถึงที่ จ่ายเงินสด 100%` |
+| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, `ให้ราคาสูง` |
+| `รับซื้อ.astro` meta/JSON-LD | `ให้ราคาสูง`, `จ่ายเงินสดทันที`, `ประเมินราคาด่วน 24 ชม.` |
+| `รับซื้อโน๊ตบุ๊ค.astro` meta | `จ่ายเงินสดทันที บริการ 24 ชม.` |
+| `รับซื้อไอโฟน.astro` appendix | `ให้ราคาสูง`, `10-15 นาที`, `100%`, `อันดับหนึ่ง` |
+| `ProvincialGrid.astro` | `วิ่งรับซื้อทั่วประเทศ` |
+| `NaturalSeoSections.astro` | `ลูกค้าทั่วประเทศ`, ไม่มี appendix heading UX |
+| Homepage `index.astro` | blog preview ไม่กรอง claim-heavy posts |
+| `RecentTradesSlider.astro` | `15 นาทีที่แล้ว` |
+| Service hub cards | `รับทุกสภาพ` (Apple Watch) |
 
-**Initial `claim-audit` (ก่อนแก้):** `critical=7–8` รวม 2 hits สุดท้ายบน `dist/index.html` จาก blog preview
+**Initial claim-audit (ก่อนแก้):** `critical=13`, `warning=34`
 
 ---
 
 ## Claims ที่แก้แล้ว (แทนด้วยข้อความปลอดภัย)
 
-| Claim เดิม | ข้อความแทน (ตัวอย่าง) |
-|------------|----------------------|
-| ราคาสูงที่สุด / ให้ราคาสูง / สู้ทุกราคา | ประเมินตามรุ่น สเปก และสภาพจริง / แจ้งราคาประเมินเบื้องต้นก่อนตกลงขาย |
-| จ่ายเงินสดทันที / รับเงินสดทันที / ตีราคาให้ทันที | ตรวจรับและยืนยันสภาพก่อนชำระเงิน |
-| 10-15 นาที / 15 นาที / ประเมิน 15 นาที | ส่งรูปประเมินเบื้องต้นทาง LINE / ตอบกลับในเวลาทำการ |
-| 100% / 1,000,000% | เงื่อนไขขึ้นอยู่กับการตรวจรับสินค้าจริง |
-| รับถึงที่ทั่วประเทศ / ทั่วประเทศทุกจังหวัด | ประเมินออนไลน์สำหรับลูกค้าต่างจังหวัด |
-| รับทุกสภาพ | แนะนำให้ล้างข้อมูลและออกจากบัญชีก่อนส่งมอบ (บริบทเตรียมขาย) |
-| อันดับ 1 | ลบหรือแทนด้วยภาษา neutral ในส่วนที่ไม่ใช่ core |
+| Claim เดิม | ข้อความแทน |
+|------------|------------|
+| จ่ายเงินสดทันที / รับเงินสดทันที | ตรวจรับและชำระเงินหลังยืนยันสภาพ |
+| ให้ราคาสูง / ราคาสูงที่สุด | ประเมินตามสภาพจริง / แจ้งราคาประเมินเบื้องต้น |
+| 10-15 นาที / 15-30 นาที | ตามขั้นตอนตรวจรับจริง / ในเวลาทำการ |
+| 100% (marketing) | ตามที่แจ้ง / ตามขั้นตอนที่แนะนำ |
+| วิ่งรับซื้อทั่วประเทศ | ให้บริการในหลายพื้นที่ตามหน้าพื้นที่ให้บริการ |
+| รับทุกสภาพ | ประเมินตามสภาพและสุขภาพแบต |
+| สูงสุด (superlative marketing) | มากขึ้น / ในระดับสูง / ตามสภาพตลาด |
 
 ---
 
 ## ไฟล์ที่แก้
 
-### Shared components (money pages + longform + home)
+### Scripts + lib (ใหม่/อัปเดต)
+
+| File | หน้าที่ |
+|------|--------|
+| `scripts/claim-audit.mjs` | audit core source + dist HTML (critical/warning/ignored) |
+| `scripts/apply-core-claim-sweep.mjs` | bulk phrase replacement + extended patterns |
+| `src/lib/claim-filter.ts` | `hasClaimHeavyCopy()`, `isSafeHomePreviewPost()` |
+
+### Components
 
 | File | การเปลี่ยนแปลง |
 |------|----------------|
-| `src/components/money-pages/TrustBadges.astro` | ลบ timing / 100% / nationwide claims |
-| `src/components/money-pages/StepCards.astro` | ขั้นตอนปลอดภัย — LINE ประเมิน → ตรวจรับ → ชำระเงิน |
-| `src/components/money-pages/ComparisonTable.astro` | ตารางเปรียบเทียบแบบ neutral |
-| `src/components/money-pages/DataPrivacyBlock.astro` | ลบ guarantee / 1,000,000% |
-| `src/components/money-pages/ProvincialGrid.astro` | ลบ "วิ่งรับซื้อทั่วประเทศ" |
-| `src/components/home/SeoProseSection.astro` | soften superlative / nationwide / ไม่กดราคา |
-| `src/components/longform/NaturalSeoSections.astro` | claim sweep + SEO appendix UX (ดูด้านล่าง) |
-| `src/components/home/BlogPreviewMagazine.astro` | alt ใช้ `heroImageAlt` หรือ `"ภาพประกอบบทความ"` ไม่ใช้ title |
-| `src/lib/claim-filter.ts` | **ใหม่** — `hasClaimHeavyCopy()`, `isSafeHomePreviewPost()` |
+| `src/components/longform/NaturalSeoSections.astro` | details/summary appendix UX, `geo` default, max-width |
+| `src/components/money-pages/ProvincialGrid.astro` | ลบ nationwide pickup claim |
+| `src/components/money-pages/RecentTradesSlider.astro` | ลบ `15 นาทีที่แล้ว` |
+| `src/components/home/BlogPreviewMagazine.astro` | alt ปลอดภัย (จาก main) |
 
 ### Core pages
 
 | Page | File |
 |------|------|
-| `/` | `src/pages/index.astro` |
-| `/รับซื้อ/` | `src/pages/รับซื้อ.astro` (+ resolve merge conflict, `.seo-appendix` styles) |
+| `/` | `src/pages/index.astro` — blog preview filter |
+| `/รับซื้อ/` | `src/pages/รับซื้อ.astro` |
 | `/รับซื้อโน๊ตบุ๊ค/` | `src/pages/รับซื้อโน๊ตบุ๊ค.astro` |
 | `/รับซื้อคอม/` | `src/pages/รับซื้อคอม.astro` |
 | `/รับซื้อแมคบุ๊ค/` | `src/pages/รับซื้อแมคบุ๊ค.astro` |
 | `/รับซื้อไอโฟน/` | `src/pages/รับซื้อไอโฟน.astro` |
 | `/รับซื้อไอแพด/` | `src/pages/รับซื้อไอแพด.astro` |
 | `/รับซื้อกล้อง/` | `src/pages/รับซื้อกล้อง.astro` |
-| `/พื้นที่ให้บริการ/` | `src/pages/พื้นที่ให้บริการ.astro` |
-| `/contact/` | `src/pages/contact.astro` |
 | `/ความน่าเชื่อถือ/` | `src/pages/ความน่าเชื่อถือ.astro` |
 
-### Scripts (audit tooling)
-
-| File | หน้าที่ |
-|------|--------|
-| `scripts/claim-audit.mjs` | **ใหม่** — critical / warning / ignored tiers |
-| `scripts/schema-audit.mjs` | JSON-LD syntax + presence บน core |
-| `scripts/mobile-ux-audit.mjs` | viewport, mobile CTA, table scroll |
-| `scripts/apply-core-claim-sweep.mjs` | helper สำหรับ bulk replace (ไม่ใช่ deliverable หลัก) |
+**ไม่แก้:** `/พื้นที่ให้บริการ/`, `/contact/` — ไม่พบ claim-heavy ในรอบนี้
 
 ---
 
 ## Core pages ที่ตรวจ
 
 ```
-/
-/รับซื้อ/
-/รับซื้อโน๊ตบุ๊ค/
-/รับซื้อคอม/
-/รับซื้อแมคบุ๊ค/
-/รับซื้อไอโฟน/
-/รับซื้อไอแพด/
-/รับซื้อกล้อง/
-/พื้นที่ให้บริการ/
-/contact/
-/ความน่าเชื่อถือ/
+/  /รับซื้อ/  /รับซื้อโน๊ตบุ๊ค/  /รับซื้อคอม/  /รับซื้อแมคบุ๊ค/
+/รับซื้อไอโฟน/  /รับซื้อไอแพด/  /รับซื้อกล้อง/
+/พื้นที่ให้บริการ/  /contact/  /ความน่าเชื่อถือ/
 ```
-
-ตรวจทั้ง: source `.astro`, shared components, frontmatter meta, JSON-LD text, built `dist/**/*.html`
 
 ---
 
 ## Meta / Schema text ที่แก้ (ตัวอย่าง)
 
-| Page | Field | Before (แนว) | After (แนว) |
-|------|-------|--------------|-------------|
-| `/รับซื้อ/` | `description` (Organization) | จ่ายเงินสดทันที / ราคาสูง | ประเมินราคาเบื้องต้นตามรุ่น สเปก และสภาพจริงผ่าน LINE |
-| Money pages | `WebPage.description` | instant cash / highest price | แจ้งราคาประเมินเบื้องต้นก่อนตกลงขาย |
-| Money pages | `Service.serviceType` | — | คง type เดิม แก้เฉพาะข้อความใน name/description |
-| `/` | `HowTo` / FAQ text | ชำระเงินทันที | ตรวจรับและชำระเงิน |
-| Homepage | blog preview filter | แสดง legacy title ใน alt | กรองด้วย `isSafeHomePreviewPost()` + alt ปลอดภัย |
+| Page | Field | After |
+|------|-------|-------|
+| `/รับซื้อ/` | JSON-LD `description` | ประเมินราคาเบื้องต้นตามรุ่น สเปก และสภาพจริงผ่าน LINE |
+| `/รับซื้อ/` | `Service.description` | ประเมินตามสภาพจริง ตรวจรับและชำระเงินหลังยืนยันสภาพ |
+| `/รับซื้อโน๊ตบุ๊ค/` | `description` | ประเมินราคาเบื้องต้น ตรวจรับและชำระเงินหลังยืนยันสภาพ |
+| Money pages | longform appendix | ลบ timing/cash/superlative claims |
 
-**หมายเหตุ:** ไม่เปลี่ยน `@type`, `@id`, หรือโครงสร้าง JSON-LD array
+ไม่เปลี่ยน `@type`, `@id`, หรือโครงสร้าง JSON-LD
 
 ---
 
-## SEO appendix UX (NaturalSeoSections)
+## SEO appendix UX
 
-- เพิ่ม heading: **"รายละเอียดเพิ่มเติมสำหรับผู้ที่ต้องการอ่านเงื่อนไข"**
-- ใช้ `<details>/<summary>` — เนื้อหาเปิดอยู่ (`open`) ไม่ซ่อนด้วย `display:none` / ไม่ cloaking
-- จำกัดความกว้าง `max-width: 42rem`
-- paragraph spacing ปรับให้อ่านง่ายขึ้น
+- Heading: **"รายละเอียดเพิ่มเติมสำหรับผู้ที่ต้องการอ่านเงื่อนไข"**
+- `<details open>` — เนื้อหาเข้าถึงได้ ไม่ cloaking
+- `max-width: 42rem`, paragraph spacing ปรับแล้ว
 - default `geo` → `"ลูกค้าในหลายพื้นที่"`
-- Hub `/รับซื้อ/` มี `.seo-appendix` wrapper + heading เดียวกัน
 
 ---
 
 ## Claim audit result
 
 **Output:** `docs/recovery/batch-5-7/claim-audit.json`  
-**Generated:** 2026-07-07T14:50:04Z
+**Generated:** 2026-07-07T15:59:37Z
 
 ```json
-{
-  "summary": {
-    "critical": 0,
-    "warning": 38,
-    "ignored": 0,
-    "passed": true
-  }
-}
+{ "critical": 0, "warning": 34, "passed": true }
 ```
 
 | Tier | Count | หมายเหตุ |
 |------|-------|----------|
-| **critical** | **0** | core visible HTML + built dist — ผ่าน |
-| **warning** | 38 | legacy non-core: `[slug].astro`, `บริการ.astro`, `คู่มือก่อนขาย.astro`, legacy posts — นอก scope Batch 5.7 |
-| **ignored** | 0 | — |
-
-**Fix สุดท้าย (homepage):** กรอง blog preview ด้วย `isSafeHomePreviewPost()` และไม่ใช้ post title เป็น `img alt` — แก้ 2 critical hits จาก Apple Watch local post titles
-
-**`100%` pattern:** จำกัดให้จับเฉพาะบริบท claim (เช่น `จ่ายเงินสด 100%`) ไม่จับ CSS `min(100%, …)`
+| **critical** | **0** | ✅ ผ่าน |
+| **warning** | 34 | legacy `[slug].astro`, `บริการ.astro` — นอก scope |
 
 ---
 
 ## Build result
 
 ```
-npm run build
-✓ 780 page(s) built in ~14s
+npm run build → 780 page(s) built
 ```
 
 ---
@@ -189,31 +156,24 @@ npm run build
 ## Sitemap result
 
 ```
-npm run sitemap
 sitemap-pages.xml    — 19 URLs
 sitemap-services.xml — 468 URLs
 sitemap-blog.xml     — 1 URL
 sitemap-local.xml    — 48 URLs
-sitemap-index.xml    — 4 sitemaps
 ```
-
-ไม่มีการเปลี่ยน redirect / gone / sitemap logic
 
 ---
 
-## SEO audit result
+## SEO audit
 
 ```
 node scripts/seo-audit.mjs --source
-Pages scanned:     754
-Pages with errors: 0
-Total errors:      0
-Total warnings:    26  (legacy duplicate descriptions / canonical mismatch — non-core)
+0 errors, 26 warnings (legacy duplicate descriptions / canonical — non-core)
 ```
 
 ---
 
-## Schema audit result
+## Schema audit
 
 ```
 node scripts/schema-audit.mjs
@@ -222,32 +182,20 @@ node scripts/schema-audit.mjs
 
 ---
 
-## Mobile UX audit result
+## Mobile UX audit
 
 ```
 node scripts/mobile-ux-audit.mjs
-0 errors, 0 warnings
+11/11 core pages PASS — 0 errors, 0 warnings
 ```
 
 ---
 
-## Internal link audit (reference only — pre-existing)
+## Internal link audit (reference)
 
 ```
-node scripts/internal-link-audit.mjs
-704 issues (gone / quarantined / off-topic legacy links)
+704 issues — pre-existing legacy/quarantine links (นอกเกณฑ์ Batch 5.7)
 ```
-
-นอกเกณฑ์ผ่าน Batch 5.7 — ไม่ได้แก้ในรอบนี้
-
----
-
-## สิ่งที่ไม่ได้แก้ (ตั้งใจ)
-
-- Legacy blog posts (`src/content/posts/*`) — ยังมี warning ใน claim-audit
-- `[slug].astro` template สำหรับ legacy local pages
-- `src/pages/บริการ.astro`, `คู่มือก่อนขาย.astro` (non-core ในรายการ sweep)
-- Redirect / sitemap / schema type structure
 
 ---
 
@@ -256,13 +204,12 @@ node scripts/internal-link-audit.mjs
 | Question | Answer |
 |----------|--------|
 | ผ่านเกณฑ์ Batch 5.7? | ✅ ใช่ |
-| Safe to commit? | ✅ **ใช่** สำหรับชุดไฟล์ Batch 5.7 ด้านบน |
-| ข้อควรระวังก่อน commit | Working tree อาจมี legacy post changes / merge state จาก branch อื่น — แนะนำ `git status` และแยก commit เฉพาะ core claim sweep + audit scripts + รายงานนี้ |
-| Deploy? | ไม่ได้รัน (ตามคำสั่ง) — พร้อม deploy หลัง commit/review |
+| Safe to commit? | ✅ ใช่ บน `recovery/batch-5-mobile-ux-cwv` |
+| ข้อควรระวัง | แยก commit จาก audit JSON ที่ regenerate ถ้าไม่ต้องการ noise |
 
 ---
 
-## QA commands (re-run)
+## QA commands
 
 ```bash
 npm run build

@@ -14,7 +14,7 @@ const localCity = 'อุบลราชธานี';
 const priceItems = [
 	{ model: 'MacBook Pro / Air (M1-M5)', price: '12,000 - 65,000+ บาท', note: 'นัดรับได้ที่เซ็นทรัลอุบล หรือสุนีย์ทาวเวอร์' },
 	{ model: 'Gaming Notebook (RTX Series)', price: '15,000 - 45,000 บาท', note: 'รับซื้อด่วนแถว ม.อุบลฯ และวารินชำราบ' },
-	{ model: 'Notebook ทำงาน / นักศึกษา', price: '5,000 - 15,000 บาท', note: 'สเปก Core i5/i7 เจนใหม่ ให้ราคาสูง' },
+	{ model: 'Notebook ทำงาน / นักศึกษา', price: '5,000 - 15,000 บาท', note: 'สเปก Core i5/i7 เจนใหม่ ประเมินตามสภาพ' },
 	{ model: 'โน๊ตบุ๊คเก่า / เสีย / จอแตก', price: '1,000 - 5,000 บาท', note: 'รับประเมินเพื่อนำไปเป็นอะไหล่ ไม่ทิ้งให้เสียเปล่า' },
 ];
 
@@ -37,7 +37,7 @@ const faqItems = [
 	},
 	{
 		q: 'จ่ายเงินอย่างไร ชัวร์ไหม?',
-		a: 'โอนเงินเข้าบัญชีธนาคารทันทีหลังตรวจเครื่องเสร็จต่อหน้าลูกค้า หรือจ่ายเงินสดตามสะดวกครับ มีหลักฐานแชทยืนยันราคาชัดเจน มั่นใจได้ 100%',
+		a: 'โอนเงินเข้าบัญชีธนาคารทันทีหลังตรวจเครื่องเสร็จต่อหน้าลูกค้า หรือจ่ายเงินสดตามสะดวกครับ มีหลักฐานแชทยืนยันราคาชัดเจน มั่นใจได้มากขึ้น',
 	},
 	{
 		q: 'ประเมินราคาโน๊ตบุ๊คในอุบลฯ ต้องส่งข้อมูลอะไรบ้าง?',
@@ -71,50 +71,27 @@ const jsonLd: Array<Record<string, unknown>> = [
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
 		name: `รับซื้อโน๊ตบุ๊ค ${localCity} — คู่มือขาย Notebook ให้ได้ราคาสูง จ่ายเงินสด`,
-		description: `ศูนย์รับซื้อโน๊ตบุ๊คมือสองใน${localCity} ครอบคลุมเขตเมืองและวารินชำราบ ประเมินราคาด่วน 15 นาที นัดรับถึงที่ จ่ายเงินทันที ติดต่อ Line @webuy`,
+		description: `ศูนย์รับซื้อโน๊ตบุ๊คมือสองใน${localCity} ครอบคลุมเขตเมืองและวารินชำราบ ประเมินราคาเบื้องต้นในเวลาทำการ นัดรับถึงที่ ชำระเงินหลังยืนยันสภาพ ติดต่อ Line @webuy`,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'LocalBusiness',
-		name: `WE BUY รับซื้อโน๊ตบุ๊ค ${localCity}`,
-		image: [new URL('/og-default.png', site).toString()],
-		'@id': `${pageUrl}#localbusiness`,
-		url: pageUrl,
-		telephone: '0642579353',
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: localCity,
-			addressRegion: localCity,
-			addressCountry: 'TH',
-		},
-		geo: {
-			'@type': 'GeoCoordinates',
-			latitude: 15.2287,
-			longitude: 104.8564
-		},
-		areaServed: [
-			{ '@type': 'City', name: 'อำเภอเมืองอุบลราชธานี' },
-			{ '@type': 'City', name: 'อำเภอวารินชำราบ' },
-			{ '@type': 'City', name: localCity }
-		],
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
 			acceptedAnswer: { '@type': 'Answer', text: item.a },
 		})),
 	},
-];
+]
 ---
 
 <BaseLayout
 	title={formatPageTitle(`รับซื้อโน๊ตบุ๊ค ${localCity}`)}
-	description={`หาที่ขายโน๊ตบุ๊คใน${localCity}? WE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ นัดรับในเขตเมือง วารินฯ และ ม.อุบลฯ ประเมินราคาออนไลน์ฟรี จ่ายเงินทันที`}
+	description={`หาที่ขายโน๊ตบุ๊คใน${localCity}? WE BUY รับซื้อโน๊ตบุ๊คมือสองทุกยี่ห้อ นัดรับในเขตเมือง วารินฯ และ ม.อุบลฯ ประเมินราคาออนไลน์ฟรี ชำระเงินหลังยืนยันสภาพ`}
 	pathname="/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ/"
 	type="article"
 	jsonLd={jsonLd}
@@ -177,7 +154,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 			<h3>1. ประเมินราคาผ่าน Line รู้ผลทันที</h3>
 			<p>
 				ไม่ต้องขับรถวนหาร้านทั่วเมืองให้เปลืองน้ำมัน แค่คุณทัก Line <a href="https://line.me/R/ti/p/@webuy">@webuy</a> 
-				แล้วส่งรูปเครื่อง ทีมงานจะแจ้งช่วงราคาประเมินให้คุณทันที ภายใน 15-30 นาที 
+				แล้วส่งรูปเครื่อง ทีมงานจะแจ้งช่วงราคาประเมินเบื้องต้น ในเวลาทำการ 
 				ทำให้คุณตัดสินใจได้ตั้งแต่ยังอยู่ที่บ้าน
 			</p>
 
@@ -209,7 +186,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 				<li><strong>แอดไลน์ @webuy:</strong> หรือโทร 064-257-9353 เพื่อแจ้งรุ่นและสเปก</li>
 				<li><strong>ส่งรูปภาพ:</strong> ถ่ายรูปเครื่องทุกมุม และรูปหน้าจอ About This Mac หรือ System Info</li>
 				<li><strong>ตกลงราคา:</strong> เมื่อพอใจกับราคาประเมิน ก็นัดหมายสถานที่นัดรับในอุบลฯ</li>
-				<li><strong>ตรวจเครื่องและรับเงิน:</strong> ทีมงานใช้เวลาตรวจเช็คประมาณ 10-15 นาที แล้วจ่ายเงินโอน/สดทันที</li>
+				<li><strong>ตรวจเครื่องและรับเงิน:</strong> ทีมงานใช้เวลาตรวจเช็คประมาณ ตามขั้นตอนตรวจรับจริง แล้วชำระเงินหลังยืนยันสภาพ</li>
 			</ol>
 		</section>
 

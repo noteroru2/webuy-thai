@@ -138,6 +138,7 @@ const listJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
+		'@id': `${site}/blog/#webpage`,
 		name: 'คลังบทความและหน้าคลัสเตอร์ WE BUY',
 		description:
 			'รวมบทความและหน้าคลัสเตอร์ของ WE BUY สำหรับการขาย iPhone, iPad, MacBook, โน๊ตบุ๊ค, คอม และสินค้าไอทีมือสอง พร้อมคู่มือก่อนขาย เช็กราคา และหน้าพื้นที่ให้บริการ',
@@ -158,6 +159,7 @@ const listJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${site}/blog/#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'บทความ', item: `${site}/blog/` },

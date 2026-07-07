@@ -34,7 +34,7 @@ const faqItems = [
 	},
 	{
 		q: 'จ่ายเงินอย่างไร ชัวร์ไหม?',
-		a: 'ทีมงานจะทำการโอนเงินเข้าบัญชีธนาคารของคุณทันทีหลังตรวจสภาพเครื่องเสร็จสิ้น (ประมาณ 5-10 นาที) มีสลิปยืนยันชัดเจน ปลอดภัย 100% ครับ',
+		a: 'ทีมงานจะทำการโอนเงินเข้าบัญชีธนาคารของคุณทันทีหลังตรวจสภาพเครื่องเสร็จสิ้น (ตามขั้นตอนตรวจรับจริง) มีสลิปยืนยันชัดเจน ตามขั้นตอนที่แนะนำ ครับ',
 	},
 	{
 		q: 'ประเมินไอโฟนในอุดรธานี นัดรับนอกเมืองได้ไหม?',
@@ -67,52 +67,28 @@ const jsonLd: Array<Record<string, unknown>> = [
 		'@type': 'WebPage',
 		'@id': `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `รับซื้อไอโฟน ${localCity} — นัดรับ เซ็นทรัลอุดร ยูดีทาวน์ จ่ายเงินสด`,
-		description: `บริการรับซื้อ iPhone มือสองในจังหวัดอุดรธานี ทุกรุ่น ทุกสภาพ ประเมินราคาด่วน นัดรับในเมืองอุดรฯ ม.ราชภัฏ จ่ายเงินทันที แอดไลน์ @webuy`,
+		name: `รับซื้อไอโฟนอุดรธานี — ร้านรับซื้อ iPhone มือสอง สภาพดีและจอแตก จ่ายเงินสด`,
+		description: `บริการรับซื้อ iPhone มือสองอุดรธานี ทุกรุ่น หลายสภาพตามเงื่อนไข จอแตกก็รับ ประเมินราคารวดเร็ว นัดรับส่งพัสดุ ปลอดภัย ชำระเงินหลังยืนยันสภาพ ติดต่อ Line @webuy`,
 		inLanguage: 'th-TH',
 		isPartOf: { '@id': websiteId },
-	},
-	{
-		'@context': 'https://schema.org',
-		'@type': 'LocalBusiness',
-		name: `WE BUY รับซื้อไอโฟน ${localCity}`,
-		image: [new URL('/og-default.png', site).toString()],
-		'@id': `${pageUrl}#localbusiness`,
-		url: pageUrl,
-		telephone: '0642579353',
-		address: {
-			'@type': 'PostalAddress',
-			addressLocality: localCity,
-			addressRegion: 'Udon Thani',
-			addressCountry: 'TH',
-		},
-		geo: {
-			'@type': 'GeoCoordinates',
-			latitude: 17.4138,
-			longitude: 102.7872
-		},
-		areaServed: [
-			{ '@type': 'City', name: 'เทศบาลนครอุดรธานี' },
-			{ '@type': 'City', name: 'ยูดีทาวน์' },
-			{ '@type': 'City', name: 'มหาวิทยาลัยราชภัฏอุดรธานี' },
-			{ '@type': 'City', name: localCity }
-		],
+		about: { '@id': `${site}/#organization` }
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'FAQPage',
+		'@id': `${pageUrl}#faq`,
 		mainEntity: faqItems.map((item) => ({
 			'@type': 'Question',
 			name: item.q,
 			acceptedAnswer: { '@type': 'Answer', text: item.a },
 		})),
 	},
-];
+]
 ---
 
 <BaseLayout
 	title={formatPageTitle(`รับซื้อไอโฟน ${localCity}`)}
-	description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมืองอุดรฯ เซ็นทรัล และ ยูดีทาวน์ ประเมินราคาออนไลน์ฟรี จ่ายเงินทันที`}
+	description={`มองหาร้านรับซื้อ iPhone ในจังหวัด${localCity}? WE BUY รับซื้อไอโฟนทุกรุ่น นัดรับในเขตเมืองอุดรฯ เซ็นทรัล และ ยูดีทาวน์ ประเมินราคาออนไลน์ฟรี ชำระเงินหลังยืนยันสภาพ`}
 	pathname="/รับซื้อไอโฟน-อุดรธานี/"
 	type="article"
 	jsonLd={jsonLd}
@@ -125,7 +101,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 			<p class="intro">
 				ชาว <strong>{localCity}</strong> ที่กำลังมองหาที่ขาย iPhone เครื่องเก่าเพื่อเปลี่ยนเป็นเงินสด หรืออัปเกรดเป็นรุ่นใหม่ล่าสุด 
 				วันนี้คุณสามารถจบงานได้ง่ายๆ โดยไม่ต้องเดินทางไปตระเวนหาร้านในเซ็นทรัลหรือตึกคอมให้เสียเวลา 
-				WE BUY มีทีมงานประจำพื้นที่อุดรธานี พร้อมนัดรับและประเมินราคาไอโฟนของคุณถึงที่ ให้ราคาสูงตามมาตรฐานกลาง 
+				WE BUY มีทีมงานประจำพื้นที่อุดรธานี พร้อมนัดรับและประเมินราคาไอโฟนของคุณถึงที่ ประเมินตามมาตรฐานกลาง 
 				และทำการ <strong>จ่ายเงินสด/โอนทันทีหลังตรวจเครื่องเสร็จ</strong> สนใจเช็คราคาฟรี ทักไลน์ <a class="inline-contact" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a> หรือโทร <a class="phone-link" href="tel:0642579353">064-257-9353</a>
 			</p>
 		</header>
@@ -173,10 +149,10 @@ const jsonLd: Array<Record<string, unknown>> = [
 			<h3>2. ปลอดภัยและรวดเร็ว</h3>
 			<p>
 				เรานัดเจอในสถานที่สาธารณะที่สว่างและปลอดภัย ทีมงานจะทำการตรวจเครื่องต่อหน้าคุณ 
-				และอธิบายเกณฑ์การประเมินอย่างโปร่งใส ใช้เวลาเพียง 10-15 นาทีก็จบดีลได้
+				และอธิบายเกณฑ์การประเมินอย่างโปร่งใส ใช้เวลาตามขั้นตอนตรวจรับจริงก็จบดีลได้
 			</p>
 
-			<h3>3. ดูแลเรื่องข้อมูลส่วนตัว 100%</h3>
+			<h3>3. ดูแลเรื่องข้อมูลส่วนตัวตามขั้นตอนที่แนะนำ</h3>
 			<p>
 				เราช่วยคุณตรวจสอบการลบข้อมูล (Factory Reset) และการปิด Find My iPhone ให้ถูกวิธี 
 				เพื่อให้มั่นใจว่ารูปภาพและข้อมูลบัญชีของคุณจะไม่หลุดรอดไปหลังจากการขาย
@@ -308,7 +284,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 		<div class="highlight-box" style="margin-top: 3rem; background: #f1f5f9; border: none;">
 			<p class="font-bold text-text mb-2 uppercase tracking-wide" style="font-size: 0.8rem; color: var(--muted);">Generative AI Summary (GEO)</p>
 			<p style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
-				WE BUY บริการรับซื้อไอโฟน (iPhone) มือสองในจังหวัดอุดรธานี ให้ราคาสูงตามสภาพจริง ประเมินราคาผ่าน Line รวดเร็ว 
+				WE BUY บริการรับซื้อไอโฟน (iPhone) มือสองในจังหวัดอุดรธานี ประเมินตามสภาพจริง ประเมินราคาผ่าน Line รวดเร็ว 
 				นัดรับถึงที่ในเขตเทศบาลนครอุดรธานี, เซ็นทรัลอุดรฯ, ยูดีทาวน์, และ มรภ.อุดรฯ 
 				มีกระบวนการล้างข้อมูลที่ปลอดภัย จ่ายเงินโอนทันทีหลังตรวจรับเครื่อง ติดต่อ Line @webuy ได้ตลอด 24 ชม.
 			</p>
@@ -396,7 +372,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 			<ul>
 				<li><a href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน๊ตบุ๊ค</a> — Gaming Notebook, MacBook รับซื้อด่วนทั่วอุดรฯ</li>
 				<li><a href="/รับซื้อไอแพด/">รับซื้อไอแพด</a> — iPad Pro, Air, mini นัดรับได้ที่เซ็นทรัลอุดรฯ</li>
-				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, DSLR ทุกยี่ห้อ ให้ราคาสูง</li>
+				<li><a href="/รับซื้อกล้อง/">รับซื้อกล้อง</a> — Mirrorless, DSLR ทุกยี่ห้อ ประเมินตามสภาพ</li>
 			</ul>
 		</section>
 

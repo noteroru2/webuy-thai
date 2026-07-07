@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NaturalSeoSections from '../components/longform/NaturalSeoSections.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
@@ -33,51 +34,19 @@ const contactJsonLd: Array<Record<string, unknown>> = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'ContactPage',
+		'@id': `${site}/contact/#webpage`,
 		name: `ติดต่อเรา | ${siteName}`,
 		url: `${site}/contact/`,
+		isPartOf: { '@id': `${site}/#website` },
+		about: { '@id': `${site}/#organization` },
 		mainEntity: {
-			'@type': 'LocalBusiness',
-			'@id': localId,
-			name: siteName,
-			parentOrganization: { '@id': orgId },
-			telephone: businessPhone,
-			areaServed: serviceAreas.map((area) => ({
-				'@type': 'AdministrativeArea',
-				name: area,
-			})),
-			hasMap: mapUrl,
-			geo: {
-				'@type': 'GeoCoordinates',
-				latitude: geoLat,
-				longitude: geoLon,
-			},
-			openingHoursSpecification: [
-				{
-					'@type': 'OpeningHoursSpecification',
-					dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-					opens: '00:00',
-					closes: '23:59',
-				},
-			],
-			address: {
-				'@type': 'PostalAddress',
-				addressLocality,
-				addressRegion,
-				postalCode,
-				addressCountry: 'TH',
-			},
-			contactPoint: {
-				'@type': 'ContactPoint',
-				contactType: 'customer support',
-				availableLanguage: ['Thai'],
-				url: 'https://line.me/R/ti/p/@webuy',
-				telephone: businessPhone,
-			},
-		},
+			'@id': `${site}/#localbusiness`
+		}
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${site}/contact/#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'ติดต่อเรา', item: `${site}/contact/` },
@@ -103,8 +72,9 @@ const contactKeywords =
 			<p class="tech-eyebrow">ติดต่อทีมงาน</p>
 			<h1>ช่องทางติดต่อ — เรารับซื้อ.com</h1>
 			<p>
-				ต้องการประเมินราคารับซื้อโน้ตบุ๊คหรือรับซื้อคอม (หรือสอบถามบริการอื่น) ติดต่อเราผ่าน LINE ได้สะดวก
-				พร้อมตอบกลับราคาอ้างอิงเบื้องต้นอย่างรวดเร็วในเวลาทำการ
+				เรารับซื้อ.com ดำเนินการโดย <strong>ห้างหุ้นส่วนจำกัด อำพล เทรดดิ้ง (AMPHON TRADING)</strong>. 
+				หากต้องการประเมินราคารับซื้อโน้ตบุ๊ค คอมพิวเตอร์ หรือสินค้าไอทีมือสองชนิดอื่น ๆ 
+				สามารถส่งรูป รุ่น สเปก และสภาพเพื่อประเมินราคาเบื้องต้นได้ทาง LINE ตลอด 24 ชั่วโมง
 			</p>
 		</div>
 
@@ -182,6 +152,7 @@ const contactKeywords =
 			density="full"
 		/>
 	</section>
+	<CtaBand heading="ส่งรูปสินค้าเพื่อประเมินราคาเบื้องต้น" text="แจ้งรุ่น สเปก สภาพ และอุปกรณ์ที่มี ทีมงานจะประเมินตามข้อมูลจริง" />
 </BaseLayout>
 
 <style>

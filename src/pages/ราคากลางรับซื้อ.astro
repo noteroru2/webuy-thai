@@ -126,15 +126,13 @@ const jsonLd: Array<Record<string, unknown>> = [
 		description: pageDescription,
 		url: `${site}${pagePath}`,
 		inLanguage: 'th-TH',
-		isPartOf: { '@type': 'WebSite', url: `${site}/` },
-		about: {
-			'@type': 'Thing',
-			name: 'ราคากลางรับซื้อสินค้าไอทีมือสอง',
-		},
+		isPartOf: { '@id': `${site}/#website` },
+		about: { '@id': `${site}/#organization` },
 	},
 	{
 		'@context': 'https://schema.org',
 		'@type': 'BreadcrumbList',
+		'@id': `${site}${pagePath}#breadcrumb`,
 		itemListElement: [
 			{ '@type': 'ListItem', position: 1, name: 'หน้าแรก', item: `${site}/` },
 			{ '@type': 'ListItem', position: 2, name: 'ราคากลางรับซื้อ', item: `${site}${pagePath}` },
@@ -360,7 +358,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 				<div class="grid gap-8 md:grid-cols-2">
 					<div>
-						<h2 class="text-xl font-bold text-emerald-800">ปัจจัยที่มักทำให้ราคาสูงขึ้น</h2>
+						<h2 class="text-xl font-bold text-emerald-800">ปัจจัยที่มักทำให้ราคาประเมินดีขึ้น</h2>
 						<ul class="mt-4 space-y-2 text-sm text-text-muted">
 							{
 								priceUpFactors.map((item) => (

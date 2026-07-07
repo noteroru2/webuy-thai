@@ -41,13 +41,13 @@ const SHARED_COMPONENTS = [
 ];
 
 const CLAIM_PATTERNS = [
-	{ id: 'ราคาสูงที่สุด', re: /ราคาสูงที่สุด|ให้ราคาสูงที่สุด/g },
+	{ id: 'ราคาสูงที่สุด', re: /ราคาสูงที่สุด|ให้ราคาสูงที่สุด|ให้ราคาสูง(?![กว่า])/g },
 	{ id: 'สู้ทุกราคา', re: /สู้ทุกราคา/g },
 	{ id: 'ไม่กดราคาแน่นอน', re: /ไม่กดราคาแน่นอน/g },
 	{ id: 'จ่ายสดทันที', re: /จ่ายสดทันที|จ่ายเงินสดทันที/g },
 	{ id: 'รับเงินสดทันที', re: /รับเงินสดทันที/g },
 	{ id: 'ตีราคาให้ทันที', re: /ตีราคาให้ทันที|ตีราคาได้ทันที/g },
-	{ id: 'ประเมิน 15 นาที', re: /ประเมิน 15 นาที|10-15 นาที|15-30 นาที/g },
+	{ id: 'ประเมิน 15 นาที', re: /ประเมิน 15 นาที|(?:ใน|ภายใน|ไม่เกิน|เพียง|ใช้เวลา)[^\n]{0,16}(?:10-15|15-30|15) นาที/g },
 	{ id: '100%', re: /(?:ปลอดภัย|จ่ายเงินสด|จ่ายสด|เงินสด|ไม่กดราคา|ได้เงิน|การันตี)[^\n]{0,24}100%/g },
 	{ id: '1,000,000%', re: /1,?000,?000%/g },
 	{ id: 'อันดับ 1', re: /อันดับ\s*1|อันดับหนึ่ง/g },
@@ -131,12 +131,39 @@ function stripHtml(html) {
 		.replace(/\s+/g, ' ');
 }
 
+const SECONDARY_PAGES = [
+	'src/pages/[slug].astro',
+	'src/pages/บริการ.astro',
+	'src/pages/คู่มือก่อนขาย.astro',
+	'src/pages/รับซื้อ-apple-watch.astro',
+	'src/pages/รับซื้อ-ups.astro',
+	'src/pages/รับซื้อคอมประกอบ.astro',
+	'src/pages/รับซื้อลำโพง.astro',
+	'src/pages/รับซื้อสมาร์ทโฟน-android.astro',
+	'src/pages/รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ.astro',
+	'src/pages/รับซื้อโน๊ตบุ๊ค-โคราช.astro',
+	'src/pages/รับซื้อไอโฟน-ขอนแก่น-คู่มือ.astro',
+	'src/pages/รับซื้อไอโฟน-อุดรธานี.astro',
+	'src/pages/รับซื้อไอโฟน-อุบลราชธานี-คู่มือ.astro',
+	'src/pages/เช็กราคาก่อนขาย.astro',
+];
+
 function walkAstroFiles(dir, out = []) {
 	if (!existsSync(dir)) return out;
 	for (const entry of readdirSync(dir, { withFileTypes: true })) {
 		const full = join(dir, entry.name);
 		if (entry.isDirectory()) walkAstroFiles(full, out);
 		else if (entry.name.endsWith('.astro')) out.push(full);
+	}
+	return out;
+}
+
+function walkRecoveryDocs(dir, out = []) {
+	if (!existsSync(dir)) return out;
+	for (const entry of readdirSync(dir, { withFileTypes: true })) {
+		const full = join(dir, entry.name);
+		if (entry.isDirectory()) walkRecoveryDocs(full, out);
+		else if (/\.(md|json)$/i.test(entry.name)) out.push(full);
 	}
 	return out;
 }
@@ -172,8 +199,8 @@ for (const rel of SHARED_COMPONENTS) {
 
 const legacyDir = join(root, 'src/pages');
 for (const abs of walkAstroFiles(legacyDir)) {
-	const rel = relative(root, abs);
-	if (CORE_PAGES.some((p) => p.file === rel.replace(/\\/g, '/'))) continue;
+	const rel = relative(root, abs).replace(/\\/g, '/');
+	if (CORE_PAGES.some((p) => p.file === rel)) continue;
 	if (rel.includes('รับซื้อ-server')) continue;
 	const text = readFileSync(abs, 'utf8');
 	warning.push(...findClaims(text, rel, 'warning'));
@@ -182,8 +209,13 @@ for (const abs of walkAstroFiles(legacyDir)) {
 const ignored = [];
 const docsDir = join(root, 'docs/recovery');
 if (existsSync(docsDir)) {
-	for (const abs of walkAstroFiles(docsDir)) {
-		ignored.push({ file: relative(root, abs), note: 'docs/recovery artifact' });
+	for (const abs of walkRecoveryDocs(docsDir)) {
+		const rel = relative(root, abs);
+		const text = readFileSync(abs, 'utf8');
+		const hits = findClaims(text, rel, 'ignored');
+		if (hits.length) {
+			ignored.push(...hits.map((h) => ({ ...h, note: 'docs/recovery report artifact' })));
+		}
 	}
 }
 
@@ -193,13 +225,13 @@ const report = {
 		critical: critical.length,
 		warning: warning.length,
 		ignored: ignored.length,
-		passed: critical.length === 0,
+		passed: critical.length === 0 && warning.length === 0,
 	},
 	corePages: CORE_PAGES.map((p) => p.path),
 	claims: { critical, warning, ignored },
 };
 
-const outDir = join(root, 'docs/recovery/batch-5-7');
+const outDir = join(root, 'docs/recovery/batch-5-8');
 mkdirSync(outDir, { recursive: true });
 const outFile = join(outDir, 'claim-audit.json');
 writeFileSync(outFile, JSON.stringify(report, null, 2), 'utf8');

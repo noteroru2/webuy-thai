@@ -6,6 +6,7 @@ import SiteAnalytics from '../components/analytics/SiteAnalytics.astro';
 import CookieBanner from '../components/layout/CookieBanner.astro';
 import { LINE_OA_URL } from '../lib/site-line';
 import '../styles/fonts.css';
+import '../styles/design-system.css';
 import '../styles/tailwind.css';
 interface Props {
 	title: string;
@@ -61,17 +62,57 @@ const robotsContent = noindex
 	? 'noindex, nofollow, noarchive'
 	: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 
+const cleanPath = pathname.replace(/\/$/, '') || '/';
+const isHome = cleanPath === '/';
+const isContact = cleanPath === '/contact';
+const isTrust = cleanPath === '/ความน่าเชื่อถือ';
+const showLocalBusiness = isHome || isContact || isTrust;
+
+const globalOrganizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"@id": `${site.origin}/#organization`,
+	"name": orgName,
+	"url": site.origin + '/',
+	"logo": {
+		"@type": "ImageObject",
+		"url": new URL('/logo-we-buy.png', site).toString()
+	},
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"telephone": businessPhone,
+		"contactType": "customer service",
+		"areaServed": "TH",
+		"availableLanguage": "Thai"
+	}
+};
+
+const addressLocality = import.meta.env.PUBLIC_ADDRESS_LOCALITY ?? 'ประเทศไทย';
+const addressRegion = import.meta.env.PUBLIC_ADDRESS_REGION ?? 'ประเทศไทย';
+const postalCode = import.meta.env.PUBLIC_POSTAL_CODE ?? '10200';
+const geoLat = import.meta.env.PUBLIC_GEO_LAT ?? '13.7563';
+const geoLon = import.meta.env.PUBLIC_GEO_LON ?? '100.5018';
+
 const localBusinessSchema = {
 	"@context": "https://schema.org",
 	"@type": "LocalBusiness",
+	"@id": `${site.origin}/#localbusiness`,
 	"name": orgName,
 	"image": imageUrl,
-	"url": site.toString(),
+	"url": site.origin + '/',
 	"telephone": businessPhone,
 	"priceRange": "$$",
 	"address": {
 		"@type": "PostalAddress",
+		"addressLocality": addressLocality,
+		"addressRegion": addressRegion,
+		"postalCode": postalCode,
 		"addressCountry": "TH"
+	},
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": Number(geoLat),
+		"longitude": Number(geoLon)
 	},
 	"areaServed": [
 		{ "@type": "State", "name": "กรุงเทพมหานคร" },
@@ -79,7 +120,27 @@ const localBusinessSchema = {
 		{ "@type": "State", "name": "ขอนแก่น" },
 		{ "@type": "State", "name": "นครราชสีมา" },
 		{ "@type": "State", "name": "อุดรธานี" }
-	]
+	],
+	"openingHoursSpecification": [
+		{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": [
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Saturday",
+				"Sunday"
+			],
+			"opens": "00:00",
+			"closes": "23:59"
+		}
+	],
+	"parentOrganization": {
+		"@type": "Organization",
+		"@id": `${site.origin}/#organization`
+	}
 };
 ---
 
@@ -90,7 +151,7 @@ const localBusinessSchema = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="apple-touch-icon" href="/logo-we-buy.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#f97316" />
+		<meta name="theme-color" content="#0284c7" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		{keywords && <meta name="keywords" content={keywords} />}
@@ -125,27 +186,31 @@ const localBusinessSchema = {
 			(Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((item) => (
 				<script type="application/ld+json" set:html={JSON.stringify(item)} />
 			))}
-		<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(globalOrganizationSchema)} />
+		{showLocalBusiness && (
+			<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+		)}
 		<style is:global>
 			:root {
 				--bg: #fafbfd;
-				--bg-warm: #fff8f3;
+				--bg-warm: #f0f9ff;
 				--surface: #ffffff;
 				--ink: #0f172a;
 				--text: #141414;
 				--muted: #525252;
-				--accent: #f97316;
-				--accent-bright: #ff7a00;
-				--accent-dim: #ea580c;
-				--accent-soft: rgba(255, 140, 0, 0.12);
-				--accent-soft-strong: rgba(255, 140, 0, 0.18);
-				--accent-glow: rgba(255, 149, 0, 0.22);
+				/* Batch 5.5: teal/sky brand accent */
+				--accent: #0284c7;
+				--accent-bright: #0ea5e9;
+				--accent-dim: #0369a1;
+				--accent-soft: rgba(2, 132, 199, 0.10);
+				--accent-soft-strong: rgba(2, 132, 199, 0.16);
+				--accent-glow: rgba(14, 165, 233, 0.14);
 				--radius: 14px;
 				--font: 'IBM Plex Sans Thai', 'IBM Plex Fallback', system-ui, sans-serif;
 				--font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
 				--shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
 				--shadow-md: 0 10px 40px rgba(15, 23, 42, 0.07);
-				--shadow-tech: 0 0 0 1px rgba(255, 140, 0, 0.08), 0 12px 40px rgba(15, 23, 42, 0.06);
+				--shadow-tech: 0 0 0 1px rgba(2, 132, 199, 0.08), 0 12px 40px rgba(15, 23, 42, 0.06);
 			}
 			*,
 			*::before,
@@ -232,7 +297,7 @@ const localBusinessSchema = {
 				display: flex;
 				gap: 0.75rem;
 				padding: 0.7rem;
-				border: 1px solid rgba(249, 115, 22, 0.18);
+				border: 1px solid rgba(2, 132, 199, 0.18);
 				border-radius: 22px;
 				background: rgba(255, 255, 255, 0.96);
 				box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
@@ -256,14 +321,14 @@ const localBusinessSchema = {
 				text-decoration: none;
 			}
 			.mobile-contact-link--line {
-				background: linear-gradient(180deg, #fb923c 0%, #f97316 100%);
+				background: linear-gradient(180deg, #0ea5e9 0%, #0284c7 100%);
 				color: #fff;
-				box-shadow: 0 10px 20px rgba(249, 115, 22, 0.24);
+				box-shadow: 0 10px 20px rgba(2, 132, 199, 0.24);
 			}
 			.mobile-contact-link--phone {
 				background: #fff;
 				color: var(--accent-dim);
-				border: 1px solid rgba(249, 115, 22, 0.2);
+				border: 1px solid rgba(2, 132, 199, 0.2);
 			}
 			/* โทรศัพท์: ซ่อนปุ่มลอย — แท็บเล็ตค่อยแสดงทางลัด */
 			@media (max-width: 767px) {
@@ -288,8 +353,8 @@ const localBusinessSchema = {
 				}
 			}
 			.site-footer {
-				border-top: 1px solid rgba(255, 140, 0, 0.2);
-				background: linear-gradient(180deg, #fffaf5 0%, #ffffff 100%);
+				border-top: 1px solid rgba(2, 132, 199, 0.12);
+				background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 				margin-top: 2rem;
 			}
 			.site-footer .container {

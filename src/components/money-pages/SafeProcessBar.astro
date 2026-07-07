@@ -1,0 +1,73 @@
+---
+export interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const items = [
+	{ icon: '📷', label: 'ส่งรูปประเมินได้', desc: 'แนบรุ่น สเปก และสภาพเครื่อง' },
+	{ icon: '💬', label: 'ตอบกลับในเวลาทำการ', desc: 'ทีมงานตอบผ่าน LINE @webuy' },
+	{ icon: '🔍', label: 'ตรวจตามสภาพจริง', desc: 'ยืนยันก่อนชำระเงิน' },
+	{ icon: '📦', label: 'ประเมินออนไลน์ทั่วไทย', desc: 'ส่งข้อมูลหรือจัดส่งตามที่สะดวก' },
+];
+---
+
+<div class={`safe-process-bar ${className}`} aria-label="ขั้นตอนการประเมิน">
+	{items.map((item) => (
+		<div class="safe-process-item">
+			<span class="safe-process-icon" aria-hidden="true">{item.icon}</span>
+			<div class="safe-process-copy">
+				<strong class="safe-process-label">{item.label}</strong>
+				<span class="safe-process-desc">{item.desc}</span>
+			</div>
+		</div>
+	))}
+</div>
+
+<style>
+	.safe-process-bar {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0.75rem;
+		margin-block: 1.5rem;
+	}
+	.safe-process-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 0.4rem;
+		padding: 1rem 0.65rem;
+		background: #fff;
+		border: 1px solid rgba(2, 132, 199, 0.12);
+		border-radius: 1rem;
+		box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+	}
+	.safe-process-icon {
+		font-size: 1.35rem;
+		line-height: 1;
+		color: #0284c7;
+	}
+	.safe-process-label {
+		font-size: 0.82rem;
+		font-weight: 700;
+		line-height: 1.3;
+		color: #0369a1;
+	}
+	.safe-process-desc {
+		font-size: 0.72rem;
+		line-height: 1.4;
+		color: #64748b;
+	}
+	@media (max-width: 768px) {
+		.safe-process-bar {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (max-width: 400px) {
+		.safe-process-bar {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

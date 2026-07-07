@@ -1,0 +1,95 @@
+---
+import PriceGuide from '../services/PriceGuide.astro';
+import StepCards from './StepCards.astro';
+import ComparisonTable from './ComparisonTable.astro';
+
+interface CardItem {
+	title: string;
+	desc: string;
+}
+
+interface Props {
+	evalCards: CardItem[];
+	checklist: string[];
+	priceItems?: Array<{ model: string; price: string; note?: string }>;
+	priceTitle?: string;
+	showComparison?: boolean;
+	showSteps?: boolean;
+}
+
+const {
+	evalCards,
+	checklist,
+	priceItems,
+	priceTitle = 'ตัวอย่างช่วงราคาอ้างอิง',
+	showComparison = true,
+	showSteps = true,
+} = Astro.props;
+---
+
+<div class="money-landing">
+	<section class="money-section money-section--white" aria-labelledby="eval-info-heading">
+		<h2 id="eval-info-heading" class="money-section-title">ข้อมูลที่ใช้ประเมินราคา</h2>
+		<p class="money-section-lead">ส่งข้อมูลเหล่านี้มาพร้อมรูปเครื่อง เพื่อให้ทีมงานประเมินตามข้อมูลจริง</p>
+		<div class="money-card-grid money-card-grid--3">
+			{evalCards.map((card) => (
+				<div class="money-info-card">
+					<h3>{card.title}</h3>
+					<p>{card.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="money-section money-section--soft" aria-labelledby="checklist-heading">
+		<h2 id="checklist-heading" class="money-section-title">สิ่งที่ควรเช็กก่อนขาย</h2>
+		<p class="money-section-lead">เตรียมข้อมูลให้ครบจะช่วยให้ประเมินได้ตรงและลดการปรับราคาหน้างาน</p>
+		<ul class="money-checklist">
+			{checklist.map((item) => (
+				<li>{item}</li>
+			))}
+		</ul>
+	</section>
+
+	{priceItems && priceItems.length > 0 && (
+		<section class="money-section money-section--white" aria-labelledby="price-factor-heading">
+			<h2 id="price-factor-heading" class="money-section-title">ปัจจัยที่มีผลต่อราคา</h2>
+			<p class="money-section-lead">ราคาอ้างอิงเท่านั้น ราคาจริงขึ้นอยู่กับรุ่น สเปก สภาพ อุปกรณ์ และการตรวจรับจริง</p>
+			<PriceGuide title={priceTitle} items={priceItems} />
+		</section>
+	)}
+
+	{showSteps && (
+		<section class="money-section money-section--soft" aria-labelledby="process-heading">
+			<h2 id="process-heading" class="money-section-title">ขั้นตอนส่งรูปประเมิน</h2>
+			<p class="money-section-lead">สามขั้นตอนหลัก ไม่บังคับตัดสินใจจนกว่าคุณจะพอใจกับราคาประเมิน</p>
+			<div class="money-steps">
+				<div class="money-step">
+					<span class="money-step-num">1</span>
+					<h3>ส่งข้อมูลทาง LINE</h3>
+					<p>แนบรุ่น สเปก รูปหลายมุม และแจ้งตำหนิตามจริง</p>
+				</div>
+				<div class="money-step">
+					<span class="money-step-num">2</span>
+					<h3>รับราคาประเมินเบื้องต้น</h3>
+					<p>ทีมงานตอบกลับในเวลาทำการ พร้อมอธิบายเกณฑ์ที่ใช้</p>
+				</div>
+				<div class="money-step">
+					<span class="money-step-num">3</span>
+					<h3>ตรวจรับและชำระเงิน</h3>
+					<p>ยืนยันสภาพตรงตามที่แจ้ง แล้วชำระตามที่ตกลง</p>
+				</div>
+			</div>
+		</section>
+	)}
+
+	{showComparison && (
+		<section class="money-section money-section--white">
+			<h2 class="money-section-title">เปรียบเทียบช่องทางขาย</h2>
+			<p class="money-section-lead">ข้อมูลช่วยตัดสินใจ — ไม่ใช่การรับประกันผลลัพธ์</p>
+			<div class="money-table-wrap">
+				<ComparisonTable />
+			</div>
+		</section>
+	)}
+</div>
