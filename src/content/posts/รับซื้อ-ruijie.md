@@ -37,4 +37,4 @@ noindex: true
 
 ส่งรุ่นมาทาง [Line @webuy](https://line.me/R/ti/p/@webuy) เพื่อรับช่วงราคาก่อนนัดครับ
 
-ดูเพิ่มที่ [รับซื้ออุปกรณ์ Network](/รับซื้ออุปกรณ์-network/) และ [รับซื้อ Firewall](/รับซื้อ-firewall/)
+ดูเพิ่มที่ [รับซื้ออุปกรณ์ Network](/รับซื้อคอม/) และ [รับซื้อ Firewall](/รับซื้อ-firewall/)

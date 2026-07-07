@@ -127,6 +127,25 @@ const categories = [
 			<h3>หมวดหมู่สินค้าหลักที่เรารับซื้อ</h3>
 			<p>เราพร้อมรับซื้ออุปกรณ์หลากหลายประเภท โดยมีจุดเด่นในกลุ่มสินค้าต่อไปนี้:</p>
 			
+			<div class="money-links" style="margin-bottom: 2rem;">
+				{
+					mainMoneyPages.map((page) => (
+						<a href={page.href} class="money-link">
+							<strong>{page.title}</strong>
+							<span>{page.desc}</span>
+						</a>
+					))
+				}
+				<a href="/รับซื้อไอแพด/" class="money-link">
+					<strong>รับซื้อ iPad มือสอง</strong>
+					<span>iPad ทุกรุ่น Wi-Fi และใส่ซิม</span>
+				</a>
+				<a href="/รับซื้อคอม/" class="money-link">
+					<strong>รับซื้อคอมสำนักงาน</strong>
+					<span>รับซื้อคอมและอุปกรณ์สำนักงานเป็นล็อต</span>
+				</a>
+			</div>
+
 			<h4>รับซื้อสมาร์ทโฟนและแท็บเล็ต (iPhone, iPad, Android)</h4>
 			<p>เรารับซื้อโทรศัพท์มือถือทุกแบรนด์ชั้นนำ โดยเฉพาะกลุ่ม Apple อย่าง iPhone และ iPad ทุกรุ่นย่อย ตั้งแต่รุ่นธรรมดา, Pro, Pro Max ไปจนถึง iPad Air และ iPad Mini รวมถึงฝั่ง Android ระดับเรือธง (Flagship) เช่น Samsung Galaxy S series, Z Fold, Z Flip, แบรนด์เกมมิ่งมิ่งโฟนต่างๆ เช่น ROG Phone เป็นต้น</p>
 
