@@ -1,0 +1,294 @@
+{
+  "generatedAt": "2026-07-07T14:50:04.038Z",
+  "summary": {
+    "critical": 0,
+    "warning": 38,
+    "ignored": 0,
+    "passed": true
+  },
+  "corePages": [
+    "/",
+    "/รับซื้อ/",
+    "/รับซื้อโน๊ตบุ๊ค/",
+    "/รับซื้อคอม/",
+    "/รับซื้อแมคบุ๊ค/",
+    "/รับซื้อไอโฟน/",
+    "/รับซื้อไอแพด/",
+    "/รับซื้อกล้อง/",
+    "/พื้นที่ให้บริการ/",
+    "/contact/",
+    "/ความน่าเชื่อถือ/"
+  ],
+  "claims": {
+    "critical": [],
+    "warning": [
+      {
+        "severity": "warning",
+        "file": "src\\pages\\[slug].astro",
+        "line": 201,
+        "claim": "จ่ายสดทันที",
+        "snippet": "plainTitle} มือสอง ประเมินฟรีใน 15 นาที จ่ายเงินสดทันที ทัก Line @webuy` : `เพิ่มความรู้"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\[slug].astro",
+        "line": 231,
+        "claim": "จ่ายสดทันที",
+        "snippet": "a-hidden=\"true\">·</span> <span>จ่ายเงินสดทันที</span> <span aria-hidden=\"true"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\[slug].astro",
+        "line": 244,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ด้เลย ทีมงานประเมินราคาให้ฟรีใน 15 นาที จ่ายสดทันที\" /> </div> </div> <d"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\[slug].astro",
+        "line": 295,
+        "claim": "จ่ายสดทันที",
+        "snippet": "t=\"ส่งรูปมาเลย ไม่ต้องโทรก่อน ประเมินไว จ่ายสดทันที ทุกวัน 24 ชม.\" /> <section >"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\คู่มือก่อนขาย.astro",
+        "line": 221,
+        "claim": "100%",
+        "snippet": "ข้อมูลส่วนบุคคล: การล้างข้อมูลอย่างไรให้ปลอดภัย 100%?</h3> <p class=\"mt-3 text-base t"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\บริการ.astro",
+        "line": 131,
+        "claim": "อันดับ 1",
+        "snippet": "ไร แล้วคุณจะรู้ว่าทำไมเราถึงเป็นตัวเลือกอันดับหนึ่งในใจของใครหลายๆ คน</p> <div class"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 56,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "ายแท้ และสายชาร์จแม่เหล็กแท้มาด้วย จะได้ราคาสูงที่สุดครับ', }, { q: 'สุขภาพแบตเตอรี่ (Bat"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 126,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ra, Series 9, 8, SE) ประเมินราคาโปร่งใส จ่ายเงินสดทันที มีบริการนัดรับ', provider: { '@type':"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 212,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ห้บริการด้วยหลักการ \"ประเมินราคาโปร่งใส จ่ายเงินสดทันที และรับถึงที่\" คุณเพียงแค่ถ่ายรูปส่งมาให"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 148,
+        "claim": "100%",
+        "snippet": "้รับเงินสดกลับไปอย่างคุ้มค่า รวดเร็ว และปลอดภัย 100% พร้อมบริการนัดรับถึงที่ ไม่ต้องเสียเวลา"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 292,
+        "claim": "อันดับ 1",
+        "snippet": "ลูกค้าคือสิ่งที่ WE BUY ให้ความสำคัญเป็นอันดับหนึ่ง Apple Watch ไม่ได้เป็นเพียงแค่นาฬิกาบอก"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 76,
+        "claim": "รับทุกสภาพ",
+        "snippet": "tch Ultra, Series 10, 9, 8, 7, SE มือสองทุกสภาพ ประเมินราคาจากสุขภาพแบตเตอรี่ จ่ายเงินทันที นัด"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-apple-watch.astro",
+        "line": 137,
+        "claim": "รับทุกสภาพ",
+        "snippet": "tch Ultra, Series 10, 9, 8, 7, SE มือสองทุกสภาพ ประเมินราคาจากสุขภาพแบตเตอรี่ จ่ายเงินทันที นัด"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-ups.astro",
+        "line": 251,
+        "claim": "อันดับ 1",
+        "snippet": "มผิดปกติใดๆ แม้แต่น้อย ทำให้เป็นตัวเลือกอันดับหนึ่งสำหรับเซิร์ฟเวอร์ อุปกรณ์การแพทย์ และระบ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อ-ups.astro",
+        "line": 529,
+        "claim": "อันดับ 1",
+        "snippet": "ินของลูกค้าคือสิ่งที่เราให้ความสำคัญเป็นอันดับหนึ่ง ทีมงานขนย้ายของเราผ่านการอบรมด้านความปล"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อคอมประกอบ.astro",
+        "line": 160,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "ี่จะเป็นไปได้</p> <h2>ชิ้นส่วนที่เราให้ราคาสูงที่สุด — การ์ดจอ, CPU, RAM</h2> <p>เมื่อพูด"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อคอมประกอบ.astro",
+        "line": 143,
+        "claim": "จ่ายสดทันที",
+        "snippet": "มประกอบเองมือสอง ประเมินราคาทุกชิ้นส่วน จ่ายเงินสดทันที</h1> <p class=\"subtitle\"> สายจัด"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อคอมประกอบ.astro",
+        "line": 211,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "ณ วันนั้น โดยปกติจะใช้เวลาตอบกลับภายใน 15-30 นาทีในช่วงเวลาทำการ เราจะส่งช่วงราคาประเมินเ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อลำโพง.astro",
+        "line": 90,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy', i"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อลำโพง.astro",
+        "line": 163,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ประเมินราคาโปร่งใส ตรวจเช็คของแท้แน่นอน จ่ายเงินสดทันที บริการ 24 ชม. ติดต่อ Line @webuy\" pat"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อลำโพง.astro",
+        "line": 62,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "น ทีมงานสามารถแจ้งราคาเบื้องต้นได้ภายใน 15-30 นาที ตลอด 24 ชั่วโมง', }, { q: 'จ่ายเ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อลำโพง.astro",
+        "line": 237,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "วลา ในช่วงเวลาทำการ เราจะใช้เวลาไม่เกิน 15-30 นาทีในการวิเคราะห์ข้อมูล เช็คราคาตลาด และเสน"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อสมาร์ทโฟน-android.astro",
+        "line": 165,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "p> <h2>Samsung Galaxy — แบรนด์ที่เราให้ราคาสูงที่สุดในตลาด</h2> <p>ในบรรดาสมาร์ทโฟนระบบปฏ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อสมาร์ทโฟน-android.astro",
+        "line": 80,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ies และมือถือเกมมิ่ง ประเมินราคาโปร่งใส จ่ายเงินสดทันที บริการนัดรับ 24 ชม.', inLanguage: 'th"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อสมาร์ทโฟน-android.astro",
+        "line": 141,
+        "claim": "จ่ายสดทันที",
+        "snippet": "ies และมือถือเกมมิ่ง ประเมินราคาโปร่งใส จ่ายเงินสดทันที ติดต่อ Line @webuy\" pathname=\"/รับซื้อ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อสมาร์ทโฟน-android.astro",
+        "line": 148,
+        "claim": "รับเงินสดทันที",
+        "snippet": "Android มือสอง ทุกแบรนด์ ประเมินราคาฟรี รับเงินสดทันที</h1> <p class=\"subtitle\"> หากคุณ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อสมาร์ทโฟน-android.astro",
+        "line": 68,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "ระเมินราคาออนไลน์ผ่าน Line ใช้เวลาเพียง 10-15 นาที และเมื่อนัดรับตรวจเครื่องจริงเสร็จสิ้น"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อสมาร์ทโฟน-android.astro",
+        "line": 208,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "(Checklist) กระบวนการนี้ใช้เวลาไม่เกิน 10-15 นาที หากสภาพเครื่องตรงตามที่คุณแจ้งไว้ทางไลน"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อเครื่องเกม.astro",
+        "line": 126,
+        "claim": "จ่ายสดทันที",
+        "snippet": "o Switch, Steam Deck ประเมินราคาโปร่งใส จ่ายเงินสดทันที มีบริการนัดรับ', provider: { '@type':"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ.astro",
+        "line": 180,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "นจะแจ้งช่วงราคาประเมินให้คุณทันที ภายใน 15-30 นาที ทำให้คุณตัดสินใจได้ตั้งแต่ยังอยู่ท"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อโน๊ตบุ๊ค-อุบลราชธานี-คู่มือ.astro",
+        "line": 212,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "น:</strong> ทีมงานใช้เวลาตรวจเช็คประมาณ 10-15 นาที แล้วจ่ายเงินโอน/สดทันที</li> </ol>"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อโน๊ตบุ๊ค-โคราช.astro",
+        "line": 253,
+        "claim": "100%",
+        "snippet": "ตรวจเครื่องเสร็จโอนเงินทันทีหน้างาน ปลอดภัย 100% ติดต่อ Line @webuy </p> </div>"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อโน๊ตบุ๊ค-โคราช.astro",
+        "line": 145,
+        "claim": "อันดับ 1",
+        "snippet": "<p> เราเน้นความสะดวกของลูกค้าเป็นอันดับหนึ่ง ท่านสามารถเลือกจุดนัดพบที่ท่านมั่นใจและ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อไอโฟน-ขอนแก่น-คู่มือ.astro",
+        "line": 75,
+        "claim": "จ่ายสดทันที",
+        "snippet": "y} ประเมินราคาด่วน 15 นาที นัดรับถึงที่ จ่ายเงินสดทันที แอดไลน์ @webuy`, inLanguage: 'th-TH',"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อไอโฟน-อุดรธานี.astro",
+        "line": 176,
+        "claim": "ประเมิน 15 นาที",
+        "snippet": "กณฑ์การประเมินอย่างโปร่งใส ใช้เวลาเพียง 10-15 นาทีก็จบดีลได้ </p> <h3>3. ดูแลเรื่อง"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อไอโฟน-อุดรธานี.astro",
+        "line": 37,
+        "claim": "100%",
+        "snippet": "น (ประมาณ 5-10 นาที) มีสลิปยืนยันชัดเจน ปลอดภัย 100% ครับ', }, { q: 'ประเมินไอโฟนในอุดรธ"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\รับซื้อไอโฟน-อุดรธานี.astro",
+        "line": 71,
+        "claim": "รับทุกสภาพ",
+        "snippet": "iPhone มือสองในจังหวัดอุดรธานี ทุกรุ่น ทุกสภาพ ประเมินราคาด่วน นัดรับในเมืองอุดรฯ ม.ราชภัฏ จ่า"
+      },
+      {
+        "severity": "warning",
+        "file": "src\\pages\\เช็กราคาก่อนขาย.astro",
+        "line": 380,
+        "claim": "100%",
+        "snippet": "xt\">4. ประเมินราคาผ่านช่องทางเป็นทางการ ปลอดภัย มั่นใจสูงสุด 100%</h3> <p class=\"mt-3 text-base te"
+      }
+    ],
+    "ignored": []
+  }
+}

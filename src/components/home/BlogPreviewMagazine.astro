@@ -36,7 +36,7 @@ const categoryLabel = 'คู่มือไอที';
 			{
 				posts.map((post) => {
 					const img = post.data.heroImage;
-					const imgAlt = post.data.heroImageAlt ?? post.data.title;
+					const imgAlt = post.data.heroImageAlt?.trim() || 'ภาพประกอบบทความ';
 					const titleHtml = post.data.titleHtml?.trim() || post.data.title;
 					const excerpt = post.data.description;
 					const href = `/${post.data.slug}/`;

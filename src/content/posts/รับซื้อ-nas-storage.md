@@ -39,4 +39,4 @@ noindex: true
 
 ส่งรุ่น NAS เช่น Synology DS923+ หรือ QNAP TS-453D พร้อมสภาพและรูปถ่าย
 
-ดูเพิ่มที่ [รับซื้อ Synology](/รับซื้อ-synology/) · [รับซื้อ QNAP](/รับซื้อ-qnap/) · [รับซื้อ Buffalo Network](/รับซื้อ-buffalo-network/)
+ดูเพิ่มที่ [รับซื้อ Synology](/รับซื้อ-synology/) · [รับซื้อ QNAP](/รับซื้อ-qnap/) · [รับซื้อ Buffalo Network](/รับซื้อคอม/)
