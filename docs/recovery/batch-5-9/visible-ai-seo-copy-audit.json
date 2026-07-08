@@ -1,0 +1,942 @@
+{
+  "summary": {
+    "criticalCount": 0,
+    "warningCount": 34,
+    "ignoredCount": 121
+  },
+  "critical": [],
+  "warning": [
+    {
+      "file": "src/pages/contact.astro",
+      "keyword": "GEO",
+      "line": 127,
+      "snippet": "geo={serviceAreas.join(', ')}"
+    },
+    {
+      "file": "src/pages/llms-full.txt.ts",
+      "keyword": "SEO",
+      "line": 44,
+      "snippet": "## 4. SEO / AEO Hubs"
+    },
+    {
+      "file": "src/pages/llms-full.txt.ts",
+      "keyword": "AEO",
+      "line": 44,
+      "snippet": "## 4. SEO / AEO Hubs"
+    },
+    {
+      "file": "src/pages/llms-full.txt.ts",
+      "keyword": "AEO",
+      "line": 66,
+      "snippet": "- **Structured Data:** Extensive use of JSON-LD Schema (WebPage, Article, FAQPage, Service, LocalBus"
+    },
+    {
+      "file": "src/pages/llms-full.txt.ts",
+      "keyword": "AEO",
+      "line": 68,
+      "snippet": "## 7. AI Interaction Rules (AEO Guidelines)"
+    },
+    {
+      "file": "src/pages/llms-full.txt.ts",
+      "keyword": "GEO",
+      "line": 28,
+      "snippet": "## 3. Geographical Reach (GEO Optimization)"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "keyword": "SEO",
+      "line": 24,
+      "snippet": "## SEO / AEO hubs (primary navigation)"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "keyword": "AEO",
+      "line": 24,
+      "snippet": "## SEO / AEO hubs (primary navigation)"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "keyword": "AEO",
+      "line": 56,
+      "snippet": "## Answering policy (AEO / AI)"
+    },
+    {
+      "file": "src/pages/llms.txt.ts",
+      "keyword": "GEO",
+      "line": 42,
+      "snippet": "## Ubon Ratchathani guides (GEO / local)"
+    },
+    {
+      "file": "src/pages/ความน่าเชื่อถือ.astro",
+      "keyword": "GEO",
+      "line": 428,
+      "snippet": "geo=\"ทุกพื้นที่ที่ติดต่อผ่านเว็บ โดยเฉพาะเคสที่ต้องคุยผ่านแชตก่อนนัดรับจริง\""
+    },
+    {
+      "file": "src/pages/คู่มือก่อนขาย.astro",
+      "keyword": "GEO",
+      "line": 415,
+      "snippet": "geo=\"ลูกค้าทั่วประเทศที่ต้องการใช้บทความเป็นตัวช่วยก่อนทักร้าน\""
+    },
+    {
+      "file": "src/pages/พื้นที่ให้บริการ.astro",
+      "keyword": "GEO",
+      "line": 330,
+      "snippet": "geo=\"พื้นที่หลักที่ทีมงานระบุไว้บนเว็บไซต์ พร้อมหน้าคู่มือ local ที่เชื่อมจาก hub นี้\""
+    },
+    {
+      "file": "src/pages/รับซื้อ-ups.astro",
+      "keyword": "GEO",
+      "line": 760,
+      "snippet": "geo=\"องค์กรทั่วประเทศไทยที่ต้องการปลดระวาง UPS อย่างมีประสิทธิภาพ\""
+    },
+    {
+      "file": "src/pages/รับซื้อ.astro",
+      "keyword": "SEO",
+      "line": 562,
+      "snippet": ".seo-appendix {"
+    },
+    {
+      "file": "src/pages/รับซื้อ.astro",
+      "keyword": "SEO",
+      "line": 567,
+      "snippet": ".seo-appendix-heading {"
+    },
+    {
+      "file": "src/pages/รับซื้อ.astro",
+      "keyword": "SEO",
+      "line": 573,
+      "snippet": ".seo-appendix :global(p + p) {"
+    },
+    {
+      "file": "src/pages/รับซื้อกล้อง.astro",
+      "keyword": "SEO",
+      "line": 174,
+      "snippet": "<section class=\"money-seo-appendix content\">"
+    },
+    {
+      "file": "src/pages/รับซื้อคอม.astro",
+      "keyword": "SEO",
+      "line": 203,
+      "snippet": "<section class=\"money-seo-appendix content\">"
+    },
+    {
+      "file": "src/pages/รับซื้อแมคบุ๊ค.astro",
+      "keyword": "SEO",
+      "line": 203,
+      "snippet": "<section class=\"money-seo-appendix content\">"
+    },
+    {
+      "file": "src/pages/รับซื้อโน๊ตบุ๊ค.astro",
+      "keyword": "SEO",
+      "line": 187,
+      "snippet": "<section class=\"money-seo-appendix content\">"
+    },
+    {
+      "file": "src/pages/รับซื้อไอแพด.astro",
+      "keyword": "SEO",
+      "line": 200,
+      "snippet": "<section class=\"money-seo-appendix content\">"
+    },
+    {
+      "file": "src/pages/รับซื้อไอโฟน.astro",
+      "keyword": "SEO",
+      "line": 228,
+      "snippet": "<div class=\"money-seo-appendix\">"
+    },
+    {
+      "file": "src/pages/ราคากลางรับซื้อ.astro",
+      "keyword": "GEO",
+      "line": 470,
+      "snippet": "geo=\"ผู้ขายทั่วประเทศที่กำลังเทียบราคาและต้องการดูปัจจัยมากกว่าตัวเลขลอย ๆ\""
+    },
+    {
+      "file": "src/pages/เกี่ยวกับเรา.astro",
+      "keyword": "GEO",
+      "line": 61,
+      "snippet": "geo=\"กรุงเทพฯ อุบลราชธานี ขอนแก่น โคราช อุดรธานี และพื้นที่ที่ลูกค้าติดต่อเข้ามาบ่อย\""
+    },
+    {
+      "file": "src/pages/เช็กราคาก่อนขาย.astro",
+      "keyword": "GEO",
+      "line": 487,
+      "snippet": "geo=\"ลูกค้าที่จะทัก Line, นัดรับ หรือส่งข้อมูลประเมินจากต่างจังหวัด\""
+    },
+    {
+      "file": "src/components/home/SeoProseSection.astro",
+      "keyword": "SEO",
+      "line": 7,
+      "snippet": "aria-labelledby=\"seo-about-heading\""
+    },
+    {
+      "file": "src/components/home/SeoProseSection.astro",
+      "keyword": "SEO",
+      "line": 12,
+      "snippet": "<h2 id=\"seo-about-heading\" class=\"text-[clamp(1.5rem,2.5vw+1rem,2rem)] font-extrabold tracking-tight"
+    },
+    {
+      "file": "src/components/longform/NaturalSeoSections.astro",
+      "keyword": "GEO",
+      "line": 10,
+      "snippet": "geo?: string;"
+    },
+    {
+      "file": "src/components/longform/NaturalSeoSections.astro",
+      "keyword": "GEO",
+      "line": 22,
+      "snippet": "geo = 'ลูกค้าในหลายพื้นที่',"
+    },
+    {
+      "file": "src/components/longform/NaturalSeoSections.astro",
+      "keyword": "GEO",
+      "line": 47,
+      "snippet": "ควรขายตามสภาพหรือซ่อมก่อน และถ้าอยู่ในพื้นที่อย่าง <strong>{geo}</strong> ควรคุยเรื่องนัดรับหรือตรวจ"
+    },
+    {
+      "file": "src/components/longform/NaturalSeoSections.astro",
+      "keyword": "GEO",
+      "line": 61,
+      "snippet": "หรือ “ถ้าอยู่ {geo} ควรเริ่มคุยจากข้อความแบบไหนก่อนนัดจริง” เพราะปัญหาส่วนใหญ่ไม่ได้อยู่ที่ตัวสินค้า"
+    },
+    {
+      "file": "src/components/longform/NaturalSeoSections.astro",
+      "keyword": "GEO",
+      "line": 113,
+      "snippet": "เพราะลูกค้าในพื้นที่อย่าง {geo} มักต้องการรู้ด้วยว่าเมื่อคุยกับร้านจริงแล้ว ขั้นตอนจะเดินต่ออย่างไร "
+    },
+    {
+      "file": "src/components/longform/NaturalSeoSections.astro",
+      "keyword": "GEO",
+      "line": 134,
+      "snippet": "ถ้าคุณอยู่ในพื้นที่อย่าง <strong>{geo}</strong> การเตรียมข้อมูลให้ครบก่อนนัดยังช่วยเรื่องเวลาและการเ"
+    }
+  ],
+  "ignored": [
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 1,
+      "snippet": "# รายงานการตรวจสอบทางเทคนิคและกลยุทธ์ SEO (Technical & Local SEO Audit Report)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 4,
+      "snippet": "**บทบาท:** Senior Technical SEO Engineer & Thai Local SEO Strategist"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 19,
+      "snippet": "* **ผลกระทบด้าน SEO:** ทำลายความน่าเชื่อถือของแบรนด์ (UX) และขัดขวางการจัดทำดัชนีเนื่องจาก Search En"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 25,
+      "snippet": "* **ผลกระทบด้าน SEO:** เกิดความซ้ำซ้อนของ Intent ในระดับคำค้นหลัก (Macbook) ทำให้ Google จัดอันดับหน"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 29,
+      "snippet": "* **ผลกระทบด้าน SEO:** ถูกระบบตรวจจับ Helpful Content System และ Spam Update ของ Google ลดคะแนน E-E-"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 31,
+      "snippet": "### ปัญหาที่ 4: การแสดงข้อความสอนบอท SEO ในหน้าเว็บจริง (Visible Bot-Instructing / Meta Text)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 35,
+      "snippet": "* **ผลกระทบด้าน SEO:** ผิดกฎ Helpful Content Guidelines ของ Google อย่างรุนแรง เนื้อหาบนเว็บไซต์ที่ด"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 42,
+      "snippet": "* **ผลกระทบด้าน SEO:** ทำให้ Google สับสนเรื่องหัวข้อหลักของเว็บไซต์ (Topical Authority) และทำให้คะแ"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 46,
+      "snippet": "* **ผลกระทบด้าน SEO:** เป็นการส่งค่าพลังงานลิงก์ (Link Juice) ไปยังหน้าออฟทอปิก และทำให้โครงสร้างลิง"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 50,
+      "snippet": "* **ผลกระทบด้าน SEO:** โครงสร้างข้อมูลสกีม่าตีกันเองและซับซ้อนเกินไป เสี่ยงต่อการโดนกูเกิลมองว่าใช้ "
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 54,
+      "snippet": "* **ผลกระทบด้าน SEO:** เกิดปัญหาเนื้อหาซ้ำซ้อนรุนแรง (Internal Duplicate Content) ส่งผลให้กูเกิลเลือ"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 58,
+      "snippet": "* **ผลกระทบด้าน SEO:** ปลืองงบประมาณในการคราวด์ (Crawl Budget Waste) บอทใช้เวลาไปเก็บหน้าสแปมจนไม่ยอ"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 81,
+      "snippet": "* `scripts/seo-audit.mjs` & `scripts/content-quality-utils.mjs` (สคริปต์ตรวจสอบความสะอาดของ SEO)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "SEO",
+      "line": 85,
+      "snippet": "* `src/components/longform/NaturalSeoSections.astro` (จุดที่ใช้ควบคุมย่อหน้าแนะนำ SEO ในบทความย่อย)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "Local SEO",
+      "line": 1,
+      "snippet": "# รายงานการตรวจสอบทางเทคนิคและกลยุทธ์ SEO (Technical & Local SEO Audit Report)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "Local SEO",
+      "line": 4,
+      "snippet": "**บทบาท:** Senior Technical SEO Engineer & Thai Local SEO Strategist"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "AEO",
+      "line": 33,
+      "snippet": "* *\"คำแนะนำสำหรับ Answer Engine (AEO)\"*"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "AEO",
+      "line": 83,
+      "snippet": "* `src/components/home/SeoProseSection.astro` (จุดที่แสดงคำสอนบอท AEO/GEO)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "Answer Engine",
+      "line": 33,
+      "snippet": "* *\"คำแนะนำสำหรับ Answer Engine (AEO)\"*"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "GEO",
+      "line": 34,
+      "snippet": "* *\"Generative AI Summary (GEO)\"*"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "GEO",
+      "line": 83,
+      "snippet": "* `src/components/home/SeoProseSection.astro` (จุดที่แสดงคำสอนบอท AEO/GEO)"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "Generative AI",
+      "line": 34,
+      "snippet": "* *\"Generative AI Summary (GEO)\"*"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "Generative AI Summary",
+      "line": 34,
+      "snippet": "* *\"Generative AI Summary (GEO)\"*"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "คำแนะนำสำหรับ Answer Engine",
+      "line": 33,
+      "snippet": "* *\"คำแนะนำสำหรับ Answer Engine (AEO)\"*"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "search engine",
+      "line": 19,
+      "snippet": "* **ผลกระทบด้าน SEO:** ทำลายความน่าเชื่อถือของแบรนด์ (UX) และขัดขวางการจัดทำดัชนีเนื่องจาก Search En"
+    },
+    {
+      "file": "docs/recovery/01-audit-report.md",
+      "keyword": "search engine",
+      "line": 32,
+      "snippet": "* **รายละเอียด:** ในหน้าแรกพบว่ามีการใช้ component `SeoProseSection.astro` ซึ่งแสดงข้อความที่ตั้งใจเ"
+    },
+    {
+      "file": "docs/recovery/02-url-action-map.md",
+      "keyword": "SEO",
+      "line": 82,
+      "snippet": "* **`/รับซื้อ-server/` และ `/รับซื้อ-ups/`:** เจาะกลุ่มลูกค้าบริษัท/สำนักงาน ควรพิจารณาว่าจะรวม (Con"
+    },
+    {
+      "file": "docs/recovery/02-url-action-map.md",
+      "keyword": "AEO",
+      "line": 13,
+      "snippet": "| 1 | `/` | Static (`src/pages/index.astro`) | ลบส่วนแสดงผลสอนบอท AEO/GEO ที่มองเห็นด้วยตาออก |"
+    },
+    {
+      "file": "docs/recovery/02-url-action-map.md",
+      "keyword": "GEO",
+      "line": 13,
+      "snippet": "| 1 | `/` | Static (`src/pages/index.astro`) | ลบส่วนแสดงผลสอนบอท AEO/GEO ที่มองเห็นด้วยตาออก |"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "SEO",
+      "line": 1,
+      "snippet": "# แผนการดำเนินงานกู้คืนระบบ SEO (SEO Recovery Implementation Plan)"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "SEO",
+      "line": 65,
+      "snippet": "2. รันคำสั่งตรวจสอบ SEO `npm run seo:audit` อีกครั้งเพื่อยืนยันว่าจุดผิดพลาด (Errors/Warnings) ลดลงจ"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "AEO",
+      "line": 10,
+      "snippet": "2. **ลบเนื้อหาล่อบอท (AEO/GEO Meta Text) ที่มองเห็น:** ปรับปรุงไฟล์ `src/components/home/SeoProseSec"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "Answer Engine",
+      "line": 10,
+      "snippet": "2. **ลบเนื้อหาล่อบอท (AEO/GEO Meta Text) ที่มองเห็น:** ปรับปรุงไฟล์ `src/components/home/SeoProseSec"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "GEO",
+      "line": 10,
+      "snippet": "2. **ลบเนื้อหาล่อบอท (AEO/GEO Meta Text) ที่มองเห็น:** ปรับปรุงไฟล์ `src/components/home/SeoProseSec"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "Generative AI",
+      "line": 10,
+      "snippet": "2. **ลบเนื้อหาล่อบอท (AEO/GEO Meta Text) ที่มองเห็น:** ปรับปรุงไฟล์ `src/components/home/SeoProseSec"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "Generative AI Summary",
+      "line": 10,
+      "snippet": "2. **ลบเนื้อหาล่อบอท (AEO/GEO Meta Text) ที่มองเห็น:** ปรับปรุงไฟล์ `src/components/home/SeoProseSec"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "คำแนะนำสำหรับ Answer Engine",
+      "line": 10,
+      "snippet": "2. **ลบเนื้อหาล่อบอท (AEO/GEO Meta Text) ที่มองเห็น:** ปรับปรุงไฟล์ `src/components/home/SeoProseSec"
+    },
+    {
+      "file": "docs/recovery/03-implementation-plan.md",
+      "keyword": "search engine",
+      "line": 48,
+      "snippet": "* **เป้าหมาย:** ปรับลด Schema ที่ซ้ำซ้อนกันเพื่อสร้างความชัดเจนให้กับบอทของ Search Engine"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "SEO",
+      "line": 1,
+      "snippet": "# รายการงานและเช็คลิสต์กู้คืนระบบ SEO (SEO Recovery Task Checklist)"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "SEO",
+      "line": 77,
+      "snippet": "*ตรวจสอบโค้ด บิวด์โปรเจกต์ และยืนยันความเรียบร้อยของ SEO*"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "SEO",
+      "line": 81,
+      "snippet": "- [ ] **6.2 ตรวจทานความสะอาดด้วย SEO Audit**"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "SEO",
+      "line": 82,
+      "snippet": "- รันคำสั่งตรวจสอบ SEO ของระบบ `node scripts/seo-audit.mjs --source`"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "AEO",
+      "line": 30,
+      "snippet": "- ลบส่วนบล็อกเนื้อหาทั้งหมดที่มีหัวข้ออ้างอิงถึง `Answer Engine (AEO)` และ `Generative AI Summary (G"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "Answer Engine",
+      "line": 30,
+      "snippet": "- ลบส่วนบล็อกเนื้อหาทั้งหมดที่มีหัวข้ออ้างอิงถึง `Answer Engine (AEO)` และ `Generative AI Summary (G"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "GEO",
+      "line": 30,
+      "snippet": "- ลบส่วนบล็อกเนื้อหาทั้งหมดที่มีหัวข้ออ้างอิงถึง `Answer Engine (AEO)` และ `Generative AI Summary (G"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "Generative AI",
+      "line": 30,
+      "snippet": "- ลบส่วนบล็อกเนื้อหาทั้งหมดที่มีหัวข้ออ้างอิงถึง `Answer Engine (AEO)` และ `Generative AI Summary (G"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "Generative AI Summary",
+      "line": 30,
+      "snippet": "- ลบส่วนบล็อกเนื้อหาทั้งหมดที่มีหัวข้ออ้างอิงถึง `Answer Engine (AEO)` และ `Generative AI Summary (G"
+    },
+    {
+      "file": "docs/recovery/04-task-checklist.md",
+      "keyword": "search engine",
+      "line": 18,
+      "snippet": "- ตรวจจับพาธที่ลบออกไปและส่งคืนรหัส HTTP `410` ไปให้ Search Engine แทน `404` หรือ `301` เพื่อสั่งการ"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-5-safety-report.md",
+      "keyword": "SEO",
+      "line": 43,
+      "snippet": "* **คงระดับ 410 ไว้ (กลุ่มไม่มีมูลค่า SEO):** หน้าเว็บที่มีลักษณะหางขาด/ระบบจัดทำสลักล้มเหลว (เช่น `"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-5-safety-report.md",
+      "keyword": "SEO",
+      "line": 65,
+      "snippet": "### 3.3 ผลลัพธ์ SEO Audit"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-5-safety-report.md",
+      "keyword": "SEO",
+      "line": 66,
+      "snippet": "* **คำสั่งรัน:** `node scripts/seo-audit.mjs --source`"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-report.md",
+      "keyword": "SEO",
+      "line": 57,
+      "snippet": "### 2.3 ผลลัพธ์การรัน SEO Audit"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-report.md",
+      "keyword": "SEO",
+      "line": 58,
+      "snippet": "* **คำสั่งรัน:** `node scripts/seo-audit.mjs --source`"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-report.md",
+      "keyword": "AEO",
+      "line": 92,
+      "snippet": "1. เปิดการรีไรต์เนื้อหาหน้าแรกเพื่อเคลียร์หัวข้อ AEO/GEO ให้สอดคล้องกับพฤติกรรมผู้บริโภคจริง"
+    },
+    {
+      "file": "docs/recovery/batch-1/batch-1-report.md",
+      "keyword": "GEO",
+      "line": 92,
+      "snippet": "1. เปิดการรีไรต์เนื้อหาหน้าแรกเพื่อเคลียร์หัวข้อ AEO/GEO ให้สอดคล้องกับพฤติกรรมผู้บริโภคจริง"
+    },
+    {
+      "file": "docs/recovery/batch-1/final-deploy-readiness-report.md",
+      "keyword": "SEO",
+      "line": 19,
+      "snippet": "### 1.3 การตรวจสอบความสะอาด SEO (`node scripts/seo-audit.mjs --source`)"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-final-verification-report.md",
+      "keyword": "SEO",
+      "line": 22,
+      "snippet": "## 2. ตารางสรุปข้อมูล Metadata ของหน้าเพจหลัก (Core Pages SEO Metadata)"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-final-verification-report.md",
+      "keyword": "SEO",
+      "line": 43,
+      "snippet": "* **SEO Audit Result:** `node scripts/seo-audit.mjs --source` รายงานผล **0 Errors**"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-final-verification-report.md",
+      "keyword": "SEO",
+      "line": 63,
+      "snippet": "* **คำแนะนำ:** **ปลอดภัยในการทำ Commit และ Push (Safe to Commit/Push)** โค้ดและข้อมูลทั้งหมดได้รับกา"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-final-verification-report.md",
+      "keyword": "AEO",
+      "line": 13,
+      "snippet": "| **1** | ตรวจสอบคำต้องห้ามเกี่ยวกับบ็อตค้นหา (Bot-specific terms เช่น AEO, GEO) | **PASS** | ค้นพบค"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-final-verification-report.md",
+      "keyword": "GEO",
+      "line": 13,
+      "snippet": "| **1** | ตรวจสอบคำต้องห้ามเกี่ยวกับบ็อตค้นหา (Bot-specific terms เช่น AEO, GEO) | **PASS** | ค้นพบค"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "SEO",
+      "line": 77,
+      "snippet": "### 2.3 ผลลัพธ์การรัน SEO Audit"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "SEO",
+      "line": 78,
+      "snippet": "* **คำสั่งรัน:** `node scripts/seo-audit.mjs --source`"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "AEO",
+      "line": 11,
+      "snippet": "การปรับปรุงใน Batch 2 มุ่งเน้นการปรับปรุงเนื้อหาบนหน้าเพจหลัก (Core Money Pages) และส่วนประกอบสำคัญ "
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "AEO",
+      "line": 20,
+      "snippet": "* ลบกล่องข้อมูลสรุปสำหรับ AI Search (AEO/GEO summaries) ที่เขียนเพื่อป้อนบ็อทโดยเฉพาะ"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "AEO",
+      "line": 90,
+      "snippet": "| `src/components/home/SeoProseSection.astro` | [MODIFY] | ลบกล่องข้อมูลสอนบ็อท AEO/GEO, ปรับปรุงภาษ"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "GEO",
+      "line": 11,
+      "snippet": "การปรับปรุงใน Batch 2 มุ่งเน้นการปรับปรุงเนื้อหาบนหน้าเพจหลัก (Core Money Pages) และส่วนประกอบสำคัญ "
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "GEO",
+      "line": 20,
+      "snippet": "* ลบกล่องข้อมูลสรุปสำหรับ AI Search (AEO/GEO summaries) ที่เขียนเพื่อป้อนบ็อทโดยเฉพาะ"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "GEO",
+      "line": 48,
+      "snippet": "### 1.3 การปรับปรุงพื้นที่ให้บริการและหน้าติดต่อ (GEO & Contact Pages)"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "GEO",
+      "line": 90,
+      "snippet": "| `src/components/home/SeoProseSection.astro` | [MODIFY] | ลบกล่องข้อมูลสอนบ็อท AEO/GEO, ปรับปรุงภาษ"
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "Generative AI",
+      "line": 11,
+      "snippet": "การปรับปรุงใน Batch 2 มุ่งเน้นการปรับปรุงเนื้อหาบนหน้าเพจหลัก (Core Money Pages) และส่วนประกอบสำคัญ "
+    },
+    {
+      "file": "docs/recovery/batch-2/batch-2-report.md",
+      "keyword": "สำหรับ AI",
+      "line": 20,
+      "snippet": "* ลบกล่องข้อมูลสรุปสำหรับ AI Search (AEO/GEO summaries) ที่เขียนเพื่อป้อนบ็อทโดยเฉพาะ"
+    },
+    {
+      "file": "docs/recovery/batch-3/batch-3-5-noindex-link-safety-report.md",
+      "keyword": "SEO",
+      "line": 49,
+      "snippet": "3. **SEO Audit**: Scanned all files with `node scripts/seo-audit.mjs --source` and found **0 errors*"
+    },
+    {
+      "file": "docs/recovery/batch-3/batch-3-5-noindex-link-safety-report.md",
+      "keyword": "SEO",
+      "line": 57,
+      "snippet": "- **Reasoning**: All links to GONE and noindex paths have been fully resolved. The project builds cl"
+    },
+    {
+      "file": "docs/recovery/batch-3/batch-3-report.md",
+      "keyword": "SEO",
+      "line": 98,
+      "snippet": "- **Link Warnings**: The audit tool flags duplicate exact-match anchors in the footer and main colum"
+    },
+    {
+      "file": "docs/recovery/batch-4/batch-4-report.md",
+      "keyword": "SEO",
+      "line": 67,
+      "snippet": "3. **SEO Audit (`seo-audit.mjs`)**: **0 Errors**, minor description duplicates on legacy redirects."
+    },
+    {
+      "file": "docs/recovery/batch-4/batch-4-report.md",
+      "keyword": "SEO",
+      "line": 73,
+      "snippet": "Report compiled by **Senior Technical SEO Engineer + Structured Data Specialist** on July 7, 2026."
+    },
+    {
+      "file": "docs/recovery/batch-5/batch-5-report.md",
+      "keyword": "SEO",
+      "line": 49,
+      "snippet": "- **node scripts/seo-audit.mjs --source**: `0 Errors` across all pages."
+    },
+    {
+      "file": "docs/recovery/batch-5-5/batch-5-5-ui-refresh-report.md",
+      "keyword": "SEO",
+      "line": 18,
+      "snippet": "- ไม่แตะ slug, schema logic, redirects, sitemap logic, หรือ rewrite SEO content ใหญ่"
+    },
+    {
+      "file": "docs/recovery/batch-5-5/batch-5-5-ui-refresh-report.md",
+      "keyword": "SEO",
+      "line": 209,
+      "snippet": "| `node scripts/seo-audit.mjs --source` | **0 errors** (26 warnings — pre-existing duplicates/canoni"
+    },
+    {
+      "file": "docs/recovery/batch-5-5/batch-5-5-ui-refresh-report.md",
+      "keyword": "SEO",
+      "line": 226,
+      "snippet": "| Article template (`[slug].astro`) not fully restructured | Only CSS polish (hero teal, longform wi"
+    },
+    {
+      "file": "docs/recovery/batch-5-5/batch-5-5-ui-refresh-report.md",
+      "keyword": "SEO",
+      "line": 231,
+      "snippet": "## 10. Intentionally Not Done (SEO Safety)"
+    },
+    {
+      "file": "docs/recovery/batch-5-5/batch-5-5-ui-refresh-report.md",
+      "keyword": "SEO",
+      "line": 237,
+      "snippet": "| SEO content rewrite | Prohibited — only layout/spacing/typography |"
+    },
+    {
+      "file": "docs/recovery/batch-5-5/batch-5-5-ui-refresh-report.md",
+      "keyword": "SEO",
+      "line": 256,
+      "snippet": "- [x] SEO audit 0 errors"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 18,
+      "snippet": "- QA ผ่านครบ: build 780 pages, SEO 0 errors, schema 0/0, mobile UX 0/0 บน core 11 หน้า"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 73,
+      "snippet": "| `SeoProseSection.astro` | Homepage SEO block claims softened |"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 124,
+      "snippet": "เนื้อหา SEO ยาวเดิมถูกย้ายไป `money-seo-appendix` พร้อม label แยกชัด — **ไม่ rewrite เนื้อหาใหญ่**"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 165,
+      "snippet": "| `node scripts/seo-audit.mjs --source` | **0 errors** (26 warnings ใน legacy pages — pre-existing) "
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 190,
+      "snippet": "1. **SEO appendix** บน money pages ยังมี claim ใน paragraph ยาว (`ราคาสูงที่สุด`, `100%`, `10-15 นาท"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 192,
+      "snippet": "3. **ความน่าเชื่อถือ** — section SEO ลึก (NaturalSeoSections) ยังมี `100%` / `สูงสุด` ในเนื้อหายาว"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 208,
+      "snippet": "| SEO audit 0 errors | ✅ |"
+    },
+    {
+      "file": "docs/recovery/batch-5-6/batch-5-6-visual-polish-report.md",
+      "keyword": "SEO",
+      "line": 230,
+      "snippet": "3. (Optional) รอบถัดไป: softening meta descriptions + SEO appendix claims แยก batch"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 1,
+      "snippet": "# Batch 5.7 — Final Claim Sweep for SEO Appendix + Meta Copy"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 12,
+      "snippet": "ล้าง claim-heavy copy ที่เหลือใน core pages ทั้ง visible longform, SEO appendix, meta/JSON-LD text โ"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 19,
+      "snippet": "| SEO appendix core pages | ✅ NaturalSeoSections + longform swept |"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 22,
+      "snippet": "| SEO audit | ✅ 0 errors |"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 35,
+      "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, `ให้ราคาสูง`"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 123,
+      "snippet": "## SEO appendix UX"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 167,
+      "snippet": "## SEO audit"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 170,
+      "snippet": "node scripts/seo-audit.mjs --source"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 217,
+      "snippet": "node scripts/seo-audit.mjs --source"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "GEO",
+      "line": 77,
+      "snippet": "| `src/components/longform/NaturalSeoSections.astro` | details/summary appendix UX, `geo` default, m"
+    },
+    {
+      "file": "docs/recovery/batch-5-7/batch-5-7-final-claim-sweep-report.md",
+      "keyword": "GEO",
+      "line": 128,
+      "snippet": "- default `geo` → `\"ลูกค้าในหลายพื้นที่\"`"
+    },
+    {
+      "file": "docs/recovery/batch-5-8/batch-5-8-legacy-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 22,
+      "snippet": "| SEO audit errors | 0 | **0** |"
+    },
+    {
+      "file": "docs/recovery/batch-5-8/batch-5-8-legacy-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 145,
+      "snippet": "## SEO audit"
+    },
+    {
+      "file": "docs/recovery/batch-5-8/batch-5-8-legacy-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 148,
+      "snippet": "node scripts/seo-audit.mjs --source"
+    },
+    {
+      "file": "docs/recovery/batch-5-8/batch-5-8-legacy-claim-sweep-report.md",
+      "keyword": "SEO",
+      "line": 203,
+      "snippet": "node scripts/seo-audit.mjs --source"
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 5231,
+      "snippet": "\"snippet\": \"| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 14335,
+      "snippet": "\"snippet\": \"\\\"line\\\": 35, \\\"claim\\\": \\\"ราคาสูงที่สุด\\\", \\\"snippet\\\": \\\"| Money page SEO\","
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 14343,
+      "snippet": "\"snippet\": \"| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 30983,
+      "snippet": "\"snippet\": \"snippet\\\": \\\", \\\\\\\"line\\\\\\\": 35, \\\\\\\"claim\\\\\\\": \\\\\\\"ราคาสูงที่สุด\\\\\\\", \\\\\\\"snippet\\\\\\\": "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 30991,
+      "snippet": "\"snippet\": \"\\\"line\\\": 5167, \\\"claim\\\": \\\"ราคาสูงที่สุด\\\", \\\"snippet\\\": \\\"| Money page SEO\","
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 30999,
+      "snippet": "\"snippet\": \"| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 64583,
+      "snippet": "\"snippet\": \"snippet\\\": \\\"\\\\\\\"line\\\\\\\": 5195, \\\\\\\"claim\\\\\\\": \\\\\\\"ราคาสูงที่สุด\\\\\\\", \\\\\\\"snippet\\\\\\\": "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 64591,
+      "snippet": "\"snippet\": \"\\\"line\\\": 14087, \\\"claim\\\": \\\"ราคาสูงที่สุด\\\", \\\"snippet\\\": \\\"| Money page SEO\","
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 64599,
+      "snippet": "\"snippet\": \"| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 131847,
+      "snippet": "\"snippet\": \"nippet\\\": \\\"\\\\\\\"line\\\\\\\": 14115, \\\\\\\"claim\\\\\\\": \\\\\\\"ราคาสูงที่สุด\\\\\\\", \\\\\\\"snippet\\\\\\\": "
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 131855,
+      "snippet": "\"snippet\": \"\\\"line\\\": 30871, \\\"claim\\\": \\\"ราคาสูงที่สุด\\\", \\\"snippet\\\": \\\"| Money page SEO\","
+    },
+    {
+      "file": "docs/recovery/batch-5-8/claim-audit.json",
+      "keyword": "SEO",
+      "line": 131863,
+      "snippet": "\"snippet\": \"| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, "
+    },
+    {
+      "file": "docs/recovery/homepage-header-hero-polish-report.md",
+      "keyword": "SEO",
+      "line": 115,
+      "snippet": "| `node scripts/seo-audit.mjs --source` | ✅ 0 errors (25 warnings เป็น duplicate description ที่มีอย"
+    },
+    {
+      "file": "docs/recovery/homepage-header-hero-polish-report.md",
+      "keyword": "SEO",
+      "line": 141,
+      "snippet": "หน้าแรกดู **premium, clean, trustworthy** ขึ้นชัดเจน ผ่าน mobile UX audit โดยไม่แตะโครง SEO สำคัญ (s"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-07-07T16:15:17.074Z",
+  "timestamp": "2026-07-08T11:41:29.647Z",
   "overallPass": true,
   "results": [
     {
       "route": "/",
       "status": "pass",
       "h1Count": 1,
-      "totalImages": 15,
+      "totalImages": 13,
       "imagesMissingDimensions": 0,
       "errors": [],
       "warnings": []

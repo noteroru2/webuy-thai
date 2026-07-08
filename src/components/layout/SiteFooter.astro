@@ -8,42 +8,31 @@ const phoneDisplay = phone.replace(/^\+66/, '0').replace(/-/g, '');
 const lineUrl = 'https://line.me/R/ti/p/@webuy';
 const telHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
 const openingHours = import.meta.env.PUBLIC_OPENING_HOURS ?? 'ทุกวัน 24 ชั่วโมง';
-const addressLine1 = import.meta.env.PUBLIC_STREET_ADDRESS ?? '';
-const addressLocality = import.meta.env.PUBLIC_ADDRESS_LOCALITY ?? 'กรุงเทพมหานคร';
-const addressRegion = import.meta.env.PUBLIC_ADDRESS_REGION ?? 'ประเทศไทย';
-const postalCode = import.meta.env.PUBLIC_POSTAL_CODE ?? '10200';
 const mapUrl = import.meta.env.PUBLIC_GOOGLE_MAP_URL ?? 'https://maps.app.goo.gl/LjeWLrvhDhcsgRYCA';
 const year = new Date().getFullYear();
 ---
 
-<footer
-	class="relative overflow-hidden border-t border-white/[0.08] bg-[#0f172a] text-gray-300"
-	role="contentinfo"
->
+<footer class="relative overflow-hidden border-t border-white/[0.06] bg-navy text-gray-300" role="contentinfo">
 	<div
-		class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_0%,rgba(249,115,22,0.11)_0%,transparent_55%),linear-gradient(180deg,rgba(15,23,42,0)_0%,rgba(2,6,23,0.85)_100%)]"
+		class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_0%,rgba(245,158,11,0.1)_0%,transparent_55%)]"
 		aria-hidden="true"
 	>
 	</div>
-	<div class="relative mx-auto max-w-[1200px] px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-		<div class="grid gap-12 lg:grid-cols-12 lg:gap-10">
+	<div class="relative mx-auto max-w-[var(--width-container,75rem)] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+		<div class="grid gap-14 lg:grid-cols-12 lg:gap-12">
 			<div class="lg:col-span-4">
-				<div class="inline-block rounded-lg border border-white/10 bg-white/[0.07] p-2 shadow-sm backdrop-blur-sm">
-					<div class="rounded-md bg-white px-2.5 py-1.5">
-						<BrandLogo />
-					</div>
-				</div>
-				<p class="mt-5 text-sm font-semibold text-white">{orgName}</p>
-				<p class="mt-3 max-w-md text-sm leading-[1.75] text-gray-400">
-					เน้นรับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสอง — ดำเนินงานในเครือ AMPHON TRADING
+				<BrandLogo variant="footer" />
+				<p class="mt-6 text-sm font-semibold text-white/90">{orgName}</p>
+				<p class="mt-4 max-w-sm text-sm leading-[1.75] text-white/60">
+					รับซื้อโน้ตบุ๊คและคอมพิวเตอร์มือสอง — ดำเนินงานในเครือ AMPHON TRADING
 				</p>
-				<div class="mt-6 space-y-2 text-sm text-gray-400">
+				<div class="mt-8 space-y-3 text-sm">
 					<p>
-						<span class="text-gray-500">โทร:</span>{' '}
+						<span class="text-white/45">โทร</span>{' '}
 						<a class="font-semibold text-white transition hover:text-brand-400" href={telHref}>{phoneDisplay}</a>
 					</p>
 					<p>
-						<span class="text-gray-500">LINE:</span>{' '}
+						<span class="text-white/45">LINE</span>{' '}
 						<a
 							class="font-semibold text-white transition hover:text-brand-400"
 							href={lineUrl}
@@ -51,34 +40,34 @@ const year = new Date().getFullYear();
 							rel="noopener noreferrer">@webuy</a
 						>
 					</p>
-					<p><span class="text-gray-500">เวลา:</span> {openingHours}</p>
+					<p><span class="text-white/45">เวลา</span> <span class="text-white/75">{openingHours}</span></p>
 				</div>
 			</div>
 
-			<div class="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:col-span-8 lg:gap-8">
+			<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:col-span-8 lg:gap-10">
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">บริการของเรา</p>
-					<ul class="mt-4 space-y-2.5 text-sm">
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/บริการ/">ภาพรวมบริการ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อ/">รับซื้อ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อไอโฟน/">รับซื้อ iPhone</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อไอแพด/">รับซื้อ iPad</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/รับซื้อกล้อง/">รับซื้อกล้อง</a></li>
+					<ul class="mt-5 space-y-3 text-sm">
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/บริการ/">ภาพรวมบริการ</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อ/">รับซื้อ</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อไอโฟน/">รับซื้อ iPhone</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อไอแพด/">รับซื้อ iPad</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อกล้อง/">รับซื้อกล้อง</a></li>
 					</ul>
 				</div>
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">ข้อมูลช่วยตัดสินใจ</p>
-					<ul class="mt-4 space-y-2.5 text-sm">
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/blog/">บทความ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
-						<li><a class="text-gray-400 transition hover:text-brand-400 block" href="/contact/">ติดต่อเรา</a></li>
+					<ul class="mt-5 space-y-3 text-sm">
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/blog/">บทความ</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
+						<li><a class="block text-white/60 transition hover:text-brand-400" href="/contact/">ติดต่อเรา</a></li>
 						<li>
-							<a class="text-gray-400 transition hover:text-brand-400 block" href={mapUrl} target="_blank" rel="noopener noreferrer"
+							<a class="block text-white/60 transition hover:text-brand-400" href={mapUrl} target="_blank" rel="noopener noreferrer"
 								>แผนที่ / นำทาง</a
 							>
 						</li>
@@ -86,72 +75,54 @@ const year = new Date().getFullYear();
 				</div>
 				<div class="col-span-1 sm:col-span-2 md:col-span-1">
 					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">พื้นที่ให้บริการหลัก</p>
-					<p class="mt-4 text-sm leading-[1.75] text-gray-400 break-words">
-						<strong class="font-semibold text-gray-200">{siteName}</strong><br />
-						ประเมินราคาออนไลน์และรับ-ส่งทั่วประเทศ<br />
-						<span class="block mt-2 font-medium text-gray-300">จุดนัดรับและประเมินหลัก:</span>
-						- กรุงเทพมหานครและปริมณฑล<br />
-						- อุบลราชธานี (ศูนย์หลักอีสาน)<br />
-						- ขอนแก่น, นครราชสีมา, อุดรธานี
+					<p class="mt-5 text-sm leading-[1.75] text-white/60">
+						<strong class="font-semibold text-white/85">{siteName}</strong><br />
+						ประเมินออนไลน์และรับ-ส่งทั่วประเทศ<br />
+						<span class="mt-3 block font-medium text-white/75">จุดนัดรับหลัก</span>
+						กรุงเทพฯ · อุบลราชธานี · ขอนแก่น · โคราช · อุดรธานี
 					</p>
 				</div>
 			</div>
 
-			<div class="col-span-full mt-6 border-t border-white/[0.08] pt-10">
+			<div class="col-span-full border-t border-white/[0.08] pt-12">
 				<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">คู่มือและ hub</p>
-				<ul class="mt-4 flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/บริการ/">ภาพรวมบริการ</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/blog/">บทความ</a>
-					</li>
-					<li>
-						<a class="text-gray-400 transition hover:text-brand-400 block" href="/contact/">ติดต่อเรา</a>
-					</li>
+				<ul class="mt-5 flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/บริการ/">ภาพรวมบริการ</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/blog/">บทความ</a></li>
+					<li><a class="block text-white/60 transition hover:text-brand-400" href="/contact/">ติดต่อเรา</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<div
-			class="mt-14 flex flex-col gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between sm:p-8"
+			class="mt-16 flex flex-col gap-5 rounded-[var(--radius-card-lg,1.125rem)] border border-white/[0.1] bg-white/[0.04] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"
 		>
-			<p class="text-sm font-medium text-gray-300">ต้องการประเมินราคาสินค้าไอที?</p>
+			<p class="text-sm font-medium text-white/80">ต้องการประเมินราคาสินค้าไอที?</p>
 			<div class="flex flex-wrap gap-3">
 				<a
-					class="inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-2.5 text-sm font-bold !text-white shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:bg-brand-700 hover:!text-white [text-shadow:0_1px_0_rgba(0,0,0,0.12)]"
+					class="inline-flex min-h-11 items-center justify-center rounded-full bg-line-refined px-5 py-2.5 text-sm font-bold !text-white shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-line-refined-hover"
 					href={lineUrl}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					ประเมินราคาฟรี
+					ส่งรูปทาง LINE
 				</a>
 				<a
-					class="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-300"
-					href="/contact/"
+					class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-300"
+					href={telHref}
 				>
-					ติดต่อเรา
+					โทร {phoneDisplay}
 				</a>
 			</div>
 		</div>
 
 		<div
-			class="mt-10 flex flex-col gap-4 border-t border-white/[0.08] pt-8 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between"
+			class="mt-12 flex flex-col gap-4 border-t border-white/[0.08] pt-8 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between"
 		>
 			<p>© {year} {siteName} · สงวนลิขสิทธิ์</p>
 			<div class="flex flex-wrap gap-x-5 gap-y-2">
@@ -164,4 +135,3 @@ const year = new Date().getFullYear();
 		</div>
 	</div>
 </footer>
-

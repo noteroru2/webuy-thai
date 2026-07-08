@@ -1,7 +1,7 @@
 {
   "summary": {
-    "totalFilesScanned": 824,
-    "totalLinksScanned": 3568,
+    "totalFilesScanned": 823,
+    "totalLinksScanned": 3564,
     "totalIssuesCount": 704,
     "stats": {
       "goneCount": 208,
@@ -18,7 +18,7 @@
       "file": "src/components/layout/SiteFooter.astro",
       "issues": [
         {
-          "line": 113,
+          "line": 93,
           "type": "HTML_HREF",
           "url": "/ราคากลางรับซื้อ/",
           "normalizedUrl": "/ราคากลางรับซื้อ/",
@@ -28,7 +28,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"ราคากลางรับซื้อ\" to /ราคากลางรับซื้อ/"
         },
         {
-          "line": 116,
+          "line": 94,
           "type": "HTML_HREF",
           "url": "/ความน่าเชื่อถือ/",
           "normalizedUrl": "/ความน่าเชื่อถือ/",
@@ -38,7 +38,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"ความน่าเชื่อถือ\" to /ความน่าเชื่อถือ/"
         },
         {
-          "line": 119,
+          "line": 95,
           "type": "HTML_HREF",
           "url": "/บริการ/",
           "normalizedUrl": "/บริการ/",
@@ -48,7 +48,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"ภาพรวมบริการ\" to /บริการ/"
         },
         {
-          "line": 122,
+          "line": 96,
           "type": "HTML_HREF",
           "url": "/blog/",
           "normalizedUrl": "/blog/",
@@ -58,7 +58,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"บทความ\" to /blog/"
         },
         {
-          "line": 125,
+          "line": 97,
           "type": "HTML_HREF",
           "url": "/contact/",
           "normalizedUrl": "/contact/",

@@ -5,50 +5,52 @@
 	--font-sans:
 		'Noto Sans Thai Variable', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
 
-	/* Design tokens — Batch 5.5 teal/navy refresh */
-	--color-primary: #0284c7;
-	--color-primary-dark: #0369a1;
-	--color-primary-soft: #e0f2fe;
+	/* Brand orange — premium accent */
+	--color-primary: #f59e0b;
+	--color-primary-dark: #d97706;
+	--color-primary-soft: #fffbeb;
 	--color-surface: #ffffff;
 	--color-background: #fafafa;
-	--color-background-warm: #f0f9ff;
+	--color-background-warm: #f5f7fa;
 	--color-border: #e5e7eb;
 	--color-muted: #6b7280;
 
-	/* Brand teal/sky — สะอาด ทันสมัย มืออาชีพ */
-	--color-brand-50: #f0f9ff;
-	--color-brand-100: #e0f2fe;
-	--color-brand-500: #0ea5e9;
-	--color-brand-600: #0284c7;
-	--color-brand-700: #0369a1;
-	--color-brand-800: #075985;
-	--color-brand-400: #38bdf8;
+	--color-brand-50: #fffbeb;
+	--color-brand-100: #fef3c7;
+	--color-brand-400: #fbbf24;
+	--color-brand-500: #f59e0b;
+	--color-brand-600: #d97706;
+	--color-brand-700: #b45309;
+	--color-brand-800: #92400e;
 
-	--color-text: #111827;
+	--color-text: #1f2937;
 	--color-text-muted: #4b5563;
 
-	--radius-premium: 1.25rem;
-	--radius-card: 1.375rem;
+	--radius-premium: 1.125rem;
+	--radius-card: 1rem;
 
 	--shadow-card:
-		0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -16px rgba(15, 23, 42, 0.12);
+		0 1px 2px rgba(11, 31, 58, 0.04), 0 12px 32px -16px rgba(11, 31, 58, 0.1);
 	--shadow-card-hover:
-		0 4px 12px rgba(2, 132, 199, 0.10), 0 20px 40px -24px rgba(15, 23, 42, 0.18);
+		0 4px 12px rgba(245, 158, 11, 0.08), 0 20px 40px -24px rgba(11, 31, 58, 0.14);
 
-	/* Editorial / landing max width */
 	--width-content: 48rem;
 	--width-container: 75rem;
 
 	/* Navy — footer / trust band */
-	--color-navy: #0f172a;
-	--color-navy-soft: #1e293b;
+	--color-navy: #0b1f3a;
+	--color-navy-soft: #132d4f;
+
+	/* Teal accent */
+	--color-teal: #14b8a6;
+	--color-teal-soft: #ecfdf5;
 
 	/* Yellow CTA band */
-	--color-yellow-cta: #fbbf24;
-	--color-yellow-cta-dark: #f59e0b;
+	--color-yellow-cta: #f59e0b;
+	--color-yellow-cta-dark: #d97706;
 	--color-yellow-bg: #fffbeb;
 
-	/* LINE button — green stays */
+	/* LINE button */
 	--color-line-refined: #047857;
 	--color-line-refined-hover: #065f46;
 }
