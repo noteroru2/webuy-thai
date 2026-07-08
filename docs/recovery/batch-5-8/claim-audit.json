@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-08T15:46:41.617Z",
+  "generatedAt": "2026-07-08T15:50:04.204Z",
   "summary": {
     "critical": 0,
     "warning": 0,
-    "ignored": 923,
+    "ignored": 1049,
     "passed": true
   },
   "corePages": [
@@ -5146,7 +5146,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 349046,
+        "line": 1327418,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5154,7 +5154,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445352,
+        "line": 1553648,
         "claim": "ราคาสูงที่สุด",
         "snippet": "ey pages ยังมี claim ใน paragraph ยาว (`ราคาสูงที่สุด`, `100%`\" }, { \"file\": \"d",
         "note": "docs/recovery report artifact"
@@ -5162,7 +5162,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445448,
+        "line": 1553744,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -5170,7 +5170,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445580,
+        "line": 1553864,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5178,7 +5178,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445604,
+        "line": 1553900,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5186,7 +5186,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445640,
+        "line": 1553924,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5194,7 +5194,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445676,
+        "line": 1553948,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5202,7 +5202,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445712,
+        "line": 1553972,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5210,7 +5210,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445748,
+        "line": 1553996,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5218,7 +5218,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445784,
+        "line": 1554020,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5226,7 +5226,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445808,
+        "line": 1554044,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5234,7 +5234,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445832,
+        "line": 1554068,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5242,7 +5242,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445856,
+        "line": 1554092,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5250,7 +5250,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445880,
+        "line": 1554116,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5258,7 +5258,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445904,
+        "line": 1554140,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5266,7 +5266,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445928,
+        "line": 1554164,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5274,7 +5274,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445952,
+        "line": 1554188,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5282,7 +5282,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 445988,
+        "line": 1554212,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5290,7 +5290,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446024,
+        "line": 1554236,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5298,7 +5298,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446060,
+        "line": 1554260,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5306,7 +5306,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446108,
+        "line": 1554284,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5314,7 +5314,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446156,
+        "line": 1554308,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5322,7 +5322,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446204,
+        "line": 1554332,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5330,7 +5330,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446252,
+        "line": 1554356,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5338,7 +5338,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446276,
+        "line": 1554380,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5346,7 +5346,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446300,
+        "line": 1554404,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5354,7 +5354,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446324,
+        "line": 1554428,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5362,7 +5362,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446348,
+        "line": 1554452,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5370,7 +5370,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446372,
+        "line": 1554476,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5378,7 +5378,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446396,
+        "line": 1554500,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5386,7 +5386,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446432,
+        "line": 1554524,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5394,7 +5394,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446456,
+        "line": 1554548,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5402,7 +5402,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446492,
+        "line": 1554572,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5410,7 +5410,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446528,
+        "line": 1554596,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5418,7 +5418,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446564,
+        "line": 1554620,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5426,7 +5426,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446600,
+        "line": 1554644,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5434,7 +5434,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446612,
+        "line": 1554668,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5442,15 +5442,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446624,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\\\": 35, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\"\" }",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446636,
+        "line": 1554692,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5458,15 +5450,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446654,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\": 5231, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\"\" }",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446666,
+        "line": 1554716,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5474,15 +5458,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446684,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": ": 14343, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\" },",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446696,
+        "line": 1554752,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5490,15 +5466,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446714,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": ": 30999, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\" },",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446726,
+        "line": 1554788,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5506,15 +5474,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446744,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": ": 64599, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\" },",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446756,
+        "line": 1554824,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5522,15 +5482,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446774,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "131863, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\" },",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446786,
+        "line": 1554860,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5538,15 +5490,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446798,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\": 795, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\":\"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446810,
+        "line": 1554896,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5554,15 +5498,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446822,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\": 861, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\":\"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446834,
+        "line": 1554932,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5570,15 +5506,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446846,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\": 873, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\":\"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446858,
+        "line": 1554968,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5586,15 +5514,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446870,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\": 891, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\":\"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446882,
+        "line": 1555004,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5602,15 +5522,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446894,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\": 909, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\":\"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446906,
+        "line": 1555040,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5618,15 +5530,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446918,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "\\\": 927, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\":\"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446930,
+        "line": 1555076,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5634,7 +5538,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 446966,
+        "line": 1555112,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5642,7 +5546,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 447002,
+        "line": 1555148,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5650,7 +5554,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 447038,
+        "line": 1555172,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5658,7 +5562,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 447086,
+        "line": 1555196,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5666,7 +5570,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 447134,
+        "line": 1555220,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5674,7 +5578,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 447182,
+        "line": 1555244,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5682,7 +5586,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 450350,
+        "line": 1555268,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -5690,7 +5594,559 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 628904,
+        "line": 1555292,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555316,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555352,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555388,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555412,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555436,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555460,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555484,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555508,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555532,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555556,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555580,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555604,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555628,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555652,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555676,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555700,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555724,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555748,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555772,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555796,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555820,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555844,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555868,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555892,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555916,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555940,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555964,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1555988,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556012,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556036,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556060,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556084,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556108,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556132,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556156,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556180,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556216,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556264,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556312,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556360,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556408,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556456,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556492,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556528,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556564,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556600,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556636,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556672,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556696,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556720,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556744,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556768,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556792,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556816,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556852,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556876,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556912,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556948,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1556984,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557020,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557032,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557068,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557104,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557140,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557188,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557236,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1557284,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1560452,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1985642,
         "claim": "ราคาสูงที่สุด",
         "snippet": "ey pages ยังมี claim ใน paragraph ยาว (`ราคาสูงที่สุด`, `100%`, `10-15 นาท\" }, {",
         "note": "docs/recovery report artifact"
@@ -5698,7 +6154,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 628952,
+        "line": 1985690,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, `ให้ร",
         "note": "docs/recovery report artifact"
@@ -5706,7 +6162,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 628952,
+        "line": 1985690,
         "claim": "ราคาสูงที่สุด",
         "snippet": "่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, `ให้ราคาสูง`\" }, { \"file\": \"docs/reco",
         "note": "docs/recovery report artifact"
@@ -5714,7 +6170,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629024,
+        "line": 1985762,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5722,7 +6178,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629042,
+        "line": 1985780,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -5730,7 +6186,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629054,
+        "line": 1985792,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5738,7 +6194,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629066,
+        "line": 1985804,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5746,7 +6202,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629078,
+        "line": 1985816,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5754,7 +6210,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629090,
+        "line": 1985828,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5762,7 +6218,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629102,
+        "line": 1985840,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5770,7 +6226,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629114,
+        "line": 1985852,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5778,7 +6234,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629126,
+        "line": 1985864,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5786,7 +6242,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629138,
+        "line": 1985876,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5794,7 +6250,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629150,
+        "line": 1985888,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5802,7 +6258,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629162,
+        "line": 1985900,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5810,7 +6266,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629174,
+        "line": 1985912,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5818,7 +6274,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629186,
+        "line": 1985924,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5826,7 +6282,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629198,
+        "line": 1985936,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5834,7 +6290,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629210,
+        "line": 1985948,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5842,7 +6298,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629222,
+        "line": 1985960,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5850,7 +6306,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629234,
+        "line": 1985972,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5858,7 +6314,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629246,
+        "line": 1985984,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5866,7 +6322,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629258,
+        "line": 1985996,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5874,7 +6330,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629270,
+        "line": 1986008,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5882,7 +6338,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629282,
+        "line": 1986020,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5890,7 +6346,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629294,
+        "line": 1986032,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5898,7 +6354,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629306,
+        "line": 1986044,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5906,7 +6362,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629318,
+        "line": 1986056,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5914,7 +6370,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629330,
+        "line": 1986068,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5922,7 +6378,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629342,
+        "line": 1986080,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5930,7 +6386,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629354,
+        "line": 1986092,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5938,7 +6394,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629366,
+        "line": 1986104,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5946,7 +6402,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629378,
+        "line": 1986116,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5954,7 +6410,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629390,
+        "line": 1986128,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5962,7 +6418,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629402,
+        "line": 1986140,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5970,7 +6426,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629414,
+        "line": 1986152,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5978,7 +6434,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629426,
+        "line": 1986164,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5986,7 +6442,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629438,
+        "line": 1986176,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -5994,7 +6450,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629450,
+        "line": 1986188,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6002,7 +6458,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629468,
+        "line": 1986206,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6010,7 +6466,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629486,
+        "line": 1986224,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6018,7 +6474,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629504,
+        "line": 1986242,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6026,7 +6482,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629522,
+        "line": 1986260,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6034,7 +6490,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629540,
+        "line": 1986278,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6042,7 +6498,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629558,
+        "line": 1986296,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6050,7 +6506,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629576,
+        "line": 1986314,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6058,7 +6514,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629594,
+        "line": 1986332,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6066,7 +6522,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629612,
+        "line": 1986350,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6074,7 +6530,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629630,
+        "line": 1986368,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6082,7 +6538,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629648,
+        "line": 1986386,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6090,7 +6546,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629666,
+        "line": 1986404,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6098,7 +6554,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629678,
+        "line": 1986416,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6106,7 +6562,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629690,
+        "line": 1986428,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6114,7 +6570,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629702,
+        "line": 1986440,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6122,7 +6578,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629714,
+        "line": 1986452,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6130,7 +6586,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629726,
+        "line": 1986464,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6138,7 +6594,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629738,
+        "line": 1986476,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6146,7 +6602,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629750,
+        "line": 1986488,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6154,7 +6610,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629768,
+        "line": 1986506,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6162,15 +6618,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629786,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629798,
+        "line": 1986524,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6178,7 +6626,15 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629810,
+        "line": 1986536,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986548,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6186,7 +6642,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629822,
+        "line": 1986560,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6194,7 +6650,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629834,
+        "line": 1986572,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6202,7 +6658,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629846,
+        "line": 1986584,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6210,7 +6666,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629858,
+        "line": 1986596,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6218,7 +6674,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629870,
+        "line": 1986608,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6226,7 +6682,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629882,
+        "line": 1986620,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6234,7 +6690,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629894,
+        "line": 1986632,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6242,7 +6698,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629906,
+        "line": 1986644,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6250,7 +6706,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629918,
+        "line": 1986656,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6258,7 +6714,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629930,
+        "line": 1986668,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6266,7 +6722,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629942,
+        "line": 1986680,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6274,119 +6730,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629954,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629966,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629978,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 629990,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630002,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630014,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630026,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630038,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630050,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630062,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630074,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630086,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630098,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630110,
-        "claim": "ราคาสูงที่สุด",
-        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
-        "note": "docs/recovery report artifact"
-      },
-      {
-        "severity": "ignored",
-        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630122,
+        "line": 1986692,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6394,7 +6738,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630134,
+        "line": 1986704,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6402,7 +6746,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630146,
+        "line": 1986716,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6410,7 +6754,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630158,
+        "line": 1986728,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6418,7 +6762,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630170,
+        "line": 1986740,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6426,7 +6770,295 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630182,
+        "line": 1986752,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986764,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986776,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986788,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986800,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986812,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986824,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986836,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986848,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986860,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986872,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986884,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986896,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986908,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986920,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986932,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986944,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986956,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986968,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986980,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1986992,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987004,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987016,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987028,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987040,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987052,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987064,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987076,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987088,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987100,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987112,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987124,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987136,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987148,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987160,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987172,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987184,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6434,7 +7066,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630200,
+        "line": 1987196,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6442,7 +7074,111 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630224,
+        "line": 1987208,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987220,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987232,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987244,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987256,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987268,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987280,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987292,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987304,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987316,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987328,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987340,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987352,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987364,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6450,7 +7186,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630248,
+        "line": 1987376,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6458,7 +7194,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630272,
+        "line": 1987388,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6466,7 +7202,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630296,
+        "line": 1987400,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6474,7 +7210,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630320,
+        "line": 1987412,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6482,7 +7218,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630338,
+        "line": 1987424,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6490,7 +7226,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630356,
+        "line": 1987436,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6498,7 +7234,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630374,
+        "line": 1987448,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6506,7 +7242,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630392,
+        "line": 1987460,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6514,7 +7250,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630410,
+        "line": 1987472,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6522,7 +7258,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630428,
+        "line": 1987484,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6530,7 +7266,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630440,
+        "line": 1987496,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6538,7 +7274,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630452,
+        "line": 1987508,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6546,7 +7282,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630464,
+        "line": 1987520,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6554,7 +7290,47 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630476,
+        "line": 1987532,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987544,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987556,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987568,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987580,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987592,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6562,7 +7338,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630488,
+        "line": 1987604,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6570,7 +7346,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630500,
+        "line": 1987616,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6578,7 +7354,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630518,
+        "line": 1987628,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6586,7 +7362,239 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630530,
+        "line": 1987640,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987652,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987664,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987676,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987688,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987700,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987712,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987724,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987736,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987748,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987760,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987772,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987784,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987796,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987808,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987820,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987832,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987844,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987856,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987868,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987880,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\" },",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987892,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987904,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987916,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987928,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987940,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987952,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987964,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987982,
+        "claim": "ราคาสูงที่สุด",
+        "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
+        "note": "docs/recovery report artifact"
+      },
+      {
+        "severity": "ignored",
+        "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
+        "line": 1987994,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6594,7 +7602,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630548,
+        "line": 1988012,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6602,7 +7610,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630566,
+        "line": 1988030,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6610,7 +7618,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630584,
+        "line": 1988048,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6618,7 +7626,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630602,
+        "line": 1988066,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\\\\\\\" }, {\\\",\" },",
         "note": "docs/recovery report artifact"
@@ -6626,7 +7634,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630608,
+        "line": 1988072,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6634,7 +7642,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630626,
+        "line": 1988090,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6642,7 +7650,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630644,
+        "line": 1988108,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6650,7 +7658,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630662,
+        "line": 1988126,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6658,7 +7666,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630686,
+        "line": 1988150,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6666,7 +7674,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630710,
+        "line": 1988174,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6674,7 +7682,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 630734,
+        "line": 1988198,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6682,7 +7690,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 631796,
+        "line": 1989260,
         "claim": "ราคาสูงที่สุด",
         "snippet": "ey pages ยังมี claim ใน paragraph ยาว (`ราคาสูงที่สุด`, `100%`\" }, { \"file\": \"d",
         "note": "docs/recovery report artifact"
@@ -6690,7 +7698,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 631892,
+        "line": 1989356,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นาที`, `สูงสุด`, \"",
         "note": "docs/recovery report artifact"
@@ -6698,7 +7706,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632000,
+        "line": 1989464,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -6706,7 +7714,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632012,
+        "line": 1989476,
         "claim": "ราคาสูงที่สุด",
         "snippet": "\\\\\": 35, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\": \"",
         "note": "docs/recovery report artifact"
@@ -6714,7 +7722,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632024,
+        "line": 1989488,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -6722,7 +7730,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632042,
+        "line": 1989506,
         "claim": "ราคาสูงที่สุด",
         "snippet": "\": 5167, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\\\"\" }",
         "note": "docs/recovery report artifact"
@@ -6730,7 +7738,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632054,
+        "line": 1989518,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -6738,7 +7746,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632072,
+        "line": 1989536,
         "claim": "ราคาสูงที่สุด",
         "snippet": ": 14087, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6746,7 +7754,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632084,
+        "line": 1989548,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
@@ -6754,7 +7762,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632102,
+        "line": 1989566,
         "claim": "ราคาสูงที่สุด",
         "snippet": ": 30871, \\\\\\\\\\\\\\\"claim\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"ราคาสูงที่สุด\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"snippet\\\\\\\\\\\\\" },",
         "note": "docs/recovery report artifact"
@@ -6762,7 +7770,7 @@
       {
         "severity": "ignored",
         "file": "docs\\recovery\\batch-5-10\\visible-ai-seo-copy-audit.json",
-        "line": 632114,
+        "line": 1989578,
         "claim": "ราคาสูงที่สุด",
         "snippet": "| Money page SEO appendix (longform) | `ราคาสูงที่สุด`, `100%`, `10-15 นา\" }, {",
         "note": "docs/recovery report artifact"
