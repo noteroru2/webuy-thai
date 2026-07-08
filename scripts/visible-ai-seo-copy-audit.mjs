@@ -189,7 +189,7 @@ function main() {
 	};
 
 	// Write report JSON
-	const outputDir = join(root, 'docs/recovery/batch-5-9');
+	const outputDir = join(root, 'docs/recovery/batch-5-10');
 	mkdirSync(outputDir, { recursive: true });
 	const outputPath = join(outputDir, 'visible-ai-seo-copy-audit.json');
 	writeFileSync(outputPath, JSON.stringify(auditResult, null, 2), 'utf8');

@@ -6,7 +6,7 @@ type LinkItem = {
 type LongformConfig = {
 	theme: string;
 	audience: string;
-	geo: string;
+	locationContext: string;
 	emphasis: string;
 	prepareItems: string[];
 	valueFactors: string[];
@@ -382,7 +382,7 @@ export function buildArticleLongform(title: string, slug: string, canonicalPath?
 	const source = `${title} ${slug}`;
 	const product = detectProduct(source);
 	const province = detectProvince(source);
-	const geo = province ?? 'ลูกค้าทั่วประเทศ';
+	const locationContext = province ?? 'ลูกค้าทั่วประเทศ';
 	const audience = province
 		? `คนที่กำลังจะขาย${product.label}ใน${province}`
 		: `คนที่กำลังจะขาย${product.label}และต้องการเช็กราคาแบบไม่เสียเวลา`;
@@ -404,7 +404,7 @@ export function buildArticleLongform(title: string, slug: string, canonicalPath?
 	return {
 		theme: title,
 		audience,
-		geo,
+		locationContext,
 		emphasis: product.emphasis,
 		prepareItems: product.prepareItems,
 		valueFactors: product.valueFactors,

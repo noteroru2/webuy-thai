@@ -214,13 +214,13 @@
 	color: #475569;
 }
 
-/* Long SEO appendix — card rhythm without removing content */
-.money-seo-appendix {
+/* Long service detail appendix — card rhythm without removing content */
+.service-detail-appendix {
 	max-width: var(--money-max);
 	margin-inline: auto;
 	padding: 2rem 1rem 3rem;
 }
-.money-seo-appendix > h2 {
+.service-detail-appendix > h2 {
 	margin: 2rem 0 0.75rem;
 	padding: 1rem 1.1rem 0.75rem;
 	background: #fff;
@@ -231,22 +231,22 @@
 	line-height: 1.35;
 	color: #0f172a;
 }
-.money-seo-appendix > h2:first-child { margin-top: 0; }
-.money-seo-appendix > h3,
-.money-seo-appendix > h4,
-.money-seo-appendix > h5 {
+.service-detail-appendix > h2:first-child { margin-top: 0; }
+.service-detail-appendix > h3,
+.service-detail-appendix > h4,
+.service-detail-appendix > h5 {
 	margin: 1.25rem 0 0.45rem;
 	font-size: 1rem;
 	color: #334155;
 }
-.money-seo-appendix > p {
+.service-detail-appendix > p {
 	margin: 0 0 0.85rem;
 	font-size: 0.9375rem;
 	line-height: 1.8;
 	color: #475569;
 	max-width: 65ch;
 }
-.money-seo-appendix .appendix-label {
+.service-detail-appendix .appendix-label {
 	margin: 0 0 1rem;
 	padding: 0.65rem 0.9rem;
 	background: #f0f9ff;
