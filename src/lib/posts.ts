@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import nonArticleSlugList from '../data/non-article-slugs.json';
+import { isSafeHomePreviewPost } from './claim-filter';
 
 /** URL path หนึ่งตอนที่ไม่ใช่บทความจาก content collection (ใช้ร่วมกับ sitemap) */
 export const RESERVED_POST_SLUGS = new Set(nonArticleSlugList as string[]);
@@ -16,15 +17,17 @@ function isLegacyAliasPost(data: { slug: string; noindex?: boolean; canonical?: 
 /**
  * บทความที่เผยแพร่ (ไม่ชน slug กับหน้า static) เรียงใหม่สุดก่อน
  */
-export async function getPublishedPosts(options?: { includeNoindex?: boolean; includeLegacy?: boolean }) {
+export async function getPublishedPosts(options?: { includeNoindex?: boolean; includeLegacy?: boolean; includeUnsafe?: boolean }) {
 	const includeNoindex = options?.includeNoindex === true;
 	const includeLegacy = options?.includeLegacy === true;
+	const includeUnsafe = options?.includeUnsafe === true;
 	const posts = await getCollection(
 		'posts',
 		({ data }) =>
 			!RESERVED_POST_SLUGS.has(data.slug) &&
 			(includeLegacy || !isLegacyAliasPost(data)) &&
-			(includeNoindex || data.noindex !== true),
+			(includeNoindex || data.noindex !== true) &&
+			(includeUnsafe || isSafeHomePreviewPost(data)),
 	);
 	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }

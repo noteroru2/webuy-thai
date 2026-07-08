@@ -31,6 +31,24 @@ const serviceAreas = serviceAreasRaw
 	.map((item) => item.trim())
 	.filter(Boolean);
 
+const cameraShowcase = [
+	{
+		src: '/media/category/generic_camera_1781509181019.png',
+		alt: 'รับซื้อกล้องมือสอง ตรวจสอบเซ็นเซอร์ เลนส์ และชัตเตอร์',
+		caption: 'กล้องถ่ายภาพระดับมืออาชีพ พร้อมสำหรับการประเมินราคารับซื้อ'
+	},
+	{
+		src: '/media/notebook-showcase/shop-owner-ubon-showroom.webp',
+		alt: 'หน้าร้านรับซื้อกล้องมือสองและอุปกรณ์ไอที',
+		caption: 'บรรยากาศหน้าร้านจริงที่ให้บริการตรวจสอบและรับซื้อกล้องถ่ายภาพ'
+	},
+	{
+		src: '/media/apple-local/ipad-mini-silver-back.webp',
+		alt: 'การส่งรูปประเมินราคากล้องมือสองและแท็บเล็ต',
+		caption: 'บริการรับซื้ออุปกรณ์เสริม ขาตั้งกล้อง เลนส์ และอุปกรณ์ไอทีครบวงจร'
+	}
+];
+
 const priceItems = [
 	{ model: 'Mirrorless ระดับโปร (Sony A7RV, Canon R5 II)', price: '60,000 - 100,000+ บาท', note: 'อิงตาม Shutter Count และสภาพเซ็นเซอร์' },
 	{ model: 'Mirrorless ระดับกลาง (Sony A7IV, Fuji X-T5)', price: '30,000 - 55,000 บาท', note: 'ราคาจะสูงขึ้นถ้าขายพร้อมเลนส์คิทหรือเลนส์เกรดโปร' },
@@ -163,6 +181,27 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		<div class="money-landing px-4">
 			<SafeProcessBar />
 		</div>
+
+		<section class="money-landing px-4 py-6">
+			<div class="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2rem;">
+				{cameraShowcase.map((img) => (
+					<figure style="border: 1px solid #E8ECF1; border-radius: 0.75rem; background: #fff; padding: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
+						<img
+							src={img.src}
+							alt={img.alt}
+							width="320"
+							height="240"
+							loading="lazy"
+							decoding="async"
+							style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;"
+						/>
+						<figcaption style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5;">
+							{img.caption}
+						</figcaption>
+					</figure>
+				))}
+			</div>
+		</section>
 
 		<MoneyPageLanding
 			evalCards={cameraLanding.evalCards}

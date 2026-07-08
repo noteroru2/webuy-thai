@@ -30,6 +30,24 @@ const serviceAreas = serviceAreasRaw
 	.map((item) => item.trim())
 	.filter(Boolean);
 
+const pcShowcase = [
+	{
+		src: '/media/category/generic_desktop_pc_1781509169636.png',
+		alt: 'รับซื้อคอมพิวเตอร์มือสอง ตรวจสเปก CPU RAM SSD และการ์ดจอ',
+		caption: 'คอมพิวเตอร์ Desktop PC พร้อมสำหรับการตรวจสภาพและประเมินราคา'
+	},
+	{
+		src: '/media/notebook-showcase/shop-owner-ubon-showroom.webp',
+		alt: 'ร้านรับซื้อคอมพิวเตอร์และอุปกรณ์ไอที บรรยากาศหน้าร้านจริง',
+		caption: 'หน้าร้านรับซื้อและตรวจสอบอุปกรณ์ไอทีมือสองอย่างเป็นระบบ'
+	},
+	{
+		src: '/media/category/generic_server_1781509220904.png',
+		alt: 'รับซื้อคอมพิวเตอร์สำนักงานและอุปกรณ์เซิร์ฟเวอร์คอมพิวเตอร์ประกอบ',
+		caption: 'รับซื้อคอมพิวเตอร์จำนวนมาก คอมประกอบแยกชิ้นส่วน และเซิร์ฟเวอร์สำนักงาน'
+	}
+];
+
 const priceItems = [
 	{ model: 'Hi-End Gaming PC (RTX 5080/5090)', price: '60,000 - 150,000+ บาท', note: 'ประเมินจาก CPU, เมนบอร์ดเกรดบน และชุดน้ำ' },
 	{ model: 'Mid-Range Gaming PC (RTX 4060/4070)', price: '15,000 - 35,000 บาท', note: 'ราคาสูงขึ้นหากมีกล่องชิ้นส่วนเดิมและประกันเหลือ' },
@@ -192,6 +210,27 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		<div class="money-landing px-4">
 			<SafeProcessBar />
 		</div>
+
+		<section class="money-landing px-4 py-6">
+			<div class="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2rem;">
+				{pcShowcase.map((img) => (
+					<figure style="border: 1px solid #E8ECF1; border-radius: 0.75rem; background: #fff; padding: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
+						<img
+							src={img.src}
+							alt={img.alt}
+							width="320"
+							height="240"
+							loading="lazy"
+							decoding="async"
+							style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;"
+						/>
+						<figcaption style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5;">
+							{img.caption}
+						</figcaption>
+					</figure>
+				))}
+			</div>
+		</section>
 
 		<MoneyPageLanding
 			evalCards={pcLanding.evalCards}

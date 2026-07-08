@@ -16,6 +16,24 @@ const pagePath = '/ความน่าเชื่อถือ/';
 const pageDescription =
 	'WE BUY ศูนย์ความน่าเชื่อถือรับซื้อไอทีมือสอง — ประเมินโปร่งใส ขั้นตอนชัด ความปลอดภัยข้อมูลก่อนขาย ไม่กล่าวเกินจริง ทัก Line @webuy';
 
+const trustImages = [
+	{
+		src: '/media/notebook-showcase/notebook-lineup-showroom.webp',
+		alt: 'บรรยากาศคลังจัดเก็บและตรวจสอบสภาพสินค้าไอทีก่อนรับซื้อ',
+		caption: 'คลังสินค้าที่ได้มาตรฐานพร้อมระบบจัดเก็บอุปกรณ์ไอทีอย่างเป็นระบบเพื่อความมั่นใจ'
+	},
+	{
+		src: '/media/notebook-showcase/shop-owner-ubon-showroom.webp',
+		alt: 'เจ้าหน้าที่ผู้เชี่ยวชาญตรวจสอบสภาพภายในเครื่องและสเปกจริง',
+		caption: 'ทีมงานฝ่ายช่างเทคนิคที่มีความเชี่ยวชาญเฉพาะทางคอยดูแลการประเมินราคา'
+	},
+	{
+		src: '/media/notebook-showcase/acer-aspire-3-silver.webp',
+		alt: 'ตัวอย่างอุปกรณ์ไอทีที่ได้รับการเช็กสุขภาพเครื่องเรียบร้อย',
+		caption: 'ตัวอย่างคอมพิวเตอร์และโน๊ตบุ๊คผ่านการตรวจสอบสภาพหน้างานเพื่อความโปร่งใส'
+	}
+];
+
 const assessmentFactors = [
 	{ title: 'รุ่น', detail: 'รุ่นที่ตลาดมือสองยังต้องการมักได้ช่วงราคาที่แตกต่างจากรุ่นที่หมดยุด' },
 	{ title: 'สเปก', detail: 'CPU, RAM, การ์ดจอ, ชิป (M/Intel) และฟีเจอร์ที่มีผลต่อการใช้งานจริง' },
@@ -176,6 +194,29 @@ const jsonLd: Array<Record<string, unknown>> = [
 					<ButtonLink href={lineUrl} variant="line" target="_blank" rel="noopener noreferrer">
 						ทัก LINE @webuy
 					</ButtonLink>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-6">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<div class="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2rem;">
+					{trustImages.map((img) => (
+						<figure style="border: 1px solid #E8ECF1; border-radius: 0.75rem; background: #fff; padding: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
+							<img
+								src={img.src}
+								alt={img.alt}
+								width="320"
+								height="240"
+								loading="lazy"
+								decoding="async"
+								style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;"
+							/>
+							<figcaption style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5;">
+								{img.caption}
+							</figcaption>
+						</figure>
+					))}
 				</div>
 			</div>
 		</section>

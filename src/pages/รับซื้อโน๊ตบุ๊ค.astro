@@ -32,6 +32,24 @@ const serviceAreas = serviceAreasRaw
 	.split(',')
 	.map((item) => item.trim())
 	.filter(Boolean);
+
+const notebookShowcase = [
+	{
+		src: '/media/notebook-showcase/acer-aspire-3-silver.webp',
+		alt: 'รับซื้อโน๊ตบุ๊คมือสอง ตรวจสภาพเครื่องและบอดี้ก่อนประเมินราคา',
+		caption: 'โน๊ตบุ๊ค Acer Aspire 3 สีเงิน สภาพสวยพร้อมประเมินราคา'
+	},
+	{
+		src: '/media/notebook-showcase/asus-tuf-gaming-f15.webp',
+		alt: 'รับซื้อโน๊ตบุ๊คเกมมิ่ง ตรวจสเปกการ์ดจอและระบบระบายความร้อน',
+		caption: 'โน๊ตบุ๊ค Asus TUF Gaming F15 รุ่นยอดนิยม ประเมินราคาตามสเปกและสภาพจริง'
+	},
+	{
+		src: '/media/notebook-showcase/notebook-lineup-showroom.webp',
+		alt: 'หน้าร้านรับซื้อโน๊ตบุ๊คมือสอง ตรวจรับเครื่องหลากหลายรุ่น',
+		caption: 'บริการรับซื้อโน๊ตบุ๊คและ MacBook ทุกแบรนด์ชั้นนำ'
+	}
+];
 const priceItems = [
 	{ model: 'MacBook Pro M4 / M5 Series', price: '45,000 - 80,000+ บาท', note: 'ช่วงราคาขึ้นกับ Core CPU/GPU และ RAM' },
 	{ model: 'Gaming Notebook (RTX 5060 / 5070)', price: '20,000 - 45,000 บาท', note: 'ดูแบรนด์ สเปกจอภาพ และตำหนิตัวเครื่อง' },
@@ -176,6 +194,27 @@ const articleJsonLd: Array<Record<string, unknown>> = [
 		<div class="money-landing px-4">
 			<SafeProcessBar />
 		</div>
+
+		<section class="money-landing px-4 py-6">
+			<div class="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2rem;">
+				{notebookShowcase.map((img) => (
+					<figure style="border: 1px solid #E8ECF1; border-radius: 0.75rem; background: #fff; padding: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
+						<img
+							src={img.src}
+							alt={img.alt}
+							width="320"
+							height="240"
+							loading="lazy"
+							decoding="async"
+							style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;"
+						/>
+						<figcaption style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5;">
+							{img.caption}
+						</figcaption>
+					</figure>
+				))}
+			</div>
+		</section>
 
 		<MoneyPageLanding
 			evalCards={notebookLanding.evalCards}

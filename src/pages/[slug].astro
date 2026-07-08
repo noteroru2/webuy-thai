@@ -14,14 +14,15 @@ import {
 } from '../lib/local-service-pages';
 import { isIntentArticle } from '../lib/intent-articles';
 import { getPublishedPosts } from '../lib/posts';
+import { isSafeHomePreviewPost } from '../lib/claim-filter';
 import { formatPageTitle, getSiteOrigin } from '../lib/site';
 import '../styles/article-prose.css';
 
 export async function getStaticPaths() {
-	const posts = await getPublishedPosts({ includeNoindex: true, includeLegacy: false });
+	const posts = await getPublishedPosts({ includeNoindex: true, includeLegacy: false, includeUnsafe: true });
 	return posts.map((post) => {
 		const recentPosts = posts
-			.filter((p) => p.id !== post.id)
+			.filter((p) => p.id !== post.id && isSafeHomePreviewPost(p.data))
 			.slice(0, 4)
 			.map((p) => ({ slug: p.data.slug, title: p.data.title }));
 

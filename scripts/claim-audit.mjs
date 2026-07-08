@@ -163,6 +163,7 @@ function walkRecoveryDocs(dir, out = []) {
 	for (const entry of readdirSync(dir, { withFileTypes: true })) {
 		const full = join(dir, entry.name);
 		if (entry.isDirectory()) walkRecoveryDocs(full, out);
+		else if (entry.name === 'claim-audit.json') continue;
 		else if (/\.(md|json)$/i.test(entry.name)) out.push(full);
 	}
 	return out;

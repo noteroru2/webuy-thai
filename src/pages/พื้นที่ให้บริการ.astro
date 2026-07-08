@@ -14,7 +14,25 @@ const lineUrl = 'https://line.me/R/ti/p/@webuy';
 const pagePath = '/พื้นที่ให้บริการ/';
 
 const pageDescription =
-	'WE BUY พื้นที่ให้บริการรับซื้อสินค้าไอทีมือสอง อุบล ขอนแก่น อุดร โคราช ประเมินผ่าน Line @webuy ตามสภาพจริง';
+	'ดูพื้นที่ให้บริการรับซื้อสินค้าไอที ส่งรูปประเมินเบื้องต้นทาง LINE และนัดหมายตามความเหมาะสมของแต่ละพื้นที่';
+
+const serviceAreaImages = [
+	{
+		src: '/media/notebook-showcase/notebook-lineup-showroom.webp',
+		alt: 'พื้นที่ให้บริการรับซื้อสินค้าไอที สต็อกสินค้าไอทีเตรียมจำหน่าย',
+		caption: 'คลังสินค้าและจุดเตรียมจัดส่งสินค้าไอทีที่ได้รับการตรวจสอบและทำความสะอาดแล้ว'
+	},
+	{
+		src: '/media/notebook-showcase/shop-owner-ubon-showroom.webp',
+		alt: 'เจ้าหน้าที่ทีมงานให้บริการในพื้นที่หลักเพื่อตรวจสอบรับซื้อเครื่อง',
+		caption: 'เจ้าหน้าที่ผู้เชี่ยวชาญพร้อมต้อนรับและตรวจสอบความถูกต้องของระบบและอะไหล่'
+	},
+	{
+		src: '/media/notebook-showcase/acer-aspire-3-silver.webp',
+		alt: 'ตัวอย่างโน๊ตบุ๊คและสินค้าไอทีที่มีการนัดรับในพื้นที่ให้บริการหลัก',
+		caption: 'สินค้าหลากหลายประเภทที่ลูกค้านำมาประเมินและปิดดีลรับเงินอย่างโปร่งใส'
+	}
+];
 
 const serviceAreas = [
 	{
@@ -188,7 +206,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 ---
 
 <BaseLayout
-	title={formatPageTitle('พื้นที่ให้บริการ')}
+	title={formatPageTitle('พื้นที่ให้บริการรับซื้อสินค้าไอที ประเมินออนไลน์ได้หลายจังหวัด')}
 	description={pageDescription}
 	pathname={pagePath}
 	jsonLd={jsonLd}
@@ -206,8 +224,7 @@ const jsonLd: Array<Record<string, unknown>> = [
 				<p class="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Service Area · {orgName}</p>
 				<h1 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">พื้นที่ให้บริการรับซื้อสินค้าไอทีมือสอง</h1>
 				<p class="mt-5 max-w-3xl text-lg leading-[1.75] text-text-muted">
-					WE BUY ให้บริการรับซื้อสินค้าไอทีมือสอง เช่น <strong class="font-semibold text-text">iPhone, MacBook, โน๊ตบุ๊ค, คอม, กล้อง และ iPad</strong>
-					ประเมินราคาตามสภาพจริง — ลูกค้าในภาคอีสานและพื้นที่ใกล้เคียงสามารถเริ่มจากการส่งข้อมูลใน Line ก่อนนัดรับหรือจัดส่ง
+					ยินดีต้อนรับสู่ <strong class="font-semibold text-text">พื้นที่ให้บริการรับซื้อสินค้าไอที</strong> ของ WE BUY เช่น iPhone, MacBook, โน๊ตบุ๊ค, คอม, กล้อง และ iPad ประเมินราคาตามสภาพจริง — ลูกค้าในภาคอีสานและพื้นที่ใกล้เคียงสามารถเริ่มจากการส่งข้อมูลใน Line ก่อนนัดรับหรือจัดส่ง
 				</p>
 			</div>
 		</section>
@@ -223,6 +240,29 @@ const jsonLd: Array<Record<string, unknown>> = [
 						>
 						เพื่อประเมินราคาเบื้องต้น ก่อนนัดรับหรือจัดส่งสินค้าตามความเหมาะสม — ประเมินตามราคากลางจริงไม่มีการบังคับขาย
 					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="pb-12">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<div class="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2rem;">
+					{serviceAreaImages.map((img) => (
+						<figure style="border: 1px solid #E8ECF1; border-radius: 0.75rem; background: #fff; padding: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
+							<img
+								src={img.src}
+								alt={img.alt}
+								width="320"
+								height="240"
+								loading="lazy"
+								decoding="async"
+								style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;"
+							/>
+							<figcaption style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5;">
+								{img.caption}
+							</figcaption>
+						</figure>
+					))}
 				</div>
 			</div>
 		</section>

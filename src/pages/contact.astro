@@ -58,11 +58,29 @@ const contactKeywords =
 	typeof rawMetaKw === 'string' && rawMetaKw.trim() !== ''
 		? `ติดต่อ,${rawMetaKw.trim()}`
 		: 'ติดต่อ,รับซื้อโน๊ตบุ๊ค,รับซื้อคอม,Line @webuy,WE BUY';
+
+const contactImages = [
+	{
+		src: '/media/notebook-showcase/notebook-lineup-showroom.webp',
+		alt: 'จุดรับของหน้าร้านและโกดังสำหรับเช็กสภาพสินค้าไอทีที่ติดต่อมาขาย',
+		caption: 'หน้าร้านและคลังสินค้าสำหรับการรับส่งอุปกรณ์ไอทีอย่างเป็นระบบ'
+	},
+	{
+		src: '/media/notebook-showcase/shop-owner-ubon-showroom.webp',
+		alt: 'เจ้าหน้าที่กำลังประเมินราคาและตรวจสอบสเปกอุปกรณ์คอมพิวเตอร์',
+		caption: 'เจ้าหน้าที่ผู้เชี่ยวชาญพร้อมให้การต้อนรับและให้คำปรึกษาประเมินราคา'
+	},
+	{
+		src: '/media/notebook-showcase/acer-aspire-3-silver.webp',
+		alt: 'ตัวอย่างโน๊ตบุ๊คที่ลูกค้านำมาติดต่อส่งมอบและรับเงินโอนเสร็จสิ้น',
+		caption: 'ตัวอย่างการตรวจสอบสภาพบอดี้หน้าจอและระบบการทำงานของคอมพิวเตอร์'
+	}
+];
 ---
 
 <BaseLayout
-	title={formatPageTitle('ติดต่อเรา')}
-	description="ติดต่อทีมงาน WE BUY | เรารับซื้อ — รับซื้อโน้ตบุ๊ค รับซื้อคอม LINE @webuy โทร 064-2579353 พร้อมแผนที่และพื้นที่ให้บริการ"
+	title={formatPageTitle('ติดต่อเรา ส่งรูปประเมินราคาสินค้าไอทีทาง LINE')}
+	description="ติดต่อ WE BUY เพื่อส่งรูปสินค้า รุ่น สเปก สภาพ และอุปกรณ์ที่มี สำหรับประเมินราคาเบื้องต้นก่อนตกลงขาย"
 	keywords={contactKeywords}
 	pathname="/contact/"
 	jsonLd={contactJsonLd}
@@ -70,7 +88,7 @@ const contactKeywords =
 	<section class="container contact">
 		<div class="contact-head">
 			<p class="tech-eyebrow">ติดต่อทีมงาน</p>
-			<h1>ช่องทางติดต่อ — เรารับซื้อ.com</h1>
+			<h1>ติดต่อเรา เพื่อประเมินราคาสินค้าไอที</h1>
 			<p>
 				เรารับซื้อ.com ดำเนินการโดย <strong>ห้างหุ้นส่วนจำกัด อำพล เทรดดิ้ง (AMPHON TRADING)</strong>. 
 				หากต้องการประเมินราคารับซื้อโน้ตบุ๊ค คอมพิวเตอร์ หรือสินค้าไอทีมือสองชนิดอื่น ๆ 
@@ -81,7 +99,8 @@ const contactKeywords =
 		<div class="contact-grid">
 			<article class="tech-card">
 				<h2>ติดต่อด่วน</h2>
-				<p class="line-box">
+				<h3 style="font-size: 1.05rem; font-weight: 600; margin-top: 0.5rem; color: var(--text);">ช่องทางติดต่อและเวลาตอบกลับ</h3>
+				<p class="line-box" style="margin-top: 0.5rem;">
 					Line:
 					<a href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a>
 				</p>
@@ -93,18 +112,52 @@ const contactKeywords =
 			</article>
 
 			<article class="tech-card">
+				<h2>การประเมินราคา</h2>
+				<h3 style="font-size: 1.05rem; font-weight: 600; margin-top: 0.5rem; color: var(--text);">ส่งข้อมูลอะไรเพื่อประเมินราคา</h3>
+				<p style="margin-top: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--muted);">
+					รบกวนส่งข้อมูลเหล่านี้ทาง LINE เพื่อประเมินราคาเบื้องต้น:
+				</p>
+				<ul style="margin-top: 0.5rem; list-style-type: disc; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.6; color: var(--muted);">
+					<li>ชื่อรุ่น ยี่ห้อ ความจุ หรือสเปกโดยละเอียด</li>
+					<li>รูปถ่ายตัวเครื่องรอบด้านและตำหนิต่าง ๆ</li>
+					<li>อุปกรณ์เสริมที่มี เช่น สายชาร์จ กล่อง ใบเสร็จ</li>
+				</ul>
+			</article>
+
+			<article class="tech-card">
 				<h2>พื้นที่ให้บริการ</h2>
-				<ul>
+				<ul style="margin-top: 0.5rem; line-height: 1.6; color: var(--muted);">
 					{serviceAreas.map((area) => (
 						<li>{area}</li>
 					))}
 				</ul>
 				<p class="mt-4 text-sm leading-relaxed text-muted">
 					<a href="/พื้นที่ให้บริการ/">คู่มือรับซื้อตามพื้นที่</a>
-					— ลิงก์ไปหน้าคู่มือ local ที่มีอยู่จริงบนเว็บไซต์
+					— ดูรายละเอียดจังหวัดที่จัดส่งหรือนัดรับได้
 				</p>
 			</article>
 		</div>
+
+		<section class="money-landing px-4 py-8" style="padding-left: 0; padding-right: 0;">
+			<div class="grid gap-6 sm:grid-cols-3 max-w-4xl mx-auto" style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 2rem;">
+				{contactImages.map((img) => (
+					<figure style="border: 1px solid #E8ECF1; border-radius: 0.75rem; background: #fff; padding: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
+						<img
+							src={img.src}
+							alt={img.alt}
+							width="320"
+							height="240"
+							loading="lazy"
+							decoding="async"
+							style="width: 100%; height: 180px; object-fit: cover; border-radius: 0.5rem;"
+						/>
+						<figcaption style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5;">
+							{img.caption}
+						</figcaption>
+					</figure>
+				))}
+			</div>
+		</section>
 
 		<section class="map-wrap" aria-label="แผนที่ร้านรับซื้อ">
 			<h2 class="tech-h2">แผนที่ร้าน (อำพล เทรดดิ้ง)</h2>
