@@ -1,10 +1,619 @@
 {
   "summary": {
     "totalPages": 21,
-    "passCount": 0,
-    "warningCount": 0,
+    "passCount": 7,
+    "warningCount": 14,
     "failCount": 0,
-    "averageScore": "0%"
+    "averageScore": "84%"
   },
-  "results": []
+  "results": [
+    {
+      "page": "/",
+      "focusKeyword": "รับซื้อโน๊ตบุ๊คและคอมพิวเตอร์",
+      "intentType": "Trust / entity page",
+      "scores": {
+        "onPage": "4/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "2/3",
+        "overall": "76%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P1",
+      "issues": [
+        {
+          "id": "missing_image_alts",
+          "severity": "warning",
+          "desc": "Some images are missing non-empty alt text (12/13 have alt)"
+        },
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": [
+        "Provide descriptive alt text for all image tags, including the focus keyword where natural."
+      ]
+    },
+    {
+      "page": "/รับซื้อ/",
+      "focusKeyword": "รับซื้ออุปกรณ์ไอที",
+      "intentType": "Commercial investigation",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "88%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อโน๊ตบุ๊ค/",
+      "focusKeyword": "รับซื้อโน๊ตบุ๊ค",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อคอม/",
+      "focusKeyword": "รับซื้อคอม",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อแมคบุ๊ค/",
+      "focusKeyword": "รับซื้อแมคบุ๊ค",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "88%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อไอโฟน/",
+      "focusKeyword": "รับซื้อไอโฟน",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อไอแพด/",
+      "focusKeyword": "รับซื้อไอแพด",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "88%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อกล้อง/",
+      "focusKeyword": "รับซื้อกล้อง",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/พื้นที่ให้บริการ/",
+      "focusKeyword": "พื้นที่ให้บริการรับซื้อ",
+      "intentType": "Local intent",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "88%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/contact/",
+      "focusKeyword": "ติดต่อเรา",
+      "intentType": "Contact / conversion",
+      "scores": {
+        "onPage": "4/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "82%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "desc_no_keyword",
+          "severity": "warning",
+          "desc": "Description does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": [
+        "Improve meta description: ensure it summarizes the page, includes a safe call-to-action, has keywords, and is 60-160 chars."
+      ]
+    },
+    {
+      "page": "/ความน่าเชื่อถือ/",
+      "focusKeyword": "ความน่าเชื่อถือ",
+      "intentType": "Trust / entity page",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "88%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "title_too_short",
+          "severity": "warning",
+          "desc": "Title is too short (24 chars, recommended > 25)"
+        },
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/บริการ/",
+      "focusKeyword": "บริการรับซื้อ",
+      "intentType": "Commercial investigation",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/คู่มือก่อนขาย/",
+      "focusKeyword": "คู่มือก่อนขาย",
+      "intentType": "Informational",
+      "scores": {
+        "onPage": "4/6",
+        "structure": "5/5",
+        "links": "3/3",
+        "images": "0/3",
+        "overall": "71%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P1",
+      "issues": [
+        {
+          "id": "title_too_short",
+          "severity": "warning",
+          "desc": "Title is too short (22 chars, recommended > 25)"
+        },
+        {
+          "id": "low_image_count",
+          "severity": "warning",
+          "desc": "Low image count (0/3 recommended)"
+        },
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        }
+      ],
+      "recommendations": [
+        "Add at least 3 relevant images to make the content visually engaging and representative of the service."
+      ]
+    },
+    {
+      "page": "/เช็กราคาก่อนขาย/",
+      "focusKeyword": "เช็กราคาก่อนขาย",
+      "intentType": "Informational",
+      "scores": {
+        "onPage": "4/6",
+        "structure": "5/5",
+        "links": "3/3",
+        "images": "0/3",
+        "overall": "71%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P1",
+      "issues": [
+        {
+          "id": "title_too_short",
+          "severity": "warning",
+          "desc": "Title is too short (24 chars, recommended > 25)"
+        },
+        {
+          "id": "low_image_count",
+          "severity": "warning",
+          "desc": "Low image count (0/3 recommended)"
+        },
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        }
+      ],
+      "recommendations": [
+        "Add at least 3 relevant images to make the content visually engaging and representative of the service."
+      ]
+    },
+    {
+      "page": "/ราคากลางรับซื้อ/",
+      "focusKeyword": "ราคากลางรับซื้อ",
+      "intentType": "Informational",
+      "scores": {
+        "onPage": "4/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "0/3",
+        "overall": "65%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P1",
+      "issues": [
+        {
+          "id": "title_too_short",
+          "severity": "warning",
+          "desc": "Title is too short (24 chars, recommended > 25)"
+        },
+        {
+          "id": "low_image_count",
+          "severity": "warning",
+          "desc": "Low image count (0/3 recommended)"
+        },
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "missing_external_link",
+          "severity": "warning",
+          "desc": "Informational page is missing authoritative external links (e.g. Apple/Microsoft Support)"
+        }
+      ],
+      "recommendations": [
+        "Add at least 3 relevant images to make the content visually engaging and representative of the service.",
+        "Link to authoritative official documentations (e.g. Apple Support) for resetting/checking devices."
+      ]
+    },
+    {
+      "page": "/รับซื้อ-apple-watch/",
+      "focusKeyword": "รับซื้อ apple watch",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "4/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "82%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "first_p_no_keyword",
+          "severity": "warning",
+          "desc": "First paragraph does not contain focus keyword or semantic terms"
+        },
+        {
+          "id": "text_wall_detected",
+          "severity": "warning",
+          "desc": "Paragraph exceeds 800 characters (989 chars). Potential readability issue on mobile."
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": [
+        "Break down long paragraphs (>800 chars) into shorter, mobile-friendly sentences or bullet lists."
+      ]
+    },
+    {
+      "page": "/รับซื้อคอมประกอบ/",
+      "focusKeyword": "รับซื้อคอมประกอบ",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "4/5",
+        "links": "2/3",
+        "images": "0/3",
+        "overall": "65%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P1",
+      "issues": [
+        {
+          "id": "low_image_count",
+          "severity": "warning",
+          "desc": "Low image count (0/3 recommended)"
+        },
+        {
+          "id": "text_wall_detected",
+          "severity": "warning",
+          "desc": "Paragraph exceeds 800 characters (1001 chars). Potential readability issue on mobile."
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": [
+        "Add at least 3 relevant images to make the content visually engaging and representative of the service.",
+        "Break down long paragraphs (>800 chars) into shorter, mobile-friendly sentences or bullet lists."
+      ]
+    },
+    {
+      "page": "/รับซื้อสมาร์ทโฟน-android/",
+      "focusKeyword": "รับซื้อสมาร์ทโฟน android",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    },
+    {
+      "page": "/รับซื้อ-ups/",
+      "focusKeyword": "รับซื้อ ups",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "4/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "88%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P2",
+      "issues": [
+        {
+          "id": "text_wall_detected",
+          "severity": "warning",
+          "desc": "Paragraph exceeds 800 characters (942 chars). Potential readability issue on mobile."
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": [
+        "Break down long paragraphs (>800 chars) into shorter, mobile-friendly sentences or bullet lists."
+      ]
+    },
+    {
+      "page": "/รับซื้อลำโพง/",
+      "focusKeyword": "รับซื้อลำโพง",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "5/6",
+        "structure": "4/5",
+        "links": "2/3",
+        "images": "0/3",
+        "overall": "65%"
+      },
+      "rating": "NEEDS IMPROVEMENT",
+      "priority": "P1",
+      "issues": [
+        {
+          "id": "desc_too_long",
+          "severity": "warning",
+          "desc": "Description is too long (167 chars, recommended < 165)"
+        },
+        {
+          "id": "low_image_count",
+          "severity": "warning",
+          "desc": "Low image count (0/3 recommended)"
+        },
+        {
+          "id": "text_wall_detected",
+          "severity": "warning",
+          "desc": "Paragraph exceeds 800 characters (821 chars). Potential readability issue on mobile."
+        },
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": [
+        "Add at least 3 relevant images to make the content visually engaging and representative of the service.",
+        "Break down long paragraphs (>800 chars) into shorter, mobile-friendly sentences or bullet lists."
+      ]
+    },
+    {
+      "page": "/รับซื้อเครื่องเกม/",
+      "focusKeyword": "รับซื้อเครื่องเกม",
+      "intentType": "Transactional",
+      "scores": {
+        "onPage": "6/6",
+        "structure": "5/5",
+        "links": "2/3",
+        "images": "3/3",
+        "overall": "94%"
+      },
+      "rating": "PASS",
+      "priority": "P3",
+      "issues": [
+        {
+          "id": "no_external_link_money",
+          "severity": "info",
+          "desc": "Money page lacks informational external links (acceptable if conversion-focused)"
+        }
+      ],
+      "recommendations": []
+    }
+  ]
 }

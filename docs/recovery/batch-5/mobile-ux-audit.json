@@ -1,61 +1,105 @@
 {
-  "timestamp": "2026-07-08T15:46:00.788Z",
+  "timestamp": "2026-07-08T15:46:27.922Z",
   "overallPass": true,
   "results": [
     {
       "route": "/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 13,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อ/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 7,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อโน๊ตบุ๊ค/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อคอม/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อแมคบุ๊ค/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อไอโฟน/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 4,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อไอแพด/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/รับซื้อกล้อง/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/พื้นที่ให้บริการ/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/contact/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     },
     {
       "route": "/ความน่าเชื่อถือ/",
-      "status": "skipped",
-      "reason": "File not found"
+      "status": "pass",
+      "h1Count": 1,
+      "totalImages": 3,
+      "imagesMissingDimensions": 0,
+      "errors": [],
+      "warnings": []
     }
   ]
 }
