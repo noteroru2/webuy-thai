@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/landing/Hero.astro';
 import FeatureCard from '../components/landing/FeatureCard.astro';
@@ -10,7 +10,6 @@ import FaqSectionPremium from '../components/home/FaqSectionPremium.astro';
 import BlogPreviewMagazine from '../components/home/BlogPreviewMagazine.astro';
 import TrustBadges from '../components/money-pages/TrustBadges.astro';
 import CtaBand from '../components/CtaBand.astro';
-import EstimateCards from '../components/ui/EstimateCards.astro';
 import ServiceCategoryGrid from '../components/ui/ServiceCategoryGrid.astro';
 import { isSafeHomePreviewPost } from '../lib/claim-filter';
 import { getPublishedPosts } from '../lib/posts';
@@ -107,6 +106,39 @@ const processBullets = [
 	'มีบทความช่วยเตรียมข้อมูลก่อนติดต่อ',
 ];
 
+const priceFactors = [
+	{
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+		label: 'รุ่นและยี่ห้อ',
+		desc: 'ราคาตามความต้องการในตลาดมือสองของแต่ละรุ่น',
+	},
+	{
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`,
+		label: 'สเปกฮาร์ดแวร์',
+		desc: 'CPU, RAM, SSD, GPU มีผลต่อช่วงราคาโดยตรง',
+	},
+	{
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`,
+		label: 'สภาพและรอยตำหนิ',
+		desc: 'รอยขีดข่วน จอผิดปกติ หรือตัวเครื่องมีรอยกระทบ',
+	},
+	{
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>`,
+		label: 'อุปกรณ์ครบชุด',
+		desc: 'Adapter กล่อง เอกสารรับประกัน มีผลต่อราคา',
+	},
+	{
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+		label: 'ประกันเหลือหรือไม่',
+		desc: 'เครื่องยังมีประกันศูนย์มีมูลค่าเพิ่มในตลาด',
+	},
+	{
+		icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`,
+		label: 'ความต้องการตลาด',
+		desc: 'ราคาปรับตามสภาวะตลาดรับซื้อมือสองในช่วงนั้น',
+	},
+];
+
 const faqItems = [
 	{
 		question: 'รับซื้อโน้ตบุ๊คและรับซื้อคอมพิวเตอร์มือสองประเมินราคาอย่างไร?',
@@ -163,7 +195,7 @@ const preSaleLinks = [
 	{
 		href: '/เช็กราคาก่อนขาย/',
 		title: 'เช็กราคาก่อนขาย',
-		description: 'ดูว่าต้องส่งรุ่น สเปก รูป และสภาพอะไรก่อนทัก Line',
+		description: 'ดูว่าต้องส่งรุ่น สเปก รูป และสภาพอะไรก่อนทัก LINE',
 	},
 	{
 		href: '/ราคากลางรับซื้อ/',
@@ -285,78 +317,143 @@ const homeJsonLd: Record<string, unknown> = {
 ---
 
 <BaseLayout title={homeTitle} description={homeDescription} keywords={metaKeywords} pathname="/" jsonLd={homeJsonLd}>
-	<div class="font-sans bg-[#F5F7FA] text-text antialiased">
+	<div class="font-sans bg-white text-text antialiased">
+
+		<!-- 1. HERO -->
 		<Hero />
 
-		<!-- Trust Intro Section -->
-		<section class="border-b border-[#E8ECF1] bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="trust-intro-heading">
-			<div class="mx-auto max-w-[var(--width-container,75rem)] px-4 sm:px-6 lg:px-8">
-				<div class="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-					<div>
-						<p class="text-xs font-bold uppercase tracking-[0.16em] text-brand-600">WE BUY · AMPHON TRADING</p>
-						<h2 id="trust-intro-heading" class="mt-3 text-[clamp(1.5rem,2.5vw+1rem,2rem)] font-extrabold tracking-tight text-text">
+		<!-- 2. SERVICE CATEGORIES GRID -->
+		<ServiceCategoryGrid />
+
+		<!-- 3. HOW IT WORKS -->
+		<ProcessSection
+			id="process-heading"
+			eyebrow="ขั้นตอนการบริการ"
+			heading="กระบวนการชัดเจน — รับซื้อโน้ตบุ๊คและคอมแบบมืออาชีพ"
+			intro="เราออกแบบลำดับงานให้เข้าใจง่าย เหมาะทั้งลูกค้าทั่วไปและองค์กรที่ต้องการความรวดเร็วในการสื่อสาร"
+			bulletPoints={processBullets}
+			steps={processSteps}
+		/>
+
+		<!-- 4. PRICE FACTORS -->
+		<section class="price-factors-section" aria-labelledby="price-factors-heading">
+			<div class="price-factors-container">
+				<div class="price-factors-header">
+					<p class="price-factors-eyebrow">ปัจจัยกำหนดราคา</p>
+					<h2 id="price-factors-heading" class="price-factors-heading">
+						ราคารับซื้อขึ้นกับอะไรบ้าง?
+					</h2>
+					<p class="price-factors-intro">
+						ก่อนส่งข้อมูล ควรเข้าใจว่าราคาประเมินมาจากหลายปัจจัย —
+						ยิ่งข้อมูลครบ ยิ่งประเมินได้แม่น
+					</p>
+				</div>
+				<div class="price-factors-grid">
+					{priceFactors.map((factor) => (
+						<div class="price-factor-card">
+							<div class="price-factor-icon" set:html={factor.icon} aria-hidden="true" />
+							<h3 class="price-factor-label">{factor.label}</h3>
+							<p class="price-factor-desc">{factor.desc}</p>
+						</div>
+					))}
+				</div>
+				<div class="price-factors-cta">
+					<a href="/ราคากลางรับซื้อ/" class="price-factors-link">
+						ดูแนวทางราคากลางรับซื้อ →
+					</a>
+					<a href="/เช็กราคาก่อนขาย/" class="price-factors-link">
+						วิธีเตรียมข้อมูลก่อนส่ง →
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- 5. TRUST / ABOUT (AMPHON TRADING) -->
+		<section class="trust-section" aria-labelledby="trust-intro-heading">
+			<div class="trust-container">
+				<div class="trust-grid">
+					<div class="trust-text">
+						<p class="trust-eyebrow">WE BUY · AMPHON TRADING</p>
+						<h2 id="trust-intro-heading" class="trust-heading">
 							ประเมินตามรุ่น สเปก และสภาพจริง
 						</h2>
-						<p class="mt-4 max-w-[34rem] text-base leading-[1.7] text-text-muted">
+						<p class="trust-sub">
 							โปร่งใสทุกขั้นตอน ตั้งแต่รับข้อมูลจนถึงยืนยันราคา
 						</p>
-						<ul class="mt-7 space-y-4 text-sm leading-relaxed text-text-muted">
-							<li class="flex items-start gap-3">
-								<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500 ring-4 ring-brand-500/15" aria-hidden="true"></span>
+						<ul class="trust-list">
+							<li class="trust-item">
+								<span class="trust-dot" aria-hidden="true"></span>
 								<span>แจ้งราคาประเมินเบื้องต้นก่อนตกลงขาย — ไม่บังคับตัดสินใจ</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500 ring-4 ring-brand-500/15" aria-hidden="true"></span>
+							<li class="trust-item">
+								<span class="trust-dot" aria-hidden="true"></span>
 								<span>ตรวจรับและยืนยันสภาพก่อนชำระเงิน — ลดช่องว่างราคา</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500 ring-4 ring-brand-500/15" aria-hidden="true"></span>
+							<li class="trust-item">
+								<span class="trust-dot" aria-hidden="true"></span>
 								<span>แนะนำการล้างข้อมูลก่อนส่งมอบ เพื่อความเป็นส่วนตัว</span>
 							</li>
-							<li class="flex items-start gap-3">
-								<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-500 ring-4 ring-brand-500/15" aria-hidden="true"></span>
+							<li class="trust-item">
+								<span class="trust-dot" aria-hidden="true"></span>
 								<span>ดำเนินงานในเครือ AMPHON TRADING — มีประสบการณ์สินค้าไอทีหลากหมวด</span>
 							</li>
 						</ul>
-						<div class="mt-8">
+						<div class="trust-action">
 							<a
 								href={lineUrl}
 								target="_blank"
 								rel="noopener noreferrer"
-								class="inline-flex items-center justify-center gap-2 rounded-full bg-line-refined px-6 py-3 text-sm font-bold !text-white shadow-md transition hover:-translate-y-0.5 hover:bg-line-refined-hover"
+								class="trust-line-btn"
 							>
+								<svg class="trust-line-btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M12 2C6.48 2 2 6.06 2 11.05c0 2.81 1.35 5.32 3.47 6.98L4.5 22l4.2-2.13c1.07.3 2.19.46 3.3.46 5.52 0 10-4.06 10-9.05C22 6.06 17.52 2 12 2z"/>
+								</svg>
 								ส่งรูปประเมินทาง LINE
+							</a>
+							<a href="/ความน่าเชื่อถือ/" class="trust-secondary-link">
+								อ่านนโยบายและขั้นตอน →
 							</a>
 						</div>
 					</div>
-					<div class="relative flex items-center justify-center lg:justify-end" aria-hidden="true">
-						<div class="w-full max-w-sm rounded-2xl border border-brand-100 bg-gradient-to-br from-brand-50 to-[#f0f9ff] p-10 text-center shadow-sm">
-							<div class="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-brand-600 shadow-lg shadow-brand-900/20">
-								<svg class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+
+					<div class="trust-card-panel" aria-hidden="true">
+						<div class="trust-card">
+							<div class="trust-card-icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
 								</svg>
 							</div>
-							<p class="mt-5 text-base font-bold text-text">รับซื้อสินค้าไอทีมือสอง</p>
-							<p class="mt-2 text-sm leading-relaxed text-text-muted">โน๊ตบุ๊ค · คอมพิวเตอร์ · MacBook · iPhone · iPad · กล้อง</p>
-							<div class="mt-6 grid grid-cols-2 gap-3 border-t border-brand-100/80 pt-5 text-center">
-								<div>
-									<p class="text-lg font-extrabold text-brand-700">LINE</p>
-									<p class="text-xs text-text-muted">@webuy</p>
+							<p class="trust-card-title">รับซื้อสินค้าไอทีมือสอง</p>
+							<p class="trust-card-sub">โน๊ตบุ๊ค · คอมพิวเตอร์ · MacBook · iPhone · iPad · กล้อง</p>
+							<div class="trust-card-stats">
+								<div class="trust-stat-box">
+									<p class="trust-stat-label">LINE</p>
+									<p class="trust-stat-value">@webuy</p>
 								</div>
-								<div>
-									<p class="text-lg font-extrabold text-brand-700">AMPHON</p>
-									<p class="text-xs text-text-muted">TRADING</p>
+								<div class="trust-stat-box">
+									<p class="trust-stat-label">บริษัท</p>
+									<p class="trust-stat-value">AMPHON TRADING</p>
+								</div>
+								<div class="trust-stat-box">
+									<p class="trust-stat-label">พื้นที่บริการ</p>
+									<p class="trust-stat-value">{serviceAreas.length}+ จังหวัด</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<!-- Feature pillars -->
+				<div class="trust-pillars">
+					{techPillars.map((pillar) => (
+						<FeatureCard title={pillar.title} text={pillar.text} icon={pillar.icon} />
+					))}
+				</div>
 			</div>
 		</section>
 
-		<EstimateCards lineUrl={lineUrl} />
-
-		<ServiceCategoryGrid />
+		<!-- 6. BLOG / KNOWLEDGE PREVIEW -->
+		{recent.length > 0 && <BlogPreviewMagazine posts={recent} />}
 
 		{
 			recent.length === 0 && (
@@ -372,125 +469,64 @@ const homeJsonLd: Record<string, unknown> = {
 			)
 		}
 
+		<!-- 7. PRE-SALE LINKS + MAIN MONEY PAGES -->
 		<section
-			class="border-b border-[#E8ECF1] bg-white py-12 sm:py-14"
-			aria-label="พาร์ทเนอร์"
-		>
-			<div class="mx-auto max-w-[var(--width-container,75rem)] px-4 sm:px-6 lg:px-8">
-				<p class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-muted">พาร์ทเนอร์และภาคธุรกิจที่เกี่ยวข้อง</p>
-				<div class="mt-7 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-					{['Tech retail', 'SME', 'Logistics', 'Education', 'Enterprise IT', 'Local service'].map((label) => (
-						<span class="rounded-full border border-gray-200/90 bg-white px-4 py-2 text-xs font-semibold text-text-muted shadow-sm">
-							{label}
-						</span>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<section
-			class="border-b border-[#E8ECF1] bg-[#F5F7FA] py-16 sm:py-20 lg:py-24"
-			aria-labelledby="trust-heading"
-		>
-			<div class="mx-auto max-w-[var(--width-container,75rem)] px-4 sm:px-6 lg:px-8">
-				<h2 id="trust-heading" class="text-center text-[clamp(1.5rem,3vw+1rem,2.25rem)] font-extrabold tracking-tight text-text">
-					ความน่าเชื่อถือของเรา
-				</h2>
-				<p class="mx-auto mt-4 max-w-[32rem] text-center text-base leading-[1.7] text-text-muted">
-					โปร่งใส ประเมินตามสภาพจริง และสื่อสารเป็นลายลักษณ์อักษร
-				</p>
-				<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{techPillars.map((pillar) => (
-						<FeatureCard title={pillar.title} text={pillar.text} icon={pillar.icon} />
-					))}
-				</div>
-
-				<div class="mt-16 grid gap-4 border-t border-gray-100 pt-14 sm:grid-cols-3">
-					<div
-						class="rounded-[1.125rem] border border-gray-200/90 bg-gradient-to-b from-[#FAFAFA] to-white p-6 text-center shadow-sm"
-					>
-						<p class="text-sm font-extrabold text-brand-600">ครบวงจร</p>
-						<p class="mt-1.5 text-sm leading-relaxed text-text-muted">รับซื้อโน้ตบุ๊ค · รับซื้อคอม · บริการเสริม</p>
-					</div>
-					<div
-						class="rounded-[1.125rem] border border-gray-200/90 bg-gradient-to-b from-[#FAFAFA] to-white p-6 text-center shadow-sm"
-					>
-						<p class="text-sm font-extrabold text-brand-600">หลายพื้นที่</p>
-						<p class="mt-1.5 text-sm leading-relaxed text-text-muted">รวม {serviceAreas.length}+ จังหวัด/โซนที่เปิดรับ</p>
-					</div>
-					<div
-						class="rounded-[1.125rem] border border-gray-200/90 bg-gradient-to-b from-[#FAFAFA] to-white p-6 text-center shadow-sm"
-					>
-						<p class="text-sm font-extrabold text-brand-600">ความรู้ประกอบ</p>
-						<p class="mt-1.5 text-sm leading-relaxed text-text-muted">{allPosts.length}+ บทความในฐานความรู้</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<ProcessSection
-			id="process-heading"
-			eyebrow="ขั้นตอนการบริการ"
-			heading="กระบวนการชัดเจน — รับซื้อโน้ตบุ๊คและคอมแบบมืออาชีพ"
-			intro="เราออกแบบลำดับงานให้เข้าใจง่าย เหมาะทั้งลูกค้าทั่วไปและองค์กรที่ต้องการความรวดเร็วในการสื่อสาร"
-			bulletPoints={processBullets}
-			steps={processSteps}
-		/>
-
-		<section
-			class="border-b border-[#E8ECF1] bg-[#fffbeb] py-16 sm:py-20"
+			class="presale-section"
 			aria-labelledby="pre-sale-heading"
 		>
-			<div class="mx-auto max-w-[var(--width-container,75rem)] px-4 sm:px-6 lg:px-8">
-				<h2 id="pre-sale-heading" class="text-[clamp(1.5rem,2.8vw+1rem,2.25rem)] font-extrabold tracking-tight text-text">
+			<div class="presale-container">
+				<h2 id="pre-sale-heading" class="presale-heading">
 					ก่อนขาย เช็กราคาได้ก่อน
 				</h2>
-				<p class="mt-4 max-w-[34rem] text-base leading-[1.7] text-text-muted">
-					เตรียมข้อมูลให้ครบก่อนทัก Line — อ่านแนวทางจากลิงก์ด้านล่าง หรือเปิด{' '}
+				<p class="presale-sub">
+					เตรียมข้อมูลให้ครบก่อนทัก LINE — อ่านแนวทางจากลิงก์ด้านล่าง หรือเปิด{' '}
 					<a class="font-semibold text-brand-700 hover:underline" href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a>
 				</p>
-				<div class="mt-8 grid gap-4 sm:grid-cols-3">
+				<div class="presale-links">
 					{
 						preSaleLinks.map((link) => (
 							<a
 								href={link.href}
-								class="group flex h-full flex-col rounded-[var(--radius-card,1rem)] border border-amber-200/80 bg-white p-5 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:border-brand-500/30 hover:shadow-[var(--shadow-card-hover)]"
+								class="presale-link-card"
 							>
-								<h3 class="line-clamp-2 font-bold text-brand-800 group-hover:text-brand-600">{link.title}</h3>
-								<p class="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-text-muted">{link.description}</p>
+								<h3 class="presale-link-title">{link.title}</h3>
+								<p class="presale-link-desc">{link.description}</p>
 							</a>
 						))
 					}
 				</div>
-				<h3 class="mt-12 text-lg font-bold text-text">หมวดรับซื้อหลัก</h3>
-				<div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+				<h3 class="presale-subheading">หมวดรับซื้อหลัก</h3>
+				<div class="presale-money-pages">
 					{
 						mainMoneyPages.map((page) => (
 							<a
 								href={page.href}
-								class="rounded-xl border border-gray-200/90 bg-white px-4 py-3 text-sm font-semibold text-text shadow-sm transition hover:border-brand-500/30 hover:bg-brand-50 hover:text-brand-800"
+								class="presale-money-card"
 							>
-								<span class="block">{page.title}</span>
+								<span class="block font-semibold text-text">{page.title}</span>
 								<span class="mt-1 block text-xs font-normal text-text-muted">{page.description}</span>
 							</a>
 						))
 					}
 				</div>
-				<p class="mt-6 text-sm text-text-muted">
+				<p class="presale-more">
 					ดูหมวดรับซื้อทั้งหมดได้ที่{' '}
 					<a class="font-semibold text-brand-600 hover:underline" href="/รับซื้อ/">หน้ารับซื้อสินค้าไอทีมือสอง</a>
 				</p>
 			</div>
 		</section>
 
+		<!-- 8. SEO PROSE -->
 		<SeoProseSection />
 
+		<!-- 9. TRUST BADGES -->
 		<div class="border-t border-[#E8ECF1] bg-white py-12">
 			<div class="mx-auto max-w-[var(--width-container,75rem)] px-4 sm:px-6 lg:px-8">
 				<TrustBadges className="mb-8" />
 			</div>
 		</div>
 
+		<!-- 10. SERVICES GRID -->
 		<section
 			class="border-t border-[#E8ECF1] bg-[#F5F7FA] py-16 sm:py-20 lg:py-24"
 			aria-labelledby="services-grid-heading"
@@ -511,6 +547,7 @@ const homeJsonLd: Record<string, unknown> = {
 			</div>
 		</section>
 
+		<!-- 11. LOCAL AREA -->
 		<LocalAreaSection
 			areas={serviceAreas}
 			phoneLabel={phoneDisplay}
@@ -521,10 +558,424 @@ const homeJsonLd: Record<string, unknown> = {
 			mapEmbedSrc={mapEmbedSrc}
 		/>
 
+		<!-- 12. FAQ -->
 		<FaqSectionPremium items={faqItems} />
 
+		<!-- 13. FINAL CTA -->
 		<CtaBand />
 
-		{recent.length > 0 && <BlogPreviewMagazine posts={recent} />}
 	</div>
 </BaseLayout>
+
+<style>
+/* ===== PRICE FACTORS SECTION ===== */
+.price-factors-section {
+	background: #f5f7fa;
+	border-bottom: 1px solid #e8ecf1;
+	padding-block: 5rem;
+}
+@media (min-width: 640px) { .price-factors-section { padding-block: 5.5rem; } }
+@media (min-width: 1024px) { .price-factors-section { padding-block: 6.5rem; } }
+
+.price-factors-container {
+	max-width: 75rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+@media (min-width: 640px) { .price-factors-container { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .price-factors-container { padding-inline: 2rem; } }
+
+.price-factors-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+.price-factors-eyebrow {
+	display: inline-block;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #f59e0b;
+	background: rgba(245, 158, 11, 0.1);
+	border: 1px solid rgba(245, 158, 11, 0.25);
+	border-radius: 999px;
+	padding: 0.3rem 0.875rem;
+	margin-bottom: 1.25rem;
+}
+.price-factors-heading {
+	font-size: clamp(1.5rem, 2.8vw + 1rem, 2.25rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: #0b1f3a;
+	margin: 0 0 1rem;
+}
+.price-factors-intro {
+	font-size: 1.0625rem;
+	line-height: 1.7;
+	color: #4b5563;
+	max-width: 36rem;
+	margin-inline: auto;
+}
+
+.price-factors-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+@media (min-width: 640px) {
+	.price-factors-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) {
+	.price-factors-grid { grid-template-columns: repeat(6, 1fr); gap: 1.25rem; }
+}
+
+.price-factor-card {
+	background: #fff;
+	border: 1px solid #e8ecf1;
+	border-radius: 1rem;
+	padding: 1.5rem 1.25rem;
+	text-align: center;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.price-factor-card:hover {
+	border-color: rgba(245, 158, 11, 0.3);
+	box-shadow: 0 8px 24px rgba(245, 158, 11, 0.08), 0 2px 8px rgba(11, 31, 58, 0.06);
+	transform: translateY(-2px);
+}
+.price-factor-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	margin-inline: auto;
+	margin-bottom: 1rem;
+	border-radius: 0.75rem;
+	background: rgba(11, 31, 58, 0.06);
+	color: #0b1f3a;
+}
+.price-factor-icon :global(svg) {
+	width: 1.375rem;
+	height: 1.375rem;
+}
+.price-factor-label {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #0b1f3a;
+	margin: 0 0 0.5rem;
+}
+.price-factor-desc {
+	font-size: 0.8125rem;
+	line-height: 1.55;
+	color: #6b7280;
+	margin: 0;
+}
+
+.price-factors-cta {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+	margin-top: 2.5rem;
+}
+.price-factors-link {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #0b1f3a;
+	text-decoration: none;
+	border-bottom: 2px solid rgba(245, 158, 11, 0.4);
+	padding-bottom: 0.1rem;
+	transition: border-color 0.15s ease, color 0.15s ease;
+}
+.price-factors-link:hover {
+	border-color: #f59e0b;
+	color: #d97706;
+}
+
+/* ===== TRUST SECTION ===== */
+.trust-section {
+	background: #fff;
+	border-bottom: 1px solid #e8ecf1;
+	padding-block: 5rem;
+}
+@media (min-width: 640px) { .trust-section { padding-block: 5.5rem; } }
+@media (min-width: 1024px) { .trust-section { padding-block: 6.5rem; } }
+
+.trust-container {
+	max-width: 75rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+@media (min-width: 640px) { .trust-container { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .trust-container { padding-inline: 2rem; } }
+
+.trust-grid {
+	display: grid;
+	gap: 3rem;
+	margin-bottom: 4rem;
+}
+@media (min-width: 1024px) {
+	.trust-grid { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+}
+
+.trust-eyebrow {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #f59e0b;
+	margin: 0 0 0.875rem;
+}
+.trust-heading {
+	font-size: clamp(1.5rem, 2.5vw + 1rem, 2rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: #0b1f3a;
+	margin: 0 0 0.875rem;
+}
+.trust-sub {
+	font-size: 1rem;
+	line-height: 1.7;
+	color: #4b5563;
+	max-width: 34rem;
+	margin: 0 0 1.75rem;
+}
+.trust-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
+}
+.trust-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	color: #374151;
+}
+.trust-dot {
+	flex-shrink: 0;
+	margin-top: 0.475rem;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #14b8a6;
+	box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+.trust-action {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem;
+}
+.trust-line-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-height: 48px;
+	padding: 0.75rem 1.5rem;
+	border-radius: 999px;
+	background: #f59e0b;
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: #0b1f3a !important;
+	text-decoration: none;
+	box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+	transition: background 0.2s ease, transform 0.2s ease;
+}
+.trust-line-btn:hover { background: #d97706; transform: translateY(-1px); }
+.trust-line-btn-icon { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+.trust-secondary-link {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #374151;
+	text-decoration: none;
+	border-bottom: 1px solid #d1d5db;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+.trust-secondary-link:hover { color: #0b1f3a; border-color: #0b1f3a; }
+
+/* Trust card panel (right side) */
+.trust-card-panel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+@media (max-width: 1023px) { .trust-card-panel { display: none; } }
+
+.trust-card {
+	width: 100%;
+	max-width: 22rem;
+	background: linear-gradient(135deg, #f8fafc, #fff);
+	border: 1px solid #e8ecf1;
+	border-radius: 1.5rem;
+	padding: 2rem;
+	text-align: center;
+	box-shadow: 0 4px 24px rgba(11, 31, 58, 0.06), 0 1px 4px rgba(11, 31, 58, 0.04);
+}
+.trust-card-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 4.5rem;
+	height: 4.5rem;
+	margin-inline: auto;
+	margin-bottom: 1.25rem;
+	border-radius: 1.125rem;
+	background: linear-gradient(135deg, #0b1f3a, #1e3a5f);
+	color: #fff;
+	box-shadow: 0 8px 24px rgba(11, 31, 58, 0.2);
+}
+.trust-card-icon :global(svg) {
+	width: 2rem;
+	height: 2rem;
+}
+.trust-card-title {
+	font-size: 1rem;
+	font-weight: 700;
+	color: #0b1f3a;
+	margin: 0 0 0.5rem;
+}
+.trust-card-sub {
+	font-size: 0.875rem;
+	color: #6b7280;
+	line-height: 1.6;
+	margin: 0 0 1.5rem;
+}
+.trust-card-stats {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 0.75rem;
+	border-top: 1px solid #f0f0f0;
+	padding-top: 1.25rem;
+}
+.trust-stat-box { text-align: center; }
+.trust-stat-label {
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #9ca3af;
+	margin: 0 0 0.25rem;
+}
+.trust-stat-value {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #0b1f3a;
+	margin: 0;
+}
+
+/* Trust feature pillars */
+.trust-pillars {
+	display: grid;
+	gap: 1.25rem;
+	border-top: 1px solid #f0f0f0;
+	padding-top: 3rem;
+}
+@media (min-width: 640px) { .trust-pillars { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .trust-pillars { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== PRE-SALE SECTION ===== */
+.presale-section {
+	background: #fffbeb;
+	border-bottom: 1px solid #fde68a;
+	padding-block: 4.5rem;
+}
+@media (min-width: 640px) { .presale-section { padding-block: 5rem; } }
+
+.presale-container {
+	max-width: 75rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+@media (min-width: 640px) { .presale-container { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .presale-container { padding-inline: 2rem; } }
+
+.presale-heading {
+	font-size: clamp(1.5rem, 2.8vw + 1rem, 2.25rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: #0b1f3a;
+	margin: 0 0 1rem;
+}
+.presale-sub {
+	font-size: 1rem;
+	line-height: 1.7;
+	color: #4b5563;
+	max-width: 34rem;
+	margin-bottom: 2rem;
+}
+.presale-links {
+	display: grid;
+	gap: 1rem;
+	margin-bottom: 3rem;
+}
+@media (min-width: 640px) { .presale-links { grid-template-columns: repeat(3, 1fr); } }
+
+.presale-link-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #fff;
+	border: 1px solid rgba(253, 230, 138, 0.7);
+	border-radius: 1rem;
+	padding: 1.25rem;
+	text-decoration: none;
+	transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.presale-link-card:hover {
+	transform: translateY(-2px);
+	border-color: rgba(245, 158, 11, 0.35);
+	box-shadow: 0 8px 24px rgba(245, 158, 11, 0.1);
+}
+.presale-link-title {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: #92400e;
+	margin: 0 0 0.5rem;
+}
+.presale-link-desc {
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: #4b5563;
+	margin: 0;
+}
+
+.presale-subheading {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #0b1f3a;
+	margin: 0 0 1rem;
+}
+.presale-money-pages {
+	display: grid;
+	gap: 0.75rem;
+	margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) { .presale-money-pages { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .presale-money-pages { grid-template-columns: repeat(5, 1fr); } }
+
+.presale-money-card {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 0.75rem;
+	padding: 0.875rem 1rem;
+	font-size: 0.875rem;
+	text-decoration: none;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+.presale-money-card:hover {
+	border-color: rgba(245, 158, 11, 0.35);
+	background: rgba(255, 251, 235, 0.5);
+}
+
+.presale-more {
+	font-size: 0.875rem;
+	color: #6b7280;
+	margin: 0;
+}
+</style>

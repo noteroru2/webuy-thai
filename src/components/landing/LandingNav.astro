@@ -1,31 +1,28 @@
----
+﻿---
 import BrandLogo from '../BrandLogo.astro';
-import ButtonLink from './ButtonLink.astro';
 
 const phone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
 const phoneDisplay = phone.replace(/^\+66/, '0').replace(/-/g, '');
 const telHref = `tel:${phoneDisplay.replace(/\D/g, '')}`;
 const lineHref = 'https://line.me/R/ti/p/@webuy';
 
-const navLinkClass =
-	'inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-[0.9375rem] font-semibold text-text-muted transition-colors duration-200 hover:bg-[#F5F7FA] hover:text-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500';
-
 const navItems = [
 	{ href: '/', label: 'หน้าแรก' },
-	{ href: '/รับซื้อ/', label: 'รับซื้อ' },
-	{ href: '/รับซื้อโน๊ตบุ๊ค/', label: 'โน๊ตบุ๊ค' },
-	{ href: '/รับซื้อคอม/', label: 'คอมพิวเตอร์' },
-	{ href: '/รับซื้อไอโฟน/', label: 'iPhone' },
+	{ href: '/รับซื้อ/', label: 'บริการ' },
+	{ href: '/คู่มือก่อนขาย/', label: 'คู่มือก่อนขาย' },
+	{ href: '/ความน่าเชื่อถือ/', label: 'ความน่าเชื่อถือ' },
 	{ href: '/contact/', label: 'ติดต่อเรา' },
 ];
 
 const mobileExtraNavItems = [
-	{ href: '/รับซื้อแมคบุ๊ค/', label: 'MacBook' },
-	{ href: '/รับซื้อไอแพด/', label: 'iPad' },
-	{ href: '/รับซื้อกล้อง/', label: 'กล้อง' },
+	{ href: '/รับซื้อโน๊ตบุ๊ค/', label: 'รับซื้อโน๊ตบุ๊ค' },
+	{ href: '/รับซื้อคอม/', label: 'รับซื้อคอม' },
+	{ href: '/รับซื้อแมคบุ๊ค/', label: 'รับซื้อ MacBook' },
+	{ href: '/รับซื้อไอโฟน/', label: 'รับซื้อ iPhone' },
+	{ href: '/รับซื้อไอแพด/', label: 'รับซื้อ iPad' },
+	{ href: '/รับซื้อกล้อง/', label: 'รับซื้อกล้อง' },
 	{ href: '/พื้นที่ให้บริการ/', label: 'พื้นที่ให้บริการ' },
 	{ href: '/ราคากลางรับซื้อ/', label: 'ราคากลางรับซื้อ' },
-	{ href: '/ความน่าเชื่อถือ/', label: 'ความน่าเชื่อถือ' },
 ];
 
 const mobileNavItems = [...navItems, ...mobileExtraNavItems];
@@ -33,79 +30,77 @@ const mobileNavItems = [...navItems, ...mobileExtraNavItems];
 
 <header
 	id="site-header"
-	class="site-header sticky top-0 z-[60] border-b border-[#E8ECF1] bg-white"
+	class="site-header"
 	role="banner"
 >
-	<div class="mx-auto flex h-[4.75rem] max-w-[var(--width-container,75rem)] items-center gap-4 px-4 sm:px-6 lg:h-[5.25rem] lg:gap-6 lg:px-8">
-		<div class="min-w-0 shrink-0 lg:mr-2">
+	<div class="site-header-inner">
+		<div class="header-logo">
 			<BrandLogo />
 		</div>
 
-		<nav class="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex" aria-label="หลัก">
+		<nav class="header-nav" aria-label="หลัก">
 			{
 				navItems.map((item) => (
-					<a class={navLinkClass} href={item.href}>
+					<a class="header-nav-link" href={item.href}>
 						{item.label}
 					</a>
 				))
 			}
 		</nav>
 
-		<div class="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5">
-			<div class="hidden items-center gap-2 lg:flex">
-				<a
-					href={telHref}
-					class="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-[#E5E7EB] bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:border-brand-500/40 hover:bg-brand-50 hover:text-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+		<div class="header-actions">
+			<a
+				href={telHref}
+				class="header-phone-btn"
+				aria-label={`โทร ${phoneDisplay}`}
+			>
+				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+				</svg>
+				<span class="header-phone-label">โทร</span>
+			</a>
+			<a
+				href={lineHref}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="header-line-btn"
+			>
+				<svg class="header-line-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+					<path d="M12 2C6.48 2 2 6.06 2 11.05c0 2.81 1.35 5.32 3.47 6.98L4.5 22l4.2-2.13c1.07.3 2.19.46 3.3.46 5.52 0 10-4.06 10-9.05C22 6.06 17.52 2 12 2z"/>
+				</svg>
+				ส่งรูปทาง LINE
+			</a>
+		</div>
+
+		<!-- Mobile: LINE shortcut + Hamburger -->
+		<div class="header-mobile-actions" aria-label="ทางลัดมือถือ">
+			<a
+				href={lineHref}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="header-mobile-line"
+			>
+				LINE
+			</a>
+
+			<details class="mobile-menu">
+				<summary
+					class="mobile-menu-trigger"
+					aria-label="เปิดเมนูนำทาง"
 				>
-					<svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-						></path>
+					<svg class="mobile-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
 					</svg>
-					<span>โทร</span>
-				</a>
-				<ButtonLink
-					href={lineHref}
-					variant="line"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="!min-h-11 !px-5 !py-2.5 !text-sm"
+				</summary>
+				<div
+					class="mobile-menu-panel"
+					role="menu"
 				>
-					ส่งรูปทาง LINE
-				</ButtonLink>
-			</div>
-
-			<div class="flex items-center gap-2 lg:hidden" aria-label="ทางลัดมือถือ">
-				<ButtonLink
-					href={lineHref}
-					variant="line"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="!min-h-11 !px-3 !py-2.5 text-xs sm:!px-4 sm:text-sm"
-				>
-					ส่งรูป LINE
-				</ButtonLink>
-
-				<details class="mobile-menu relative">
-					<summary
-						class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-xl border border-[#E5E7EB] bg-white p-3 text-navy shadow-sm transition hover:border-brand-500/35 hover:text-brand-700 [&::-webkit-details-marker]:hidden"
-						aria-label="เปิดเมนู"
-					>
-						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-							<path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</summary>
-					<div
-						class="absolute right-0 z-[70] mt-2 max-h-[min(80vh,28rem)] w-[min(100vw-2rem,18rem)] origin-top-right overflow-y-auto rounded-2xl border border-[#E8ECF1] bg-white p-2 shadow-[var(--shadow-header)]"
-						role="menu"
-					>
+					<div class="mobile-menu-body">
 						{
 							mobileNavItems.map((item) => (
 								<a
-									class="flex min-h-11 items-center rounded-xl px-3 py-2.5 text-sm font-semibold text-text transition-colors hover:bg-[#F5F7FA] hover:text-brand-700"
+									class="mobile-menu-link"
 									href={item.href}
 									role="menuitem"
 								>
@@ -113,54 +108,305 @@ const mobileNavItems = [...navItems, ...mobileExtraNavItems];
 								</a>
 							))
 						}
-						<div class="mt-2 space-y-2 border-t border-[#E8ECF1] pt-2">
-							<a
-								class="flex min-h-11 items-center justify-center rounded-xl border border-[#E5E7EB] px-3 py-2.5 text-sm font-semibold text-navy transition hover:bg-[#F5F7FA]"
-								href={telHref}
-								role="menuitem"
-							>
-								โทร {phoneDisplay}
-							</a>
-							<a
-								class="flex min-h-11 items-center justify-center rounded-xl bg-line-refined px-3 py-2.5 text-center text-sm font-bold !text-white shadow-md transition hover:bg-line-refined-hover"
-								href={lineHref}
-								target="_blank"
-								rel="noopener noreferrer"
-								role="menuitem"
-							>
-								ส่งรูปทาง LINE
-							</a>
-						</div>
 					</div>
-				</details>
-			</div>
+					<div class="mobile-menu-footer">
+						<a
+							class="mobile-menu-cta"
+							href={lineHref}
+							target="_blank"
+							rel="noopener noreferrer"
+							role="menuitem"
+						>
+							<svg class="mobile-menu-cta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M12 2C6.48 2 2 6.06 2 11.05c0 2.81 1.35 5.32 3.47 6.98L4.5 22l4.2-2.13c1.07.3 2.19.46 3.3.46 5.52 0 10-4.06 10-9.05C22 6.06 17.52 2 12 2z"/>
+							</svg>
+							ส่งรูปประเมินทาง LINE
+						</a>
+						<a
+							class="mobile-menu-tel"
+							href={telHref}
+							role="menuitem"
+						>
+							<svg class="mobile-menu-tel-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+							</svg>
+							{phoneDisplay}
+						</a>
+					</div>
+				</div>
+			</details>
 		</div>
 	</div>
 </header>
 
-<style>
-	.site-header {
-		transition: box-shadow 0.2s ease, border-color 0.2s ease;
-	}
-	.site-header.is-scrolled {
-		border-color: #e2e8f0;
-		box-shadow: var(--shadow-header);
-	}
-</style>
-
-<script is:inline>
-	(() => {
-		const header = document.getElementById('site-header');
-		if (!header) return;
-		const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 6);
-		onScroll();
-		window.addEventListener('scroll', onScroll, { passive: true });
-
-		document.addEventListener('click', (event) => {
-			const details = header.querySelector('.mobile-menu');
-			if (details?.hasAttribute('open') && !details.contains(event.target)) {
-				details.removeAttribute('open');
-			}
-		});
-	})();
+<script>
+const header = document.getElementById('site-header');
+if (header) {
+	const onScroll = () => {
+		if (window.scrollY > 20) {
+			header.classList.add('is-scrolled');
+		} else {
+			header.classList.remove('is-scrolled');
+		}
+	};
+	window.addEventListener('scroll', onScroll, { passive: true });
+	onScroll();
+}
 </script>
+
+<style>
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 60;
+	background: rgba(11, 31, 58, 0.92);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.site-header.is-scrolled {
+	background: rgba(255, 255, 255, 0.98);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border-bottom: 1px solid #e8ecf1;
+	box-shadow: 0 1px 0 rgba(11,31,58,.06), 0 8px 24px -12px rgba(11,31,58,.12);
+}
+.site-header-inner {
+	max-width: 75rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+	height: 5rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+@media (min-width: 640px) { .site-header-inner { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .site-header-inner { padding-inline: 2rem; gap: 1.5rem; } }
+
+/* Logo */
+.header-logo { flex-shrink: 0; }
+
+/* Desktop Nav */
+.header-nav {
+	display: none;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	gap: 0.25rem;
+}
+@media (min-width: 1024px) { .header-nav { display: flex; } }
+
+.header-nav-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0.5rem 0.875rem;
+	border-radius: 0.625rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	transition: color 0.15s ease, background 0.15s ease;
+}
+.site-header.is-scrolled .header-nav-link {
+	color: #374151;
+}
+.header-nav-link:hover {
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+}
+.site-header.is-scrolled .header-nav-link:hover {
+	background: #f5f7fa;
+	color: #0b1f3a;
+}
+
+/* Desktop Actions */
+.header-actions {
+	display: none;
+	align-items: center;
+	gap: 0.625rem;
+	flex-shrink: 0;
+}
+@media (min-width: 1024px) { .header-actions { display: flex; } }
+
+.header-phone-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	min-height: 44px;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	border: 1.5px solid rgba(255, 255, 255, 0.25);
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.85) !important;
+	text-decoration: none;
+	transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.site-header.is-scrolled .header-phone-btn {
+	border-color: #e5e7eb;
+	color: #374151 !important;
+}
+.header-phone-btn:hover {
+	border-color: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+}
+.site-header.is-scrolled .header-phone-btn:hover {
+	border-color: rgba(11, 31, 58, 0.3);
+	background: #f5f7fa;
+}
+.header-phone-label { white-space: nowrap; }
+
+.header-line-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	min-height: 44px;
+	padding: 0.5rem 1.125rem;
+	border-radius: 999px;
+	background: #f59e0b;
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #0b1f3a !important;
+	text-decoration: none;
+	transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+	box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+}
+.header-line-btn:hover {
+	background: #d97706;
+	transform: translateY(-1px);
+	box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+}
+.header-line-icon { width: 1rem; height: 1rem; flex-shrink: 0; }
+
+/* Mobile actions */
+.header-mobile-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-left: auto;
+}
+@media (min-width: 1024px) { .header-mobile-actions { display: none; } }
+
+.header-mobile-line {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	background: #f59e0b;
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #0b1f3a !important;
+	text-decoration: none;
+	transition: background 0.15s ease;
+}
+.header-mobile-line:hover { background: #d97706; }
+
+/* Mobile menu trigger */
+.mobile-menu { position: relative; }
+.mobile-menu-trigger {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	min-width: 44px;
+	cursor: pointer;
+	list-style: none;
+	border-radius: 0.75rem;
+	border: 1.5px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.06);
+	color: rgba(255, 255, 255, 0.85);
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+.mobile-menu-trigger::-webkit-details-marker { display: none; }
+.site-header.is-scrolled .mobile-menu-trigger {
+	border-color: #e5e7eb;
+	background: #fff;
+	color: #374151;
+}
+.mobile-menu-trigger:hover {
+	border-color: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.12);
+}
+.mobile-menu-icon { width: 1.25rem; height: 1.25rem; }
+
+/* Mobile panel */
+.mobile-menu-panel {
+	position: absolute;
+	right: 0;
+	top: calc(100% + 0.5rem);
+	z-index: 70;
+	width: min(100vw - 2rem, 20rem);
+	max-height: min(85vh, 32rem);
+	overflow-y: auto;
+	border-radius: 1.25rem;
+	border: 1px solid #e8ecf1;
+	background: #fff;
+	box-shadow: 0 8px 32px rgba(11, 31, 58, 0.14), 0 2px 8px rgba(11, 31, 58, 0.06);
+}
+.mobile-menu-body {
+	padding: 0.625rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+}
+.mobile-menu-link {
+	display: flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0.625rem 0.875rem;
+	border-radius: 0.75rem;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #1f2937;
+	text-decoration: none;
+	transition: background 0.12s ease, color 0.12s ease;
+}
+.mobile-menu-link:hover {
+	background: #f5f7fa;
+	color: #0b1f3a;
+}
+.mobile-menu-footer {
+	padding: 0.625rem;
+	border-top: 1px solid #f3f4f6;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.mobile-menu-cta {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	min-height: 44px;
+	padding: 0.75rem 1rem;
+	border-radius: 0.875rem;
+	background: #f59e0b;
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: #0b1f3a !important;
+	text-decoration: none;
+	transition: background 0.15s ease;
+}
+.mobile-menu-cta:hover { background: #d97706; }
+.mobile-menu-cta-icon { width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+.mobile-menu-tel {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	min-height: 44px;
+	padding: 0.625rem 1rem;
+	border-radius: 0.875rem;
+	border: 1.5px solid #e5e7eb;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #374151 !important;
+	text-decoration: none;
+	transition: border-color 0.15s ease, background 0.15s ease;
+}
+.mobile-menu-tel:hover { border-color: #0b1f3a; background: #f9fafb; }
+.mobile-menu-tel-icon { width: 1rem; height: 1rem; flex-shrink: 0; color: #6b7280; }
+</style>

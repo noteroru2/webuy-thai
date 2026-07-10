@@ -1,4 +1,4 @@
----
+﻿---
 export interface ProcessStep {
 	title: string;
 	description: string;
@@ -22,86 +22,244 @@ const {
 	intro,
 	bulletPoints = [],
 	steps,
-	imageSrc = '/hero-soft.svg',
-	imageAlt = 'บริการรับซื้อสินค้าไอทีอย่างมืออาชีพ',
 } = Astro.props;
+
+const stepIcons = [
+	`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
+	`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>`,
+	`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
+	`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+];
 ---
 
 <section
-	class="relative border-b border-gray-200/80 bg-gradient-to-b from-[#FFF7ED]/40 via-white to-[#FAFAFA] py-16 sm:py-20 lg:py-24"
+	class="process-section"
 	aria-labelledby={id}
 >
-	<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/20 to-transparent" aria-hidden="true"></div>
-	<div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-		<div class="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start">
-			<div class="min-w-0">
-				<p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-600">{eyebrow}</p>
-				<h2 id={id} class="mt-4 text-[clamp(1.5rem,3vw+1rem,2.25rem)] font-extrabold tracking-tight text-text">
-					{heading}
-				</h2>
-				<p class="mt-4 max-w-[40rem] text-base leading-[1.75] text-text-muted sm:text-lg">
-					{intro}
-				</p>
-				{
-					bulletPoints.length > 0 && (
-						<ul class="mt-7 grid gap-2.5 text-sm text-text sm:text-[0.9375rem]" aria-label="จุดเด่นบริการ">
-							{bulletPoints.map((item) => (
-								<li class="flex gap-3">
-									<span
-										class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500 ring-4 ring-brand-500/15"
-										aria-hidden="true"
-									/>
-									<span class="leading-relaxed">{item}</span>
-								</li>
-							))}
-						</ul>
-					)
-				}
+	<div class="process-container">
+		<div class="process-header">
+			<p class="process-eyebrow">{eyebrow}</p>
+			<h2 id={id} class="process-heading">{heading}</h2>
+			<p class="process-intro">{intro}</p>
+		</div>
 
-				<ol class="relative mt-12 space-y-0" aria-label="ขั้นตอนการรับซื้อ">
-					{steps.map((step, index) => (
-						<li class="relative flex gap-5 pb-11 last:pb-0">
-							{index < steps.length - 1 && (
-								<div
-									class="absolute bottom-0 left-[1.375rem] top-[3.25rem] w-px bg-gradient-to-b from-brand-200 via-brand-100 to-transparent"
-									aria-hidden="true"
-								/>
-							)}
-							<div class="relative z-10 flex shrink-0">
-								<span
-									class="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-600 text-sm font-extrabold tabular-nums text-white shadow-md shadow-brand-600/25 ring-4 ring-brand-500/10"
-								>
-									{index + 1}
-								</span>
-							</div>
-							<div class="min-w-0 pt-1">
-								<h3 class="text-lg font-bold leading-snug text-text">{step.title}</h3>
-								<p class="mt-2 text-sm leading-[1.75] text-text-muted sm:text-base">{step.description}</p>
-							</div>
-						</li>
-					))}
-				</ol>
-			</div>
+		{bulletPoints.length > 0 && (
+			<ul class="process-bullets" aria-label="จุดเด่นบริการ">
+				{bulletPoints.map((item) => (
+					<li class="process-bullet-item">
+						<span class="process-bullet-dot" aria-hidden="true"></span>
+						<span>{item}</span>
+					</li>
+				))}
+			</ul>
+		)}
 
-			<div class="relative lg:sticky lg:top-28">
-				<div
-					class="overflow-hidden rounded-[1.375rem] border border-gray-200/90 bg-white p-2 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_24px_48px_-28px_rgba(15,23,42,0.16)] ring-1 ring-brand-500/5"
-				>
-					<img
-						src={imageSrc}
-						alt={imageAlt}
-						width="920"
-						height="360"
-						loading="eager"
-						decoding="async"
-						fetchpriority="high"
-						class="h-auto w-full rounded-xl object-cover"
-					/>
-				</div>
-				<p class="mt-5 text-center text-xs font-medium leading-relaxed text-muted sm:text-sm">
-					สื่อสารทุกขั้นตอนผ่าน LINE — ลดความเสี่ยง ตรวจสอบได้
-				</p>
-			</div>
+		<ol class="process-steps" aria-label="ขั้นตอนการรับซื้อ">
+			{steps.map((step, index) => (
+				<li class="process-step">
+					<!-- Step indicator -->
+					<div class="process-step-indicator">
+						<div class="process-step-icon" set:html={stepIcons[index] ?? stepIcons[0]} />
+						{index < steps.length - 1 && (
+							<div class="process-step-line" aria-hidden="true"></div>
+						)}
+					</div>
+					<!-- Content -->
+					<div class="process-step-content">
+						<div class="process-step-num" aria-hidden="true">ขั้นตอนที่ {index + 1}</div>
+						<h3 class="process-step-title">{step.title}</h3>
+						<p class="process-step-desc">{step.description}</p>
+					</div>
+				</li>
+			))}
+		</ol>
+
+		<!-- Bottom note -->
+		<div class="process-note">
+			<svg class="process-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+			</svg>
+			<span>สื่อสารทุกขั้นตอนผ่าน LINE — โปร่งใส ตรวจสอบได้ ลดความเข้าใจผิด</span>
 		</div>
 	</div>
 </section>
+
+<style>
+.process-section {
+	position: relative;
+	background: #fff;
+	border-bottom: 1px solid #e8ecf1;
+	padding-block: 5rem;
+}
+@media (min-width: 640px) { .process-section { padding-block: 5.5rem; } }
+@media (min-width: 1024px) { .process-section { padding-block: 6.5rem; } }
+
+.process-container {
+	max-width: 56rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
+@media (min-width: 640px) { .process-container { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .process-container { padding-inline: 2rem; } }
+
+.process-header {
+	text-align: center;
+	margin-bottom: 3.5rem;
+}
+.process-eyebrow {
+	display: inline-block;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #f59e0b;
+	background: rgba(245, 158, 11, 0.1);
+	border: 1px solid rgba(245, 158, 11, 0.25);
+	border-radius: 999px;
+	padding: 0.3rem 0.875rem;
+	margin-bottom: 1.25rem;
+}
+.process-heading {
+	font-size: clamp(1.625rem, 3vw + 0.75rem, 2.25rem);
+	font-weight: 800;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: #0b1f3a;
+	margin: 0 0 1rem;
+}
+.process-intro {
+	font-size: 1.0625rem;
+	line-height: 1.75;
+	color: #4b5563;
+	max-width: 38rem;
+	margin-inline: auto;
+	margin-bottom: 0;
+}
+
+/* Bullets */
+.process-bullets {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+	max-width: 44rem;
+	margin-inline: auto;
+	margin-bottom: 3rem;
+}
+.process-bullet-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	font-size: 0.9375rem;
+	color: #374151;
+	line-height: 1.6;
+}
+.process-bullet-dot {
+	flex-shrink: 0;
+	margin-top: 0.5rem;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #f59e0b;
+	box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.18);
+}
+
+/* Steps */
+.process-steps {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2.5rem;
+}
+
+.process-step {
+	display: grid;
+	grid-template-columns: 3.5rem 1fr;
+	gap: 0 1.5rem;
+	min-height: 7rem;
+}
+.process-step:last-child { min-height: auto; }
+
+/* Step indicator column */
+.process-step-indicator {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0;
+}
+
+.process-step-icon {
+	flex-shrink: 0;
+	width: 3.5rem;
+	height: 3.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 1rem;
+	background: linear-gradient(135deg, #0b1f3a, #1e3a5f);
+	color: #fff;
+	box-shadow: 0 4px 16px rgba(11, 31, 58, 0.2);
+}
+.process-step-icon svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+/* Connector line */
+.process-step-line {
+	flex: 1;
+	width: 2px;
+	margin-top: 0.5rem;
+	background: linear-gradient(to bottom, #e5e7eb 0%, transparent 100%);
+	min-height: 2rem;
+}
+
+/* Step content */
+.process-step-content {
+	padding-block: 0.25rem 2rem;
+}
+.process-step:last-child .process-step-content {
+	padding-bottom: 0;
+}
+.process-step-num {
+	font-size: 0.6875rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #f59e0b;
+	margin-bottom: 0.5rem;
+}
+.process-step-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #0b1f3a;
+	margin: 0 0 0.625rem;
+	line-height: 1.35;
+}
+.process-step-desc {
+	font-size: 0.9375rem;
+	line-height: 1.75;
+	color: #4b5563;
+	margin: 0;
+}
+
+/* Bottom note */
+.process-note {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	background: rgba(20, 184, 166, 0.06);
+	border: 1px solid rgba(20, 184, 166, 0.2);
+	border-radius: 0.875rem;
+	padding: 1rem 1.25rem;
+	font-size: 0.9375rem;
+	color: #0d9488;
+	font-weight: 500;
+}
+.process-note-icon {
+	width: 1.25rem;
+	height: 1.25rem;
+	flex-shrink: 0;
+}
+</style>
