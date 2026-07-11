@@ -11,15 +11,15 @@ interface Props {
 const { href, variant = 'primary', class: className = '', target, rel } = Astro.props;
 
 const base =
-	'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-[box-shadow,transform,background-color,border-color,color] duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-6 sm:py-3 sm:text-base';
+	'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-[var(--transition-normal)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:px-6 sm:py-3 sm:text-base';
 
 const variants: Record<NonNullable<Props['variant']>, string> = {
 	primary:
-		'bg-brand-600 !text-white shadow-md shadow-brand-700/25 hover:-translate-y-0.5 hover:bg-brand-700 hover:!text-white hover:shadow-lg hover:shadow-brand-800/30 focus-visible:outline-brand-700 active:translate-y-0 [text-shadow:0_1px_0_rgba(0,0,0,0.12)]',
+		'bg-[var(--color-orange)] !text-white shadow-md shadow-amber-950/10 hover:-translate-y-0.5 hover:bg-[var(--color-orange-dark)] hover:!text-white hover:shadow-lg focus-visible:outline-[var(--color-orange-dark)] active:translate-y-0',
 	secondary:
-		'border-2 border-brand-600 bg-white !text-brand-800 shadow-sm hover:-translate-y-0.5 hover:bg-brand-50 hover:!text-brand-900 hover:shadow-md focus-visible:outline-brand-600 active:translate-y-0',
+		'border-2 border-[var(--color-orange)] bg-white !text-[var(--color-navy-soft)] shadow-sm hover:-translate-y-0.5 hover:bg-[var(--color-orange-soft)] hover:shadow-md focus-visible:outline-[var(--color-orange)] active:translate-y-0',
 	line:
-		'bg-line-refined !text-white shadow-md shadow-emerald-950/20 hover:-translate-y-0.5 hover:bg-line-refined-hover hover:!text-white hover:shadow-lg focus-visible:outline-line-refined active:translate-y-0 [text-shadow:0_1px_0_rgba(0,0,0,0.15)]',
+		'bg-[var(--color-line)] !text-white shadow-md shadow-emerald-950/10 hover:-translate-y-0.5 hover:bg-[var(--color-line-hover)] hover:!text-white hover:shadow-lg focus-visible:outline-[var(--color-line)] active:translate-y-0',
 };
 ---
 

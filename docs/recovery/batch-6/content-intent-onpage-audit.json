@@ -24,7 +24,7 @@
         {
           "id": "missing_image_alts",
           "severity": "warning",
-          "desc": "Some images are missing non-empty alt text (12/13 have alt)"
+          "desc": "Some images are missing non-empty alt text (13/14 have alt)"
         },
         {
           "id": "first_p_no_keyword",
@@ -489,7 +489,7 @@
         {
           "id": "text_wall_detected",
           "severity": "warning",
-          "desc": "Paragraph exceeds 800 characters (1001 chars). Potential readability issue on mobile."
+          "desc": "Paragraph exceeds 800 characters (1059 chars). Potential readability issue on mobile."
         },
         {
           "id": "no_external_link_money",
@@ -541,7 +541,7 @@
         {
           "id": "text_wall_detected",
           "severity": "warning",
-          "desc": "Paragraph exceeds 800 characters (942 chars). Potential readability issue on mobile."
+          "desc": "Paragraph exceeds 800 characters (1000 chars). Potential readability issue on mobile."
         },
         {
           "id": "no_external_link_money",
@@ -580,7 +580,7 @@
         {
           "id": "text_wall_detected",
           "severity": "warning",
-          "desc": "Paragraph exceeds 800 characters (821 chars). Potential readability issue on mobile."
+          "desc": "Paragraph exceeds 800 characters (879 chars). Potential readability issue on mobile."
         },
         {
           "id": "no_external_link_money",

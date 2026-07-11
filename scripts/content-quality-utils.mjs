@@ -341,8 +341,8 @@ export function shouldAutoNoindexForQuality(analysis, currentNoindex) {
 }
 
 export function shouldQuarantinePost(analysis, currentNoindex) {
-	if (currentNoindex !== true) return false;
 	if (analysis.isOffTopic) return true;
+	if (currentNoindex !== true) return false;
 	if (analysis.score >= 6) return true;
 
 	return (

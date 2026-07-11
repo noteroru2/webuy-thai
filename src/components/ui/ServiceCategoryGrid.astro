@@ -19,13 +19,14 @@ const {
 	heading = 'หมวดสินค้าที่รับซื้อ',
 	subheading = 'เลือกหมวดที่ตรงกับสินค้าของคุณ แล้วส่งรูปและสเปกมาประเมินเบื้องต้น',
 	categories = [
-		{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'รับซื้อโน๊ตบุ๊ค', desc: 'โน๊ตบุ๊กทุกยี่ห้อ สายทำงานและเกมมิ่ง', image: '/media/notebook-showcase/asus-tuf-gaming-a15.webp', imageAlt: 'โน๊ตบุ๊คเกมมิ่ง', gradient: 'from-sky-500 to-blue-700', icon: '💻' },
-		{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมพิวเตอร์', desc: 'PC แบรนด์เนม คอมประกอม คอมสำนักงาน', image: '/media/category/generic_desktop_pc_1781509169636.png', imageAlt: 'คอมพิวเตอร์ตั้งโต๊ะ', gradient: 'from-cyan-500 to-teal-700', icon: '🖥️' },
-		{ href: '/รับซื้อแมคบุ๊ค/', title: 'รับซื้อ MacBook', desc: 'MacBook Air / Pro ชิป Intel และ M-series', image: '/media/notebook-showcase/macbook-air-on-box.webp', imageAlt: 'MacBook', gradient: 'from-slate-500 to-slate-800', icon: '🍎' },
-		{ href: '/รับซื้อไอโฟน/', title: 'รับซื้อ iPhone', desc: 'ทุกรุ่น ประเมินตามสภาพและแบต', image: '/media/apple-local/iphone15-black-front.webp', imageAlt: 'iPhone', gradient: 'from-indigo-500 to-violet-700', icon: '📱' },
-		{ href: '/รับซื้อไอแพด/', title: 'รับซื้อ iPad', desc: 'iPad Pro, Air, mini ทุกรุ่น', image: '/media/apple-local/ipad-mini-silver-back.webp', imageAlt: 'iPad', gradient: 'from-blue-400 to-sky-600', icon: '📲' },
-		{ href: '/รับซื้อกล้อง/', title: 'รับซื้อกล้อง', desc: 'DSLR, Mirrorless และเลนส์', image: '/media/category/generic_camera_1781509181019.png', imageAlt: 'กล้องถ่ายรูป', gradient: 'from-emerald-500 to-teal-700', icon: '📷' },
-		{ href: '/รับซื้อคอม/', title: 'รับซื้อคอมสำนักงาน / ล็อตบริษัท', desc: 'รับซื้อคอมหลายเครื่องจากองค์กร', image: '/media/notebook-showcase/bulk-gaming-notebooks-lot.webp', imageAlt: 'คอมหลายเครื่อง', gradient: 'from-amber-500 to-orange-600', icon: '🏢' },
+		{ href: '/รับซื้อโน๊ตบุ๊ค/', title: 'โน๊ตบุ๊ค', desc: 'รับซื้อโน๊ตบุ๊คทุกยี่ห้อ ทั้งสายทำงานทั่วไปและเกมมิ่งสเปกแรง', image: '/media/notebook-showcase/asus-tuf-gaming-a15.webp', imageAlt: 'โน๊ตบุ๊คเกมมิ่ง', gradient: 'from-sky-500 to-blue-700', icon: '💻' },
+		{ href: '/รับซื้อคอม/', title: 'คอมพิวเตอร์', desc: 'รับซื้อคอมพิวเตอร์ตั้งโต๊ะ PC ประกอบ คอมสำนักงาน และแบรนด์เนม', image: '/media/category/generic_desktop_pc_1781509169636.png', imageAlt: 'คอมพิวเตอร์ตั้งโต๊ะ', gradient: 'from-cyan-500 to-teal-700', icon: '🖥️' },
+		{ href: '/รับซื้อแมคบุ๊ค/', title: 'MacBook', desc: 'รับซื้อ MacBook Air / Pro ทั้งชิป Intel และ Apple Silicon M-series', image: '/media/notebook-showcase/macbook-air-on-box.webp', imageAlt: 'MacBook', gradient: 'from-slate-500 to-slate-800', icon: '🍎' },
+		{ href: '/รับซื้อไอโฟน/', title: 'iPhone', desc: 'รับซื้อ iPhone มือสองทุกรุ่น ประเมินราคาตามสภาพและสุขภาพแบตเตอรี่', image: '/media/apple-local/iphone15-black-front.webp', imageAlt: 'iPhone', gradient: 'from-indigo-500 to-violet-700', icon: '📱' },
+		{ href: '/รับซื้อไอแพด/', title: 'iPad', desc: 'รับซื้อ iPad Pro, iPad Air, iPad mini และ iPad รุ่นธรรมดา', image: '/media/apple-local/ipad-mini-silver-back.webp', imageAlt: 'iPad', gradient: 'from-blue-400 to-sky-600', icon: '📲' },
+		{ href: '/รับซื้อกล้อง/', title: 'กล้อง', desc: 'รับซื้อกล้อง DSLR, Mirrorless เลนส์กล้อง และอุปกรณ์ถ่ายภาพ', image: '/media/category/generic_camera_1781509181019.png', imageAlt: 'กล้องถ่ายรูป', gradient: 'from-emerald-500 to-teal-700', icon: '📷' },
+		{ href: '/รับซื้อเครื่องเกม/', title: 'เครื่องเกม', desc: 'รับซื้อเครื่องเล่นเกมคอนโซล PlayStation, Nintendo Switch และ Xbox', image: '/media/category/generic_game_console_1781509207514.png', imageAlt: 'เครื่องเล่นเกมคอนโซล', gradient: 'from-purple-500 to-indigo-700', icon: '🎮' },
+		{ href: '/รับซื้อ/', title: 'อุปกรณ์ไอทีอื่น ๆ', desc: 'รับซื้อลำโพงแบรนด์เนม Apple Watch โดรน และอุปกรณ์ไอทีอื่นๆ', image: '/media/category/generic_server_1781509220904.png', imageAlt: 'อุปกรณ์ไอทีอื่น ๆ', gradient: 'from-zinc-500 to-slate-700', icon: '🔌' },
 	],
 } = Astro.props;
 ---

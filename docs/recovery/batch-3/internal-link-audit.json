@@ -1,8 +1,8 @@
 {
   "summary": {
-    "totalFilesScanned": 823,
-    "totalLinksScanned": 3564,
-    "totalIssuesCount": 704,
+    "totalFilesScanned": 723,
+    "totalLinksScanned": 3237,
+    "totalIssuesCount": 671,
     "stats": {
       "goneCount": 208,
       "quarantineCount": 203,
@@ -10,7 +10,7 @@
       "offTopicCount": 188,
       "redirectSourceCount": 0,
       "truncatedCount": 5,
-      "duplicateAnchorCount": 100
+      "duplicateAnchorCount": 67
     }
   },
   "details": [
@@ -18,7 +18,7 @@
       "file": "src/components/layout/SiteFooter.astro",
       "issues": [
         {
-          "line": 93,
+          "line": 97,
           "type": "HTML_HREF",
           "url": "/ราคากลางรับซื้อ/",
           "normalizedUrl": "/ราคากลางรับซื้อ/",
@@ -28,7 +28,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"ราคากลางรับซื้อ\" to /ราคากลางรับซื้อ/"
         },
         {
-          "line": 94,
+          "line": 98,
           "type": "HTML_HREF",
           "url": "/ความน่าเชื่อถือ/",
           "normalizedUrl": "/ความน่าเชื่อถือ/",
@@ -38,7 +38,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"ความน่าเชื่อถือ\" to /ความน่าเชื่อถือ/"
         },
         {
-          "line": 95,
+          "line": 99,
           "type": "HTML_HREF",
           "url": "/บริการ/",
           "normalizedUrl": "/บริการ/",
@@ -48,7 +48,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"ภาพรวมบริการ\" to /บริการ/"
         },
         {
-          "line": 96,
+          "line": 100,
           "type": "HTML_HREF",
           "url": "/blog/",
           "normalizedUrl": "/blog/",
@@ -58,7 +58,7 @@
           "message": "Duplicate link to same URL with exact-match anchor text: \"บทความ\" to /blog/"
         },
         {
-          "line": 97,
+          "line": 101,
           "type": "HTML_HREF",
           "url": "/contact/",
           "normalizedUrl": "/contact/",
@@ -100,21 +100,6 @@
       ]
     },
     {
-      "file": "src/content/posts/1067.md",
-      "issues": [
-        {
-          "line": 60,
-          "type": "MARKDOWN_LINK",
-          "url": "/รับซื้อกล้องอุบล/",
-          "normalizedUrl": "/รับซื้อกล้องอุบล/",
-          "anchor": "**รับซื้อกล้อง**",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"**รับซื้อกล้อง**\" to /รับซื้อกล้องอุบล/"
-        }
-      ]
-    },
-    {
       "file": "src/content/posts/1154.md",
       "issues": [
         {
@@ -130,36 +115,6 @@
       ]
     },
     {
-      "file": "src/content/posts/1211.md",
-      "issues": [
-        {
-          "line": 86,
-          "type": "MARKDOWN_LINK",
-          "url": "/รับซื้อโน๊ตบุ๊ค/",
-          "normalizedUrl": "/รับซื้อโน๊ตบุ๊ค/",
-          "anchor": "**รับซื้อโน๊ตบุ๊คใกล้ฉัน ขอนแก่น**",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"**รับซื้อโน๊ตบุ๊คใกล้ฉัน ขอนแก่น**\" to /รับซื้อโน๊ตบุ๊ค/"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/1214.md",
-      "issues": [
-        {
-          "line": 62,
-          "type": "MARKDOWN_LINK",
-          "url": "/รับซื้อโน๊ตบุ๊ค/",
-          "normalizedUrl": "/รับซื้อโน๊ตบุ๊ค/",
-          "anchor": "**รับซื้อโน๊ตบุ๊คใกล้ฉัน อุบล**",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"**รับซื้อโน๊ตบุ๊คใกล้ฉัน อุบล**\" to /รับซื้อโน๊ตบุ๊ค/"
-        }
-      ]
-    },
-    {
       "file": "src/content/posts/1218.md",
       "issues": [
         {
@@ -171,146 +126,6 @@
           "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
           "severity": "warning",
           "message": "Duplicate link to same URL with exact-match anchor text: \"**รับซื้อโน๊ตบุ๊คใกล้ฉัน อุบล**\" to /รับซื้อโน๊ตบุ๊ค/"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/1220.md",
-      "issues": [
-        {
-          "line": 60,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 104,
-          "type": "MARKDOWN_LINK",
-          "url": "/รับซื้อโน๊ตบุ๊ค/",
-          "normalizedUrl": "/รับซื้อโน๊ตบุ๊ค/",
-          "anchor": "**รับซื้อโน๊ตบุ๊คใกล้ฉัน อุบล**",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"**รับซื้อโน๊ตบุ๊คใกล้ฉัน อุบล**\" to /รับซื้อโน๊ตบุ๊ค/"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/1346.md",
-      "issues": [
-        {
-          "line": 36,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "รับซื้อกล้องมือสอง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้องมือสอง\" to /"
-        },
-        {
-          "line": 98,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "รับซื้อกล้อง dslr",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง dslr\" to /"
-        },
-        {
-          "line": 135,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 137,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 139,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 143,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 145,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 147,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 153,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 161,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
-        },
-        {
-          "line": 167,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "www.เรารับซื้อ.com",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"www.เรารับซื้อ.com\" to /"
         }
       ]
     },
@@ -356,36 +171,6 @@
           "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
           "severity": "warning",
           "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง fujifilm\" to /"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/1486.md",
-      "issues": [
-        {
-          "line": 161,
-          "type": "MARKDOWN_LINK",
-          "url": "/รับซื้อกล้อง-fujifilm-x-a3-รับซื้อ/",
-          "normalizedUrl": "/รับซื้อกล้อง-fujifilm-x-a3-รับซื้อ/",
-          "anchor": "รับซื้อกล้อง FUJIFILM",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง FUJIFILM\" to /รับซื้อกล้อง-fujifilm-x-a3-รับซื้อ/"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/1506.md",
-      "issues": [
-        {
-          "line": 166,
-          "type": "MARKDOWN_LINK",
-          "url": "/รับซื้อกล้อง-fujifilm-x-a3-รับซื้อ/",
-          "normalizedUrl": "/รับซื้อกล้อง-fujifilm-x-a3-รับซื้อ/",
-          "anchor": "รับซื้อกล้อง FUJIFILM",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง FUJIFILM\" to /รับซื้อกล้อง-fujifilm-x-a3-รับซื้อ/"
         }
       ]
     },
@@ -945,51 +730,6 @@
       ]
     },
     {
-      "file": "src/content/posts/780.md",
-      "issues": [
-        {
-          "line": 33,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "รับซื้อกล้อง Nikon",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง Nikon\" to /"
-        },
-        {
-          "line": 61,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "รับซื้อกล้อง Mirrorless",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง Mirrorless\" to /"
-        },
-        {
-          "line": 61,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "รับซื้อกล้อง Nikon",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"รับซื้อกล้อง Nikon\" to /"
-        },
-        {
-          "line": 125,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "อุบลราชธานี",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"อุบลราชธานี\" to /"
-        }
-      ]
-    },
-    {
       "file": "src/content/posts/783.md",
       "issues": [
         {
@@ -1031,131 +771,6 @@
           "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
           "severity": "warning",
           "message": "Duplicate link to same URL with exact-match anchor text: \"อุบลราชธานี\" to /"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/812.md",
-      "issues": [
-        {
-          "line": 37,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ไอแพด iPad",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ไอแพด iPad\" to /"
-        },
-        {
-          "line": 39,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ไอแพด iPad",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ไอแพด iPad\" to /"
-        },
-        {
-          "line": 66,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ไอแพด iPad",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ไอแพด iPad\" to /"
-        },
-        {
-          "line": 72,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ไอแพด iPad",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ไอแพด iPad\" to /"
-        },
-        {
-          "line": 72,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ไอแพด iPad",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ไอแพด iPad\" to /"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/817.md",
-      "issues": [
-        {
-          "line": 55,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ลำโพง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ลำโพง\" to /"
-        },
-        {
-          "line": 55,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ลำโพง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ลำโพง\" to /"
-        },
-        {
-          "line": 55,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ลำโพง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ลำโพง\" to /"
-        }
-      ]
-    },
-    {
-      "file": "src/content/posts/838.md",
-      "issues": [
-        {
-          "line": 59,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ลำโพง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ลำโพง\" to /"
-        },
-        {
-          "line": 59,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ลำโพง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ลำโพง\" to /"
-        },
-        {
-          "line": 59,
-          "type": "MARKDOWN_LINK",
-          "url": "/",
-          "normalizedUrl": "/",
-          "anchor": "ลำโพง",
-          "code": "DUPLICATE_EXACT_MATCH_ANCHOR",
-          "severity": "warning",
-          "message": "Duplicate link to same URL with exact-match anchor text: \"ลำโพง\" to /"
         }
       ]
     },

@@ -1,24 +1,192 @@
-/* Design System Tokens — Homepage polish refresh */
+/* ── Design System Tokens & Foundations ── */
 :root {
+	/* Colors */
+	--color-navy: #0b1f3a;
+	--color-navy-soft: #132d4f;
+	--color-navy-bg: #09172c;
 	--color-orange: #f59e0b;
 	--color-orange-dark: #d97706;
 	--color-orange-soft: #fffbeb;
-	--color-navy: #0b1f3a;
-	--color-navy-soft: #132d4f;
 	--color-teal: #14b8a6;
 	--color-teal-dark: #0d9488;
 	--color-teal-soft: #ecfdf5;
-	--color-yellow-cta: #f59e0b;
-	--color-yellow-bg: #fffbeb;
-	--color-bg-soft: #f5f7fa;
+	--color-line: #047857;
+	--color-line-hover: #065f46;
+	--color-line-soft: #dfffe8;
+	
+	/* Neutral Grays */
+	--color-gray-50: #f9fafb;
+	--color-gray-100: #f3f4f6;
+	--color-gray-200: #e5e7eb;
+	--color-gray-300: #d1d5db;
+	--color-gray-400: #9ca3af;
+	--color-gray-500: #6b7280;
+	--color-gray-600: #4b5563;
+	--color-gray-700: #374151;
+	--color-gray-800: #1f2937;
+	--color-gray-900: #111827;
+
+	/* Semantic System Colors */
+	--color-success: #10b981;
+	--color-success-soft: #ecfdf5;
+	--color-warning: #f59e0b;
+	--color-warning-soft: #fffbeb;
+	--color-error: #ef4444;
+	--color-error-soft: #fef2f2;
+	--color-info: #3b82f6;
+	--color-info-soft: #eff6ff;
+
+	/* Semantic Background & Text */
+	--color-bg: #fafafa;
+	--color-bg-warm: #f5f7fa;
 	--color-card: #ffffff;
 	--color-text: #1f2937;
 	--color-text-muted: #4b5563;
-	--radius-card: 1rem;
-	--radius-card-lg: 1.125rem;
-	--shadow-card: 0 1px 2px rgba(11, 31, 58, 0.04), 0 12px 32px -16px rgba(11, 31, 58, 0.1);
-	--shadow-card-hover: 0 4px 12px rgba(245, 158, 11, 0.08), 0 20px 40px -24px rgba(11, 31, 58, 0.14);
+
+	/* Typography Families */
+	--font-sans: 'Noto Sans Thai Variable', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+	/* Typography Scales */
+	--text-display: clamp(2rem, 5vw + 1rem, 3.5rem);
+	--text-h1: clamp(1.75rem, 4vw + 1rem, 2.75rem);
+	--text-h2: clamp(1.5rem, 3vw + 0.75rem, 2.25rem);
+	--text-h3: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+	--text-h4: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
+	--text-body: clamp(0.9375rem, 0.5vw + 0.8125rem, 1rem);
+	--text-small: clamp(0.8125rem, 0.2vw + 0.75rem, 0.875rem);
+	--text-caption: 0.75rem;
+
+	/* Spacing Scale (Centralized Tokens) */
+	--space-1: 0.25rem;  /* 4px */
+	--space-2: 0.5rem;   /* 8px */
+	--space-3: 0.75rem;  /* 12px */
+	--space-4: 1rem;     /* 16px */
+	--space-5: 1.25rem;  /* 20px */
+	--space-6: 1.5rem;   /* 24px */
+	--space-8: 2rem;     /* 32px */
+	--space-10: 2.5rem;  /* 40px */
+	--space-12: 3rem;    /* 48px */
+	--space-16: 4rem;    /* 64px */
+	--space-20: 5rem;    /* 80px */
+	--space-24: 6rem;    /* 96px */
+
+	/* Border Radius */
+	--radius-xs: 0.25rem;
+	--radius-sm: 0.5rem;
+	--radius-md: 0.75rem;
+	--radius-lg: 1rem;
+	--radius-xl: 1.25rem;
+	--radius-xxl: 1.5rem;
+	--radius-full: 9999px;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px rgba(11, 31, 58, 0.04);
+	--shadow-md: 0 4px 6px -1px rgba(11, 31, 58, 0.08), 0 2px 4px -1px rgba(11, 31, 58, 0.04);
+	--shadow-lg: 0 10px 15px -3px rgba(11, 31, 58, 0.08), 0 4px 6px -2px rgba(11, 31, 58, 0.04);
+	--shadow-xl: 0 20px 25px -5px rgba(11, 31, 58, 0.1), 0 10px 10px -5px rgba(11, 31, 58, 0.04);
+	--shadow-card: 0 1px 3px rgba(11, 31, 58, 0.04), 0 12px 32px -16px rgba(11, 31, 58, 0.1);
+	--shadow-card-hover: 0 8px 16px -4px rgba(245, 158, 11, 0.06), 0 20px 40px -12px rgba(11, 31, 58, 0.14);
 	--shadow-header: 0 1px 0 rgba(11, 31, 58, 0.06), 0 8px 24px -12px rgba(11, 31, 58, 0.12);
+
+	/* Widths */
 	--width-content: 48rem;
 	--width-container: 75rem;
+
+	/* Motion / Transition */
+	--transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	/* Outline focus styles */
+	--focus-ring: 2px solid var(--color-orange);
+	--focus-ring-offset: 2px;
+}
+
+/* ── Standardized Card CSS Classes ── */
+.premium-card {
+	background: var(--color-card);
+	border: 1px solid var(--color-gray-200);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-card);
+	transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-spring);
+}
+.premium-card:hover {
+	border-color: rgba(245, 158, 11, 0.2);
+	box-shadow: var(--shadow-card-hover);
+	transform: translateY(-2px);
+}
+.premium-card-focus:focus-visible {
+	outline: var(--focus-ring);
+	outline-offset: var(--focus-ring-offset);
+}
+
+/* ── Accessibility skip link ── */
+.skip-link {
+	position: absolute;
+	left: 12px;
+	top: 12px;
+	transform: translateY(-140%);
+	background: var(--color-card);
+	color: var(--color-navy);
+	border: 2px solid var(--color-orange);
+	border-radius: var(--radius-md);
+	padding: 0.5rem 1rem;
+	font-weight: 700;
+	z-index: 100;
+	box-shadow: var(--shadow-lg);
+	transition: transform var(--transition-fast);
+}
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+/* ── Standardized Button CSS Classes ── */
+.btn {
+	display: inline-flex;
+	min-height: 2.75rem;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border-radius: var(--radius-full);
+	padding: 0.625rem 1.25rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	transition: background-color var(--transition-normal), border-color var(--transition-normal), color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-normal);
+	cursor: pointer;
+	text-decoration: none;
+}
+.btn:hover {
+	transform: translateY(-1.5px);
+	text-decoration: none;
+}
+.btn:active {
+	transform: translateY(0);
+}
+.btn-primary {
+	background-color: var(--color-orange);
+	color: #ffffff !important;
+	box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+.btn-primary:hover {
+	background-color: var(--color-orange-dark);
+	box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
+}
+.btn-secondary {
+	border: 2px solid var(--color-orange);
+	background-color: #ffffff;
+	color: var(--color-navy-soft) !important;
+}
+.btn-secondary:hover {
+	background-color: var(--color-orange-soft);
+}
+.btn-line {
+	background-color: var(--color-line);
+	color: #ffffff !important;
+	box-shadow: 0 4px 12px rgba(6, 120, 53, 0.2);
+}
+.btn-line:hover {
+	background-color: var(--color-line-hover);
+	box-shadow: 0 6px 16px rgba(6, 120, 53, 0.3);
 }

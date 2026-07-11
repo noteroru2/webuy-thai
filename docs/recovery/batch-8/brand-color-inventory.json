@@ -1,0 +1,30 @@
+{
+  "before": {
+    "primary_accent": "#0284c7",
+    "theme_color": "#0284c7",
+    "accent_bright": "#0ea5e9",
+    "accent_dim": "#0369a1",
+    "accent_soft": "rgba(2, 132, 199, 0.10)",
+    "accent_soft_strong": "rgba(2, 132, 199, 0.16)",
+    "accent_glow": "rgba(14, 165, 233, 0.14)",
+    "bg_warm": "#f0f9ff",
+    "bg": "#fafbfd",
+    "text": "#141414",
+    "money_page_hero_bg": "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)",
+    "mobile_line_cta_bg": "linear-gradient(180deg, #0ea5e9 0%, #0284c7 100%)"
+  },
+  "after": {
+    "primary_accent": "#d97706",
+    "theme_color": "#0B1F3A",
+    "accent_bright": "#f59e0b",
+    "accent_dim": "#b45309",
+    "accent_soft": "rgba(245, 158, 11, 0.08)",
+    "accent_soft_strong": "rgba(245, 158, 11, 0.14)",
+    "accent_glow": "rgba(245, 158, 11, 0.1)",
+    "bg_warm": "#fffbeb",
+    "bg": "#f5f7fa",
+    "text": "#1f2937",
+    "money_page_hero_bg": "linear-gradient(135deg, #0B1F3A 0%, #132D4F 100%)",
+    "mobile_line_cta_bg": "linear-gradient(180deg, #047857 0%, #065f46 100%)"
+  }
+}

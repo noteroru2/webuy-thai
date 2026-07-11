@@ -12,9 +12,9 @@ const mapUrl = import.meta.env.PUBLIC_GOOGLE_MAP_URL ?? 'https://maps.app.goo.gl
 const year = new Date().getFullYear();
 ---
 
-<footer class="relative overflow-hidden border-t border-white/[0.06] bg-navy text-gray-300" role="contentinfo">
+<footer class="relative overflow-hidden border-t border-white/[0.06] bg-[var(--color-navy-bg)] text-gray-300" role="contentinfo">
 	<div
-		class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_0%,rgba(245,158,11,0.1)_0%,transparent_55%)]"
+		class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_0%,rgba(245,158,11,0.06)_0%,transparent_55%)]"
 		aria-hidden="true"
 	>
 	</div>
@@ -24,57 +24,61 @@ const year = new Date().getFullYear();
 				<BrandLogo variant="footer" />
 				<p class="mt-6 text-sm font-semibold text-white/90">{orgName}</p>
 				<p class="mt-4 max-w-sm text-sm leading-[1.75] text-white/60">
-					รับซื้อโน้ตบุ๊คและคอมพิวเตอร์มือสอง — ดำเนินงานในเครือ AMPHON TRADING
+					ผู้ให้บริการประเมินราคาและรับซื้อสินค้าไอทีมือสองทุกประเภท ดำเนินการโดย <strong>บริษัท อำพล เทรดดิ้ง จำกัด</strong>
 				</p>
 				<div class="mt-8 space-y-3 text-sm">
 					<p>
+						<span class="text-white/45">ที่ตั้งหน้าร้าน</span>{' '}
+						<span class="text-white/75">740/8 ถนนชยางกูร ต.ในเมือง อ.เมืองอุบลราชธานี จ.อุบลราชธานี 34000</span>
+					</p>
+					<p>
 						<span class="text-white/45">โทร</span>{' '}
-						<a class="font-semibold text-white transition hover:text-brand-400" href={telHref}>{phoneDisplay}</a>
+						<a class="font-semibold text-white transition hover:text-[var(--color-orange)]" href={telHref}>{phoneDisplay}</a>
 					</p>
 					<p>
 						<span class="text-white/45">LINE</span>{' '}
 						<a
-							class="font-semibold text-white transition hover:text-brand-400"
+							class="font-semibold text-white transition hover:text-[var(--color-orange)]"
 							href={lineUrl}
 							target="_blank"
 							rel="noopener noreferrer">@webuy</a
 						>
 					</p>
-					<p><span class="text-white/45">เวลา</span> <span class="text-white/75">{openingHours}</span></p>
+					<p><span class="text-white/45">เวลาทำการ</span> <span class="text-white/75">ส่งรูปประเมินราคาได้ 24 ชม. (ตอบกลับประเมินราคารวดเร็ว 09:00 - 21:00 น. ทุกวัน)</span></p>
 				</div>
 			</div>
 
 			<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:col-span-8 lg:gap-10">
 				<div>
-					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">บริการของเรา</p>
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-orange)]">บริการของเรา</p>
 					<ul class="mt-5 space-y-3 text-sm">
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/บริการ/">ภาพรวมบริการ</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อ/">รับซื้อ</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อไอโฟน/">รับซื้อ iPhone</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อไอแพด/">รับซื้อ iPad</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/รับซื้อกล้อง/">รับซื้อกล้อง</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/บริการ/">ภาพรวมบริการ</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อ/">รับซื้อ</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อโน๊ตบุ๊ค/">รับซื้อโน้ตบุ๊ก</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อคอม/">รับซื้อคอมพิวเตอร์</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อแมคบุ๊ค/">รับซื้อ MacBook</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อไอโฟน/">รับซื้อ iPhone</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อไอแพด/">รับซื้อ iPad</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/รับซื้อกล้อง/">รับซื้อกล้อง</a></li>
 					</ul>
 				</div>
 				<div>
-					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">ข้อมูลช่วยตัดสินใจ</p>
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-orange)]">ข้อมูลช่วยตัดสินใจ</p>
 					<ul class="mt-5 space-y-3 text-sm">
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/blog/">บทความ</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
-						<li><a class="block text-white/60 transition hover:text-brand-400" href="/contact/">ติดต่อเรา</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/blog/">บทความ</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
+						<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/contact/">ติดต่อเรา</a></li>
 						<li>
-							<a class="block text-white/60 transition hover:text-brand-400" href={mapUrl} target="_blank" rel="noopener noreferrer"
+							<a class="block text-white/60 transition hover:text-[var(--color-orange)]" href={mapUrl} target="_blank" rel="noopener noreferrer"
 								>แผนที่ / นำทาง</a
 							>
 						</li>
 					</ul>
 				</div>
 				<div class="col-span-1 sm:col-span-2 md:col-span-1">
-					<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">พื้นที่ให้บริการหลัก</p>
+					<p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-orange)]">พื้นที่ให้บริการหลัก</p>
 					<p class="mt-5 text-sm leading-[1.75] text-white/60">
 						<strong class="font-semibold text-white/85">{siteName}</strong><br />
 						ประเมินออนไลน์และรับ-ส่งทั่วประเทศ<br />
@@ -85,16 +89,16 @@ const year = new Date().getFullYear();
 			</div>
 
 			<div class="col-span-full border-t border-white/[0.08] pt-12">
-				<p class="text-xs font-bold uppercase tracking-[0.14em] text-brand-400">คู่มือและ hub</p>
+				<p class="text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-orange)]">คู่มือและ hub</p>
 				<ul class="mt-5 flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/บริการ/">ภาพรวมบริการ</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/blog/">บทความ</a></li>
-					<li><a class="block text-white/60 transition hover:text-brand-400" href="/contact/">ติดต่อเรา</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/คู่มือก่อนขาย/">คู่มือก่อนขาย</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/เช็กราคาก่อนขาย/">เช็กราคาก่อนขาย</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/ราคากลางรับซื้อ/">ราคากลางรับซื้อ</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/ความน่าเชื่อถือ/">ความน่าเชื่อถือ</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/บริการ/">ภาพรวมบริการ</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/blog/">บทความ</a></li>
+					<li><a class="block text-white/60 transition hover:text-[var(--color-orange)]" href="/contact/">ติดต่อเรา</a></li>
 				</ul>
 			</div>
 		</div>
@@ -105,7 +109,7 @@ const year = new Date().getFullYear();
 			<p class="text-sm font-medium text-white/80">ต้องการประเมินราคาสินค้าไอที?</p>
 			<div class="flex flex-wrap gap-3">
 				<a
-					class="inline-flex min-h-11 items-center justify-center rounded-full bg-line-refined px-5 py-2.5 text-sm font-bold !text-white shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-line-refined-hover"
+					class="inline-flex min-h-11 items-center justify-center rounded-full bg-[var(--color-line)] px-5 py-2.5 text-sm font-bold !text-white shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--color-line-hover)]"
 					href={lineUrl}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -113,7 +117,7 @@ const year = new Date().getFullYear();
 					ส่งรูปทาง LINE
 				</a>
 				<a
-					class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-300"
+					class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-[var(--color-orange)] hover:text-[var(--color-orange)]"
 					href={telHref}
 				>
 					โทร {phoneDisplay}
@@ -126,11 +130,11 @@ const year = new Date().getFullYear();
 		>
 			<p>© {year} {siteName} · สงวนลิขสิทธิ์</p>
 			<div class="flex flex-wrap gap-x-5 gap-y-2">
-				<a class="transition hover:text-brand-400" href="/privacy-policy/">นโยบายความเป็นส่วนตัว</a>
-				<a class="transition hover:text-brand-400" href="/terms/">ข้อตกลงและเงื่อนไข</a>
-				<a class="transition hover:text-brand-400" href="/cookie-policy/">นโยบายคุกกี้</a>
-				<a class="transition hover:text-brand-400" href="/sitemap-index.xml">Sitemap</a>
-				<a class="transition hover:text-brand-400" href="/llms.txt">llms.txt</a>
+				<a class="transition hover:text-[var(--color-orange)]" href="/privacy-policy/">นโยบายความเป็นส่วนตัว</a>
+				<a class="transition hover:text-[var(--color-orange)]" href="/terms/">ข้อตกลงและเงื่อนไข</a>
+				<a class="transition hover:text-[var(--color-orange)]" href="/cookie-policy/">นโยบายคุกกี้</a>
+				<a class="transition hover:text-[var(--color-orange)]" href="/sitemap-index.xml">Sitemap</a>
+				<a class="transition hover:text-[var(--color-orange)]" href="/llms.txt">llms.txt</a>
 			</div>
 		</div>
 	</div>

@@ -56,7 +56,7 @@
 }
 .longform p {
 	margin: 0 0 0.85rem;
-	color: #32465c;
+	color: var(--color-gray-800);
 	line-height: 1.8;
 }
 .longform p:last-child {
@@ -68,19 +68,19 @@
 	padding-left: 1.1rem;
 	display: grid;
 	gap: 0.3rem;
-	color: #3a4f64;
+	color: var(--color-text);
 }
 .longform li::marker {
 	color: var(--accent);
 }
 .longform .highlight-box {
-	background: #e0f2fe;
-	border-left: 4px solid #0284c7;
+	background: var(--color-warning-soft);
+	border-left: 4px solid var(--color-orange);
 	padding: 0.75rem 0.9rem;
 	border-radius: 0 var(--radius) var(--radius) 0;
 	margin-block: 0.75rem;
 	font-size: 0.95rem;
-	color: #0c4a6e;
+	color: #78350f;
 	line-height: 1.65;
 }
 .longform .eeat-note {
@@ -117,8 +117,8 @@
 	align-items: center;
 	gap: 0.28rem;
 	padding: 0.18rem 0.45rem;
-	border-radius: 6px;
-	background: #06c755;
+	border-radius: var(--radius-xs);
+	background: var(--color-line);
 	color: #fff;
 	font-weight: 700;
 	font-size: 0.88rem;
@@ -126,7 +126,7 @@
 	vertical-align: baseline;
 }
 .longform .inline-contact:hover {
-	background: #05a948;
+	background: var(--color-line-hover);
 	text-decoration: none;
 }
 .longform .phone-link {
@@ -140,13 +140,13 @@
 	margin: 1.2rem 0 1.5rem;
 	padding: 0.8rem;
 	border-radius: calc(var(--radius) + 6px);
-	border: 1px solid rgba(15, 23, 42, 0.08);
+	border: 1px solid var(--color-gray-200);
 	background:
-		radial-gradient(circle at top left, rgba(2, 132, 199, 0.07), transparent 38%),
-		linear-gradient(180deg, #ffffff, #f8fafc);
+		radial-gradient(circle at top left, rgba(245, 158, 11, 0.05), transparent 38%),
+		linear-gradient(180deg, #ffffff, var(--color-bg-warm));
 	box-shadow:
-		0 18px 42px rgba(15, 23, 42, 0.08),
-		0 2px 8px rgba(15, 23, 42, 0.04);
+		0 18px 42px rgba(11, 31, 58, 0.08),
+		0 2px 8px rgba(11, 31, 58, 0.04);
 }
 
 .longform .content-figure img {
@@ -178,8 +178,8 @@
 
 .longform .content-figure--soft {
 	background:
-		radial-gradient(circle at top left, rgba(14, 165, 233, 0.08), transparent 40%),
-		linear-gradient(180deg, #ffffff, #f8fafc);
+		radial-gradient(circle at top left, rgba(245, 158, 11, 0.06), transparent 40%),
+		linear-gradient(180deg, #ffffff, var(--color-bg-warm));
 }
 
 /* Mobile UX and Hero CTA additions */
@@ -192,20 +192,20 @@
 .longform .btn-line {
 	display: inline-flex;
 	align-items: center;
-	background: #00B900;
+	background: var(--color-line);
 	color: #fff !important;
 	padding: 0.85rem 2.2rem;
 	font-size: 1.1rem;
-	box-shadow: 0 4px 15px rgba(0, 185, 0, 0.3);
-	border-radius: 50px;
+	box-shadow: 0 4px 15px rgba(4, 120, 87, 0.25);
+	border-radius: var(--radius-full);
 	font-weight: bold;
 	text-decoration: none;
-	transition: all 0.3s ease;
+	transition: background-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 .longform .btn-line:hover {
-	background: #009900;
+	background: var(--color-line-hover);
 	transform: translateY(-2px);
-	box-shadow: 0 6px 20px rgba(0, 185, 0, 0.4);
+	box-shadow: 0 6px 20px rgba(4, 120, 87, 0.35);
 }
 
 @media (max-width: 768px) {
@@ -245,12 +245,12 @@
 	font-weight: 700;
 }
 .longform .info-box {
-	background: #e0f2fe;
-	border-left: 4px solid #0284c7;
+	background: var(--color-warning-soft);
+	border-left: 4px solid var(--color-orange);
 	padding: 0.85rem 1rem;
 	border-radius: 0 var(--radius) var(--radius) 0;
 	margin-block: 0.85rem;
 	font-size: 0.95rem;
-	color: #0c4a6e;
+	color: #78350f;
 	line-height: 1.65;
 }

@@ -1,24 +1,28 @@
 {
-  "timestamp": "2026-07-08T15:48:52.216Z",
+  "timestamp": "2026-07-11T12:28:50.607Z",
   "overallPass": true,
   "results": [
     {
       "route": "/",
       "status": "pass",
       "h1Count": 1,
-      "totalImages": 13,
+      "totalImages": 14,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อ/",
       "status": "pass",
       "h1Count": 1,
-      "totalImages": 7,
+      "totalImages": 8,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อโน๊ตบุ๊ค/",
@@ -27,7 +31,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อคอม/",
@@ -36,7 +42,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อแมคบุ๊ค/",
@@ -45,7 +53,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อไอโฟน/",
@@ -54,7 +64,9 @@
       "totalImages": 4,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อไอแพด/",
@@ -63,7 +75,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/รับซื้อกล้อง/",
@@ -72,7 +86,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/พื้นที่ให้บริการ/",
@@ -81,7 +97,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/contact/",
@@ -90,7 +108,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     },
     {
       "route": "/ความน่าเชื่อถือ/",
@@ -99,7 +119,9 @@
       "totalImages": 3,
       "imagesMissingDimensions": 0,
       "errors": [],
-      "warnings": []
+      "warnings": [
+        "Mobile menu toggle button might have small padding (recommended p-3 for >= 44px tap target)"
+      ]
     }
   ]
 }

@@ -10,7 +10,7 @@ const displayPosts = posts.slice(0, 4);
 ---
 
 <section
-	class="border-t border-[#E8ECF1] bg-[#F5F7FA] py-16 sm:py-20 lg:py-24"
+	class="border-t border-[var(--color-gray-200)] bg-[var(--color-bg-warm)] py-16 sm:py-20 lg:py-24"
 	aria-labelledby="magazine-blog-heading"
 >
 	<div class="mx-auto max-w-[var(--width-container,75rem)] px-4 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ const displayPosts = posts.slice(0, 4);
 				</p>
 			</div>
 			<a
-				class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border-2 border-brand-600 bg-white px-6 py-3 text-sm font-bold !text-brand-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-brand-600 hover:!text-white hover:shadow-md"
+				class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-orange)] bg-white px-6 py-2.5 text-sm font-bold !text-[var(--color-navy-soft)] shadow-sm transition-all duration-[var(--transition-normal)] hover:-translate-y-0.5 hover:bg-[var(--color-orange)] hover:!text-white hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-orange)]"
 				href="/blog/"
 			>
 				ดูบทความทั้งหมด
@@ -45,14 +45,14 @@ const displayPosts = posts.slice(0, 4);
 						day: 'numeric',
 					});
 					return (
-						<article class="group flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[var(--radius-card,1rem)] border border-[#E8ECF1] bg-white shadow-[var(--shadow-card)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-500/25 hover:shadow-[var(--shadow-card-hover)]">
-							<div class="relative aspect-[16/10] shrink-0 overflow-hidden bg-gradient-to-br from-brand-50 to-[#F5F7FA]">
+						<article class="group flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[var(--radius-card,1rem)] border border-[var(--color-gray-200)] bg-white shadow-[var(--shadow-card)] transition-all duration-[var(--transition-normal)] hover:-translate-y-0.5 hover:border-[var(--color-orange)]/25 hover:shadow-[var(--shadow-card-hover)]">
+							<div class="relative aspect-[16/10] shrink-0 overflow-hidden bg-gradient-to-br from-brand-50 to-[var(--color-bg-warm)]">
 								{img ? (
 									<a href={href} class="block h-full w-full">
 										<img
 											src={img}
 											alt={imgAlt}
-											class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+											class="h-full w-full object-cover transition-transform duration-[var(--transition-slow)] ease-out group-hover:scale-[1.04]"
 											width="640"
 											height="400"
 											loading="lazy"
@@ -60,7 +60,7 @@ const displayPosts = posts.slice(0, 4);
 										/>
 									</a>
 								) : (
-									<div class="flex h-full w-full items-center justify-center text-sm font-semibold text-brand-600">บทความ</div>
+									<div class="flex h-full w-full items-center justify-center text-sm font-semibold text-[var(--color-orange-dark)]">บทความ</div>
 								)}
 							</div>
 							<div class="flex flex-1 flex-col p-5 sm:p-6">
@@ -68,12 +68,12 @@ const displayPosts = posts.slice(0, 4);
 									{dateLabel}
 								</time>
 								<h3 class="mt-2 text-base font-extrabold leading-snug text-text sm:text-lg">
-									<a href={href} class="line-clamp-2 transition hover:text-brand-600" set:html={titleHtml} />
+									<a href={href} class="line-clamp-2 transition-colors duration-[var(--transition-fast)] hover:text-[var(--color-orange-dark)]" set:html={titleHtml} />
 								</h3>
 								{excerpt && <p class="mt-2 line-clamp-2 flex-1 text-sm leading-[1.65] text-text-muted">{excerpt}</p>}
 								<a
 									href={href}
-									class="mt-auto inline-flex min-h-11 items-center pt-4 text-sm font-bold text-brand-600 transition hover:text-brand-700"
+									class="mt-auto inline-flex min-h-11 items-center pt-4 text-sm font-bold text-[var(--color-orange-dark)] transition-colors duration-[var(--transition-fast)] hover:text-[var(--color-orange)]"
 								>
 									อ่านต่อ →
 								</a>

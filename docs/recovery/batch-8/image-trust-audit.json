@@ -1,0 +1,54 @@
+{
+  "audit_details": {
+    "website": "เรารับซื้อ.com",
+    "batch": 8,
+    "auditor": "Senior UX/UI Designer & Tech SEO"
+  },
+  "images": [
+    {
+      "path": "/media/notebook-showcase/notebook-lineup-showroom.webp",
+      "type": "Real business image",
+      "description": "Showroom lineup of laptops for check-in process",
+      "pages_used": ["/contact/", "/ความน่าเชื่อถือ/"],
+      "alt_text": "บรรยากาศคลังจัดเก็บและตรวจสอบสภาพสินค้าไอทีก่อนรับซื้อ",
+      "dimensions_set": true,
+      "lazy_loading": true,
+      "status": "PASS"
+    },
+    {
+      "path": "/media/notebook-showcase/shop-owner-ubon-showroom.webp",
+      "type": "Real business image",
+      "description": "Staff member performing technical testing on computers",
+      "pages_used": ["/contact/", "/ความน่าเชื่อถือ/"],
+      "alt_text": "เจ้าหน้าที่ผู้เชี่ยวชาญตรวจสอบสภาพภายในเครื่องและสเปกจริง",
+      "dimensions_set": true,
+      "lazy_loading": true,
+      "status": "PASS"
+    },
+    {
+      "path": "/media/notebook-showcase/acer-aspire-3-silver.webp",
+      "type": "Real product image",
+      "description": "Actual Acer Aspire laptop traded-in by a customer",
+      "pages_used": ["/contact/", "/ความน่าเชื่อถือ/"],
+      "alt_text": "ตัวอย่างอุปกรณ์ไอทีที่ได้รับการเช็กสุขภาพเครื่องเรียบร้อย",
+      "dimensions_set": true,
+      "lazy_loading": true,
+      "status": "PASS"
+    },
+    {
+      "path": "/favicon.svg",
+      "type": "Original branded illustration",
+      "description": "Branded SVG icon of WE BUY logo",
+      "pages_used": ["All pages (Header & footer inline SVG and references)"],
+      "alt_text": "WE BUY เรารับซื้อ Logo",
+      "dimensions_set": true,
+      "lazy_loading": false,
+      "status": "PASS"
+    }
+  ],
+  "recommendations": [
+    "Ask the shop owner to provide 3-5 high-resolution, actual storefront photos showing the signage 'AMPHON TRADING' or 'อำพล เทรดดิ้ง' in Ubon Ratchathani.",
+    "Include real close-up inspection desk photos showing actual testing tools (multimeters, software inspection screens) to increase E-E-A-T visual cues.",
+    "Convert any remaining client-supplied legacy images to WebP format with height/width attributes."
+  ]
+}

@@ -1,0 +1,40 @@
+---
+title: "รับซื้อ iPhone สงขลา มือสอง — ทุกรุ่น จ่ายเงินสดทันที บริการตลอด 24 ชม."
+description: "WE BUY รับซื้อ iPhone มือสองในสงขลา ทุกรุ่นตั้งแต่ iPhone 11 ถึงรุ่น..."
+pubDate: "2026-06-05"
+updatedDate: "2026-06-05"
+slug: "รับซื้อ-iphone-สงขลา"
+qualityScore: 5
+qualityFlags: ["thin_content","cta_spam","region_dump"]
+heroImage: "/media/apple-local/iphone-orange-back.webp"
+faqItems:
+  - question: "รับซื้อ iPhone ในสงขลาทุกรุ่นไหม?"
+    answer: "รับครับ ตั้งแต่ iPhone 11 จนถึงรุ่นล่าสุด iPhone 16 Series ส่งรูปมาประเมินราคาผ่าน Line @webuy ได้เลย"
+  - question: "อยู่สงขลาส่งพัสดุขายได้ไหม?"
+    answer: "ได้ครับ ประเมินราคาก่อนผ่าน Line แล้วส่งพัสดุมาได้เลย โอนเงินให้ทันทีเมื่อตรวจสภาพเสร็จ"
+noindex: true
+quarantineReason: "low_confidence_quality"
+---
+
+
+
+
+**รับซื้อ iPhone สงขลา** — WE BUY รับซื้อ iPhone มือสองในสงขลาและสงขลาและจังหวัดใกล้เคียงในภาคใต้ ราคาดีสุดในตลาด
+
+## บริการรับซื้อ iPhone ในสงขลา
+
+WE BUY ให้บริการรับซื้อ iPhone มือสองครอบคลุมพื้นที่สงขลาและสงขลาและจังหวัดใกล้เคียงในภาคใต้ สามารถประเมินราคาผ่าน [Line @webuy](https://line.me/R/ti/p/@webuy) ก่อนได้ เมื่อตกลงราคาแล้วส่งพัสดุมา หรือนัดรับในพื้นที่
+
+## ราคารับซื้อ iPhone อ้างอิง (สงขลา)
+
+| รุ่น | ช่วงราคา |
+|------|---------|
+| iPhone 16 Pro Max | 25,000–38,000 บาท |
+| iPhone 16 / 16 Plus | 18,000–28,000 บาท |
+| iPhone 15 Pro Max | 20,000–30,000 บาท |
+| iPhone 15 / 15 Plus | 14,000–22,000 บาท |
+| iPhone 14 Series | 10,000–18,000 บาท |
+| iPhone 13 Series | 7,000–14,000 บาท |
+| iPhone 12 Series | 4,500–9,000 บาท |
+
+ติดต่อ [Line @webuy](https://line.me/R/ti/p/[Line @webuy](https://line.me/R/ti/p/@webuy)) หรือโทร 064-257-9353

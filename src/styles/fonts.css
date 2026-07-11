@@ -1,27 +1,15 @@
-/* ── Critical: IBM Plex Sans Thai covers Thai + Latin glyphs ────── */
-/* ลดจาก 8 → 3 imports: ตัด IBM Plex Sans (ซ้ำ), ตัด weight 600   */
-@import '@fontsource/ibm-plex-sans-thai/400.css';
-@import '@fontsource/ibm-plex-sans-thai/700.css';
+/* ── Critical: Noto Sans Thai Variable covers Thai + Latin glyphs ── */
+@import '@fontsource-variable/noto-sans-thai/wght.css';
 
-/* ── Decorative: Mono สำหรับ eyebrow/kicker/code — ไม่ critical ── */
+/* ── Mono สำหรับ eyebrow/kicker/code ── */
 @import '@fontsource/ibm-plex-mono/500.css';
 
 /* ── Adjusted system-font fallback ลด CLS เวลา swap ───────────── */
 @font-face {
-	font-family: 'IBM Plex Fallback';
+	font-family: 'Noto Sans Fallback';
 	src: local('Segoe UI'), local('system-ui'), local('Helvetica Neue'), local('Arial');
 	size-adjust: 100.4%;
 	ascent-override: 101%;
 	descent-override: 27%;
 	line-gap-override: 0%;
-}
-
-/* ── Override font-display สำหรับ Mono: optional ป้องกัน CLS ──── */
-/* Mono ใช้แค่ eyebrow / kicker text — ถ้าโหลดไม่ทัน ไม่เป็นไร    */
-@font-face {
-	font-family: 'IBM Plex Mono';
-	font-style: normal;
-	font-display: optional;
-	font-weight: 500;
-	src: local('IBM Plex Mono');
 }

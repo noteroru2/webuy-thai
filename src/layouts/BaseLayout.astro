@@ -86,11 +86,11 @@ const globalOrganizationSchema = {
 	}
 };
 
-const addressLocality = import.meta.env.PUBLIC_ADDRESS_LOCALITY ?? 'ประเทศไทย';
-const addressRegion = import.meta.env.PUBLIC_ADDRESS_REGION ?? 'ประเทศไทย';
-const postalCode = import.meta.env.PUBLIC_POSTAL_CODE ?? '10200';
-const geoLat = import.meta.env.PUBLIC_GEO_LAT ?? '13.7563';
-const geoLon = import.meta.env.PUBLIC_GEO_LON ?? '100.5018';
+const addressLocality = 'อุบลราชธานี';
+const addressRegion = 'อุบลราชธานี';
+const postalCode = '34000';
+const geoLat = import.meta.env.PUBLIC_GEO_LAT ?? '15.266426660367209';
+const geoLon = import.meta.env.PUBLIC_GEO_LON ?? '104.8417777109199';
 
 const localBusinessSchema = {
 	"@context": "https://schema.org",
@@ -103,6 +103,7 @@ const localBusinessSchema = {
 	"priceRange": "$$",
 	"address": {
 		"@type": "PostalAddress",
+		"streetAddress": "740/8 ถนนชยางกูร ต.ในเมือง อ.เมืองอุบลราชธานี",
 		"addressLocality": addressLocality,
 		"addressRegion": addressRegion,
 		"postalCode": postalCode,
@@ -150,7 +151,7 @@ const localBusinessSchema = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="apple-touch-icon" href="/logo-we-buy.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#0284c7" />
+		<meta name="theme-color" content="#0B1F3A" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		{keywords && <meta name="keywords" content={keywords} />}
@@ -191,25 +192,24 @@ const localBusinessSchema = {
 		)}
 		<style is:global>
 			:root {
-				--bg: #fafbfd;
-				--bg-warm: #f0f9ff;
-				--surface: #ffffff;
-				--ink: #0f172a;
-				--text: #141414;
-				--muted: #525252;
-				/* Batch 5.5: teal/sky brand accent */
-				--accent: #0284c7;
-				--accent-bright: #0ea5e9;
-				--accent-dim: #0369a1;
-				--accent-soft: rgba(2, 132, 199, 0.10);
-				--accent-soft-strong: rgba(2, 132, 199, 0.16);
-				--accent-glow: rgba(14, 165, 233, 0.14);
-				--radius: 14px;
-				--font: 'IBM Plex Sans Thai', 'IBM Plex Fallback', system-ui, sans-serif;
-				--font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
-				--shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-				--shadow-md: 0 10px 40px rgba(15, 23, 42, 0.07);
-				--shadow-tech: 0 0 0 1px rgba(2, 132, 199, 0.08), 0 12px 40px rgba(15, 23, 42, 0.06);
+				--bg: var(--color-bg);
+				--bg-warm: var(--color-bg-warm);
+				--surface: var(--color-card);
+				--text: var(--color-text);
+				--muted: var(--color-text-muted);
+				/* Consolidate to Brand Navy and Brand Orange */
+				--accent: var(--color-orange-dark);
+				--accent-bright: var(--color-orange);
+				--accent-dim: var(--color-orange-dark);
+				--accent-soft: rgba(245, 158, 11, 0.08);
+				--accent-soft-strong: rgba(245, 158, 11, 0.14);
+				--accent-glow: rgba(245, 158, 11, 0.1);
+				--radius: var(--radius-lg);
+				--font: var(--font-sans);
+				--font-mono: var(--font-mono);
+				--shadow-sm: var(--shadow-sm);
+				--shadow-md: var(--shadow-md);
+				--shadow-tech: var(--shadow-card);
 			}
 			*,
 			*::before,
@@ -229,6 +229,11 @@ const localBusinessSchema = {
 					linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
 				background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
 				background-position: 0 0, 0 0, 0 0, 0 0;
+			}
+			/* Global accessibility keyboard focus outline */
+			*:focus-visible {
+				outline: var(--focus-ring);
+				outline-offset: var(--focus-ring-offset);
 			}
 			a {
 				color: var(--accent);
@@ -268,24 +273,26 @@ const localBusinessSchema = {
 				align-items: center;
 				gap: 0.45rem;
 				padding: 0.62rem 0.82rem;
-				border-radius: 999px;
-				background: #0a8a46;
+				border-radius: var(--radius-full);
+				background: var(--color-line);
 				color: #fff;
-				box-shadow: 0 8px 20px rgba(6, 120, 53, 0.34);
+				box-shadow: 0 8px 20px rgba(4, 120, 87, 0.25);
 				font-size: 0.9rem;
 				font-weight: 700;
 				text-decoration: none;
+				transition: background-color var(--transition-fast), transform var(--transition-fast);
 			}
 			.line-float:hover {
-				background: #087a3e;
+				background: var(--color-line-hover);
 				text-decoration: none;
+				transform: translateY(-1px);
 			}
 			.line-dot {
 				display: inline-block;
 				width: 8px;
 				height: 8px;
-				border-radius: 999px;
-				background: #dfffe8;
+				border-radius: var(--radius-full);
+				background: var(--color-line-soft);
 			}
 			.mobile-contact-bar {
 				position: fixed;
@@ -296,10 +303,10 @@ const localBusinessSchema = {
 				display: flex;
 				gap: 0.75rem;
 				padding: 0.7rem;
-				border: 1px solid rgba(2, 132, 199, 0.18);
-				border-radius: 22px;
+				border: 1px solid var(--color-gray-200);
+				border-radius: var(--radius-xl);
 				background: rgba(255, 255, 255, 0.96);
-				box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+				box-shadow: 0 14px 40px rgba(11, 31, 58, 0.12);
 				backdrop-filter: blur(12px);
 			}
 			.mobile-contact-link {
@@ -309,25 +316,26 @@ const localBusinessSchema = {
 				justify-content: center;
 				min-height: 3rem;
 				padding: 0.8rem 0.95rem;
-				border-radius: 16px;
+				border-radius: var(--radius-lg);
 				font-size: 0.95rem;
 				font-weight: 800;
 				text-decoration: none;
 				text-align: center;
 				letter-spacing: 0.01em;
+				transition: background-color var(--transition-fast), transform var(--transition-fast);
 			}
 			.mobile-contact-link:hover {
 				text-decoration: none;
 			}
 			.mobile-contact-link--line {
-				background: linear-gradient(180deg, #0ea5e9 0%, #0284c7 100%);
+				background: linear-gradient(180deg, var(--color-line) 0%, var(--color-line-hover) 100%);
 				color: #fff;
-				box-shadow: 0 10px 20px rgba(2, 132, 199, 0.24);
+				box-shadow: 0 10px 20px rgba(4, 120, 87, 0.2);
 			}
 			.mobile-contact-link--phone {
 				background: #fff;
-				color: var(--accent-dim);
-				border: 1px solid rgba(2, 132, 199, 0.2);
+				color: var(--color-navy-soft);
+				border: 1.5px solid var(--color-orange);
 			}
 			/* โทรศัพท์: ซ่อนปุ่มลอย — แท็บเล็ตค่อยแสดงทางลัด */
 			@media (max-width: 767px) {

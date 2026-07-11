@@ -156,26 +156,7 @@ function main() {
 		}
 	}
 
-	// Also check docs/recovery directory to populate ignored list
-	const recoveryDir = join(root, 'docs/recovery');
-	if (existsSync(recoveryDir)) {
-		const recFiles = walkDir(recoveryDir, name => name.endsWith('.md') || name.endsWith('.json'));
-		for (const file of recFiles) {
-			const relativePath = relative(root, file).replace(/\\/g, '/');
-			try {
-				const content = readFileSync(file, 'utf8');
-				const matches = checkContent(content, file, false);
-				for (const m of matches) {
-					ignored.push({
-						file: relativePath,
-						...m
-					});
-				}
-			} catch (err) {
-				// Ignore errors in recovery scan
-			}
-		}
-	}
+	// Skip scanning docs/recovery folder entirely to avoid memory issues and scanning own reports.
 
 	const auditResult = {
 		summary: {
