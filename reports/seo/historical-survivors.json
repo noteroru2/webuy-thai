@@ -1,0 +1,569 @@
+[
+  {
+    "path": "/ขายโน๊ตบุ๊ค-ขอนแก่น/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-ใกล้ฉัน/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อกล้อง/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องถ่ายรูป/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อกล้อง/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องนครราชสีมา/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองกาฬ/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองขอนแ/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองนครร/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองบึง/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองบุรี/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองมหา/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองมุก/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองมุกด/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองยโสธ/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองศรี/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองสุร/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองหนอ/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองอุดร/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องมือสองอุบล/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-รับซื้อกล้/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อกล้อง/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-รับซื้อเลน/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้องเลนส์/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-ให้ราคาสูง/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อกล้อง/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-canon/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-canon-2/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-nikon-รับซื้อกล/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-sony-a6400/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-sony-a7/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อกล้อง-sony-rx100/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อแมคบุ๊ค-macbook/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อแม็คบุ๊ค-macbook/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อแมคบุ๊ค-macbook-ยโสธร/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อลำโพง-ยโสธร/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อลำโพง-ร้อยเอ็ด-jbl-marshall/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อลำโพง-สารคาม/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อลำโพง-อุดรธานี/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอแพด-ยโสธร-ipad/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟน-15-iphone-15/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟนใกล้ฉัน/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อไอโฟน/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟน-ขอนแก่น/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟน-จังหวัดอุด/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟน-ยโสธร/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟน-iphone-ร้อยเอ็ด/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อไอโฟน-iphone-อุบล/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดกาฬสินธ/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดนครพนม/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดนครราชส/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดบุรีรัม/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดมุกดาหา/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดร้อยเอ็/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-จังหวัดสุรินทร/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-แม็คบุ๊ค/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-macbook-แม็คบุ๊ค-ใกล้ฉั/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อแมคบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-notebook-ใกล้ฉัน/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อโน๊ตบุ๊ค/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/รับซื้อ-server/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/ร้านรับซื้อโน๊ตบุ๊คในอ/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/ร้านรับซื้อโน๊ตบุ๊คอุบ-2/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/buy-camera-mahasarakam/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/buy-camera-nongkai/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/buy-camera-surin/",
+    "currentState": "REDIRECT",
+    "builtHtml": true,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อกล้องมือสองสุร/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/buy-camera-ubon/",
+    "currentState": "BUILT_ROUTE",
+    "builtHtml": true,
+    "hasRedirect": false,
+    "redirectTarget": "",
+    "redirectStatus": "",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/legacy-รับซื้อกล้อง-ยโสธร-815/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อกล้อง-ยโสธร/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  },
+  {
+    "path": "/legacy-รับซื้อไอโฟน-มหาสารคาม-851/",
+    "currentState": "REDIRECT",
+    "builtHtml": false,
+    "hasRedirect": true,
+    "redirectTarget": "/รับซื้อไอโฟน-มหาสารคาม/",
+    "redirectStatus": "301",
+    "inGoneRegistry": false
+  }
+]

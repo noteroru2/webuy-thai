@@ -1,8 +1,13 @@
 import http from 'node:http';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { readdirSync, readFileSync } from 'node:fs';
+import {
+	existsSync,
+	readdirSync,
+	readFileSync,
+} from 'node:fs';
 import sirv from 'sirv';
+import { loadGonePaths } from './load-gone-paths.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -46,21 +51,7 @@ function redirectTrailingSlashFile(url) {
 	return noSlash + search;
 }
 
-const gonePaths = new Set();
-const gonePathsJsonPath = path.join(root, 'docs/recovery/batch-1/moved-files.json');
-if (fs.existsSync(gonePathsJsonPath)) {
-	try {
-		const moved = JSON.parse(readFileSync(gonePathsJsonPath, 'utf8'));
-		for (const item of moved) {
-			let slug = item.slug;
-			if (!slug.startsWith('/')) slug = `/${slug}`;
-			if (!slug.endsWith('/')) slug = `${slug}/`;
-			gonePaths.add(slug);
-		}
-	} catch (e) {
-		console.error('Failed to load gone paths in start.mjs:', e);
-	}
-}
+const gonePaths = loadGonePaths();
 
 const redirects = new Map([
 	['/โน๊ตบุ๊ค/', '/รับซื้อโน๊ตบุ๊ค/'],
@@ -71,6 +62,73 @@ const redirects = new Map([
 	['/กล้อง/', '/รับซื้อกล้อง/'],
 	['/ลำโพง/', '/รับซื้อลำโพง/'],
 ]);
+
+const survivorDecisionPath = path.join(
+	root,
+	'src',
+	'config',
+	'legacy-survivor-decisions.json',
+);
+
+if (existsSync(survivorDecisionPath)) {
+	const survivorDecisions =
+		JSON.parse(
+			readFileSync(
+				survivorDecisionPath,
+				'utf8',
+			),
+		);
+
+	for (
+		const [rawSource, rawTarget]
+		of Object.entries(
+			survivorDecisions.newRedirects ?? {},
+		)
+	) {
+		let source = rawSource;
+
+		if (!source.startsWith('/')) {
+			source = `/${source}`;
+		}
+
+		if (
+			source.length > 1 &&
+			!source.endsWith('/')
+		) {
+			source = `${source}/`;
+		}
+
+		let target = String(rawTarget);
+
+		if (!target.startsWith('/')) {
+			target = `/${target}`;
+		}
+
+		if (
+			target.length > 1 &&
+			!target.endsWith('/')
+		) {
+			target = `${target}/`;
+		}
+
+		const existing =
+			redirects.get(source);
+
+		if (
+			existing &&
+			existing !== target
+		) {
+			throw new Error(
+				`Redirect conflict for ${source}: ${existing} vs ${target}`,
+			);
+		}
+
+		redirects.set(
+			source,
+			target,
+		);
+	}
+}
 
 const contentAliasRedirects = new Map(
 	readdirSync(postsDir)

@@ -1,7 +1,8 @@
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { config as loadEnv } from 'dotenv';
+import { loadGonePaths } from './load-gone-paths.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -99,21 +100,7 @@ function main() {
 	const siteOrigin = getSiteOrigin();
 	console.log(`Generating sitemaps for origin: ${siteOrigin}`);
 
-	const gonePaths = new Set();
-	const gonePathsJsonPath = join(root, 'docs/recovery/batch-1/moved-files.json');
-	if (existsSync(gonePathsJsonPath)) {
-		try {
-			const moved = JSON.parse(readFileSync(gonePathsJsonPath, 'utf8'));
-			for (const item of moved) {
-				let slug = item.slug;
-				if (!slug.startsWith('/')) slug = `/${slug}`;
-				if (!slug.endsWith('/')) slug = `${slug}/`;
-				gonePaths.add(slug);
-			}
-		} catch (e) {
-			console.error('Failed to load gone paths in generate-sitemaps.mjs:', e);
-		}
-	}
+	const gonePaths = loadGonePaths();
 
 	const htmlFiles = walkIndexHtml(distDir);
 	const categorizedUrls = {

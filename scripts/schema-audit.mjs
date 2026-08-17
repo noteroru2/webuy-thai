@@ -2,26 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import { loadGonePaths } from './load-gone-paths.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.join(__dirname, '..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
 
-// Load gone paths from src/config/gone-paths.ts or docs/recovery/batch-1/moved-files.json
-const gonePaths = new Set();
-const gonePathsJsonPath = path.join(ROOT_DIR, 'docs/recovery/batch-1/moved-files.json');
-if (fs.existsSync(gonePathsJsonPath)) {
-	try {
-		const moved = JSON.parse(fs.readFileSync(gonePathsJsonPath, 'utf8'));
-		for (const item of moved) {
-			let slug = item.slug;
-			if (!slug.startsWith('/')) slug = `/${slug}`;
-			if (!slug.endsWith('/')) slug = `${slug}/`;
-			gonePaths.add(slug);
-		}
-	} catch (e) {
-		console.error('Failed to load gone paths in schema-audit.mjs:', e);
-	}
-}
+// Single source of truth: src/config/gone-paths.ts
+const gonePaths = loadGonePaths();
 
 // Load noindex pages from active posts
 const noindexPaths = new Set();
