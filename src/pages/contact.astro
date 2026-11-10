@@ -6,17 +6,15 @@ import { formatPageTitle, getSiteOrigin } from '../lib/site';
 
 const site = getSiteOrigin();
 const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'เรารับซื้อ.com';
-const addressLocality = import.meta.env.PUBLIC_ADDRESS_LOCALITY ?? 'กรุงเทพมหานคร';
-const addressRegion = import.meta.env.PUBLIC_ADDRESS_REGION ?? 'ประเทศไทย';
-const postalCode = import.meta.env.PUBLIC_POSTAL_CODE ?? '10200';
+const addressLocality = 'อำเภอเมืองอุบลราชธานี';
+const addressRegion = 'อุบลราชธานี';
+const postalCode = '34000';
 const mapEmbedSrc =
 	import.meta.env.PUBLIC_GOOGLE_MAP_EMBED ??
 	'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.0251066841015!2d104.83948708529402!3d15.266426622549128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311687b7ef0583c9%3A0x90ad9a37b84af3a!2z4Lit4Liz4Lie4LilIOC5gOC4l-C4o-C4lOC4lOC4tOC5ieC4hyAtIOC4o-C4seC4muC4i-C4t-C5ieC4rSDguILguLLguKIg4LiL4LmI4Lit4LihIOC4hOC4reC4oeC4nuC4tOC4p-C5gOC4leC4reC4o-C5jCDguKHguLfguK3guJbguLfguK0g4LiB4Lil4LmJ4Lit4LiHIOC4peC4s-C5guC4nuC4hyDguKrguLTguJnguITguYnguLLguYTguK3guJfguLXguJfguLjguIHguIrguJnguLTguJQ!5e0!3m2!1sth!2sth!4v1781512837717!5m2!1sth!2sth';
-const mapUrl =
-	import.meta.env.PUBLIC_GOOGLE_MAP_URL ??
-	'https://maps.app.goo.gl/HVvd9AcX7cC7xPpS6';
+const mapUrl = 'https://maps.app.goo.gl/krv97o14jPTRrnpW8';
 const businessPhone = import.meta.env.PUBLIC_BUSINESS_PHONE ?? '+66-64-257-9353';
-const openingHours = import.meta.env.PUBLIC_OPENING_HOURS ?? 'เปิดรับส่งข้อมูลประเมินราคาทางแชท 24 ชั่วโมง (ตอบกลับประเมินราคาในช่วงเวลาทำการหลัก 09:00 - 21:00 น.)';
+const openingHours = 'หน้าร้านเปิด 09:00–19:00 น. · LINE @webuy รับข้อความเสนอขายได้ตลอด 24 ชั่วโมง (เจ้าหน้าที่ตอบตามคิว)';
 const serviceAreasRaw =
 	import.meta.env.PUBLIC_SERVICE_AREAS ??
 	'กรุงเทพมหานคร,ปริมณฑล,อุบลราชธานี,ขอนแก่น,นครราชสีมา,อุดรธานี';
@@ -25,8 +23,8 @@ const serviceAreas = serviceAreasRaw
 	.map((item) => item.trim())
 	.filter(Boolean);
 
-const geoLat = Number(import.meta.env.PUBLIC_GEO_LAT ?? '15.266426660367209');
-const geoLon = Number(import.meta.env.PUBLIC_GEO_LON ?? '104.8417777109199');
+const geoLat = 15.2664215;
+const geoLon = 104.844358;
 const orgId = `${site}/#organization`;
 const localId = `${site}/#localbusiness`;
 
@@ -101,14 +99,14 @@ const contactImages = [
 				<h2>ติดต่อด่วน</h2>
 				<h3 style="font-size: 1.05rem; font-weight: 600; margin-top: 0.5rem; color: var(--text);">ช่องทางติดต่อและที่ตั้งหน้าร้าน</h3>
 				<p style="margin-top: 0.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--muted);">
-					<strong>ที่ตั้งหน้าร้าน:</strong> 740/8 ถนนชยางกูร ต.ในเมือง อ.เมืองอุบลราชธานี จ.อุบลราชธานี 34000
+					<strong>ที่ตั้งหน้าร้าน:</strong> 740/8 ถนนชยางกูร ต.ในเมือง อ.เมืองอุบลราชธานี จ.อุบลราชธานี 34000 · จุดสังเกตติดปากซอยชยางกูร 32
 				</p>
 				<p class="line-box" style="margin-top: 0.5rem;">
 					Line:
 					<a href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">@webuy</a>
 				</p>
 				<p>โทรศัพท์: <a href={`tel:${businessPhone.replace(/\s+/g, '')}`}>{businessPhone}</a></p>
-				<p>เวลาทำการ: ส่งข้อมูลทาง LINE ได้ตลอด 24 ชั่วโมง (ทีมงานจะตอบกลับประเมินราคารวดเร็วในช่วงเวลาทำการหลัก 09:00 - 21:00 น. ทุกวัน)</p>
+				<p>หน้าร้านเปิด 09:00–19:00 น. · LINE @webuy รับข้อความเสนอขายได้ตลอด 24 ชั่วโมง (เจ้าหน้าที่ตอบตามคิว)</p>
 				<a class="btn" href="https://line.me/R/ti/p/@webuy" target="_blank" rel="noopener noreferrer">
 					แชท LINE ตอนนี้
 				</a>
