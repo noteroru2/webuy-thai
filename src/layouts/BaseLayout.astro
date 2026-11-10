@@ -71,7 +71,8 @@ const globalOrganizationSchema = {
 	"@context": "https://schema.org",
 	"@type": "Organization",
 	"@id": `${site.origin}/#organization`,
-	"name": orgName,
+	"name": "บริษัท อำพล เทรดดิ้ง จำกัด",
+	"alternateName": ["อำพล เทรดดิ้ง", "AMPHON TRADING", "WE BUY"],
 	"url": site.origin + '/',
 	"logo": {
 		"@type": "ImageObject",
@@ -89,14 +90,14 @@ const globalOrganizationSchema = {
 const addressLocality = 'อุบลราชธานี';
 const addressRegion = 'อุบลราชธานี';
 const postalCode = '34000';
-const geoLat = import.meta.env.PUBLIC_GEO_LAT ?? '15.266426660367209';
-const geoLon = import.meta.env.PUBLIC_GEO_LON ?? '104.8417777109199';
+const geoLat = 15.2664215;
+const geoLon = 104.844358;
 
 const localBusinessSchema = {
 	"@context": "https://schema.org",
 	"@type": "LocalBusiness",
 	"@id": `${site.origin}/#localbusiness`,
-	"name": orgName,
+	"name": "ร้านอำพล เทรดดิ้ง",
 	"image": imageUrl,
 	"url": site.origin + '/',
 	"telephone": businessPhone,
@@ -133,8 +134,8 @@ const localBusinessSchema = {
 				"Saturday",
 				"Sunday"
 			],
-			"opens": "00:00",
-			"closes": "23:59"
+			"opens": "09:00",
+			"closes": "19:00"
 		}
 	],
 	"parentOrganization": {
